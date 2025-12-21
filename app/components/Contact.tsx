@@ -2,21 +2,25 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Check } from 'lucide-react'
+import { Mail, Phone, Send, Check } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     nom: '',
     email: '',
     telephone: '',
-    projet: '',
     message: ''
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -35,7 +39,6 @@ export default function Contact() {
         nom: '',
         email: '',
         telephone: '',
-        projet: '',
         message: ''
       })
       
@@ -45,269 +48,226 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-gray-50">
-      <div className="container-narrow">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Parlons de votre projet
-        </h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Réponse sous 24h • Devis gratuit • Aucun engagement
-        </p>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Інформаційна колонка */}
-          <div>
-            <div className="bg-white rounded-xl p-8 shadow-sm border">
-              <h3 className="text-2xl font-bold mb-6">Informations de contact</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Email</h4>
-                    <a 
-                      href="mailto:contact@ateliercode.fr" 
-                      className="text-gray-600 hover:text-blue-600"
-                    >
-                      contact@ateliercode.fr
-                    </a>
-                  </div>
+    <section 
+      id="contact" 
+      ref={containerRef}
+      className="relative py-20 overflow-hidden bg-black"
+    >
+      {/* Сітковий фон */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, #333 1px, transparent 1px),
+                           linear-gradient(180deg, #333 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }} />
+      </div>
+
+      <div className="container-narrow relative z-10">
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
+        >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 border border-gray-800 mb-6">
+            <span className="text-sm font-medium text-gray-300">
+              CONTACT
+            </span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span className="text-white">Parlons de votre projet</span>
+            <br />
+            <span className="text-gray-400 font-normal mt-2 block">Réponse sous 24h</span>
+          </h2>
+        </motion.div>
+
+        <div className="max-w-2xl mx-auto">
+          {/* Контактна інформація */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="mb-12"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-gray-900 rounded-xl border border-gray-800 p-6 text-center hover:border-gray-700 transition-colors">
+                <div className="inline-flex p-3 rounded-lg bg-gray-800 mb-4">
+                  <Mail className="w-6 h-6 text-gray-300" />
                 </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Téléphone</h4>
-                    <div className="text-gray-600">
-                      [Votre numéro français]
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Localisation</h4>
-                    <div className="text-gray-600">
-                      Basé en France
-                      <div className="text-sm text-gray-500 mt-1">
-                        Services disponibles dans toute la France
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="font-medium text-white mb-2">Email</h3>
+                <a 
+                  href="mailto:contact@example.com"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  contact@example.com
+                </a>
               </div>
-              
-              <div className="mt-8 pt-8 border-t">
-                <h4 className="font-semibold mb-4">Horaires de contact</h4>
-                <div className="space-y-2 text-gray-600">
-                  <div className="flex justify-between">
-                    <span>Lundi - Vendredi</span>
-                    <span>9h - 18h</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Samedi</span>
-                    <span>10h - 14h</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Dimanche</span>
-                    <span>Fermé</span>
-                  </div>
+
+              <div className="bg-gray-900 rounded-xl border border-gray-800 p-6 text-center hover:border-gray-700 transition-colors">
+                <div className="inline-flex p-3 rounded-lg bg-gray-800 mb-4">
+                  <Phone className="w-6 h-6 text-gray-300" />
                 </div>
-              </div>
-              
-              <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                <h4 className="font-semibold mb-2 text-blue-700">Prochaines étapes</h4>
-                <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-600">
-                  <li>Vous remplissez ce formulaire</li>
-                  <li>Je vous contacte sous 24h</li>
-                  <li>Appel découverte gratuit (30 min)</li>
-                  <li>Devis détaillé sous 24h</li>
-                  <li>Démarrage du projet</li>
-                </ol>
+                <h3 className="font-medium text-white mb-2">Téléphone</h3>
+                <a 
+                  href="tel:+33612345678"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  06 12 34 56 78
+                </a>
               </div>
             </div>
-          </div>
-          
+          </motion.div>
+
           {/* Форма */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border">
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-6">
-                  <Check className="w-8 h-8" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Message envoyé !</h3>
-                <p className="text-gray-600 mb-6">
-                  Merci pour votre message. Je vous répondrai dans les 24 heures.
-                </p>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="btn-primary"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4 }}
+            className="relative"
+          >
+            {/* Форма */}
+            <div className="bg-gray-900 rounded-xl border border-gray-800 p-8">
+              {isSubmitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8"
                 >
-                  Envoyer un autre message
-                </button>
-              </div>
-            ) : (
-              <>
-                <h3 className="text-2xl font-bold mb-6">Formulaire de contact</h3>
-                
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nom et prénom *
-                      </label>
-                      <input
-                        type="text"
-                        id="nom"
-                        name="nom"
-                        required
-                        value={formData.nom}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="Votre nom"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="votre@email.com"
-                      />
+                  <div className="inline-flex mb-6">
+                    <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
+                      <Check className="w-8 h-8 text-gray-300" />
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Téléphone
-                      </label>
-                      <input
-                        type="tel"
-                        id="telephone"
-                        name="telephone"
-                        value={formData.telephone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="06 12 34 56 78"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="projet" className="block text-sm font-medium text-gray-700 mb-2">
-                        Type de projet *
-                      </label>
-                      <select
-                        id="projet"
-                        name="projet"
-                        required
-                        value={formData.projet}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                      >
-                        <option value="">Sélectionnez une option</option>
-                        <option value="landing-page">Landing Page (399€)</option>
-                        <option value="site-vitrine">Site Vitrine (899€)</option>
-                        <option value="refonte">Refonte de site (1499€)</option>
-                        <option value="autre">Autre projet</option>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Votre message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                      placeholder="Parlez-moi de votre projet, vos besoins, vos attentes..."
-                    />
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        id="rgpd"
-                        required
-                        className="mt-1 mr-3"
-                      />
-                      <label htmlFor="rgpd" className="text-sm text-gray-600">
-                        J'accepte que mes données personnelles soient traitées dans le cadre de ma demande de contact. 
-                        Ces données ne seront utilisées que pour répondre à ma demande et ne seront pas transmises à des tiers. 
-                        Conformément à la réglementation en vigueur, vous disposez d'un droit d'accès, de rectification, 
-                        de suppression et d'opposition aux données vous concernant.
-                      </label>
-                    </div>
-                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Message envoyé !</h3>
+                  <p className="text-gray-400 mb-8">
+                    Je vous répondrai dans les 24 heures.
+                  </p>
                   
                   <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full btn-primary flex items-center justify-center ${
-                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                    }`}
+                    onClick={() => setIsSubmitted(false)}
+                    className="inline-flex items-center px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-gray-100 transition-colors"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                        Envoi en cours...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-3" />
-                        Envoyer ma demande
-                      </>
-                    )}
+                    Envoyer un autre message
                   </button>
+                </motion.div>
+              ) : (
+                <>
+                  <h3 className="text-xl font-bold text-white mb-6">Formulaire de contact</h3>
                   
-                  <p className="text-center text-sm text-gray-500 mt-4">
-                    * Champs obligatoires
-                  </p>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-        
-        <div className="text-center mt-12">
-          <div className="inline-block bg-white p-6 rounded-xl border shadow-sm">
-            <h4 className="font-semibold mb-2">Pas encore prêt à discuter ?</h4>
-            <p className="text-gray-600 mb-4 text-sm">
-              Téléchargez notre guide gratuit pour préparer votre projet
-            </p>
-            <a 
-              href="#" 
-              className="btn-secondary text-sm"
-              onClick={(e) => {
-                e.preventDefault()
-                alert('Guide téléchargé ! (fonctionnalité à implémenter)')
-              }}
+                  <form onSubmit={handleSubmit}>
+                    <div className="space-y-6">
+                      <div>
+                        <label htmlFor="nom" className="block text-sm font-medium text-gray-400 mb-2">
+                          Nom et prénom *
+                        </label>
+                        <input
+                          type="text"
+                          id="nom"
+                          name="nom"
+                          required
+                          value={formData.nom}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:border-gray-500 focus:outline-none"
+                          placeholder="Votre nom"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                          Email *
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:border-gray-500 focus:outline-none"
+                          placeholder="votre@email.com"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="telephone" className="block text-sm font-medium text-gray-400 mb-2">
+                          Téléphone
+                        </label>
+                        <input
+                          type="tel"
+                          id="telephone"
+                          name="telephone"
+                          value={formData.telephone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:border-gray-500 focus:outline-none"
+                          placeholder="06 12 34 56 78"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
+                          Message *
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          required
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:border-gray-500 focus:outline-none resize-none"
+                          placeholder="Parlez-moi de votre projet..."
+                        />
+                      </div>
+                      
+                      <div>
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full py-3.5 rounded-lg bg-white text-black font-medium hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? (
+                            <div className="flex items-center justify-center gap-3">
+                              <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                              <span>Envoi en cours...</span>
+                            </div>
+                          ) : (
+                            <div className="flex items-center justify-center gap-3">
+                              <Send className="w-5 h-5" />
+                              <span>Envoyer le message</span>
+                            </div>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </>
+              )}
+            </div>
+
+            {/* Простий CTA блок */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.6 }}
+              className="mt-8 text-center"
             >
-              📥 Télécharger le guide
-            </a>
-          </div>
+              <div className="bg-gray-900 rounded-xl border border-gray-800 p-6">
+                <h4 className="font-medium text-white mb-3">Appel découverte gratuit</h4>
+                <p className="text-gray-400 text-sm mb-4">
+                  30 minutes pour discuter de votre projet sans engagement.
+                </p>
+                <a 
+                  href="#contact"
+                  className="inline-block px-6 py-3 rounded-lg bg-gray-800 text-white font-medium hover:bg-gray-700 transition-colors"
+                >
+                  Réserver un appel
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

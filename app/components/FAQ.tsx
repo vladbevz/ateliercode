@@ -1,43 +1,49 @@
 // app/components/FAQ.tsx
 'use client'
+
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const containerRef = useRef(null)
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
 
   const faqs = [
     {
       question: "Combien de temps pour avoir mon site ?",
-      answer: "Entre 5 et 15 jours ouvrés selon la complexité du projet. Une landing page simple peut être livrée en 5 jours, un site vitrine complet en 10-15 jours."
+      answer: "5 à 15 jours selon la complexité. Landing page : 5-7 jours. Site vitrine : 10-15 jours.",
     },
     {
       question: "Puis-je modifier mon site moi-même après ?",
-      answer: "Absolument ! Je vous forme gratuitement à la gestion de votre site (1h de formation incluse). Vous pourrez modifier le texte, les images, ajouter des pages simples. Pour des modifications techniques plus complexes, je propose un service de maintenance mensuelle à partir de 50€/mois."
+      answer: "Oui. Vous pourrez modifier texte et images. Pas besoin de connaissances techniques.",
     },
     {
       question: "Quel hébergement utilisez-vous ?",
-      answer: "J'utilise Vercel, une plateforme professionnelle avec des serveurs en Europe. La première année d'hébergement est incluse dans tous les packages. Après la première année, l'hébergement coûte environ 20€/an. Vous êtes libre de changer d'hébergeur si vous le souhaitez."
+      answer: "Vercel (serveurs en Europe). Hébergement inclus la première année, ~20€/an après.",
     },
     {
-      question: "Et si je ne sais pas quoi écrire sur les pages ?",
-      answer: "Pas de panique ! Je vous guide dans la rédaction avec un template et des questions clés. Si besoin, je propose un service de rédaction en option (+200€) où je rédige les textes basiques pour vous."
+      question: "Et si je ne sais pas quoi écrire ?",
+      answer: "Je vous guide avec un template. Service rédaction en option (+200€) si besoin.",
     },
     {
       question: "Proposez-vous le référencement (SEO) ?",
-      answer: "Oui, l'optimisation SEO de base est incluse dans tous les packages : optimisation des titres et descriptions, vitesse de chargement, structure propre, mobile-friendly. Pour un référencement avancé (recherche de mots-clés, contenu optimisé, backlinks), je propose un package SEO en option à partir de 500€."
+      answer: "SEO de base inclus. SEO avancé en option à partir de 500€.",
     },
     {
       question: "Que se passe-t-il après la première année ?",
-      answer: "Vous possédez votre site à 100%. Après la première année, vous payez seulement : 1) Le renouvellement du nom de domaine (environ 12€/an), 2) L'hébergement (environ 20€/an), 3) Optionnellement, un abonnement de maintenance (à partir de 50€/mois). Aucun frais caché."
+      answer: "Vous payez seulement : nom de domaine (~12€/an) et hébergement (~20€/an).",
     },
     {
-      question: "Travaillez-vous avec des templates pré-faits ?",
-      answer: "Non, tous les sites sont créés sur mesure en fonction de vos besoins. J'utilise des composants modernes mais chaque design est unique et adapté à votre activité. Pas de sites 'copier-coller'."
+      question: "Travaillez-vous avec des templates ?",
+      answer: "Non, chaque site est créé sur mesure selon vos besoins.",
     },
     {
       question: "Quelles sont les méthodes de paiement ?",
-      answer: "Je travaille avec un acompte de 50% pour commencer le projet, et le solde de 50% à la livraison. Paiements acceptés : virement bancaire, PayPal, ou carte bleue via une plateforme sécurisée. Tous les prix sont hors TVA (je suis en micro-entreprise, TVA non applicable)."
+      answer: "50% à la commande, 50% à la livraison. Virement, PayPal ou carte. TVA non applicable.",
     }
   ]
 
@@ -46,53 +52,159 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="section-padding">
-      <div className="container-narrow">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Questions fréquentes
-        </h2>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Tout ce que vous devez savoir avant de commencer
-        </p>
-        
+    <section 
+      id="faq" 
+      ref={containerRef}
+      className="relative py-20 overflow-hidden bg-black"
+    >
+      {/* Сітковий фон */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, #333 1px, transparent 1px),
+                           linear-gradient(180deg, #333 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }} />
+      </div>
+
+      <div className="container-narrow relative z-10">
+        {/* Заголовок */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
+        >
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 border border-gray-800 mb-6">
+            <span className="text-sm font-medium text-gray-300">
+              QUESTIONS FRÉQUENTES
+            </span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span className="text-white">Des réponses claires</span>
+            <br />
+            <span className="text-gray-400 font-normal mt-2 block">pour vos questions</span>
+          </h2>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+          >
+            Tout ce que vous devez savoir avant de commencer votre projet.
+          </motion.p>
+        </motion.div>
+
+        {/* FAQ списки */}
         <div className="max-w-3xl mx-auto">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index}
-              className="border-b border-gray-200"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.4 }}
+            className="space-y-3"
+          >
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.5 + index * 0.05 }}
+                className="group"
+              >
+                {/* FAQ елемент */}
+                <div className="relative bg-gray-900 rounded-lg border border-gray-800 overflow-hidden hover:border-gray-700 transition-colors">
+                  <button
+                    className="w-full p-6 text-left flex justify-between items-center gap-4"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    {/* Питання */}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-medium text-white text-left">
+                        {faq.question}
+                      </h3>
+                    </div>
+
+                    {/* Стрілка */}
+                    <div className="flex-shrink-0">
+                      <motion.div
+                        animate={{ rotate: openIndex === index ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="p-2 rounded-lg bg-gray-800 border border-gray-700"
+                      >
+                        <ChevronDown 
+                          className="w-5 h-5 text-gray-400"
+                        />
+                      </motion.div>
+                    </div>
+                  </button>
+
+                  {/* Відповідь */}
+                  <AnimatePresence>
+                    {openIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 pt-2 border-t border-gray-800">
+                          <p className="text-gray-400 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* CTA секція */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.8 }}
+          className="text-center mt-16"
+        >
+          <div className="inline-flex flex-col items-center gap-6 max-w-2xl mx-auto p-8 rounded-xl bg-gray-900 border border-gray-800">
+            <div className="text-center">
+              <h3 className="text-xl font-bold text-white mb-3">
+                Une question spécifique ?
+              </h3>
+              <p className="text-gray-400 mb-6">
+                Je réponds à toutes vos questions par email ou téléphone.
+              </p>
+            </div>
+            
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
             >
-              <button
-                className="w-full py-6 text-left flex justify-between items-center hover:text-blue-600 transition-colors"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="text-lg font-medium pr-8">{faq.question}</span>
-                <ChevronDown 
-                  className={`w-5 h-5 transition-transform ${
-                    openIndex === index ? 'transform rotate-180' : ''
-                  }`}
-                />
-              </button>
-              
-              <div 
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
-                }`}
-              >
-                <p className="text-gray-600">{faq.answer}</p>
+              <span>Me poser une question</span>
+            </a>
+            
+            {/* Статистика */}
+            <div className="flex flex-wrap justify-center gap-6 pt-6 border-t border-gray-800">
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">24h</div>
+                <div className="text-sm text-gray-400">Réponse</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">100%</div>
+                <div className="text-sm text-gray-400">En français</div>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-bold text-white">Gratuit</div>
+                <div className="text-sm text-gray-400">Premier appel</div>
               </div>
             </div>
-          ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            Vous avez une autre question ?
-          </p>
-          <a href="#contact" className="btn-secondary">
-            Me poser une question
-          </a>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
-  )
+  );
 }
