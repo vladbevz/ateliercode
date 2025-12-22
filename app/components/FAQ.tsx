@@ -8,7 +8,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, amount: 0.2 })
 
@@ -55,15 +55,11 @@ export default function FAQ() {
     <section 
       id="faq" 
       ref={containerRef}
-      className="relative py-20 overflow-hidden bg-black"
+      className="relative py-20"
     >
-      {/* Сітковий фон */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(90deg, #333 1px, transparent 1px),
-                           linear-gradient(180deg, #333 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-        }} />
+      {/* Мінімальний фон */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
       </div>
 
       <div className="container-narrow relative z-10">
@@ -72,68 +68,66 @@ export default function FAQ() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          className="text-center mb-12"
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 border border-gray-800 mb-6">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-900/50 border border-gray-800 mb-6">
             <span className="text-sm font-medium text-gray-300">
               QUESTIONS FRÉQUENTES
             </span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-white">Des réponses claires</span>
-            <br />
-            <span className="text-gray-400 font-normal mt-2 block">pour vos questions</span>
+            <span className="text-white">Questions fréquentes</span>
           </h2>
           
           <motion.p
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed"
           >
-            Tout ce que vous devez savoir avant de commencer votre projet.
+            Les réponses aux questions les plus courantes sur nos services.
           </motion.p>
         </motion.div>
 
-        {/* FAQ списки */}
-        <div className="max-w-3xl mx-auto">
+        {/* FAQ у 2 колонки */}
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="space-y-3"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4"
           >
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.5 + index * 0.05 }}
+                transition={{ delay: 0.5 + index * 0.03 }}
                 className="group"
               >
-                {/* FAQ елемент */}
-                <div className="relative bg-gray-900 rounded-lg border border-gray-800 overflow-hidden hover:border-gray-700 transition-colors">
+                {/* Компактний FAQ елемент */}
+                <div className="relative bg-gray-900/50 rounded-lg border border-gray-800 overflow-hidden hover:border-gray-700 transition-colors">
                   <button
-                    className="w-full p-6 text-left flex justify-between items-center gap-4"
+                    className="w-full p-4 text-left flex justify-between items-start gap-3"
                     onClick={() => toggleFAQ(index)}
                   >
                     {/* Питання */}
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-white text-left">
+                      <h3 className="text-base font-medium text-white text-left pr-2">
                         {faq.question}
                       </h3>
                     </div>
 
                     {/* Стрілка */}
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 mt-0.5">
                       <motion.div
                         animate={{ rotate: openIndex === index ? 180 : 0 }}
                         transition={{ duration: 0.2 }}
-                        className="p-2 rounded-lg bg-gray-800 border border-gray-700"
+                        className="p-1.5 rounded border border-gray-700"
                       >
                         <ChevronDown 
-                          className="w-5 h-5 text-gray-400"
+                          className="w-4 h-4 text-gray-400"
                         />
                       </motion.div>
                     </div>
@@ -149,8 +143,8 @@ export default function FAQ() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-2 border-t border-gray-800">
-                          <p className="text-gray-400 leading-relaxed">
+                        <div className="px-4 pb-4 pt-1 border-t border-gray-800">
+                          <p className="text-gray-400 text-sm leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
@@ -163,46 +157,23 @@ export default function FAQ() {
           </motion.div>
         </div>
 
-        {/* CTA секція */}
+        {/* Простий CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center mt-12"
         >
-          <div className="inline-flex flex-col items-center gap-6 max-w-2xl mx-auto p-8 rounded-xl bg-gray-900 border border-gray-800">
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-white mb-3">
-                Une question spécifique ?
-              </h3>
-              <p className="text-gray-400 mb-6">
-                Je réponds à toutes vos questions par email ou téléphone.
-              </p>
-            </div>
-            
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
-            >
-              <span>Me poser une question</span>
-            </a>
-            
-            {/* Статистика */}
-            <div className="flex flex-wrap justify-center gap-6 pt-6 border-t border-gray-800">
-              <div className="text-center">
-                <div className="text-lg font-bold text-white">24h</div>
-                <div className="text-sm text-gray-400">Réponse</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-white">100%</div>
-                <div className="text-sm text-gray-400">En français</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg font-bold text-white">Gratuit</div>
-                <div className="text-sm text-gray-400">Premier appel</div>
-              </div>
-            </div>
-          </div>
+          <p className="text-gray-500 mb-6 text-sm">
+            Une question spécifique ? Contactez-nous directement.
+          </p>
+          
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-gray-100 transition-colors text-sm"
+          >
+            <span>Me poser une question</span>
+          </a>
         </motion.div>
       </div>
     </section>

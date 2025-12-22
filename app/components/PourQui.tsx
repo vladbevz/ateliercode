@@ -1,7 +1,7 @@
 // app/components/PourQui.tsx
 'use client';
 
-import { Users, TrendingUp, RefreshCw, Target, ArrowRight } from 'lucide-react';
+import { Users, TrendingUp, RefreshCw, Target, ArrowRight, Briefcase, Building, UserCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -12,22 +12,22 @@ export default function PourQui() {
 
   const clients = [
     {
-      icon: <Users className="w-8 h-8" />,
-      title: "L'artisan qui débute en ligne",
-      description: "Vous avez un métier, mais personne ne vous trouve sur Internet. Je crée votre site vitrine pour attirer vos premiers clients.",
-      stats: "Premiers pas digitaux"
+      icon: <Briefcase className="w-8 h-8" />,
+      title: "Professions libérales",
+      description: "Avocats, médecins, consultants — une présence en ligne élégante qui inspire confiance et reflète votre expertise.",
+      features: ["Design institutionnel", "SEO spécialisé", "Portfolio professionnel"]
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "L'indépendant qui veut grandir",
-      description: "Vous avez des clients, mais vous voulez en avoir plus. Votre site devient votre meilleur outil commercial.",
-      stats: "Croissance organisée"
+      icon: <Building className="w-8 h-8" />,
+      title: "PME & TPE ambitieuses",
+      description: "Votre entreprise mérite un site qui valorise votre savoir-faire. Minimaliste, efficace, tourné vers la conversion.",
+      features: ["Performance optimisée", "Interface client", "Lead generation"]
     },
     {
-      icon: <RefreshCw className="w-8 h-8" />,
-      title: "La petite entreprise qui veut moderniser son image",
-      description: "Votre site a 10 ans et ne vous représente plus. Je le refais simple, moderne et efficace.",
-      stats: "Image actualisée"
+      icon: <UserCheck className="w-8 h-8" />,
+      title: "Indépendants & créateurs",
+      description: "Artisans, designers, coachs — une vitrine digitale qui raconte votre histoire et met en lumière votre unicité.",
+      features: ["Narration visuelle", "Portfolio impactant", "Présentation personnalisée"]
     }
   ];
 
@@ -43,11 +43,16 @@ export default function PourQui() {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 100 
+      }
     }
   };
 
@@ -55,18 +60,22 @@ export default function PourQui() {
     <section 
       id="pourqui" 
       ref={containerRef}
-      className="relative py-20 overflow-hidden bg-black"
+      className="relative py-24 overflow-hidden"
     >
-      {/* Простий фон - тільки лінії */}
-      <div className="absolute inset-0 opacity-5">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(90deg, #333 1px, transparent 1px),
-                             linear-gradient(180deg, #333 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
+      {/* Елегантний градієнтний фон */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Тонка геометрична сітка */}
+      <div className="absolute inset-0 z-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
+                           linear-gradient(180deg, #fff 1px, transparent 2px)`,
+          backgroundSize: '80px 80px',
+        }} />
       </div>
 
       <div className="container-narrow relative z-10">
@@ -75,30 +84,41 @@ export default function PourQui() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          className="text-center mb-20"
         >
-          {/* Простий бейдж */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 border border-gray-800 mb-6">
+          {/* Утончений бейдж */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 backdrop-blur-sm mb-8"
+          >
             <Target className="w-4 h-4 text-gray-300" />
-            <span className="text-sm font-medium text-gray-300">
-              QUI BÉNÉFICIE DE NOS SERVICES
+            <span className="text-sm font-medium text-gray-300 tracking-wider">
+              POUR QUI ?
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-white">Vous êtes...</span>
-            <br />
-            <span className="text-gray-400 font-normal mt-2 block">notre priorité</span>
-          </h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight"
+          >
+            <span className="block text-white">Professionnels</span>
+            <span className="block text-gray-400 font-normal mt-4 text-3xl md:text-4xl">
+              à la recherche d'élégance digitale
+            </span>
+          </motion.h2>
           
           <motion.p
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+            transition={{ delay: 0.3 }}
+            className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Je crée des sites pour ceux qui font vivre la France — avec une approche{" "}
-            <span className="font-medium text-gray-300">directe et pragmatique</span>
+            Nous créons des expériences digitales raffinées pour ceux qui valorisent 
+            l'esthétique, la performance et l'authenticité.
           </motion.p>
         </motion.div>
 
@@ -107,46 +127,66 @@ export default function PourQui() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
         >
           {clients.map((client, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="relative"
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="relative group"
             >
+              {/* Градієнтний бордер при ховері */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+              
               {/* Основна картка */}
-              <div className="relative bg-gray-900 p-6 rounded-xl border border-gray-800 hover:border-gray-600 transition-colors h-full">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 
+                {/* Акцентна лінія */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
                 {/* Іконка */}
-                <div className="mb-6">
-                  <div className="inline-flex p-3 rounded-lg bg-gray-800">
-                    <div className="text-gray-300">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="mb-8"
+                >
+                  <div className="inline-flex p-4 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
+                    <div className="text-gray-300 group-hover:text-white transition-colors">
                       {client.icon}
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Заголовок */}
-                <h3 className="text-xl font-bold mb-4 text-white leading-tight">
+                <h3 className="text-2xl font-bold mb-5 text-white leading-tight">
                   {client.title}
                 </h3>
 
                 {/* Опис */}
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-8 leading-relaxed text-lg font-light">
                   {client.description}
                 </p>
 
-                {/* Статистика */}
-                <div className="flex items-center justify-between pt-5 border-t border-gray-800 mt-auto">
-                  <div className="text-sm font-medium text-gray-500">
-                    {client.stats}
-                  </div>
-                  <div className="px-3 py-1 rounded-full bg-gray-800 border border-gray-700">
-                    <span className="text-sm font-medium text-gray-300">
-                      Profil #{index + 1}
-                    </span>
+                {/* Особливості */}
+                <div className="space-y-3 mt-8 pt-8 border-t border-gray-800/50">
+                  {client.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-gray-400 transition-colors"></div>
+                      <span className="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Індикатор ховера */}
+                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center">
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
                   </div>
                 </div>
               </div>
@@ -159,19 +199,28 @@ export default function PourQui() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6 }}
-          className="text-center mt-16 pt-12 border-t border-gray-800"
+          className="text-center mt-20 pt-16 border-t border-gray-800/30"
         >
-          <p className="text-gray-500 mb-6">
-            Vous ne vous reconnaissez pas dans ces profils ?
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.7 }}
+            className="text-gray-500 mb-8 text-lg font-light"
+          >
+            Votre profil n'apparaît pas ? Chaque projet est unique.
+          </motion.p>
           <motion.a
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(255,255,255,0.1)"
+            }}
             whileTap={{ scale: 0.98 }}
             href="#contact"
-            className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-4 px-12 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-50 transition-all group overflow-hidden relative"
           >
-            <span>Parlez-moi de votre projet</span>
-            <ArrowRight className="w-5 h-5" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative">Étudions votre projet ensemble</span>
+            <ArrowRight className="w-5 h-5 relative group-hover:translate-x-2 transition-transform duration-300" />
           </motion.a>
         </motion.div>
       </div>
