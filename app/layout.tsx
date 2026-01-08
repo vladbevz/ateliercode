@@ -1,6 +1,8 @@
 // app/layout.tsx
 'use client';
 
+import Link from 'next/link';
+
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { useState, useEffect } from 'react'
@@ -26,11 +28,11 @@ export default function RootLayout({
   }, [])
 
   const menuItems = [
-    { label: 'Pour qui ?', href: '#pourqui' },
-    { label: 'Processus', href: '#processus' },
-    { label: 'Tarifs', href: '#tarifs' },
-    { label: 'Réalisations', href: '#realisations' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Pour qui ?', href: '/pourqui' },
+    { label: 'Processus', href: '/processus' },
+    { label: 'Tarifs', href: '/tarifs' },
+    { label: 'Réalisations', href: '/realisations' },
+    { label: 'FAQ', href: '/faq' },
   ]
 
   return (
@@ -57,11 +59,11 @@ export default function RootLayout({
             ? 'bg-black/95 backdrop-blur-md border-b border-gray-800 py-3' 
             : 'bg-transparent py-5'
         }`}>
-          <div className="container-narrow">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex justify-between items-center">
               {/* Logo */}
-              <a 
-                href="#"
+              <Link 
+                href="/"
                 className="flex items-center gap-3 group"
               >
                 <div className="w-10 h-10 bg-gray-900 border border-gray-800 rounded-lg flex items-center justify-center group-hover:border-gray-600 transition-colors">
@@ -75,28 +77,28 @@ export default function RootLayout({
                     Création web professionnelle
                   </span>
                 </div>
-              </a>
+              </Link>
 
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center gap-8">
                 {menuItems.map((item) => (
-                  <a
+                  <Link
                     key={item.label}
                     href={item.href}
                     className="text-gray-400 font-medium hover:text-white transition-colors text-sm tracking-wide relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gray-400 group-hover:w-full transition-all duration-300"></span>
-                  </a>
+                  </Link>
                 ))}
                 
                 {/* Contact Button */}
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="px-6 py-2.5 rounded-lg bg-white text-black font-medium hover:bg-gray-100 transition-all shadow hover:shadow-lg"
                 >
                   Contact
-                </a>
+                </Link>
               </nav>
 
               {/* Mobile Menu Button */}
@@ -121,22 +123,22 @@ export default function RootLayout({
                 <div className="container-narrow py-6">
                   <div className="flex flex-col space-y-2">
                     {menuItems.map((item) => (
-                      <a
+                      <Link
                         key={item.label}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
                         className="py-3 px-4 rounded-lg hover:bg-gray-900 text-gray-300 font-medium hover:text-white transition-all"
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ))}
-                    <a
+                    <Link
                       href="#contact"
                       onClick={() => setIsMenuOpen(false)}
                       className="py-3 px-4 rounded-lg bg-white text-black font-medium text-center mt-4 hover:bg-gray-100 transition-all"
                     >
                       Contact
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -149,7 +151,7 @@ export default function RootLayout({
 
         {/* Footer */}
         <footer className="bg-black border-t border-gray-800 relative z-10">
-          <div className="container-narrow">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="py-12">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                 {/* Brand */}
@@ -175,20 +177,20 @@ export default function RootLayout({
                   <h4 className="font-medium text-white mb-4 tracking-wide">Navigation</h4>
                   <div className="space-y-3">
                     {menuItems.map((item) => (
-                      <a 
+                      <Link 
                         key={item.label}
                         href={item.href}
                         className="block text-gray-500 hover:text-white transition-colors text-sm"
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     ))}
-                    <a 
+                    <Link 
                       href="#contact"
                       className="block text-gray-500 hover:text-white transition-colors text-sm font-medium mt-2"
                     >
                       Contact
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -196,19 +198,19 @@ export default function RootLayout({
                 <div>
                   <h4 className="font-medium text-white mb-4 tracking-wide">Contact</h4>
                   <div className="space-y-3">
-                    <a 
+                    <Link 
                       href="mailto:contact@ateliercode.fr" 
                       className="block text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       contact@ateliercode.fr
-                    </a>
+                    </Link>
                     
-                    <a 
+                    <Link 
                       href="tel:+33612345678" 
                       className="block text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       06 12 34 56 78
-                    </a>
+                    </Link>
                     
                     <p className="text-gray-500 text-sm">
                       Basé en France • Disponible à distance
@@ -227,24 +229,24 @@ export default function RootLayout({
 
                   {/* Legal */}
                   <div className="flex flex-wrap gap-6">
-                    <a
+                    <Link
                       href="#"
                       className="text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       Mentions légales
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       Politique de confidentialité
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="#"
                       className="text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       CGV
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -253,13 +255,13 @@ export default function RootLayout({
         </footer>
 
         {/* Floating CTA (mobile only) */}
-        <a
+        <Link
           href="#contact"
           className="fixed bottom-6 right-6 z-40 lg:hidden flex items-center gap-2 px-5 py-3 rounded-lg bg-white text-black font-medium shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
         >
           <ArrowRight className="w-4 h-4" />
           <span>Contact</span>
-        </a>
+        </Link>
       </body>
     </html>
   )

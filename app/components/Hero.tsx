@@ -98,7 +98,7 @@ export default function Hero() {
                 backgroundColor: "#f9fafb"
               }}
               whileTap={{ scale: 0.98 }}
-              href="#contact"
+              href="/contact"
               className="group relative px-12 py-5 rounded-xl bg-white text-black font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -115,7 +115,7 @@ export default function Hero() {
                 backgroundColor: "rgba(17, 24, 39, 0.3)"
               }}
               whileTap={{ scale: 0.98 }}
-              href="#realisations"
+              href="/realisations"
               className="group px-12 py-5 rounded-xl border-2 border-gray-700 hover:border-gray-400 text-white font-semibold text-lg transition-all duration-300 hover:bg-gray-900/30"
             >
               <span className="flex items-center justify-center gap-3">
@@ -201,10 +201,6 @@ export default function Hero() {
             className="mt-16 pt-12 border-t border-gray-800/30"
           >
             <div className="inline-flex flex-wrap justify-center items-center gap-8 text-gray-500 text-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-gray-500"></div>
-                <span className="font-medium">Design minimaliste</span>
-              </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-gray-500"></div>
                 <span className="font-medium">SEO optimisé</span>

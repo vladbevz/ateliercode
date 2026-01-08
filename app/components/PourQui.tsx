@@ -1,10 +1,11 @@
-// app/components/PourQui.tsx
+// app/components/PourQui.tsx - ВИПРАВЛЕНО
 'use client';
 
-import { Users, TrendingUp, RefreshCw, Target, ArrowRight, Briefcase, Building, UserCheck } from 'lucide-react';
+import { Briefcase, Building, UserCheck, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 export default function PourQui() {
   const containerRef = useRef(null);
@@ -58,7 +59,6 @@ export default function PourQui() {
 
   return (
     <section 
-      id="pourqui" 
       ref={containerRef}
       className="relative py-24 overflow-hidden"
     >
@@ -78,7 +78,7 @@ export default function PourQui() {
         }} />
       </div>
 
-      <div className="container-narrow relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Заголовок секції */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -142,7 +142,7 @@ export default function PourQui() {
               {/* Градієнтний бордер при ховері */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
               
-              {/* Основна картка */}
+              {/* Основна картка - ТЕПЕР ПРОСТО DIV */}
               <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 
                 {/* Акцентна лінія */}
@@ -167,7 +167,7 @@ export default function PourQui() {
                 </h3>
 
                 {/* Опис */}
-                <p className="text-gray-400 mb-8 leading-relaxed text-lg font-light">
+                <p className="text-gray-400 mb-8 leading-relaxed text-lg font-light group-hover:text-gray-300 transition-colors">
                   {client.description}
                 </p>
 
@@ -183,18 +183,13 @@ export default function PourQui() {
                   ))}
                 </div>
 
-                {/* Індикатор ховера */}
-                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center">
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                  </div>
-                </div>
+                
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Нижній CTA */}
+        {/* Нижній CTA - ЗМІНЕНО ПОСИЛАННЯ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -209,19 +204,20 @@ export default function PourQui() {
           >
             Votre profil n'apparaît pas ? Chaque projet est unique.
           </motion.p>
-          <motion.a
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(255,255,255,0.1)"
-            }}
+          
+          <motion.div
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            href="#contact"
-            className="inline-flex items-center gap-4 px-12 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-50 transition-all group overflow-hidden relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <span className="relative">Étudions votre projet ensemble</span>
-            <ArrowRight className="w-5 h-5 relative group-hover:translate-x-2 transition-transform duration-300" />
-          </motion.a>
+            <Link 
+              href="/contact" // ЗМІНЕНО з #contact на /contact
+              className="inline-flex items-center gap-4 px-12 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-50 transition-all group overflow-hidden relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative">Étudions votre projet ensemble</span>
+              {/* Стрілку можна залишити тут, бо це посилання на контакти */}
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

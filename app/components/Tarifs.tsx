@@ -1,10 +1,11 @@
-// app/components/Tarifs.tsx
+// app/components/Tarifs.tsx - ФІНАЛЬНА ВЕРСІЯ
 'use client';
 
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 export default function Tarifs() {
   const containerRef = useRef(null);
@@ -12,46 +13,64 @@ export default function Tarifs() {
 
   const plans = [
     {
-      name: "LANDING PAGE",
-      price: "À partir de 299€",
+      name: "Landing Page",
+      price: "299",
       description: "Idéal pour tester une idée ou promouvoir un service spécifique",
       features: [
-        "1 page responsive",
-        "Formulaire de contact",
-        "Optimisation mobile",
-        "Mise en ligne",
-        "Hébergement 1 an",
-        "SSL inclus"
+        { name: "1 page responsive", included: true, highlight: false },
+        { name: "Formulaire de contact", included: true, highlight: false },
+        { name: "Optimisation mobile", included: true, highlight: true },
+        { name: "Mise en ligne incluse", included: true, highlight: false },
+        { name: "Hébergement 12 mois", included: true, highlight: true },
+        { name: "Certificat SSL", included: true, highlight: false },
+        { name: "SEO de base", included: true, highlight: false },
+        { name: "Support par email", included: false, highlight: false },
+        { name: "Maintenance incluse", included: false, highlight: false },
+        { name: "Blog intégré", included: false, highlight: false },
       ],
-      popular: false
+      popular: false,
+      color: "from-gray-800/40 to-gray-900/40",
+      accent: "border-gray-800"
     },
     {
-      name: "SITE VITRINE",
-      price: "À partir de 499€",
+      name: "Site Vitrine",
+      price: "499",
       description: "Pour les artisans et indépendants qui veulent une présence en ligne complète",
       features: [
-        "3-4 pages design sobre",
-        "Galerie photo simple",
-        "SEO de base",
-        "Mise en ligne",
-        "Hébergement 1 an",
-        "Support par email"
+        { name: "4-5 pages design sobre", included: true, highlight: true },
+        { name: "Galerie photo simple", included: true, highlight: false },
+        { name: "SEO optimisé", included: true, highlight: true },
+        { name: "Mise en ligne incluse", included: true, highlight: false },
+        { name: "Hébergement 12 mois", included: true, highlight: true },
+        { name: "Certificat SSL", included: true, highlight: false },
+        { name: "Support par email", included: true, highlight: false },
+        { name: "Maintenance 1 mois", included: true, highlight: true },
+        { name: "Blog intégré", included: false, highlight: false },
+        { name: "Analytics avancé", included: false, highlight: false },
       ],
-      popular: true
+      popular: true,
+      color: "from-gray-900/50 to-black/50",
+      accent: "border-gray-600"
     },
     {
-      name: "SITE AVANCÉ",
-      price: "À partir de 799€",
+      name: "Site Avancé",
+      price: "799",
       description: "Pour les petites entreprises qui veulent plus de fonctionnalités",
       features: [
-        "5-6 pages personnalisées",
-        "Blog intégré",
-        "SEO optimisé",
-        "Mise en ligne",
-        "Hébergement 1 an",
-        "Maintenance 1 mois"
+        { name: "6-8 pages personnalisées", included: true, highlight: true },
+        { name: "Galerie photo avancée", included: true, highlight: false },
+        { name: "SEO premium", included: true, highlight: true },
+        { name: "Mise en ligne incluse", included: true, highlight: false },
+        { name: "Hébergement 12 mois", included: true, highlight: true },
+        { name: "Certificat SSL", included: true, highlight: false },
+        { name: "Support prioritaire", included: true, highlight: true },
+        { name: "Maintenance 3 mois", included: true, highlight: true },
+        { name: "Blog intégré", included: true, highlight: false },
+        { name: "Analytics avancé", included: true, highlight: true },
       ],
-      popular: false
+      popular: false,
+      color: "from-gray-800/40 to-gray-900/40",
+      accent: "border-gray-800"
     }
   ];
 
@@ -80,7 +99,6 @@ export default function Tarifs() {
 
   return (
     <section 
-      id="tarifs" 
       ref={containerRef}
       className="relative py-24 overflow-hidden"
     >
@@ -100,7 +118,7 @@ export default function Tarifs() {
         }} />
       </div>
 
-      <div className="container-narrow relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Заголовок секції */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -126,9 +144,9 @@ export default function Tarifs() {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight"
           >
-            <span className="block text-white">Des prix clairs,</span>
+            <span className="block text-white">Simplicité & transparence</span>
             <span className="block text-gray-400 font-normal mt-4 text-3xl md:text-4xl">
-              sans surprise
+              des tarifs clairs
             </span>
           </motion.h2>
           
@@ -138,7 +156,7 @@ export default function Tarifs() {
             transition={{ delay: 0.3 }}
             className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Tout est inclus. Pas de frais cachés, pas de formation coûteuse. Juste un site qui fonctionne.
+            Tout est inclus. Pas de frais cachés, pas de surprise. Juste un site web qui fonctionne.
           </motion.p>
         </motion.div>
 
@@ -147,44 +165,38 @@ export default function Tarifs() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
           {plans.map((plan, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ 
-                y: -10,
+                y: -8,
                 transition: { duration: 0.3 }
               }}
-              className={`relative group ${plan.popular ? 'lg:mt-0' : ''}`}
+              className={`relative group ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
-              {/* Акцентний фон при ховері */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-
               {/* Популярний бейдж */}
               {plan.popular && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.15 }}
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 z-20"
+                  className="absolute -top-5 left-1/2 -translate-x-1/2 z-20"
                 >
-                  <div className="px-6 py-2.5 rounded-full bg-white text-black font-bold text-sm tracking-wider shadow-lg">
-                    LE PLUS CHOISI
+                  <div className="px-5 py-2 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 font-bold text-sm tracking-wider shadow-lg flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    <span>LE PLUS CHOISI</span>
                   </div>
                 </motion.div>
               )}
 
               {/* Основна картка */}
-              <div className={`relative h-full bg-gradient-to-br from-gray-900/40 to-black/40 p-8 rounded-2xl border ${
-                plan.popular 
-                  ? 'border-gray-600' 
-                  : 'border-gray-800'
-              } backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden`}>
+              <div className={`relative h-full bg-gradient-to-br ${plan.color} p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 group-hover:border-gray-500 overflow-hidden`}>
                 
-                {/* Верхня акцентна лінія */}
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Верхній градієнт */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* Заголовок тарифу */}
                 <div className="text-center mb-10 pt-2">
@@ -193,48 +205,80 @@ export default function Tarifs() {
                   </h3>
                   
                   <div className="mb-6">
-                    <div className="text-4xl md:text-5xl font-bold mb-3 text-white">
-                      {plan.price.split(' ')[0]}
+                    <div className="flex items-baseline justify-center gap-1">
+                      <div className="text-sm font-medium text-gray-400">à partir de</div>
+                      <div className="text-5xl md:text-6xl font-bold text-white ml-1">
+                        {plan.price}
+                        <span className="text-3xl md:text-4xl">€</span>
+                      </div>
                     </div>
-                    <div className="text-lg text-gray-400 font-light">
-                      {plan.price.split(' ').slice(1).join(' ')}
-                    </div>
-                    <div className="text-gray-500 text-sm mt-2">HT • TVA non applicable</div>
+                    <div className="text-gray-500 text-sm mt-2">TVA non applicable • Article 293 B du CGI</div>
                   </div>
                   
-                  <p className="text-gray-400 leading-relaxed font-light">
+                  <p className="text-gray-400 leading-relaxed font-light text-lg">
                     {plan.description}
                   </p>
                 </div>
                 
                 {/* Список функцій */}
-                <div className="mb-10">
-                  <div className="space-y-4">
-                    {plan.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3 group/item"
-                      >
-                        <div className="p-1 rounded-lg bg-gray-800/50 border border-gray-700 group-hover/item:border-gray-500 transition-colors mt-0.5">
-                          <Check className="w-4 h-4 text-gray-400 group-hover/item:text-gray-300 transition-colors" />
-                        </div>
-                        <span className="text-gray-300 group-hover/item:text-gray-100 transition-colors">
-                          {feature}
-                        </span>
+                <div className="mb-10 space-y-4">
+                  {plan.features.map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex items-center gap-3 ${!feature.included ? 'opacity-40' : ''}`}
+                    >
+                      <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
+                        feature.included 
+                          ? 'bg-gray-800 border border-gray-700 group-hover:border-gray-600' 
+                          : 'bg-gray-900/50 border border-gray-800'
+                      } transition-colors`}>
+                        {feature.included ? (
+                          <Check className={`w-4 h-4 ${
+                            feature.highlight ? 'text-white' : 'text-gray-400'
+                          }`} />
+                        ) : (
+                          <div className="w-2 h-2 rounded-full bg-gray-700"></div>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                      <span className={`text-sm ${
+                        feature.included 
+                          ? feature.highlight 
+                            ? 'text-white font-medium' 
+                            : 'text-gray-300'
+                          : 'text-gray-600'
+                      }`}>
+                        {feature.name}
+                      </span>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Інформація про оплату */}
+                {/* МІНІМАЛІСТИЧНИЙ БЛОК ОПЛАТИ */}
                 <div className="mt-12 pt-8 border-t border-gray-800/50">
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="w-6 h-6 rounded-lg bg-gray-800 flex items-center justify-center">
-                      <span className="text-xs font-bold text-gray-300">50/50</span>
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-1 mb-2">
+                      <div className="text-xs text-gray-500">Paiement</div>
                     </div>
-                    <span className="text-sm text-gray-400">
-                      50% à la commande • 50% à la livraison
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center">
+                          <span className="text-xs font-medium text-gray-300">50%</span>
+                        </div>
+                        <span className="text-xs text-gray-400">commande</span>
+                      </div>
+                      
+                      <div className="text-gray-600">+</div>
+                      
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center">
+                          <span className="text-xs font-medium text-gray-300">50%</span>
+                        </div>
+                        <span className="text-xs text-gray-400">livraison</span>
+                      </div>
+                    </div>
+                    <div className="text-gray-500 text-xs mt-3">
+                      Paiement sécurisé • Sans engagement
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,49 +286,73 @@ export default function Tarifs() {
           ))}
         </motion.div>
 
-        {/* Нижня інформація */}
+        {/* Додаткова інформація */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6 }}
-          className="mt-20"
+          className="mt-20 max-w-4xl mx-auto"
         >
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 rounded-2xl bg-gradient-to-br from-gray-900/40 to-black/40 border border-gray-800 backdrop-blur-sm max-w-4xl mx-auto">
-            <div>
+          {/* Блок переваг */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-gray-300" />
+                <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
+                  <Shield className="w-5 h-5 text-gray-300" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Inclus dans tous les forfaits</h4>
+                <h4 className="font-bold text-white">Garantie incluse</h4>
               </div>
-              <div className="flex flex-wrap gap-3">
-                {['Hébergement rapide', 'SSL sécurisé', 'Design responsive', 'Support email'].map((item, idx) => (
-                  <div key={idx} className="px-3 py-1.5 rounded-full bg-gray-800/50 border border-gray-700">
-                    <span className="text-sm text-gray-300">{item}</span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-gray-400 text-sm">30 jours de support après la livraison</p>
             </div>
-            
-            <div className="lg:pl-8 lg:border-l lg:border-gray-800">
-              <a 
-                href="#contact" 
-                className="group inline-flex items-center gap-3 text-gray-300 hover:text-white transition-colors"
-              >
-                <span className="text-lg font-medium">
-                  Devis personnalisé ?
-                </span>
-                <div className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center group-hover:border-gray-500 transition-colors">
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
+                  <Zap className="w-5 h-5 text-gray-300" />
                 </div>
-              </a>
-              <p className="text-gray-500 text-sm mt-2">Réponse sous 24 heures</p>
+                <h4 className="font-bold text-white">Délais respectés</h4>
+              </div>
+              <p className="text-gray-400 text-sm">Livraison en 5-15 jours selon le forfait</p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
+                  <TrendingUp className="w-5 h-5 text-gray-300" />
+                </div>
+                <h4 className="font-bold text-white">Évolutif</h4>
+              </div>
+              <p className="text-gray-400 text-sm">Passez à un forfait supérieur à tout moment</p>
             </div>
           </div>
-          
+
+          {/* CTA */}
+          <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-900/40 to-black/40 border border-gray-800 backdrop-blur-sm">
+            <h4 className="text-2xl font-bold text-white mb-4">Besoin d'une solution sur mesure ?</h4>
+            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+              Chaque projet est unique. Discutons de vos besoins spécifiques pour une proposition personnalisée.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-white text-black font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Demander un devis personnalisé
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link 
+                href="/processus" 
+                className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl border-2 border-gray-700 text-white font-medium hover:border-gray-500 transition-colors"
+              >
+                Voir notre processus
+              </Link>
+            </div>
+          </div>
+
+          {/* Легальна інформація */}
           <div className="text-center mt-8 text-sm text-gray-500">
-            <p className="mb-1">TVA non applicable, article 293 B du CGI</p>
-            <p>Paiement sécurisé • Aucun engagement</p>
+            <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
+            <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
           </div>
         </motion.div>
       </div>

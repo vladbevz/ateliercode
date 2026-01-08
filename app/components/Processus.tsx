@@ -82,7 +82,7 @@ export default function Processus() {
         <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container-narrow relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Заголовок секції */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -217,7 +217,7 @@ export default function Processus() {
     <motion.a
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      href="#contact"
+      href="/contact"
       className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
     >
       <span>Commencer maintenant</span>

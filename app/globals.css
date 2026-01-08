@@ -1,2 +1,35 @@
 /* app/globals.css */
 @import 'tailwindcss';
+
+/* app/globals.css - додайте після Tailwind директив */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Кастомні анімації для превью */
+@keyframes pulse-ui {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-pulse-ui {
+  animation: pulse-ui 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
