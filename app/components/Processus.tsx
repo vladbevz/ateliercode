@@ -51,7 +51,7 @@ export default function Processus() {
       scaleX: 1,
       transition: {
         duration: 1,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
