@@ -64,7 +64,7 @@ export default function Processus() {
       transition: {
         delay: i * 0.15,
         duration: 0.5,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     })
   };

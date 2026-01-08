@@ -65,7 +65,7 @@ export default function Hero() {
                   <motion.span
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
-                    transition={{ delay: 1, duration: 1.2, ease: "easeOut" }}
+                    transition={{ delay: 1, duration: 1.2, ease: "easeOut" as const}}
                     className="absolute -bottom-3 left-0 h-[2px] bg-gradient-to-r from-gray-500 to-gray-700 rounded-full"
                   />
                 </span>
@@ -225,7 +225,7 @@ export default function Hero() {
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" as const}}
               className="flex flex-col items-center gap-2"
             >
               <span className="text-xs text-gray-600 tracking-widest font-light">EXPLORER</span>
