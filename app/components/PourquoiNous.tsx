@@ -166,7 +166,7 @@ export default function PourquoiNous() {
                 <div className="mb-6">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    transition={{ type: "spring" as const, stiffness: 300 }}
                     className="inline-flex p-4 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors"
                   >
                     <div className="text-gray-300 group-hover:text-white transition-colors">

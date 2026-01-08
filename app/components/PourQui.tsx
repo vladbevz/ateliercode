@@ -51,7 +51,7 @@ export default function PourQui() {
       transition: { 
         duration: 0.6, 
         ease: "easeOut" as const,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100 
       }
     }
@@ -151,7 +151,7 @@ export default function PourQui() {
                 {/* Іконка */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: "spring" as const, stiffness: 300 }}
                   className="mb-8"
                 >
                   <div className="inline-flex p-4 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
