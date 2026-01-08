@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: 'AtelierCode <contact@ateliercode.fr>',
       to: ['contact@ateliercode.fr'], // Ваш email
-      reply_to: email, // Щоб відповідати клієнту
+      replyTo: email, // Щоб відповідати клієнту
       subject: `🎯 Nouveau message de ${nom}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
