@@ -206,10 +206,10 @@ export default function RootLayout({
                     </Link>
                     
                     <Link 
-                      href="tel:+33612345678" 
+                      href="tel:+33767772915" 
                       className="block text-gray-500 hover:text-white transition-colors text-sm"
                     >
-                      06 12 34 56 78
+                      07 67 77 29 15
                     </Link>
                     
                     <p className="text-gray-500 text-sm">
