@@ -11,26 +11,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: "AtelierCode - Développement Web & Création de Sites à Nîmes",
-  description: "Agence de développement web à Nîmes. Création de sites vitrines, e-commerce et applications web sur mesure pour les entreprises du Gard.",
-  keywords: "développement web Nîmes, création site internet Nîmes, agence web Gard, site vitrine, e-commerce, application web, développement site Nîmes",
-  openGraph: {
-    title: "AtelierCode - Agence Web à Nîmes",
-    description: "Développement de sites internet sur mesure pour les entreprises de Nîmes et du Gard",
-    url: "https://ateliercode.fr",
-    siteName: "AtelierCode Nîmes",
-    images: [
-      {
-        url: "https://ateliercode.fr/",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "fr_FR",
-    type: "website",
-  },
-}
+// export const metadata = {
+//   title: "AtelierCode - Développement Web & Création de Sites à Nîmes",
+//   description: "Agence de développement web à Nîmes. Création de sites vitrines, e-commerce et applications web sur mesure pour les entreprises du Gard.",
+//   keywords: "développement web Nîmes, création site internet Nîmes, agence web Gard, site vitrine, e-commerce, application web, développement site Nîmes",
+//   openGraph: {
+//     title: "AtelierCode - Agence Web à Nîmes",
+//     description: "Développement de sites internet sur mesure pour les entreprises de Nîmes et du Gard",
+//     url: "https://ateliercode.fr",
+//     siteName: "AtelierCode Nîmes",
+//     images: [
+//       {
+//         url: "https://ateliercode.fr/",
+//         width: 1200,
+//         height: 630,
+//       },
+//     ],
+//     locale: "fr_FR",
+//     type: "website",
+//   },
+// }
 
 export default function RootLayout({
   children,
