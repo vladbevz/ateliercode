@@ -154,7 +154,7 @@ export default function RootLayout({
                       </Link>
                     ))}
                     <Link
-                      href="#contact"
+                      href="/contact"
                       onClick={() => setIsMenuOpen(false)}
                       className="py-3 px-4 rounded-lg bg-white text-black font-medium text-center mt-4 hover:bg-gray-100 transition-all"
                     >
