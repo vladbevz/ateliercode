@@ -207,7 +207,7 @@ export default function RootLayout({
                       </Link>
                     ))}
                     <Link 
-                      href="#contact"
+                      href="/contact"
                       className="block text-gray-500 hover:text-white transition-colors text-sm font-medium mt-2"
                     >
                       Contact
@@ -277,7 +277,7 @@ export default function RootLayout({
 
         {/* Floating CTA (mobile only) */}
         <Link
-          href="#contact"
+          href="/contact"
           className="fixed bottom-6 right-6 z-40 lg:hidden flex items-center gap-2 px-5 py-3 rounded-lg bg-white text-black font-medium shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
         >
           <ArrowRight className="w-4 h-4" />
