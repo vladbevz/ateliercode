@@ -118,7 +118,7 @@ export default function CardGrid() {
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
+          <h2 className="text-4xl md:text-5xl  font-bold mb-8 tracking-tight">
             <span className="block text-white">Tout ce dont vous avez besoin</span>
             <span className="block text-gray-400 font-normal mt-4 text-3xl md:text-4xl">
               en un seul endroit
