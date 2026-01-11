@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mb-10"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-none">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-none">
               <span className="block text-white">
                 Votre site web,
               </span>

@@ -147,7 +147,7 @@ export async function POST(request: NextRequest) {
             <div style="margin-top: 30px; text-align: center;">
               <p style="color: #6B7280; font-size: 12px;">
                 Cet email a été envoyé automatiquement. Merci de ne pas y répondre.<br>
-                AtelierCode • contact@ateliercode.fr • 06 12 34 56 78<br>
+                AtelierCode • contact@ateliercode.fr • 07 67 77 29 15<br>
                 <a href="https://ateliercode.fr" style="color: #9CA3AF;">ateliercode.fr</a>
               </p>
             </div>

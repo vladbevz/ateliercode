@@ -251,19 +251,19 @@ export default function RootLayout({
                   {/* Legal */}
                   <div className="flex flex-wrap gap-6">
                     <Link
-                      href="#"
+                      href="/mentions-legales"
                       className="text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       Mentions légales
                     </Link>
                     <Link
-                      href="#"
+                      href="/politique-confidentialite"
                       className="text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       Politique de confidentialité
                     </Link>
                     <Link
-                      href="#"
+                      href="/cgv"
                       className="text-gray-500 hover:text-white transition-colors text-sm"
                     >
                       CGV

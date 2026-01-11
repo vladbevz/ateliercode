@@ -142,7 +142,7 @@ export default function Tarifs() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight"
+            className="text-4xl md:text-5xl font-bold mb-8 tracking-tight"
           >
             <span className="block text-white">Simplicité & transparence</span>
             <span className="block text-gray-400 font-normal mt-4 text-3xl md:text-4xl">
