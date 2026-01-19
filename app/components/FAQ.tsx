@@ -15,44 +15,44 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Combien de temps pour avoir mon site ?",
-      answer: "5 à 21 jours selon le projet. Landing page : 1 semaine. Site vitrine : 5-15 jours. Site avancé : 2-3 semaines.",
+      answer: "5 à 21 jours selon le projet. Landing page : 2-3 jours. Site vitrine : 5-15 jours. Site avancé : 2-3 semaines.",
     },
     {
-      question: "Puis-je modifier mon site moi-même après ?",
-      answer: "Oui, plusieurs options : 1) Interface simple incluse (modification textes/images), 2) Panel admin complet avec Sanity.io (+150€ setup), 3) Forfait maintenance à 50€/mois (modifications illimitées par mes soins).",
-    },
+  question: "Puis-je modifier mon site moi-même après ?",
+  answer: "Oui, deux options principales : 1) Panel admin complet avec Sanity.io (+150€ pour la configuration initiale) qui vous permet de modifier tout le contenu facilement, 2) Forfait maintenance à 50€/mois pour des modifications illimitées effectuées par mes soins.",
+},
     {
-      question: "Quel hébergement utilisez-vous ?",
-      answer: "J'utilise principalement Vercel (excellent pour Next.js) et OVH pour les besoins spécifiques. L'hébergement est inclus la première année (environ 60-80€/an selon le projet). Après la première année, vous pouvez choisir de le gérer vous-même ou continuer avec mes services.",
-    },
+  question: "Quel hébergement utilisez-vous ?",
+  answer: "Vercel - optimal pour Next.js, rapide et sécurisé. Le nom de domaine (.fr/.com) est inclus la première année (~12€). Après un an, vous renouvelez vous-même (~12€/an) ou via moi.",
+},
     {
       question: "Et si je ne sais pas quoi écrire sur mon site ?",
-      answer: "Je vous fournis un guide de rédaction et des exemples pour chaque page. Si nécessaire, je peux rédiger les textes avec vous (inclus dans le forfait Site Avancé, en option pour les autres à partir de 150€).",
+      answer: "Je vous fournis un guide de rédaction et des exemples pour chaque page. Si nécessaire, je peux rédiger les textes avec vous.",
     },
     {
-      question: "Proposez-vous le référencement (SEO) ?",
-      answer: "Oui, le SEO technique de base est inclus dans tous les forfaits (meta tags, structure HTML, vitesse). Pour le SEO avancé (recherche de mots-clés, contenu optimisé, netlinking), je propose un forfait à partir de 300€ selon vos besoins.",
-    },
+  question: "Proposez-vous le référencement (SEO) ?",
+  answer: "Oui, chaque forfait inclut du SEO : Landing Page (SEO de base), Site Vitrine (SEO optimisé), Site Avancé (SEO premium).",
+},
     {
       question: "Que se passe-t-il après la première année ?",
-      answer: "Après la première année, vous payez : nom de domaine (10-15€/an) et hébergement (60-80€/an). Je propose également un forfait maintenance à 50€/mois pour les mises à jour, sécurité et petites modifications.",
+      answer: "Après la première année, vous payez : nom de domaine (10-15€/an). Je propose également un forfait maintenance à 50€/mois pour les mises à jour, sécurité et petites modifications.",
     },
     {
       question: "Travaillez-vous avec des templates ?",
       answer: "J'utilise des structures de base mais chaque site est personnalisé selon vos besoins. Je ne vends pas de sites clé-en-main identiques. Votre site sera unique et adapté à votre activité.",
     },
     {
-      question: "Quelles sont les méthodes de paiement ?",
-      answer: "Paiement 50% à la commande, 50% à la livraison. Virement bancaire ou PayPal. Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée provided.",
-    },
+  question: "Quelles sont les méthodes de paiement ?",
+  answer: "Paiement 50% à la commande, 50% à la livraison. Virement bancaire, PayPal ou carte bancaire (via Stripe). Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée fournie.",
+},
     {
       question: "Puis-je voir des exemples de sites que vous avez créés ?",
       answer: "Oui, consultez la section 'Réalisations' sur cette page. Vous y trouverez plusieurs projets récents avec leurs spécificités.",
     },
     {
-      question: "Travaillez-vous avec des entreprises hors France ?",
-      answer: "Oui, je travaille avec des clients francophones partout dans le monde. Les communications se font par email et visioconférence.",
-    }
+  question: "Travaillez-vous avec des entreprises hors France ?",
+  answer: "Oui, je travaille avec des clients du monde entier.",
+}
   ]
 
   const toggleFAQ = (index: number) => {

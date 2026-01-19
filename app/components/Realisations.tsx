@@ -87,7 +87,7 @@ export default function Realisations() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
             <span className="text-white">Quelques réalisations</span>
           </h2>
           
@@ -95,9 +95,9 @@ export default function Realisations() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-400 max-w-2xl mx-auto"
+            className="text-xl text-gray-400 max-w-2xl mx-auto"
           >
-            Des projets concrets qui illustrent mon approche du développement web.
+            Notre travail parle pour nous : des sites web qui allient esthétique, performance et efficacité.
           </motion.p>
         </motion.div>
 

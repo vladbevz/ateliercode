@@ -1,4 +1,4 @@
-// app/components/PourQui.tsx - ВИПРАВЛЕНО
+// app/components/PourQui.tsx - ФІКС ЗА АНАЛОГОМ Processus
 'use client';
 
 import { Briefcase, Building, UserCheck, Target } from 'lucide-react';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function PourQui() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 }); // ЗМІНЕНО з 0.3 на 0.2
 
   const clients = [
     {
@@ -32,29 +32,18 @@ export default function PourQui() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
+  // ЗМІНЕНО: такі ж варіанти як у Processus
+  const stepVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
       y: 0,
-      opacity: 1,
-      transition: { 
-        duration: 0.6, 
-        ease: "easeOut" as const,
-        type: "spring" as const,
-        stiffness: 100 
+      transition: {
+        delay: i * 0.15, // ЗМІНЕНО: використовуємо delay замість staggerChildren
+        duration: 0.5,
+        ease: "easeOut" as const
       }
-    }
+    })
   };
 
   return (
@@ -122,19 +111,17 @@ export default function PourQui() {
           </motion.p>
         </motion.div>
 
-        {/* Картки клієнтів */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-        >
+        {/* Картки клієнтів - ЗМІНЕНО: використовуємо той самий підхід як у Processus */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {clients.map((client, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
+              custom={index}
+              variants={stepVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
               whileHover={{ 
-                y: -10,
+                y: -8, // ЗМІНЕНО: з -10 на -8 (як у Processus)
                 transition: { duration: 0.3 }
               }}
               className="relative group"
@@ -142,16 +129,15 @@ export default function PourQui() {
               {/* Градієнтний бордер при ховері */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
               
-              {/* Основна картка - ТЕПЕР ПРОСТО DIV */}
+              {/* Основна картка */}
               <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 
-                {/* Акцентна лінія */}
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Акцент при ховері - як у Processus */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
                 {/* Іконка */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring" as const, stiffness: 300 }}
+                <motion.div 
+                  whileHover={{ rotate: 5 }} // ЗМІНЕНО: з rotate 5 замість scale 1.1
                   className="mb-8"
                 >
                   <div className="inline-flex p-4 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
@@ -182,14 +168,12 @@ export default function PourQui() {
                     </div>
                   ))}
                 </div>
-
-                
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Нижній CTA - ЗМІНЕНО ПОСИЛАННЯ */}
+        {/* Нижній CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -210,12 +194,11 @@ export default function PourQui() {
             whileTap={{ scale: 0.98 }}
           >
             <Link 
-              href="/contact" // ЗМІНЕНО з #contact на /contact
+              href="/contact"
               className="inline-flex items-center gap-4 px-12 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-50 transition-all group overflow-hidden relative"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative">Étudions votre projet ensemble</span>
-              {/* Стрілку можна залишити тут, бо це посилання на контакти */}
             </Link>
           </motion.div>
         </motion.div>

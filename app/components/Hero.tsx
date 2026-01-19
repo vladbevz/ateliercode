@@ -80,8 +80,7 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-400 mb-14 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Sites web minimalistes et performants pour artisans, indépendants, professions libérales 
-            et entreprises qui valorisent l'essentiel.
+            Des sites web conçus pour les professionnels exigeants : esthétique, performance et efficacité au service de votre activité.
           </motion.p>
 
           {/* Кнопки в чорно-білій гамі */}

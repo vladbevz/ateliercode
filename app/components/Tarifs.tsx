@@ -1,4 +1,4 @@
-// app/components/Tarifs.tsx - ФІНАЛЬНА ВЕРСІЯ
+// app/components/Tarifs.tsx - ФІКС ЗА АНАЛОГОМ Processus
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function Tarifs() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 }); // ЗМІНЕНО: з 0.3 на 0.2
 
   const plans = [
     {
@@ -74,27 +74,18 @@ export default function Tarifs() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
+  // ЗМІНЕНО: такий самий варіант як у Processus
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
       opacity: 1,
-      transition: { 
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] as const
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.5,
+        ease: "easeOut" as const
       }
-    }
+    })
   };
 
   return (
@@ -123,13 +114,13 @@ export default function Tarifs() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
           {/* Бейдж */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.1 }}
             className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 backdrop-blur-sm mb-8"
           >
@@ -160,19 +151,17 @@ export default function Tarifs() {
           </motion.p>
         </motion.div>
 
-        {/* Картки тарифів */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
-        >
+        {/* Картки тарифів - ЗМІНЕНО: той же підхід як у Processus */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
+              custom={index}
               variants={itemVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
               whileHover={{ 
-                y: -8,
+                y: -8, // ЗМІНЕНО: з -8 на -8 (таке ж як у Processus)
                 transition: { duration: 0.3 }
               }}
               className={`relative group ${plan.popular ? 'lg:-mt-4' : ''}`}
@@ -181,8 +170,8 @@ export default function Tarifs() {
               {plan.popular && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + index * 0.15 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: index * 0.15 + 0.3 }}
                   className="absolute -top-5 left-1/2 -translate-x-1/2 z-20"
                 >
                   <div className="px-5 py-2 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 font-bold text-sm tracking-wider shadow-lg flex items-center gap-2">
@@ -195,11 +184,11 @@ export default function Tarifs() {
               {/* Основна картка */}
               <div className={`relative h-full bg-gradient-to-br ${plan.color} p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 group-hover:border-gray-500 overflow-hidden`}>
                 
-                {/* Верхній градієнт */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Акцент при ховері - як у Processus */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
                 {/* Заголовок тарифу */}
-                <div className="text-center mb-10 pt-2">
+                <div className="text-center mb-10 pt-2 relative z-10">
                   <h3 className="text-2xl font-bold mb-6 text-white tracking-wide">
                     {plan.name}
                   </h3>
@@ -221,7 +210,7 @@ export default function Tarifs() {
                 </div>
                 
                 {/* Список функцій */}
-                <div className="mb-10 space-y-4">
+                <div className="mb-10 space-y-4 relative z-10">
                   {plan.features.map((feature, idx) => (
                     <div
                       key={idx}
@@ -254,7 +243,7 @@ export default function Tarifs() {
                 </div>
 
                 {/* МІНІМАЛІСТИЧНИЙ БЛОК ОПЛАТИ */}
-                <div className="mt-12 pt-8 border-t border-gray-800/50">
+                <div className="mt-12 pt-8 border-t border-gray-800/50 relative z-10">
                   <div className="flex flex-col items-center">
                     <div className="flex items-center gap-1 mb-2">
                       <div className="text-xs text-gray-500">Paiement</div>
@@ -284,7 +273,7 @@ export default function Tarifs() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Додаткова інформація */}
         <motion.div
@@ -295,7 +284,12 @@ export default function Tarifs() {
         >
           {/* Блок переваг */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.7 }}
+              className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
                   <Shield className="w-5 h-5 text-gray-300" />
@@ -303,9 +297,14 @@ export default function Tarifs() {
                 <h4 className="font-bold text-white">Garantie incluse</h4>
               </div>
               <p className="text-gray-400 text-sm">30 jours de support après la livraison</p>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.75 }}
+              className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
                   <Zap className="w-5 h-5 text-gray-300" />
@@ -313,9 +312,14 @@ export default function Tarifs() {
                 <h4 className="font-bold text-white">Délais respectés</h4>
               </div>
               <p className="text-gray-400 text-sm">Livraison en 5-15 jours selon le forfait</p>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.8 }}
+              className="p-6 rounded-2xl bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800 backdrop-blur-sm"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
                   <TrendingUp className="w-5 h-5 text-gray-300" />
@@ -323,11 +327,16 @@ export default function Tarifs() {
                 <h4 className="font-bold text-white">Évolutif</h4>
               </div>
               <p className="text-gray-400 text-sm">Passez à un forfait supérieur à tout moment</p>
-            </div>
+            </motion.div>
           </div>
 
           {/* CTA */}
-          <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-900/40 to-black/40 border border-gray-800 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.85 }}
+            className="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-900/40 to-black/40 border border-gray-800 backdrop-blur-sm"
+          >
             <h4 className="text-2xl font-bold text-white mb-4">Besoin d'une solution sur mesure ?</h4>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
               Chaque projet est unique. Discutons de vos besoins spécifiques pour une proposition personnalisée.
@@ -347,13 +356,18 @@ export default function Tarifs() {
                 Voir notre processus
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Легальна інформація */}
-          <div className="text-center mt-8 text-sm text-gray-500">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.9 }}
+            className="text-center mt-8 text-sm text-gray-500"
+          >
             <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
             <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
