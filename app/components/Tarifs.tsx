@@ -1,4 +1,3 @@
-// app/components/Tarifs.tsx - СПРОЩЕНО БЕЗ GRID
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
@@ -97,12 +96,19 @@ export default function Tarifs() {
           </p>
         </div>
 
-        {/* Картки тарифів - ПРОСТИЙ FLEX */}
-        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
+        {/* Картки тарифів - Grid + прості анімації */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
-            <div 
+            <motion.div
               key={index}
-              className={`flex-1 min-w-0 ${plan.popular ? 'lg:-mt-4' : ''}`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.3 }
+              }}
+              className={`${plan.popular ? 'lg:-mt-4' : ''}`}
             >
               {/* Популярний бейдж */}
               {plan.popular && (
@@ -115,7 +121,7 @@ export default function Tarifs() {
               )}
 
               {/* Основна картка */}
-              <div className={`h-full bg-gray-900 p-8 rounded-2xl border ${plan.accent} ${plan.popular ? 'lg:mt-4' : ''}`}>
+              <div className={`h-full bg-gray-900 p-8 rounded-2xl border ${plan.accent} hover:border-gray-500 transition-colors duration-300 ${plan.popular ? 'lg:mt-4' : ''}`}>
                 
                 {/* Заголовок тарифу */}
                 <div className="text-center mb-10">
@@ -203,11 +209,11 @@ export default function Tarifs() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Додаткова інформація */}
+        {/* Решта коду залишається без змін */}
         <div className="mt-20 max-w-4xl mx-auto">
           {/* Блок переваг */}
           <div className="flex flex-col md:flex-row gap-6 mb-12">
