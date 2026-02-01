@@ -4,12 +4,48 @@
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Tarifs() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+
+  // Додаємо CSS фікс для iOS при завантаженні
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      /* iOS backdrop-blur fix */
+      @supports (-webkit-touch-callout: none) {
+        .ios-backdrop-fix {
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          background-color: rgba(17, 24, 39, 0.9);
+        }
+        
+        .ios-backdrop-light {
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          background-color: rgba(31, 41, 55, 0.9);
+        }
+      }
+      
+      /* Запасний варіант якщо backdrop-filter не підтримується */
+      @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+        .ios-backdrop-fix {
+          background-color: rgba(17, 24, 39, 0.95) !important;
+        }
+        .ios-backdrop-light {
+          background-color: rgba(31, 41, 55, 0.95) !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   const plans = [
     {
@@ -87,7 +123,6 @@ export default function Tarifs() {
     <section 
       ref={containerRef}
       className="relative py-24 overflow-hidden"
-      style={{ WebkitTransform: 'translateZ(0)' }}
     >
       {/* Елегантний градієнтний фон */}
       <div className="absolute inset-0 z-0">
@@ -113,12 +148,12 @@ export default function Tarifs() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          {/* Бейдж */}
+          {/* Бейдж - з iOS фіксом */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/90 border border-gray-800 mb-8"
+            className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/90 border border-gray-800 ios-backdrop-fix mb-8"
           >
             <span className="text-sm font-medium text-gray-300 tracking-wide">
               TARIFS TRANSPARENTS
@@ -175,8 +210,8 @@ export default function Tarifs() {
               {/* Градієнтний бордер при ховері */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
               
-              {/* Основна картка - ТАКА ЖЕ ЯК В PourQui */}
-              <div className={`relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-8 rounded-2xl border ${plan.accent} transition-all duration-300 group-hover:border-gray-600 overflow-hidden ${plan.popular ? 'lg:mt-4' : ''}`}>
+              {/* Основна картка - з iOS фіксом */}
+              <div className={`relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-8 rounded-2xl border ${plan.accent} ios-backdrop-fix transition-all duration-300 group-hover:border-gray-600 overflow-hidden ${plan.popular ? 'lg:mt-4' : ''}`}>
                 
                 {/* Акцент при ховері */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -290,7 +325,7 @@ export default function Tarifs() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 ios-backdrop-light transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
                     <Shield className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
@@ -311,7 +346,7 @@ export default function Tarifs() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 ios-backdrop-light transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
                     <Zap className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
@@ -332,7 +367,7 @@ export default function Tarifs() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 ios-backdrop-light transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
                     <TrendingUp className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
