@@ -1,4 +1,4 @@
-// app/components/Tarifs.tsx - СТИЛЬНИЙ ВАРІАНТ ЯК PourQui
+// app/components/Tarifs.tsx - ФІКС ДЛЯ iOS
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
@@ -78,8 +78,7 @@ export default function Tarifs() {
       y: 0,
       transition: {
         delay: i * 0.15,
-        duration: 0.5,
-        ease: "easeOut" as const
+        duration: 0.5
       }
     })
   };
@@ -88,6 +87,7 @@ export default function Tarifs() {
     <section 
       ref={containerRef}
       className="relative py-24 overflow-hidden"
+      style={{ WebkitTransform: 'translateZ(0)' }}
     >
       {/* Елегантний градієнтний фон */}
       <div className="absolute inset-0 z-0">
@@ -118,7 +118,7 @@ export default function Tarifs() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 backdrop-blur-sm mb-8"
+            className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/90 border border-gray-800 mb-8"
           >
             <span className="text-sm font-medium text-gray-300 tracking-wide">
               TARIFS TRANSPARENTS
@@ -165,7 +165,7 @@ export default function Tarifs() {
               {/* Популярний бейдж */}
               {plan.popular && (
                 <div className="absolute -top-5 left-0 right-0 mx-auto w-auto text-center z-20">
-                  <div className="inline-flex px-5 py-2 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 font-bold text-sm tracking-wider shadow-lg flex items-center gap-2">
+                  <div className="inline-flex px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider shadow-lg flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
                     <span>LE PLUS CHOISI</span>
                   </div>
@@ -175,8 +175,8 @@ export default function Tarifs() {
               {/* Градієнтний бордер при ховері */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
               
-              {/* Основна картка */}
-              <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden ${plan.popular ? 'lg:mt-4' : ''}`}>
+              {/* Основна картка - ТАКА ЖЕ ЯК В PourQui */}
+              <div className={`relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-8 rounded-2xl border ${plan.accent} transition-all duration-300 group-hover:border-gray-600 overflow-hidden ${plan.popular ? 'lg:mt-4' : ''}`}>
                 
                 {/* Акцент при ховері */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -213,7 +213,7 @@ export default function Tarifs() {
                       <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
                         feature.included 
                           ? 'bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-600' 
-                          : 'bg-gray-900/50 border border-gray-800'
+                          : 'bg-gray-900 border border-gray-800'
                       } transition-colors`}>
                         {feature.included ? (
                           <Check className={`w-4 h-4 ${
@@ -243,31 +243,25 @@ export default function Tarifs() {
                       <div className="text-xs text-gray-500">Paiement</div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <motion.div 
-                        whileHover={{ scale: 1.1 }}
-                        className="flex items-center gap-1.5"
-                      >
+                      <div className="flex items-center gap-1.5">
                         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 flex items-center justify-center transition-colors">
                           <span className="text-xs font-medium text-gray-300">50%</span>
                         </div>
                         <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
                           commande
                         </span>
-                      </motion.div>
+                      </div>
                       
                       <div className="text-gray-600">+</div>
                       
-                      <motion.div 
-                        whileHover={{ scale: 1.1 }}
-                        className="flex items-center gap-1.5"
-                      >
+                      <div className="flex items-center gap-1.5">
                         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 flex items-center justify-center transition-colors">
                           <span className="text-xs font-medium text-gray-300">50%</span>
                         </div>
                         <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">
                           livraison
                         </span>
-                      </motion.div>
+                      </div>
                     </div>
                     <div className="text-gray-500 text-xs mt-3">
                       Paiement sécurisé • Sans engagement
@@ -296,7 +290,7 @@ export default function Tarifs() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
                     <Shield className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
@@ -317,7 +311,7 @@ export default function Tarifs() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
                     <Zap className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
@@ -338,7 +332,7 @@ export default function Tarifs() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-6 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/90 to-black/90 p-6 rounded-2xl border border-gray-800 transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
                     <TrendingUp className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
@@ -352,7 +346,7 @@ export default function Tarifs() {
             </motion.div>
           </div>
 
-          {/* CTA - ТАКИЙ ЖЕ ЯК В PourQui */}
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
