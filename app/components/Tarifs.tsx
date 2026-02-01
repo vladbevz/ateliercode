@@ -96,8 +96,8 @@ export default function Tarifs() {
           </p>
         </div>
 
-        {/* Картки тарифів - Grid + прості анімації */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Картки тарифів - FLEX версія */}
+        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -108,7 +108,7 @@ export default function Tarifs() {
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className={`${plan.popular ? 'lg:-mt-4' : ''}`}
+              className={`flex-1 min-w-0 ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
               {/* Популярний бейдж */}
               {plan.popular && (
