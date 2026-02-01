@@ -1,4 +1,4 @@
-// app/components/Tarifs.tsx - Максимально спрощено
+// app/components/Tarifs.tsx - СПРОЩЕНО БЕЗ GRID
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
@@ -71,27 +71,12 @@ export default function Tarifs() {
     }
   ];
 
-  const stepVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.5
-      }
-    })
-  };
-
   return (
     <section 
       ref={containerRef}
-      className="relative py-24"
+      className="relative py-24 bg-black"
     >
-      {/* Простий фон */}
-      <div className="absolute inset-0 bg-black"></div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Заголовок секції */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900 border border-gray-800 mb-8">
@@ -112,33 +97,25 @@ export default function Tarifs() {
           </p>
         </div>
 
-        {/* Картки тарифів */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Картки тарифів - ПРОСТИЙ FLEX */}
+        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
-            <motion.div
+            <div 
               key={index}
-              custom={index}
-              variants={stepVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3 }
-              }}
-              className={`relative ${plan.popular ? 'lg:-mt-4' : ''}`}
+              className={`flex-1 min-w-0 ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
               {/* Популярний бейдж */}
               {plan.popular && (
-                <div className="absolute -top-5 left-0 right-0 mx-auto w-auto text-center z-20">
-                  <div className="inline-flex px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider shadow-lg flex items-center gap-2">
+                <div className="mb-4 text-center">
+                  <div className="inline-flex px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider flex items-center gap-2">
                     <Sparkles className="w-4 h-4" />
                     <span>LE PLUS CHOISI</span>
                   </div>
                 </div>
               )}
 
-              {/* Основна картка - ПРОСТА як у Processus */}
-              <div className={`relative h-full bg-gray-900 p-8 rounded-2xl border ${plan.accent} hover:border-gray-500 transition-colors duration-300 ${plan.popular ? 'lg:mt-4' : ''}`}>
+              {/* Основна картка */}
+              <div className={`h-full bg-gray-900 p-8 rounded-2xl border ${plan.accent} ${plan.popular ? 'lg:mt-4' : ''}`}>
                 
                 {/* Заголовок тарифу */}
                 <div className="text-center mb-10">
@@ -154,7 +131,9 @@ export default function Tarifs() {
                         <span className="text-3xl md:text-4xl">€</span>
                       </div>
                     </div>
-                    <div className="text-gray-500 text-sm mt-2">TVA non applicable • Article 293 B du CGI</div>
+                    <div className="text-gray-500 text-sm mt-2">
+                      TVA non applicable • Article 293 B du CGI
+                    </div>
                   </div>
                   
                   <p className="text-gray-400 leading-relaxed font-light text-lg">
@@ -224,15 +203,15 @@ export default function Tarifs() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Додаткова інформація */}
         <div className="mt-20 max-w-4xl mx-auto">
           {/* Блок переваг */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="p-6 rounded-2xl bg-gray-900 border border-gray-800">
+          <div className="flex flex-col md:flex-row gap-6 mb-12">
+            <div className="flex-1 p-6 rounded-2xl bg-gray-900 border border-gray-800">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
                   <Shield className="w-5 h-5 text-gray-300" />
@@ -242,7 +221,7 @@ export default function Tarifs() {
               <p className="text-gray-400 text-sm">30 jours de support après la livraison</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gray-900 border border-gray-800">
+            <div className="flex-1 p-6 rounded-2xl bg-gray-900 border border-gray-800">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
                   <Zap className="w-5 h-5 text-gray-300" />
@@ -252,7 +231,7 @@ export default function Tarifs() {
               <p className="text-gray-400 text-sm">Livraison en 5-15 jours selon le forfait</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gray-900 border border-gray-800">
+            <div className="flex-1 p-6 rounded-2xl bg-gray-900 border border-gray-800">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-xl bg-gray-800 border border-gray-700">
                   <TrendingUp className="w-5 h-5 text-gray-300" />
