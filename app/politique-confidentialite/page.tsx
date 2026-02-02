@@ -223,7 +223,7 @@ export default function PolitiqueConfidentialite() {
               <div className="text-gray-300 space-y-6 pl-11">
                 <div className="p-6 rounded-xl bg-gray-900/50 border border-gray-800">
                   <p className="text-white font-medium mb-3">Délégué à la protection des données (DPO) :</p>
-                  <p className="text-gray-300 mb-4">[Votre nom]</p>
+                  <p className="text-gray-300 mb-4">Bevz Vladyslav</p>
                   
                   <p className="text-white font-medium mb-2">Email :</p>
                   <a href="mailto:contact@ateliercode.fr" className="text-gray-300 hover:text-white hover:underline transition-colors break-all text-lg block mb-4">
@@ -231,7 +231,7 @@ export default function PolitiqueConfidentialite() {
                   </a>
                   
                   <p className="text-white font-medium mb-2">Adresse :</p>
-                  <p className="text-gray-300">[Votre adresse complète]</p>
+                  <p className="text-gray-300">19 rue Menard, 30000 Nimes</p>
                 </div>
                 
                 <div className="p-6 rounded-xl bg-gray-900/50 border border-gray-800">

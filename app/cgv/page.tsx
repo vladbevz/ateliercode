@@ -127,10 +127,10 @@ export default function CGV() {
               </div>
               <div className="text-gray-300 space-y-2 pl-11">
                 <p><span className="font-medium text-gray-400">AtelierCode</span> - Micro-entreprise</p>
-                <p><span className="font-medium text-gray-400">SIRET :</span> [À ajouter après obtention]</p>
-                <p><span className="font-medium text-gray-400">Adresse :</span> [Votre adresse complète]</p>
+                <p><span className="font-medium text-gray-400">SIRET :</span> 99993442500011</p>
+                <p><span className="font-medium text-gray-400">Adresse :</span> 19 rue Menard, 30000 Nimes</p>
                 <p><span className="font-medium text-gray-400">Email :</span> contact@ateliercode.fr</p>
-                <p><span className="font-medium text-gray-400">Téléphone :</span> [Votre numéro de téléphone]</p>
+                <p><span className="font-medium text-gray-400">Téléphone :</span> +33767772915</p>
               </div>
             </motion.section>
 
@@ -322,7 +322,7 @@ export default function CGV() {
                     
                     <div>
                       <p className="text-gray-400 text-sm mb-1">Adresse</p>
-                      <p className="text-white">[Votre adresse complète]</p>
+                      <p className="text-white">19 rue Menard, 30000 Nimes</p>
                     </div>
                   </div>
                 </div>

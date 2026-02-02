@@ -74,12 +74,12 @@ export default function MentionsLegales() {
               <div className="text-gray-300 space-y-3 pl-11">
                 <p><span className="font-medium text-gray-400">Dénomination sociale :</span> AtelierCode</p>
                 <p><span className="font-medium text-gray-400">Statut juridique :</span> Micro-entreprise</p>
-                <p><span className="font-medium text-gray-400">Siège social :</span> [Votre adresse complète]</p>
-                <p><span className="font-medium text-gray-400">SIRET :</span> [À ajouter après obtention]</p>
+                <p><span className="font-medium text-gray-400">Siège social :</span> 19 rue Menard, 30000 Nimes</p>
+                <p><span className="font-medium text-gray-400">SIRET :</span> 99993442500011</p>
                 <p><span className="font-medium text-gray-400">Numéro de TVA :</span> Non applicable, en application de l'article 293 B du CGI</p>
                 <p><span className="font-medium text-gray-400">Email :</span> contact@ateliercode.fr</p>
-                <p><span className="font-medium text-gray-400">Directeur de la publication :</span> [Votre nom], auto-entrepreneur</p>
-                <p><span className="font-medium text-gray-400">Téléphone :</span> [Votre numéro de téléphone]</p>
+                <p><span className="font-medium text-gray-400">Directeur de la publication :</span> Bevz Vladyslav, auto-entrepreneur</p>
+                <p><span className="font-medium text-gray-400">Téléphone :</span> +33767772915</p>
               </div>
             </motion.section>
 
