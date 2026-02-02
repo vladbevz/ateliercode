@@ -28,8 +28,7 @@ export default function Tarifs() {
         { name: "Blog intégré", included: false, highlight: false },
       ],
       popular: false,
-      accent: "border-gray-800",
-      hoverColor: "hover:border-gray-700"
+      accent: "border-gray-800"
     },
     {
       name: "Site Vitrine",
@@ -48,8 +47,7 @@ export default function Tarifs() {
         { name: "Analytics avancé", included: false, highlight: false },
       ],
       popular: true,
-      accent: "border-gray-600",
-      hoverColor: "hover:border-gray-500"
+      accent: "border-gray-600"
     },
     {
       name: "Site Avancé",
@@ -68,12 +66,10 @@ export default function Tarifs() {
         { name: "Analytics avancé", included: true, highlight: true },
       ],
       popular: false,
-      accent: "border-gray-800",
-      hoverColor: "hover:border-gray-700"
+      accent: "border-gray-800"
     }
   ];
 
-  // ЗМІНЕНО: той самий підхід як у PourQui.tsx
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
@@ -140,8 +136,8 @@ export default function Tarifs() {
           </motion.p>
         </motion.div>
 
-        {/* КАРТКИ ТАРИФІВ - ЗМІНЕНО: той самий підхід як у PourQui.tsx */}
-        <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
+        {/* ЗМІНЕНО: використовуємо grid як у PourQui.tsx */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -153,25 +149,20 @@ export default function Tarifs() {
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className={`relative group flex-1 min-w-0 ${plan.popular ? 'lg:-mt-4' : ''}`}
+              className={`relative group ${plan.popular ? 'lg:row-span-1' : ''}`}
             >
-              {/* ПОПУЛЯРНИЙ БЕЙДЖ */}
+              {/* ПОПУЛЯРНИЙ БЕЙДЖ - спрощуємо без додаткового motion.div */}
               {plan.popular && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  className="mb-4 text-center"
-                >
+                <div className="mb-4 text-center">
                   <div className="inline-flex items-center px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider gap-2">
                     <Sparkles className="w-4 h-4" />
                     <span>LE PLUS CHOISI</span>
                   </div>
-                </motion.div>
+                </div>
               )}
 
               {/* ОСНОВНА КАРТКА */}
-              <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 ${plan.hoverColor} overflow-hidden ${plan.popular ? 'lg:mt-4' : ''}`}>
+              <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 hover:border-gray-600 overflow-hidden`}>
                 {/* АКЦЕНТ ПРИ ХОВЕРІ */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
@@ -272,7 +263,7 @@ export default function Tarifs() {
           transition={{ delay: 0.5 }}
           className="mt-20 max-w-4xl mx-auto"
         >
-          <div className="flex flex-col md:flex-row gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               {
                 icon: <Shield className="w-5 h-5 text-gray-300" />,
@@ -292,7 +283,7 @@ export default function Tarifs() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="relative group flex-1"
+                className="relative group"
               >
                 <div className="relative p-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                   <div className="flex items-center gap-3 mb-4">
@@ -339,7 +330,7 @@ export default function Tarifs() {
           {/* ФУТЕР */}
           <div className="text-center mt-8 text-sm text-gray-500">
             <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
-            <p>Paiement 100% sécurisé • Facture déтаillée fournie</p>
+            <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
           </div>
         </motion.div>
       </div>
