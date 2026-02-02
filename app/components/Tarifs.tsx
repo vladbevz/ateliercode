@@ -1,15 +1,9 @@
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import Link from 'next/link';
 
 export default function Tarifs() {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
-
   const plans = [
     {
       name: "Landing Page",
@@ -71,10 +65,7 @@ export default function Tarifs() {
   ];
 
   return (
-    <section 
-      ref={containerRef}
-      className="relative py-24 bg-black"
-    >
+    <section className="relative py-24 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Заголовок секції */}
         <div className="text-center mb-20">
@@ -96,18 +87,11 @@ export default function Tarifs() {
           </p>
         </div>
 
-        {/* Картки тарифів - FLEX версія */}
+        {/* Картки тарифів - ПРОСТА ВЕРСІЯ БЕЗ АНІМАЦІЙ */}
         <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3 }
-              }}
               className={`flex-1 min-w-0 ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
               {/* Популярний бейдж */}
@@ -121,7 +105,7 @@ export default function Tarifs() {
               )}
 
               {/* Основна картка */}
-              <div className={`h-full bg-gray-900 p-8 rounded-2xl border ${plan.accent} hover:border-gray-500 transition-colors duration-300 ${plan.popular ? 'lg:mt-4' : ''}`}>
+              <div className={`h-full bg-gray-900 p-8 rounded-2xl border ${plan.accent} ${plan.popular ? 'lg:mt-4' : ''}`}>
                 
                 {/* Заголовок тарифу */}
                 <div className="text-center mb-10">
@@ -209,13 +193,12 @@ export default function Tarifs() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* Решта коду залишається без змін */}
+        {/* Решта коду без змін */}
         <div className="mt-20 max-w-4xl mx-auto">
-          {/* Блок переваг */}
           <div className="flex flex-col md:flex-row gap-6 mb-12">
             <div className="flex-1 p-6 rounded-2xl bg-gray-900 border border-gray-800">
               <div className="flex items-center gap-3 mb-4">
@@ -248,7 +231,6 @@ export default function Tarifs() {
             </div>
           </div>
 
-          {/* CTA */}
           <div className="text-center p-8 rounded-2xl bg-gray-900 border border-gray-800">
             <h4 className="text-2xl font-bold text-white mb-4">Besoin d'une solution sur mesure ?</h4>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -271,7 +253,6 @@ export default function Tarifs() {
             </div>
           </div>
 
-          {/* Легальна інформація */}
           <div className="text-center mt-8 text-sm text-gray-500">
             <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
             <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
