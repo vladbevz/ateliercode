@@ -70,8 +70,20 @@ export default function Realisations() {
       ref={containerRef}
       className="relative py-20"
     >
-      {/* Простий фон */}
-      <div className="absolute inset-0 bg-black"></div>
+      {/* ФОН ЯК В ІНШИХ КОМПОНЕНТАХ */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
+      </div>
+      {/* ТОНКА СІТКА ЯК В PourQui.tsx */}
+      <div className="absolute inset-0 z-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
+                           linear-gradient(180deg, #fff 1px, transparent 2px)`,
+          backgroundSize: '80px 80px',
+        }} />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Скромний заголовок */}

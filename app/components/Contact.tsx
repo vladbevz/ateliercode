@@ -71,11 +71,20 @@ export default function Contact() {
       ref={containerRef}
       className="relative py-24 overflow-hidden" // Додано overflow-hidden
     >
-      {/* Фон - FIXED: Додаємо overflow-hidden */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* ФОН ЯК В ІНШИХ КОМПОНЕНТАХ */}
+      <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-gray-900/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-gray-800/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* ТОНКА СІТКА ЯК В PourQui.tsx */}
+      <div className="absolute inset-0 z-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
+                           linear-gradient(180deg, #fff 1px, transparent 2px)`,
+          backgroundSize: '80px 80px',
+        }} />
       </div>
 
       {/* FIXED: Головна обгортка з overflow-hidden */}

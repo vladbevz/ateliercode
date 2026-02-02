@@ -81,6 +81,14 @@ export default function Processus() {
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
       </div>
+      {/* ТОНКА СІТКА ЯК В PourQui.tsx */}
+      <div className="absolute inset-0 z-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
+                           linear-gradient(180deg, #fff 1px, transparent 2px)`,
+          backgroundSize: '80px 80px',
+        }} />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Заголовок секції */}
