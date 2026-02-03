@@ -70,17 +70,28 @@ export default function Tarifs() {
     }
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
+  // ЗМІНЕНО: Використовуємо такий самий підхід як у Realisations.tsx
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        delay: i * 0.15,
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { 
         duration: 0.5,
         ease: "easeOut" as const
       }
-    })
+    }
   };
 
   return (
@@ -136,136 +147,131 @@ export default function Tarifs() {
           </motion.p>
         </motion.div>
 
-        {/* КАРТКИ - ДОДАЄМО WRAPPER ЯК У Processus.tsx */}
-        <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={cardVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                whileHover={{ 
-                  y: -8,
-                  transition: { duration: 0.3 }
-                }}
-                className="relative group"
-              >
-                {/* ПОПУЛЯРНИЙ БЕЙДЖ */}
-                {plan.popular && (
-                  <div className="mb-4 text-center">
-                    <div className="inline-flex items-center px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider gap-2">
-                      <Sparkles className="w-4 h-4" />
-                      <span>LE PLUS CHOISI</span>
-                    </div>
+        {/* КАРТКИ - ЗМІНЕНО: Використовуємо containerVariants + itemVariants як у Realisations */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
+          {plans.map((plan, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ 
+                y: -8,
+                transition: { duration: 0.3 }
+              }}
+              className="relative group"
+            >
+              {/* ПОПУЛЯРНИЙ БЕЙДЖ */}
+              {plan.popular && (
+                <div className="mb-4 text-center">
+                  <div className="inline-flex items-center px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    <span>LE PLUS CHOISI</span>
                   </div>
-                )}
+                </div>
+              )}
 
-                {/* ОСНОВНА КАРТКА */}
-                <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 hover:border-gray-600 overflow-hidden`}>
+              {/* ОСНОВНА КАРТКА */}
+              <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 hover:border-gray-600 overflow-hidden`}>
+                
+                {/* АКЦЕНТ ПРИ ХОВЕРІ */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+
+                {/* ЗАГОЛОВОК ТАРИФУ */}
+                <div className="text-center mb-10 relative z-10">
+                  <h3 className="text-2xl font-bold mb-6 text-white">
+                    {plan.name}
+                  </h3>
                   
-                  {/* АКЦЕНТ ПРИ ХОВЕРІ */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-
-                  {/* ЗАГОЛОВОК ТАРИФУ */}
-                  <div className="text-center mb-10 relative z-10">
-                    <h3 className="text-2xl font-bold mb-6 text-white">
-                      {plan.name}
-                    </h3>
-                    
-                    <div className="mb-6">
-                      <div className="flex items-baseline justify-center gap-1">
-                        <div className="text-sm font-medium text-gray-400">à partir de</div>
-                        <div className="text-5xl md:text-6xl font-bold text-white ml-1">
-                          {plan.price}
-                          <span className="text-3xl md:text-4xl">€</span>
-                        </div>
-                      </div>
-                      <div className="text-gray-500 text-sm mt-2">
-                        TVA non applicable • Article 293 B du CGI
+                  <div className="mb-6">
+                    <div className="flex items-baseline justify-center gap-1">
+                      <div className="text-sm font-medium text-gray-400">à partir de</div>
+                      <div className="text-5xl md:text-6xl font-bold text-white ml-1">
+                        {plan.price}
+                        <span className="text-3xl md:text-4xl">€</span>
                       </div>
                     </div>
-                    
-                    <p className="text-gray-400 leading-relaxed font-light text-lg group-hover:text-gray-300 transition-colors">
-                      {plan.description}
-                    </p>
+                    <div className="text-gray-500 text-sm mt-2">
+                      TVA non applicable • Article 293 B du CGI
+                    </div>
                   </div>
                   
-                  {/* СПИСОК ФУНКЦІЙ */}
-                  <div className="mb-10 space-y-4 relative z-10">
-                    {plan.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className={`flex items-center gap-3 ${!feature.included ? 'opacity-40' : ''}`}
-                      >
-                        <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
-                          feature.included 
-                            ? 'bg-gray-800 border border-gray-700 group-hover:border-gray-500' 
-                            : 'bg-gray-900 border border-gray-800'
-                        } transition-colors`}>
-                          {feature.included ? (
-                            <Check className={`w-4 h-4 ${
-                              feature.highlight ? 'text-white' : 'text-gray-400 group-hover:text-gray-300'
-                            } transition-colors`} />
-                          ) : (
-                            <div className="w-2 h-2 rounded-full bg-gray-700"></div>
-                          )}
-                        </div>
-                        <span className={`text-sm ${
-                          feature.included 
-                            ? feature.highlight 
-                              ? 'text-white font-medium' 
-                              : 'text-gray-300 group-hover:text-gray-200'
-                            : 'text-gray-600'
-                        } transition-colors`}>
-                          {feature.name}
-                        </span>
+                  <p className="text-gray-400 leading-relaxed font-light text-lg group-hover:text-gray-300 transition-colors">
+                    {plan.description}
+                  </p>
+                </div>
+                
+                {/* СПИСОК ФУНКЦІЙ */}
+                <div className="mb-10 space-y-4 relative z-10">
+                  {plan.features.map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex items-center gap-3 ${!feature.included ? 'opacity-40' : ''}`}
+                    >
+                      <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
+                        feature.included 
+                          ? 'bg-gray-800 border border-gray-700 group-hover:border-gray-500' 
+                          : 'bg-gray-900 border border-gray-800'
+                      } transition-colors`}>
+                        {feature.included ? (
+                          <Check className={`w-4 h-4 ${
+                            feature.highlight ? 'text-white' : 'text-gray-400 group-hover:text-gray-300'
+                          } transition-colors`} />
+                        ) : (
+                          <div className="w-2 h-2 rounded-full bg-gray-700"></div>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                      <span className={`text-sm ${
+                        feature.included 
+                          ? feature.highlight 
+                            ? 'text-white font-medium' 
+                            : 'text-gray-300 group-hover:text-gray-200'
+                          : 'text-gray-600'
+                      } transition-colors`}>
+                        {feature.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
 
-                  {/* БЛОК ОПЛАТИ */}
-                  <div className="mt-12 pt-8 border-t border-gray-800/50 relative z-10">
-                    <div className="flex flex-col items-center">
-                      <div className="flex items-center gap-1 mb-2">
-                        <div className="text-xs text-gray-500">Paiement</div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1.5">
-                          <div className="w-7 h-7 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center group-hover:border-gray-500 transition-colors">
-                            <span className="text-xs font-medium text-gray-300">50%</span>
-                          </div>
-                          <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">commande</span>
+                {/* БЛОК ОПЛАТИ */}
+                <div className="mt-12 pt-8 border-t border-gray-800/50 relative z-10">
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-1 mb-2">
+                      <div className="text-xs text-gray-500">Paiement</div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-7 h-7 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center group-hover:border-gray-500 transition-colors">
+                          <span className="text-xs font-medium text-gray-300">50%</span>
                         </div>
-                        
-                        <div className="text-gray-600">+</div>
-                        
-                        <div className="flex items-center gap-1.5">
-                          <div className="w-7 h-7 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center group-hover:border-gray-500 transition-colors">
-                            <span className="text-xs font-medium text-gray-300">50%</span>
-                          </div>
-                          <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">livraison</span>
+                        <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">commande</span>
+                      </div>
+                      
+                      <div className="text-gray-600">+</div>
+                      
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-7 h-7 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center group-hover:border-gray-500 transition-colors">
+                          <span className="text-xs font-medium text-gray-300">50%</span>
                         </div>
+                        <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">livraison</span>
                       </div>
-                      <div className="text-gray-500 text-xs mt-3 group-hover:text-gray-400 transition-colors">
-                        Paiement sécurisé • Sans engagement
-                      </div>
+                    </div>
+                    <div className="text-gray-500 text-xs mt-3 group-hover:text-gray-400 transition-colors">
+                      Paiement sécurisé • Sans engagement
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
-        {/* ІНФОБЛОКИ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5 }}
-          className="mt-20 max-w-4xl mx-auto"
-        >
+        {/* ІНФОБЛОКИ - спрощуємо без анімацій */}
+        <div className="mt-20 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               {
@@ -335,7 +341,7 @@ export default function Tarifs() {
             <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
             <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
