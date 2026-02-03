@@ -1,4 +1,4 @@
-// app/components/Tarifs.tsx - ФІНАЛЬНА ВЕРСІЯ
+// app/components/Tarifs.tsx - ФІНАЛЬНА ПРАЦЮЮЧА ВЕРСІЯ
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
@@ -71,34 +71,19 @@ export default function Tarifs() {
     }
   ];
 
-  // ТАКІ Ж ВАРІАНТИ ЯК У Processus.tsx та PourQui.tsx
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.5,
-        ease: "easeOut" as const
-      }
-    })
-  };
-
   return (
     <section 
-      id="tarifs"
       ref={containerRef}
       className="relative py-24 overflow-hidden"
     >
-      {/* ФОН ЯК В ІНШИХ КОМПОНЕНТАХ */}
+      {/* Елегантний градієнтний фон */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
       </div>
 
-      {/* ТОНКА СІТКА */}
+      {/* Тонка геометрична сітка */}
       <div className="absolute inset-0 z-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
           backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
@@ -108,13 +93,14 @@ export default function Tarifs() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Заголовок */}
+        {/* Заголовок секції - ПРОСТА АНІМАЦІЯ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
+          {/* Утончений бейдж */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -148,66 +134,83 @@ export default function Tarifs() {
           </motion.p>
         </motion.div>
 
-        {/* Картки - ТАКИЙ Ж ПІДХІД ЯК У Processus.tsx */}
+        {/* Картки тарифів - ПРОСТІ АНІМАЦІЇ */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              custom={index}
-              variants={cardVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ 
+                delay: 0.3 + (index * 0.15),
+                duration: 0.5,
+                ease: "easeOut"
+              }}
               whileHover={{ 
                 y: -8,
                 transition: { duration: 0.3 }
               }}
               className="relative group"
             >
-              {/* Популярний бейдж */}
-              {plan.popular && (
-                <div className="mb-4 text-center">
-                  <div className="inline-flex items-center px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider gap-2">
-                    <Sparkles className="w-4 h-4" />
-                    <span>LE PLUS CHOISI</span>
-                  </div>
-                </div>
-              )}
-
+              {/* Градієнтний бордер при ховері */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+              
               {/* Основна картка */}
-              <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 hover:border-gray-600 overflow-hidden`}>
+              <div className={`relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border ${plan.accent} backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden`}>
                 
                 {/* Акцент при ховері */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
 
-                {/* Заголовок та ціна */}
-                <div className="text-center mb-10 relative z-10">
-                  <h3 className="text-2xl font-bold mb-6 text-white">
-                    {plan.name}
-                  </h3>
-                  
-                  <div className="mb-6">
-                    <div className="flex items-baseline justify-center gap-1">
-                      <div className="text-sm font-medium text-gray-400">à partir de</div>
-                      <div className="text-5xl md:text-6xl font-bold text-white ml-1">
-                        {plan.price}
-                        <span className="text-3xl md:text-4xl">€</span>
-                      </div>
+                {/* Популярний бейдж */}
+                {plan.popular && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.4 + (index * 0.15) }}
+                    className="mb-4 text-center"
+                  >
+                    <div className="inline-flex items-center px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider gap-2">
+                      <Sparkles className="w-4 h-4" />
+                      <span>LE PLUS CHOISI</span>
                     </div>
-                    <div className="text-gray-500 text-sm mt-2">
-                      TVA non applicable • Article 293 B du CGI
+                  </motion.div>
+                )}
+
+                {/* Заголовок */}
+                <h3 className="text-2xl font-bold mb-5 text-white leading-tight text-center">
+                  {plan.name}
+                </h3>
+
+                {/* Ціна */}
+                <div className="text-center mb-6">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <div className="text-sm font-medium text-gray-400">à partir de</div>
+                    <div className="text-5xl md:text-6xl font-bold text-white ml-1">
+                      {plan.price}
+                      <span className="text-3xl md:text-4xl">€</span>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-400 leading-relaxed font-light text-lg group-hover:text-gray-300 transition-colors">
-                    {plan.description}
-                  </p>
+                  <div className="text-gray-500 text-sm mt-2">
+                    TVA non applicable • Article 293 B du CGI
+                  </div>
                 </div>
+
+                {/* Опис */}
+                <p className="text-gray-400 mb-8 leading-relaxed text-lg font-light group-hover:text-gray-300 transition-colors text-center">
+                  {plan.description}
+                </p>
                 
                 {/* Список функцій */}
-                <div className="mb-10 space-y-4 relative z-10">
+                <div className="mb-10 space-y-4">
                   {plan.features.map((feature, idx) => (
-                    <div
+                    <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ 
+                        delay: 0.5 + (index * 0.15) + (idx * 0.02),
+                        duration: 0.3
+                      }}
                       className={`flex items-center gap-3 ${!feature.included ? 'opacity-40' : ''}`}
                     >
                       <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
@@ -232,12 +235,17 @@ export default function Tarifs() {
                       } transition-colors`}>
                         {feature.name}
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
                 {/* Блок оплати */}
-                <div className="mt-12 pt-8 border-t border-gray-800/50 relative z-10">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.8 + (index * 0.15) }}
+                  className="mt-12 pt-8 border-t border-gray-800/50"
+                >
                   <div className="flex flex-col items-center">
                     <div className="flex items-center gap-1 mb-2">
                       <div className="text-xs text-gray-500">Paiement</div>
@@ -263,13 +271,13 @@ export default function Tarifs() {
                       Paiement sécurisé • Sans engagement
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Інфоблоки - прості анімації без variants */}
+        {/* Інфоблоки */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -316,7 +324,7 @@ export default function Tarifs() {
             ))}
           </div>
 
-          {/* CTA */}
+          {/* CTA блок */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
