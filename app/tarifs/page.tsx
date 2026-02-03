@@ -1,4 +1,4 @@
-import Tarifs from '../components/Tarifs';
+import Tarifs from '@/app/components/Tarifs';
 
 export default function TarifsPage() {
   return <Tarifs />;
