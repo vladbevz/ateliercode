@@ -1,16 +1,10 @@
-// app/components/Tarifs.tsx - ФІНАЛЬНА ПРАЦЮЮЧА ВЕРСІЯ
+// app/components/Tarifs.tsx
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import Link from 'next/link';
 
 export default function Tarifs() {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
-
   const plans = [
     {
       name: "Landing Page",
@@ -72,10 +66,7 @@ export default function Tarifs() {
   ];
 
   return (
-    <section 
-      ref={containerRef}
-      className="relative py-24 overflow-hidden"
-    >
+    <section className="relative py-24 overflow-hidden">
       {/* Елегантний градієнтний фон */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
@@ -93,65 +84,30 @@ export default function Tarifs() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Заголовок секції - ПРОСТА АНІМАЦІЯ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
-        >
-          {/* Утончений бейдж */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 backdrop-blur-sm mb-8"
-          >
+        {/* Заголовок секції */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 backdrop-blur-sm mb-8">
             <span className="text-sm font-medium text-gray-300 tracking-wide">
               TARIFS TRANSPARENTS
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold mb-8 tracking-tight"
-          >
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
             <span className="block text-white">Simplicité & transparence</span>
             <span className="block text-gray-400 font-normal mt-4 text-3xl md:text-4xl">
               des tarifs clairs
             </span>
-          </motion.h2>
+          </h2>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.3 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
-          >
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
             Tout est inclus. Pas de frais cachés, pas de surprise. Juste un site web qui fonctionne.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        {/* Картки тарифів - ПРОСТІ АНІМАЦІЇ */}
+        {/* Картки тарифів - БЕЗ анімацій */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ 
-                delay: 0.3 + (index * 0.15),
-                duration: 0.5,
-                ease: "easeOut"
-              }}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3 }
-              }}
-              className="relative group"
-            >
+            <div key={index} className="relative group">
               {/* Градієнтний бордер при ховері */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
               
@@ -163,17 +119,12 @@ export default function Tarifs() {
 
                 {/* Популярний бейдж */}
                 {plan.popular && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.4 + (index * 0.15) }}
-                    className="mb-4 text-center"
-                  >
+                  <div className="mb-4 text-center">
                     <div className="inline-flex items-center px-5 py-2 rounded-full bg-gray-800 border border-gray-700 font-bold text-sm tracking-wider gap-2">
                       <Sparkles className="w-4 h-4" />
                       <span>LE PLUS CHOISI</span>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* Заголовок */}
@@ -203,14 +154,8 @@ export default function Tarifs() {
                 {/* Список функцій */}
                 <div className="mb-10 space-y-4">
                   {plan.features.map((feature, idx) => (
-                    <motion.div
+                    <div
                       key={idx}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ 
-                        delay: 0.5 + (index * 0.15) + (idx * 0.02),
-                        duration: 0.3
-                      }}
                       className={`flex items-center gap-3 ${!feature.included ? 'opacity-40' : ''}`}
                     >
                       <div className={`flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
@@ -235,17 +180,12 @@ export default function Tarifs() {
                       } transition-colors`}>
                         {feature.name}
                       </span>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
 
                 {/* Блок оплати */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.8 + (index * 0.15) }}
-                  className="mt-12 pt-8 border-t border-gray-800/50"
-                >
+                <div className="mt-12 pt-8 border-t border-gray-800/50">
                   <div className="flex flex-col items-center">
                     <div className="flex items-center gap-1 mb-2">
                       <div className="text-xs text-gray-500">Paiement</div>
@@ -271,19 +211,14 @@ export default function Tarifs() {
                       Paiement sécurisé • Sans engagement
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Інфоблоки */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.5 }}
-          className="mt-20 max-w-4xl mx-auto"
-        >
+        <div className="mt-20 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               {
@@ -302,13 +237,7 @@ export default function Tarifs() {
                 text: "Passez à un forfait supérieur à tout moment"
               }
             ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.6 + idx * 0.1 }}
-                className="relative group"
-              >
+              <div key={idx} className="relative group">
                 <div className="relative p-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2 rounded-xl bg-gray-800 border border-gray-700 group-hover:border-gray-500 transition-colors">
@@ -320,17 +249,12 @@ export default function Tarifs() {
                     {item.text}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* CTA блок */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.8 }}
-            className="relative group"
-          >
+          <div className="relative group">
             <div className="relative text-center p-8 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
               <h4 className="text-2xl font-bold text-white mb-4">
                 Besoin d'une solution sur mesure ?
@@ -354,19 +278,14 @@ export default function Tarifs() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Футер */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 1.0 }}
-            className="text-center mt-8 text-sm text-gray-500"
-          >
+          <div className="text-center mt-8 text-sm text-gray-500">
             <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
             <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
