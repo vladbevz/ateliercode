@@ -1,10 +1,16 @@
-// app/components/Tarifs.tsx - З grid але без Framer Motion
+// app/components/Tarifs.tsx - З Framer Motion але спрощено
 'use client';
 
 import { Check, ArrowRight, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Link from 'next/link';
 
 export default function Tarifs() {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+
   const plans = [
     {
       name: "Landing Page",
@@ -51,13 +57,21 @@ export default function Tarifs() {
   ];
 
   return (
-    <section className="relative py-20 bg-black">
-      {/* Додаємо фон з градієнтом */}
+    <section 
+      ref={containerRef}
+      className="relative py-20 bg-black"
+    >
+      {/* Фон */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
       
       <div className="container mx-auto px-4 relative">
-        {/* Заголовок */}
-        <div className="text-center mb-16">
+        {/* Заголовок з простою анімацією */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
+        >
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900 border border-gray-800 mb-8">
             <span className="text-sm font-medium text-gray-300">
               TARIFS TRANSPARENTS
@@ -74,13 +88,16 @@ export default function Tarifs() {
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Tout est inclus. Pas de frais cachés, pas de surprise.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Картки з GRID */}
+        {/* Картки БЕЗ staggerChildren - просто fade in */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
-            <div 
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               className={`p-6 rounded-xl border ${plan.accent} bg-gray-900/90 backdrop-blur-sm`}
             >
               {/* Популярний бейдж */}
@@ -170,12 +187,17 @@ export default function Tarifs() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Решта коду без змін */}
-        <div className="mt-16 max-w-4xl mx-auto">
+        {/* Решта коду */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3 }}
+          className="mt-16 max-w-4xl mx-auto"
+        >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {[
               {
@@ -194,8 +216,11 @@ export default function Tarifs() {
                 text: "Passez à un forfait supérieur à tout moment"
               }
             ].map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.4 + idx * 0.1 }}
                 className="p-6 rounded-xl border border-gray-800 bg-gray-900/90 backdrop-blur-sm"
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -207,12 +232,17 @@ export default function Tarifs() {
                 <p className="text-gray-400 text-sm">
                   {item.text}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="text-center p-8 rounded-xl border border-gray-800 bg-gray-900/90 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6 }}
+            className="text-center p-8 rounded-xl border border-gray-800 bg-gray-900/90 backdrop-blur-sm"
+          >
             <h4 className="text-xl font-bold text-white mb-4">
               Besoin d'une solution sur mesure ?
             </h4>
@@ -234,13 +264,13 @@ export default function Tarifs() {
                 Voir notre processus
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           <div className="text-center mt-8 text-sm text-gray-500">
             <p className="mb-1">TVA non applicable, article 293 B du CGI • Micro-entreprise</p>
             <p>Paiement 100% sécurisé • Facture détaillée fournie</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
