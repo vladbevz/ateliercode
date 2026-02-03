@@ -11,8 +11,17 @@ export default function Realisations() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
-  // Просто 3 проекти
+  // Просто 4 проекти
   const projects = [
+    {
+      title: "Portfolio Photographe",
+      category: "Photographie",
+      description: "Portfolio élégant pour photographe avec galerie dynamique et design minimaliste.",
+      liveUrl: "https://photographer-portfolio-pied-ten.vercel.app/",
+      githubUrl: "https://github.com/vladbevz/photographer_portfolio",
+      preview: "photographer",
+      accent: "📸"
+    },
     {
       title: "Laboratoire Dentaire",
       category: "Santé",
@@ -23,7 +32,7 @@ export default function Realisations() {
       accent: "🦷"
     },
     {
-      title: "Aqua Tracker",
+      title: "Application Aqua Tracker ",
       category: "Wellness",
       description: "Application de suivi de consommation d'eau avec objectifs quotidiens.",
       liveUrl: "https://aqua-tracker-fe-rose.vercel.app/",
@@ -32,7 +41,7 @@ export default function Realisations() {
       accent: "💧"
     },
     {
-      title: "Chocolatier",
+      title: "Chocolatier Artisanal",
       category: "Artisanat",
       description: "Site vitrine pour chocolatier avec galerie produits et informations.",
       liveUrl: "https://vladbevz.github.io/Simply-chocolate/",
@@ -113,21 +122,21 @@ export default function Realisations() {
           </motion.p>
         </motion.div>
 
-        {/* Прості картки проектів */}
+        {/* Прості картки проектів - змінюємо на 4 колонки на великих екранах */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative group"
+              className="relative group flex flex-col" // Додаємо flex flex-col
             >
               {/* Картка */}
-              <div className="relative h-full bg-gray-900/50 rounded-xl border border-gray-800 p-6 hover:border-gray-700 transition-colors">
+              <div className="relative h-full bg-gray-900/50 rounded-xl border border-gray-800 p-6 hover:border-gray-700 transition-colors flex flex-col">
                 
                 {/* Емодзі та заголовок */}
                 <div className="flex items-center gap-3 mb-4">
@@ -139,19 +148,19 @@ export default function Realisations() {
                 </div>
 
                 {/* Просте превью */}
-                <div className="mb-4 p-3 rounded-lg bg-gray-900/50 border border-gray-800 h-32 flex items-center justify-center">
+                <div className="mb-4 p-3 rounded-lg bg-gray-900/50 border border-gray-800 h-32 flex items-center justify-center flex-shrink-0">
                   <div className="text-5xl opacity-30">
                     {project.accent}
                   </div>
                 </div>
 
                 {/* Опис */}
-                <p className="text-gray-400 text-sm mb-5">
+                <p className="text-gray-400 text-sm mb-5 flex-grow">
                   {project.description}
                 </p>
 
-                {/* Посилання */}
-                <div className="flex items-center gap-4">
+                {/* Посилання - завжди внизу */}
+                <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-800/50">
                   <a
                     href={project.liveUrl}
                     target="_blank"
