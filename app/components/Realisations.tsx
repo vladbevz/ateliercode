@@ -26,7 +26,7 @@ export default function Realisations() {
       title: "Laboratoire Dentaire",
       category: "Santé",
       description: "Site pour laboratoire dentaire avec prise de rendez-vous et présentation des services.",
-      liveUrl: "https://dm-lab.pl/",
+      liveUrl: "https://dm-laboratorium-u6zo.vercel.app/",
       githubUrl: "https://github.com/vladbevz/dm-laboratorium",
       preview: "dental",
       accent: "🦷"
