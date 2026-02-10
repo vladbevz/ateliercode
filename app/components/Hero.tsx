@@ -134,7 +134,7 @@ export default function Hero() {
               { 
                 icon: <TrendingUp className="w-6 h-6" />,
                 value: "À partir de", 
-                label: "499€", 
+                label: "299€", 
                 desc: "Site sur mesure premium",
                 delay: 0.9
               },
