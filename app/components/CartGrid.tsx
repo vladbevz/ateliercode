@@ -28,7 +28,7 @@ export default function CardGrid() {
       description: "Des prix clairs et fixes. Pas de surprises, pas de frais cachés.",
       link: "/tarifs",
       icon: "💰",
-      stats: "À partir de 499€",
+      stats: "À partir de 299€",
       features: ["Forfaits fixes", "Transparent", "Sans frais cachés"]
     },
     {
