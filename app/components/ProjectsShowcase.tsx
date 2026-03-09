@@ -23,7 +23,7 @@ const projects = [
     bgColor: "bg-amber-50",
     borderColor: "border-amber-200",
     textColor: "text-amber-600",
-    link: "/example"
+    link: "https://le438-restaurant.vercel.app/"
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const projects = [
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
     textColor: "text-blue-600",
-    link: "/example"
+    link: "https://photographer-portfolio-pied-ten.vercel.app/"
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const projects = [
     bgColor: "bg-sky-50",
     borderColor: "border-sky-200",
     textColor: "text-sky-600",
-    link: "/example"
+    link: "https://aqua-tracker-fe-rose.vercel.app/"
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const projects = [
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
     textColor: "text-purple-600",
-    link: "/example"
+    link: "https://dm-laboratorium.vercel.app/"
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ const projects = [
     bgColor: "bg-amber-50",
     borderColor: "border-amber-200",
     textColor: "text-amber-600",
-    link: "/example"
+    link: "https://vladbevz.github.io/Simply-chocolate/"
   }
 ];
 
