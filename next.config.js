@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    turbo: false, // Вимкнути Turbopack
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+      // Якщо будемо додавати інші джерела зображень
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

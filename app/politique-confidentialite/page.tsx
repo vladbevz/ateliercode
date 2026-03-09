@@ -2,243 +2,261 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Shield, Lock, Eye, FileText, Mail } from 'lucide-react';
+import { Shield, Lock, Eye, Mail, ArrowRight } from 'lucide-react';
 
 export default function PolitiqueConfidentialite() {
   return (
-    <div className="relative min-h-screen overflow-hidden px-4 py-20">
-      
-      {/* Чорно-сірий фон */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-black"></div>
-        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-gradient-to-r from-gray-900/10 to-gray-800/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-gradient-to-l from-gray-900/10 to-gray-800/5 rounded-full blur-3xl"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900/0 via-black/40 to-black"></div>
-      </div>
+    <div className="relative min-h-screen bg-white overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white pointer-events-none" />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
 
-      {/* Сітка */}
-      <div className="absolute inset-0 z-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 1px), linear-gradient(180deg, #fff 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}></div>
-      </div>
-
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto px-4 py-16 md:py-24 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           {/* Бейдж */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900/30 border border-gray-800 mb-8 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-8"
           >
-            <Shield className="w-4 h-4 text-gray-300" />
-            <span className="text-sm font-medium text-gray-300 tracking-wide">
+            <Shield className="w-4 h-4 text-gray-500" />
+            <span className="text-sm font-medium text-gray-600 tracking-wide">
               Protection des données
             </span>
           </motion.div>
 
           {/* Заголовок */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight leading-none text-white">
-              Politique de confidentialité
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
+              Politique de<br />confidentialité
             </h1>
-            <p className="text-gray-400 text-lg">
+            <p className="text-lg text-gray-500">
               Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}
             </p>
           </motion.div>
 
-          {/* Контент */}
-          <div className="space-y-10">
-            {/* Introduction */}
+          <div className="space-y-6">
+
+            {/* 1. Introduction */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <span className="text-lg font-bold">1</span>
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  1
                 </div>
-                <h2 className="text-xl font-semibold text-white">Introduction</h2>
+                <h2 className="text-xl font-bold text-gray-900">Introduction</h2>
               </div>
-              <div className="text-gray-300 space-y-4 pl-11">
-                <p>AtelierCode ("nous", "notre", "nos") s'engage à protéger la vie privée de ses utilisateurs.</p>
-                <div className="p-4 rounded-xl bg-gray-900/50 border border-gray-800">
-                  <p className="text-white font-medium mb-2">Conformité légale :</p>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5"></div>
-                      <span>Règlement Général sur la Protection des Données (RGPD)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5"></div>
-                      <span>Loi "Informatique et Libertés" du 6 janvier 1978 modifiée</span>
-                    </li>
+              <div className="space-y-4 pl-11">
+                <p className="text-sm text-gray-600">
+                  AtelierCode ("nous", "notre", "nos") s'engage à protéger la vie privée de ses utilisateurs.
+                </p>
+                <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <p className="text-sm font-semibold text-gray-700 mb-3">Conformité légale :</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Règlement Général sur la Protection des Données (RGPD)",
+                      "Loi \"Informatique et Libertés\" du 6 janvier 1978 modifiée",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </motion.section>
 
-            {/* Données collectées */}
+            {/* 2. Données collectées */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <Eye className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center flex-shrink-0">
+                  <Eye className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl font-semibold text-white">Données personnelles collectées</h2>
+                <h2 className="text-xl font-bold text-gray-900">Données personnelles collectées</h2>
               </div>
-              <div className="text-gray-300 space-y-4 pl-11">
+              <div className="space-y-5 pl-11">
                 <div>
-                  <p className="font-medium text-gray-400 mb-3">Données fournies volontairement :</p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li><span className="text-white">Formulaire de contact :</span> Nom, adresse email, message</li>
-                    <li><span className="text-white">Demande de devis :</span> Informations sur votre projet, budget, délais</li>
+                  <p className="text-sm font-medium text-gray-400 mb-3">Données fournies volontairement :</p>
+                  <ul className="space-y-2">
+                    {[
+                      { title: "Formulaire de contact", desc: "Nom, adresse email, message" },
+                      { title: "Demande de devis", desc: "Informations sur votre projet, budget, délais" },
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0" />
+                        <span><span className="font-medium text-gray-800">{item.title} :</span> {item.desc}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-400 mb-3">Données collectées automatiquement :</p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li><span className="text-white">Données de navigation :</span> Adresse IP, type de navigateur, pages visitées</li>
-                    <li><span className="text-white">Données techniques :</span> Appareil utilisé, système d'exploitation</li>
+                  <p className="text-sm font-medium text-gray-400 mb-3">Données collectées automatiquement :</p>
+                  <ul className="space-y-2">
+                    {[
+                      { title: "Données de navigation", desc: "Adresse IP, type de navigateur, pages visitées" },
+                      { title: "Données techniques", desc: "Appareil utilisé, système d'exploitation" },
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0" />
+                        <span><span className="font-medium text-gray-800">{item.title} :</span> {item.desc}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </motion.section>
 
-            {/* Finalités */}
+            {/* 3. Finalités */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <Shield className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl font-semibold text-white">Finalités du traitement</h2>
+                <h2 className="text-xl font-bold text-gray-900">Finalités du traitement</h2>
               </div>
-              <div className="text-gray-300 space-y-3 pl-11">
-                <p>Nous utilisons vos données pour :</p>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Répondre à vos demandes de contact</li>
-                  <li>Établir des devis personnalisés</li>
-                  <li>Améliorer notre site et nos services</li>
-                  <li>Respecter nos obligations légales</li>
+              <div className="space-y-4 pl-11">
+                <p className="text-sm text-gray-600">Nous utilisons vos données pour :</p>
+                <ul className="space-y-2">
+                  {[
+                    "Répondre à vos demandes de contact",
+                    "Établir des devis personnalisés",
+                    "Améliorer notre site et nos services",
+                    "Respecter nos obligations légales",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-1.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
-                <p className="mt-4 p-3 rounded-lg bg-gray-900/50 border border-gray-800">
-                  <span className="text-gray-400">Base légale :</span> Votre consentement (article 6.1.a du RGPD) et notre intérêt légitime (article 6.1.f du RGPD).
-                </p>
+                <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-600">
+                  <span className="font-medium text-gray-700">Base légale : </span>
+                  Votre consentement (article 6.1.a du RGPD) et notre intérêt légitime (article 6.1.f du RGPD).
+                </div>
               </div>
             </motion.section>
 
-            {/* Conservation */}
+            {/* 4. Conservation */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <Lock className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center flex-shrink-0">
+                  <Lock className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl font-semibold text-white">Durée de conservation</h2>
+                <h2 className="text-xl font-bold text-gray-900">Durée de conservation</h2>
               </div>
-              <div className="text-gray-300 space-y-3 pl-11">
-                <ul className="list-disc pl-5 space-y-2">
-                  <li><span className="text-white">Données de contact :</span> 3 ans après le dernier contact</li>
-                  <li><span className="text-white">Données de navigation :</span> 13 mois</li>
-                  <li><span className="text-white">Factures et documents comptables :</span> 10 ans (obligation légale)</li>
-                </ul>
-              </div>
+              <ul className="space-y-2 pl-11">
+                {[
+                  { title: "Données de contact", desc: "3 ans après le dernier contact" },
+                  { title: "Données de navigation", desc: "13 mois" },
+                  { title: "Factures et documents comptables", desc: "10 ans (obligation légale)" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-1.5 flex-shrink-0" />
+                    <span><span className="font-medium text-gray-800">{item.title} :</span> {item.desc}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.section>
 
-            {/* Ваші права */}
+            {/* 5. Vos droits */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <Shield className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  5
                 </div>
-                <h2 className="text-xl font-semibold text-white">Vos droits</h2>
+                <h2 className="text-xl font-bold text-gray-900">Vos droits</h2>
               </div>
-              <div className="text-gray-300 space-y-4 pl-11">
-                <p className="text-gray-400 mb-6">Conformément au RGPD, vous disposez des droits suivants :</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="pl-11">
+                <p className="text-sm text-gray-500 mb-5">Conformément au RGPD, vous disposez des droits suivants :</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { title: "Droit d'accès", desc: "Obtenir confirmation du traitement de vos données" },
                     { title: "Droit de rectification", desc: "Corriger des données inexactes" },
                     { title: "Droit à l'effacement", desc: "Supprimer vos données ('droit à l'oubli')" },
                     { title: "Droit d'opposition", desc: "Vous opposer au traitement" },
-                  ].map((right, index) => (
-                    <div key={index} className="p-5 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-gray-700 transition-colors group/right">
-                      <div className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 group-hover/right:bg-white transition-colors"></div>
-                        <div>
-                          <h4 className="text-white font-medium mb-2">{right.title}</h4>
-                          <p className="text-gray-400 text-sm">{right.desc}</p>
-                        </div>
-                      </div>
+                  ].map((right, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-gray-50 border border-gray-200 hover:border-gray-300 transition-colors">
+                      <p className="text-sm font-semibold text-gray-900 mb-1">{right.title}</p>
+                      <p className="text-xs text-gray-500">{right.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </motion.section>
 
-            {/* Контакт */}
+            {/* 6. Contact */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <Mail className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 h-4" />
                 </div>
-                <h2 className="text-xl font-semibold text-white">Contact</h2>
+                <h2 className="text-xl font-bold text-gray-900">Contact</h2>
               </div>
-              <div className="text-gray-300 space-y-6 pl-11">
-                <div className="p-6 rounded-xl bg-gray-900/50 border border-gray-800">
-                  <p className="text-white font-medium mb-3">Délégué à la protection des données (DPO) :</p>
-                  <p className="text-gray-300 mb-4">Bevz Vladyslav</p>
-                  
-                  <p className="text-white font-medium mb-2">Email :</p>
-                  <a href="mailto:contact@ateliercode.fr" className="text-gray-300 hover:text-white hover:underline transition-colors break-all text-lg block mb-4">
-                    contact@ateliercode.fr
-                  </a>
-                  
-                  <p className="text-white font-medium mb-2">Adresse :</p>
-                  <p className="text-gray-300">19 rue Menard, 30000 Nimes</p>
+              <div className="space-y-4 pl-11">
+                <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
+                  <p className="text-sm font-medium text-gray-700 mb-3">Délégué à la protection des données (DPO) :</p>
+                  <div className="space-y-3 text-sm">
+                    <div>
+                      <span className="text-gray-400">Nom : </span>
+                      <span className="text-gray-800 font-medium">Bevz Vladyslav</span>
+                    </div>
+                    <div>
+                      <span className="text-gray-400">Email : </span>
+                      <a href="mailto:contact@ateliercode.fr" className="text-gray-900 font-medium hover:underline">
+                        contact@ateliercode.fr
+                      </a>
+                    </div>
+                    <div>
+                      <span className="text-gray-400">Adresse : </span>
+                      <span className="text-gray-800">19 rue Menard, 30000 Nîmes</span>
+                    </div>
+                  </div>
                 </div>
-                
-                <div className="p-6 rounded-xl bg-gray-900/50 border border-gray-800">
-                  <p className="text-white font-medium mb-3">Autorité de contrôle :</p>
-                  <p className="text-gray-300 mb-3">Vous avez le droit de déposer une réclamation auprès de la CNIL :</p>
+                <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
+                  <p className="text-sm font-medium text-gray-700 mb-2">Autorité de contrôle :</p>
+                  <p className="text-sm text-gray-500 mb-2">Vous avez le droit de déposer une réclamation auprès de la CNIL :</p>
                   <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white hover:underline transition-colors">
+                    className="text-sm text-gray-700 hover:text-gray-900 hover:underline transition-colors font-medium">
                     https://www.cnil.fr
                   </a>
                 </div>
@@ -251,20 +269,22 @@ export default function PolitiqueConfidentialite() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 }}
-            className="mt-16 pt-12 border-t border-gray-800/30"
+            className="mt-16 pt-10 border-t border-gray-200"
           >
-            <h3 className="text-lg font-medium text-gray-400 mb-6">Documents juridiques</h3>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/mentions-legales" 
-                className="group px-8 py-4 rounded-xl border-2 border-gray-700 hover:border-gray-400 text-white font-semibold transition-all duration-300 hover:bg-gray-900/30 flex items-center gap-3">
-                <span>Mentions légales</span>
-                <span className="text-gray-400 group-hover:text-white transition-colors">→</span>
-              </Link>
-              <Link href="/cgv"
-                className="group px-8 py-4 rounded-xl border-2 border-gray-700 hover:border-gray-400 text-white font-semibold transition-all duration-300 hover:bg-gray-900/30 flex items-center gap-3">
-                <span>Conditions Générales de Vente</span>
-                <span className="text-gray-400 group-hover:text-white transition-colors">→</span>
-              </Link>
+            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
+              Documents juridiques
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Mentions légales", href: "/mentions-legales" },
+                { label: "Conditions Générales de Vente", href: "/cgv" },
+              ].map((link) => (
+                <Link key={link.href} href={link.href}
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-gray-900 text-gray-700 hover:text-gray-900 font-medium transition-all text-sm">
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              ))}
             </div>
           </motion.div>
         </motion.div>

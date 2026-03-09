@@ -1,206 +1,298 @@
-// app/components/PourQui.tsx - ФІКС ЗА АНАЛОГОМ Processus
+// app/components/PourQui.tsx
 'use client';
 
-import { Briefcase, Building, UserCheck, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { Briefcase, Building, UserCheck, Star, ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function PourQui() {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 }); // ЗМІНЕНО з 0.3 на 0.2
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const clients = [
     {
-      icon: <Briefcase className="w-8 h-8" />,
+      icon: <Briefcase className="w-6 h-6" />,
       title: "Professions libérales",
-      description: "Avocats, médecins, consultants — une présence en ligne élégante qui inspire confiance et reflète votre expertise.",
-      features: ["Design institutionnel", "SEO spécialisé", "Portfolio professionnel"]
+      description: "Avocats, médecins, consultants — une présence en ligne élégante qui inspire confiance.",
+      // ✅ FIX 1: прибрано /public з шляху
+      image: "/images/qui-photographe.webp",
+      stats: [
+        { label: "Confiance client", value: "+78%" },
+        { label: "Projets décrochés", value: "+40%" }
+      ],
+      success: "A. Syrmais, photographe : +40% de nouveaux projets en 3 mois",
+      color: "from-blue-500/20 to-indigo-500/20"
     },
     {
-      icon: <Building className="w-8 h-8" />,
+      icon: <Building className="w-6 h-6" />,
       title: "PME & TPE ambitieuses",
-      description: "Votre entreprise mérite un site qui valorise votre savoir-faire. Minimaliste, efficace, tourné vers la conversion.",
-      features: ["Performance optimisée", "Interface client", "Lead generation"]
+      description: "Valorisez votre savoir-faire avec un site minimaliste, efficace, tourné vers la conversion.",
+      image: "/images/qui-restaurant.webp",
+      stats: [
+        { label: "Visibilité locale", value: "+200%" },
+        { label: "Réservations", value: "+36%" }
+      ],
+      success: "Restaurant Le 438 : 36% de réservations en plus grâce au site",
+      color: "from-purple-500/20 to-pink-500/20"
     },
     {
-      icon: <UserCheck className="w-8 h-8" />,
+      icon: <UserCheck className="w-6 h-6" />,
       title: "Indépendants & créateurs",
-      description: "Artisans, designers, coachs — une vitrine digitale qui raconte votre histoire et met en lumière votre unicité.",
-      features: ["Narration visuelle", "Portfolio impactant", "Présentation personnalisée"]
+      description: "Artisans, designers, coachs — une vitrine digitale qui raconte votre histoire.",
+      image: "/images/qui-aquatracker.webp",
+      stats: [
+        { label: "Notoriété", value: "+150%" },
+        { label: "Rétention", value: "74%" }
+      ],
+      success: "Application Aquatracker : 500 nouveaux utilisateurs depuis son lancement",
+      color: "from-green-500/20 to-emerald-500/20"
     }
   ];
 
-  // ЗМІНЕНО: такі ж варіанти як у Processus
-  const stepVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15, // ЗМІНЕНО: використовуємо delay замість staggerChildren
-        duration: 0.5,
-        ease: "easeOut" as const
-      }
-    })
+  const handleCardClick = (index: number) => {
+    // На мобільному: toggle (закрити якщо вже відкрито)
+    // На desktop: просто переключити
+    setActiveIndex(prev => prev === index ? -1 : index);
   };
 
   return (
-    <section 
-      ref={containerRef}
-      className="relative py-24 overflow-hidden"
-    >
-      {/* Елегантний градієнтний фон */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
-      </div>
+    <section className="relative py-20 md:py-32 bg-white overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
 
-      {/* Тонка геометрична сітка */}
-      <div className="absolute inset-0 z-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
-                           linear-gradient(180deg, #fff 1px, transparent 2px)`,
-          backgroundSize: '80px 80px',
-        }} />
-      </div>
+      {/* ✅ ref на div всередині, не на section */}
+      <div ref={containerRef} className="container mx-auto px-4 relative z-10">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Заголовок секції */}
+        {/* Заголовок */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-16"
         >
-          {/* Утончений бейдж */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 backdrop-blur-sm mb-8"
-          >
-            <Target className="w-4 h-4 text-gray-300" />
-            <span className="text-sm font-medium text-gray-300 tracking-wider">
-              POUR QUI ?
-            </span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl  font-bold mb-8 tracking-tight"
-          >
-            <span className="block text-white">Professionnels</span>
-            <span className="block text-gray-400 font-normal mt-4 text-3xl md:text-4xl">
-              à la recherche d'élégance digitale
-            </span>
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.3 }}
-            className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
-          >
-            Nous créons des expériences digitales raffinées pour ceux qui valorisent 
-            l'esthétique, la performance et l'authenticité.
-          </motion.p>
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Des solutions pour <br />
+            <span className="text-gray-400">chaque métier</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            Que vous soyez professionnel libéral, PME ou indépendant,
+            nous créons le site qui correspond à vos besoins
+          </p>
         </motion.div>
 
-        {/* Картки клієнтів - ЗМІНЕНО: використовуємо той самий підхід як у Processus */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {clients.map((client, index) => (
-            <motion.div
-              key={index}
-              custom={index}
-              variants={stepVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              whileHover={{ 
-                y: -8, // ЗМІНЕНО: з -10 на -8 (як у Processus)
-                transition: { duration: 0.3 }
-              }}
-              className="relative group"
-            >
-              {/* Градієнтний бордер при ховері */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
-              
-              {/* Основна картка */}
-              <div className="relative h-full bg-gradient-to-br from-gray-900/50 to-black/50 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
-                
-                {/* Акцент при ховері - як у Processus */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+        {/* =============================================
+            DESKTOP: layout з двох колонок (як раніше)
+            MOBILE: accordion всередині кожної картки
+            ============================================= */}
 
-                {/* Іконка */}
-                <motion.div 
-                  whileHover={{ rotate: 5 }} // ЗМІНЕНО: з rotate 5 замість scale 1.1
-                  className="mb-8"
-                >
-                  <div className="inline-flex p-4 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
-                    <div className="text-gray-300 group-hover:text-white transition-colors">
-                      {client.icon}
+        {/* DESKTOP lg+ */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Ліва колонка — картки */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.3 }}
+            className="space-y-4"
+          >
+            {clients.map((client, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`w-full text-left p-6 rounded-2xl border-2 transition-all ${
+                  activeIndex === index
+                    ? 'border-gray-900 bg-gray-50 shadow-lg'
+                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                }`}
+                whileHover={{ x: 8 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className={`p-3 rounded-xl flex-shrink-0 ${
+                    activeIndex === index ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
+                  }`}>
+                    {client.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className={`text-xl font-bold mb-2 ${
+                      activeIndex === index ? 'text-gray-900' : 'text-gray-700'
+                    }`}>
+                      {client.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm line-clamp-2">{client.description}</p>
+                    {activeIndex === index && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="mt-4 flex gap-3"
+                      >
+                        {client.stats.map((stat, idx) => (
+                          <div key={idx} className="bg-white px-3 py-2 rounded-lg shadow-sm">
+                            <div className="text-sm font-bold text-gray-900">{stat.value}</div>
+                            <div className="text-xs text-gray-500">{stat.label}</div>
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
+                </div>
+              </motion.button>
+            ))}
+          </motion.div>
+
+          {/* Права колонка — зображення */}
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            className="relative"
+          >
+            {activeIndex >= 0 && (
+              <>
+                <div className={`absolute inset-0 bg-gradient-to-br ${clients[activeIndex].color} rounded-3xl blur-3xl`} />
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+                  <div className="relative h-80">
+                    <Image
+                      src={clients[activeIndex].image}
+                      alt={clients[activeIndex].title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm font-medium">Success story</span>
+                      </div>
+                      <p className="text-lg font-semibold">{clients[activeIndex].success}</p>
                     </div>
                   </div>
-                </motion.div>
-
-                {/* Заголовок */}
-                <h3 className="text-2xl font-bold mb-5 text-white leading-tight">
-                  {client.title}
-                </h3>
-
-                {/* Опис */}
-                <p className="text-gray-400 mb-8 leading-relaxed text-lg font-light group-hover:text-gray-300 transition-colors">
-                  {client.description}
-                </p>
-
-                {/* Особливості */}
-                <div className="space-y-3 mt-8 pt-8 border-t border-gray-800/50">
-                  {client.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-gray-400 transition-colors"></div>
-                      <span className="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
+                  <div className="p-6 grid grid-cols-2 gap-4">
+                    {clients[activeIndex].stats.map((stat, idx) => (
+                      <div key={idx} className="text-center">
+                        <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                        <div className="text-sm text-gray-500">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </>
+            )}
+          </motion.div>
         </div>
 
-        {/* Нижній CTA */}
+        {/* =============================================
+            MOBILE: accordion — контент розкривається
+            прямо під карткою, юзер не скролить нікуди
+            ============================================= */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-20 pt-16 border-t border-gray-800/30"
+          transition={{ delay: 0.3 }}
+          className="lg:hidden space-y-3 mb-12"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.7 }}
-            className="text-gray-500 mb-8 text-lg font-light"
+          {clients.map((client, index) => {
+            const isOpen = activeIndex === index;
+            return (
+              <div
+                key={index}
+                className={`rounded-2xl border-2 overflow-hidden transition-all duration-200 ${
+                  isOpen ? 'border-gray-900 shadow-lg' : 'border-gray-200'
+                }`}
+              >
+                {/* Header картки — завжди видимий */}
+                <button
+                  onClick={() => handleCardClick(index)}
+                  className={`w-full text-left p-5 transition-colors ${
+                    isOpen ? 'bg-gray-50' : 'bg-white hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-xl flex-shrink-0 ${
+                      isOpen ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
+                    }`}>
+                      {client.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-bold text-gray-900">{client.title}</h3>
+                      <p className="text-gray-500 text-sm mt-0.5 line-clamp-1">{client.description}</p>
+                    </div>
+                    {/* Chevron індикатор */}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex-shrink-0 text-gray-400"
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </div>
+                </button>
+
+                {/* ✅ Контент розкривається одразу під кнопкою */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-gray-200">
+                        {/* Зображення */}
+                        <div className="relative h-48">
+                          <Image
+                            src={client.image}
+                            alt={client.title}
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                              <span className="text-xs font-medium">Success story</span>
+                            </div>
+                            <p className="text-sm font-semibold leading-snug">{client.success}</p>
+                          </div>
+                        </div>
+
+                        {/* Stats */}
+                        <div className="p-4 grid grid-cols-2 gap-3 bg-white">
+                          {client.stats.map((stat, idx) => (
+                            <div key={idx} className="text-center bg-gray-50 rounded-xl py-3">
+                              <div className="text-xl font-bold text-gray-900">{stat.value}</div>
+                              <div className="text-xs text-gray-500 mt-0.5">{stat.label}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6 }}
+          className="text-center"
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl"
           >
-            Votre profil n'apparaît pas ? Chaque projet est unique.
-          </motion.p>
-          
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Link 
-              href="/contact"
-              className="inline-flex items-center gap-4 px-12 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-50 transition-all group overflow-hidden relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Étudions votre projet ensemble</span>
-            </Link>
-          </motion.div>
+            <span>Parler de votre projet</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+          </Link>
         </motion.div>
       </div>
     </section>

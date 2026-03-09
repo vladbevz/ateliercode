@@ -131,7 +131,7 @@ export async function POST(request: NextRequest) {
             <div style="text-align: center; padding-top: 20px; border-top: 1px solid #374151;">
               <p style="color: #9CA3AF; font-size: 14px; margin-bottom: 20px;">
                 Besoin d'une réponse rapide ?<br>
-                Appelez-nous au <strong style="color: #FFFFFF;">06 12 34 56 78</strong>
+                Appelez-nous au <strong style="color: #FFFFFF;">07 67 77 29 15</strong>
               </p>
               
               <div style="display: inline-flex; gap: 10px;">

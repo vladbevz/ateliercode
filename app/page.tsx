@@ -1,12 +1,14 @@
 // app/page.tsx
-import Hero from '@/app/components/Hero'
-import CartGrid from '@/app/components/CartGrid'
+import Hero from './components/Hero';
+import ProcessSection from './components/ProcessSection';
+import ProjectsShowcase from './components/ProjectsShowcase';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Hero />
-      <CartGrid />
-    </>
-  )
+      <ProcessSection />
+      <ProjectsShowcase />
+    </main>
+  );
 }

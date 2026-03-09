@@ -1,239 +1,233 @@
 // app/components/Processus.tsx
 'use client';
 
-import { PhoneCall, FileText, Code, ChevronRight, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { ClipboardCheck, Palette, Code2, Rocket, Sparkles, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Processus() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
   const steps = [
     {
-      icon: <PhoneCall className="w-8 h-8" />,
-      number: "01",
-      title: "Premier contact",
-      description: "On discute de vos besoins par téléphone ou email. Je vous envoie un devis clair et détaillé.",
-      duration: "Gratuit",
-      accent: "bg-gradient-to-br from-gray-800 to-gray-900"
+      icon: <ClipboardCheck className="w-8 h-8" />,
+      title: "1. Analyse",
+      description: "On étudie votre marché, vos objectifs et vos concurrents pour définir une stratégie gagnante.",
+      duration: "2-3 jours",
+      details: [
+        "Audit de votre positionnement",
+        "Analyse des concurrents",
+        "Définition des objectifs",
+        "Proposition commerciale"
+      ],
+      color: "from-gray-900 to-gray-700"
     },
     {
-      icon: <FileText className="w-8 h-8" />,
-      number: "02",
-      title: "Validation",
-      description: "Vous validez le devis et payez 50%. Je commence le travail immédiatement.",
-      duration: "1 jour",
-      accent: "bg-gradient-to-br from-gray-800 to-gray-900"
+      icon: <Palette className="w-8 h-8" />,
+      title: "2. Design",
+      description: "Création de maquettes qui reflètent votre image et optimisent l'expérience utilisateur.",
+      duration: "3-4 jours",
+      details: [
+        "Wireframes interactifs",
+        "Design unique et personnalisé",
+        "Validation client",
+        "Adaptation mobile"
+      ],
+      color: "from-gray-700 to-gray-600"
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      number: "03",
-      title: "Création",
-      description: "Je développe votre site et vous montre l'avancement régulièrement.",
-      duration: "1-3 semaines",
-      accent: "bg-gradient-to-br from-gray-800 to-gray-900"
+      icon: <Code2 className="w-8 h-8" />,
+      title: "3. Développement",
+      description: "Intégration avec les dernières technologies pour un site rapide, sécurisé et évolutif.",
+      duration: "5-7 jours",
+      details: [
+        "Code propre et maintenable",
+        "Optimisation SEO",
+        "Tests de performance",
+        "Sécurisation des données"
+      ],
+      color: "from-gray-600 to-gray-500"
     },
     {
-      icon: <ArrowRight className="w-8 h-8" />,
-      number: "04",
-      title: "Livraison",
-      description: "Vous recevez votre site et payez les 50% restants. C'est terminé.",
-      duration: "Immédiat",
-      accent: "bg-gradient-to-br from-gray-800 to-gray-900"
+      icon: <Rocket className="w-8 h-8" />,
+      title: "4. Lancement",
+      description: "Mise en ligne, formation et accompagnement pour une transition en douceur.",
+      duration: "2-3 jours",
+      details: [
+        "Déploiement sur Vercel",
+        "Configuration nom de domaine",
+        "Formation à l'administration",
+        "Support post-lancement"
+      ],
+      color: "from-gray-500 to-gray-400"
     }
   ];
 
-  const timelineVariants = {
-    hidden: { scaleX: 0 },
-    visible: {
-      scaleX: 1,
-      transition: {
-        duration: 1,
-        ease: "easeInOut" as const
-      }
-    }
-  };
-
-  const stepVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.5,
-        ease: "easeOut" as const
-      }
-    })
-  };
-
   return (
-    <section 
-      id="processus" 
-      ref={containerRef}
-      className="relative py-24 overflow-hidden"
-    >
-      {/* Фон */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black"></div>
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gray-900/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gray-800/5 rounded-full blur-3xl"></div>
-      </div>
-      {/* ТОНКА СІТКА ЯК В PourQui.tsx */}
-      <div className="absolute inset-0 z-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 2px),
-                           linear-gradient(180deg, #fff 1px, transparent 2px)`,
-          backgroundSize: '80px 80px',
-        }} />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Заголовок секції */}
+    <section ref={containerRef} className="relative py-32 bg-white overflow-hidden">
+      {/* Світлий фон */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Заголовок */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
         >
-          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-gray-900/50 border border-gray-800 mb-8 backdrop-blur-sm">
-            <span className="text-sm font-medium text-gray-300 tracking-wide">
-              COMMENT ÇA MARCHE
-            </span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
-            <span className="block text-white">Simple et clair,</span>
-            <span className="block text-gray-400 font-normal mt-2 text-3xl">
-              de A à Z
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            De l'idée à la <br />
+            <span className="text-gray-400">réalisation</span>
           </h2>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
-          >
-            4 étapes simples pour obtenir votre site web sans stress ni complication.
-          </motion.p>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Une méthode transparente et éprouvée pour créer votre site web sans stress
+          </p>
         </motion.div>
 
-        {/* Таймлайн */}
-        <div className="relative">
-          {/* Лінія таймлайну */}
+        {/* Timeline verticale pour mobile, horizontale pour desktop */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Ligne de progression */}
           <motion.div
-            variants={timelineVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="hidden lg:block absolute top-24 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent origin-left"
+            style={{ scaleX: scrollYProgress }}
+            className="absolute top-24 left-0 w-full h-1 bg-gradient-to-r from-gray-900 via-gray-600 to-gray-400 origin-left hidden lg:block"
           />
 
-          {/* Картки */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                custom={index}
-                variants={stepVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                whileHover={{ 
-                  y: -8,
-                  transition: { duration: 0.3 }
-                }}
-                className="relative group"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + index * 0.15 }}
+                className="relative"
               >
-                {/* Стрілочки */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-24 -right-4 z-10">
-                    <ChevronRight className="w-6 h-6 text-gray-700" />
-                  </div>
-                )}
+                {/* Numéro et icône */}
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className={`relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} text-white flex items-center justify-center mb-6 shadow-xl mx-auto lg:mx-0`}
+                >
+                  {step.icon}
+                </motion.div>
 
-                {/* Картка */}
-                <div className="relative h-full bg-gradient-to-br from-gray-900/40 to-black/40 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm transition-all duration-300 group-hover:border-gray-600 overflow-hidden">
+                {/* Contenu */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-200 group">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
+                    <div className="flex items-center gap-1 text-sm text-gray-500">
+                      <Clock className="w-4 h-4" />
+                      <span>{step.duration}</span>
+                    </div>
+                  </div>
                   
-                  {/* Акцент при ховері */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-900/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <p className="text-gray-600 mb-6 text-sm">
+                    {step.description}
+                  </p>
 
-                  {/* Номер кроку */}
-                  <motion.div 
-                    whileHover={{ rotate: 10 }}
-                    className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center group-hover:border-gray-600 transition-colors"
-                  >
-                    <div className="text-2xl font-bold text-white">
-                      {step.number}
-                    </div>
-                  </motion.div>
-
-                  {/* Іконка */}
-                  <div className="flex justify-center mb-8 pt-4">
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 group-hover:border-gray-500 transition-colors">
-                      <div className="text-gray-300 group-hover:text-white transition-colors">
-                        {step.icon}
-                      </div>
-                    </div>
+                  {/* Détails */}
+                  <div className="space-y-2 pt-4 border-t border-gray-100">
+                    {step.details.map((detail, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ delay: 0.5 + index * 0.15 + idx * 0.05 }}
+                        className="flex items-start gap-2"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-xs text-gray-500">{detail}</span>
+                      </motion.div>
+                    ))}
                   </div>
 
-                  {/* Контент */}
-                  <div className="text-center relative z-10">
-                    <h3 className="text-xl font-bold mb-5 text-white">{step.title}</h3>
-                    <p className="text-gray-400 mb-8 leading-relaxed">{step.description}</p>
-                    
-                    {/* Бейдж тривалості */}
-                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700 group-hover:border-gray-500 transition-colors">
-                      <span className="text-sm font-medium text-gray-300">{step.duration}</span>
+                  {/* Indicateur de progression */}
+                  <div className="mt-6 pt-4 border-t border-gray-100">
+                    <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${(index + 1) * 25}%` } : {}}
+                        transition={{ delay: 1, duration: 0.8 }}
+                        className={`h-full bg-gradient-to-r ${step.color}`}
+                      />
                     </div>
                   </div>
                 </div>
+
+                {/* Flèche (sauf dernier) */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute -right-4 top-16 text-gray-300">
+                    <ArrowRight className="w-6 h-6" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Підсумок */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ delay: 0.6 }}
-  className="mt-12"
->
-  <div className="text-center">
-    
-    {/* Статистика в рядок */}
-    <div className="flex flex-wrap justify-center items-center gap-8 mb-10">
-      <div className="text-center">
-        <div className="text-2xl font-bold text-white mb-1">24h</div>
-        <div className="text-sm text-gray-400">Délai devis</div>
-      </div>
-      
-      <div className="text-center">
-        <div className="text-2xl font-bold text-white mb-1">1-3</div>
-        <div className="text-sm text-gray-400">Semaines</div>
-      </div>
-      
-      <div className="text-center">
-        <div className="text-2xl font-bold text-white mb-1">50/50</div>
-        <div className="text-sm text-gray-400">Paiement</div>
-      </div>
-    </div>
+        {/* Section "Pourquoi c'est important" */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.9 }}
+          className="mt-32 text-center"
+        >
+          <h3 className="text-3xl font-bold text-gray-900 mb-12">
+            Pourquoi un processus structuré ?
+          </h3>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                title: "Pas de mauvaise surprise",
+                desc: "Chaque étape est validée avec vous avant de passer à la suivante",
+                icon: "🎯"
+              },
+              {
+                title: "Délais tenus",
+                desc: "Un planning clair et respecté, pas de développement sans fin",
+                icon: "⏱️"
+              },
+              {
+                title: "Vous restez maître",
+                desc: "Vous comprenez chaque étape et gardez le contrôle",
+                icon: "👑"
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                whileHover={{ y: -5 }}
+                className="p-6 bg-gray-50 rounded-2xl border border-gray-200"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-    {/* Кнопка */}
-    <motion.a
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      href="/contact"
-      className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
-    >
-      <span>Commencer maintenant</span>
-      <ArrowRight className="w-5 h-5" />
-    </motion.a>
-
-  </div>
-</motion.div>
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1.2 }}
+          className="text-center mt-16"
+        >
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl"
+          >
+            <span>Démarrer votre projet</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

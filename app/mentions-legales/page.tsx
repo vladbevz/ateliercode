@@ -2,119 +2,116 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export default function MentionsLegales() {
   return (
-    <div className="relative min-h-screen overflow-hidden px-4 py-20">
-      
-      {/* Чорно-сірий фон (як в Hero) */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-black"></div>
-        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-gradient-to-r from-gray-900/10 to-gray-800/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-gradient-to-l from-gray-900/10 to-gray-800/5 rounded-full blur-3xl"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900/0 via-black/40 to-black"></div>
-      </div>
+    <div className="relative min-h-screen bg-white overflow-hidden">
+      {/* Фон як в інших секціях */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white pointer-events-none" />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
 
-      {/* Тонка сіра сітка */}
-      <div className="absolute inset-0 z-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(90deg, #fff 1px, transparent 1px), linear-gradient(180deg, #fff 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }} />
-      </div>
-
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto px-4 py-16 md:py-24 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          {/* Сірий бейдж */}
+          {/* Бейдж */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900/30 border border-gray-800 mb-8 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-8"
           >
-            <span className="text-sm font-medium text-gray-300 tracking-wide">
+            <span className="text-sm font-medium text-gray-600 tracking-wide">
               Informations légales
             </span>
           </motion.div>
 
           {/* Заголовок */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mb-10"
+            className="mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight leading-none text-white">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
               Mentions légales
             </h1>
-            <p className="text-gray-400 text-lg">
+            <p className="text-lg text-gray-500">
               Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.
             </p>
           </motion.div>
 
-          {/* Контент */}
-          <div className="space-y-10">
-            {/* Едітор */}
+          {/* Секції */}
+          <div className="space-y-6">
+
+            {/* 1. Éditeur */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <span className="text-lg font-bold">1</span>
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  1
                 </div>
-                <h2 className="text-xl font-semibold text-white">Éditeur du site</h2>
+                <h2 className="text-xl font-bold text-gray-900">Éditeur du site</h2>
               </div>
-              <div className="text-gray-300 space-y-3 pl-11">
-                <p><span className="font-medium text-gray-400">Dénomination sociale :</span> AtelierCode</p>
-                <p><span className="font-medium text-gray-400">Statut juridique :</span> Micro-entreprise</p>
-                <p><span className="font-medium text-gray-400">Siège social :</span> 19 rue Menard, 30000 Nimes</p>
-                <p><span className="font-medium text-gray-400">SIRET :</span> 99993442500011</p>
-                <p><span className="font-medium text-gray-400">Numéro de TVA :</span> Non applicable, en application de l'article 293 B du CGI</p>
-                <p><span className="font-medium text-gray-400">Email :</span> contact@ateliercode.fr</p>
-                <p><span className="font-medium text-gray-400">Directeur de la publication :</span> Bevz Vladyslav, auto-entrepreneur</p>
-                <p><span className="font-medium text-gray-400">Téléphone :</span> +33767772915</p>
+              <div className="space-y-3 pl-11">
+                {[
+                  { label: "Dénomination sociale", value: "AtelierCode" },
+                  { label: "Statut juridique", value: "Micro-entreprise" },
+                  { label: "Siège social", value: "19 rue Menard, 30000 Nîmes" },
+                  { label: "SIRET", value: "99993442500011" },
+                  { label: "Numéro de TVA", value: "Non applicable, art. 293 B du CGI" },
+                  { label: "Email", value: "contact@ateliercode.fr" },
+                  { label: "Directeur de la publication", value: "Bevz Vladyslav, auto-entrepreneur" },
+                  { label: "Téléphone", value: "+33 7 67 77 29 15" },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col sm:flex-row sm:gap-3">
+                    <span className="text-sm font-medium text-gray-400 sm:w-56 flex-shrink-0">{item.label} :</span>
+                    <span className="text-sm text-gray-700">{item.value}</span>
+                  </div>
+                ))}
               </div>
             </motion.section>
 
-            {/* Хостинг */}
+            {/* 2. Hébergement */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <span className="text-lg font-bold">2</span>
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  2
                 </div>
-                <h2 className="text-xl font-semibold text-white">Hébergement</h2>
+                <h2 className="text-xl font-bold text-gray-900">Hébergement</h2>
               </div>
-              <div className="text-gray-300 space-y-4 pl-11">
+              <div className="space-y-4 pl-11">
                 <div>
-                  <p className="font-medium text-gray-400 mb-3">Développement et déploiement :</p>
-                  <div className="p-4 rounded-xl bg-gray-900/50 border border-gray-800">
-                    <p className="text-white font-medium">Vercel Inc.</p>
-                    <p className="text-gray-400 text-sm">340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
+                  <p className="text-sm font-medium text-gray-400 mb-2">Développement et déploiement :</p>
+                  <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                    <p className="font-semibold text-gray-900">Vercel Inc.</p>
+                    <p className="text-sm text-gray-500 mt-1">340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
                     <a href="https://vercel.com" target="_blank" rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-white hover:underline transition-colors text-sm">
+                      className="text-sm text-gray-500 hover:text-gray-900 hover:underline transition-colors mt-1 block">
                       https://vercel.com
                     </a>
                   </div>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-400 mb-3">Nom de domaine et DNS :</p>
-                  <div className="p-4 rounded-xl bg-gray-900/50 border border-gray-800">
-                    <p className="text-white font-medium">OVH SAS</p>
-                    <p className="text-gray-400 text-sm">2 rue Kellermann, 59100 Roubaix, France</p>
+                  <p className="text-sm font-medium text-gray-400 mb-2">Nom de domaine et DNS :</p>
+                  <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                    <p className="font-semibold text-gray-900">OVH SAS</p>
+                    <p className="text-sm text-gray-500 mt-1">2 rue Kellermann, 59100 Roubaix, France</p>
                     <a href="https://www.ovh.com" target="_blank" rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-white hover:underline transition-colors text-sm">
+                      className="text-sm text-gray-500 hover:text-gray-900 hover:underline transition-colors mt-1 block">
                       https://www.ovh.com
                     </a>
                   </div>
@@ -122,44 +119,45 @@ export default function MentionsLegales() {
               </div>
             </motion.section>
 
-            {/* Інші секції - скорочено для читабельності */}
+            {/* 3. Propriété intellectuelle */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <span className="text-lg font-bold">3</span>
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  3
                 </div>
-                <h2 className="text-xl font-semibold text-white">Propriété intellectuelle</h2>
+                <h2 className="text-xl font-bold text-gray-900">Propriété intellectuelle</h2>
               </div>
-              <div className="text-gray-300 space-y-3 pl-11">
+              <div className="space-y-3 pl-11 text-sm text-gray-600 leading-relaxed">
                 <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.</p>
                 <p>Tous les éléments accessibles sur le site restent la propriété exclusive d'AtelierCode ou de ses partenaires.</p>
                 <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site est interdite, sauf autorisation écrite préalable d'AtelierCode.</p>
               </div>
             </motion.section>
 
-            {/* Контакт */}
+            {/* 4. Contact */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="p-8 rounded-2xl bg-gray-900/30 border border-gray-800 backdrop-blur-sm group hover:border-gray-700 transition-all duration-300"
+              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-300 group-hover:text-white transition-colors">
-                  <span className="text-lg font-bold">6</span>
+                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  4
                 </div>
-                <h2 className="text-xl font-semibold text-white">Contact</h2>
+                <h2 className="text-xl font-bold text-gray-900">Contact</h2>
               </div>
-              <div className="text-gray-300 pl-11">
-                <p>Pour toute question relative à ces mentions légales :</p>
-                <div className="mt-4 p-5 rounded-xl bg-gray-900/50 border border-gray-800">
-                  <p className="text-white font-medium mb-2">Email :</p>
-                  <a href="mailto:contact@ateliercode.fr" className="text-gray-300 hover:text-white hover:underline transition-colors break-all text-lg">
+              <div className="pl-11">
+                <p className="text-sm text-gray-600 mb-4">Pour toute question relative à ces mentions légales :</p>
+                <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
+                  <p className="text-sm font-medium text-gray-400 mb-1">Email :</p>
+                  <a href="mailto:contact@ateliercode.fr"
+                    className="text-gray-900 font-semibold hover:underline transition-colors text-lg">
                     contact@ateliercode.fr
                   </a>
                 </div>
@@ -167,25 +165,27 @@ export default function MentionsLegales() {
             </motion.section>
           </div>
 
-          {/* Навігація до інших сторінок */}
+          {/* Навігація */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="mt-16 pt-12 border-t border-gray-800/30"
+            className="mt-16 pt-10 border-t border-gray-200"
           >
-            <h3 className="text-lg font-medium text-gray-400 mb-6">Autres documents juridiques</h3>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/politique-confidentialite" 
-                className="group px-8 py-4 rounded-xl border-2 border-gray-700 hover:border-gray-400 text-white font-semibold transition-all duration-300 hover:bg-gray-900/30 flex items-center gap-3">
-                <span>Politique de confidentialité</span>
-                <span className="text-gray-400 group-hover:text-white transition-colors">→</span>
-              </Link>
-              <Link href="/cgv"
-                className="group px-8 py-4 rounded-xl border-2 border-gray-700 hover:border-gray-400 text-white font-semibold transition-all duration-300 hover:bg-gray-900/30 flex items-center gap-3">
-                <span>Conditions Générales de Vente</span>
-                <span className="text-gray-400 group-hover:text-white transition-colors">→</span>
-              </Link>
+            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
+              Autres documents juridiques
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Politique de confidentialité", href: "/politique-confidentialite" },
+                { label: "Conditions Générales de Vente", href: "/cgv" },
+              ].map((link) => (
+                <Link key={link.href} href={link.href}
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-gray-900 text-gray-700 hover:text-gray-900 font-medium transition-all text-sm">
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              ))}
             </div>
           </motion.div>
 
@@ -194,11 +194,11 @@ export default function MentionsLegales() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
-            className="mt-12 pt-8 border-t border-gray-800/30 text-center text-sm text-gray-500"
+            className="mt-10 pt-8 border-t border-gray-100 text-center text-sm text-gray-400"
           >
             <p>Document établi le : 12/01/2026</p>
             <p className="mt-1">
-              <span className="font-medium text-gray-400">Dernière mise à jour :</span> {new Date().toLocaleDateString('fr-FR')}
+              <span className="font-medium">Dernière mise à jour :</span> {new Date().toLocaleDateString('fr-FR')}
             </p>
           </motion.div>
         </motion.div>
