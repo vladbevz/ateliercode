@@ -1,17 +1,11 @@
-// app/components/Realisations.tsx
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, Github, Sparkles, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
 export default function Realisations() {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0 });
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const projects = [
     {
       title: "Le 438",
@@ -56,37 +50,37 @@ export default function Realisations() {
   ];
 
   return (
-    <section  className="relative py-20 bg-white overflow-hidden">
-      {/* Світлий фон */}
+    <section className="relative py-20 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
 
-      <div  ref={containerRef} className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
+
         {/* Заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Des projets qui <br />
-            <span className="text-gray-400">parlent d'eux-mêmes</span>
+            <span className="text-gray-400">parlent d&apos;eux-mêmes</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Découvrez comment nous avons transformé la présence en ligne de nos clients
           </p>
         </motion.div>
 
-        {/* Grille de projets - style agence */}
+        {/* Grille */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 + index * 0.1 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group relative"
             >
               <div className="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3]">
@@ -96,34 +90,24 @@ export default function Realisations() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                
-                {/* Overlay gradient - apparaît au hover */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
-                />
 
-                {/* Category badge - toujours visible */}
+                {/* Category badge */}
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-gray-700 z-10">
                   {project.category}
                 </div>
 
-                {/* Contenu au hover */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ 
-                    opacity: hoveredIndex === index ? 1 : 0,
-                    y: hoveredIndex === index ? 0 : 20
-                  }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex flex-col justify-end p-6 z-20"
-                >
-                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-200 text-sm mb-4">{project.description}</p>
-                  
-                  {/* Boutons d'action */}
+                {/* Overlay: mobile — завжди видимий, desktop — тільки hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Контент: mobile — завжди видимий, desktop — з'являється на hover */}
+                <div className={`absolute inset-0 flex flex-col justify-end p-6 z-20 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-4 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-300`}>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-200 text-xs md:text-sm mb-3 md:mb-4">
+                    {project.description}
+                  </p>
+
                   <div className="flex gap-3">
                     <a
                       href={project.liveUrl}
@@ -146,28 +130,28 @@ export default function Realisations() {
                       <span>Code</span>
                     </a>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* GitHub block - simplifié */}
+        {/* GitHub block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.6 }}
           className="mt-24 max-w-4xl mx-auto text-center"
         >
           <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 p-12 overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-50" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gray-200 rounded-full blur-3xl opacity-50" />
-            
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gray-200 rounded-full blur-3xl opacity-50 pointer-events-none" />
+
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">
                 Explorez tous nos projets sur GitHub
               </h3>
-              
               <motion.a
                 href="https://github.com/vladbevz"
                 target="_blank"
@@ -187,8 +171,9 @@ export default function Realisations() {
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.6 }}
           className="text-center mt-12"
         >
           <Link
@@ -199,6 +184,7 @@ export default function Realisations() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </Link>
         </motion.div>
+
       </div>
     </section>
   );
