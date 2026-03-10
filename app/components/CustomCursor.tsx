@@ -20,6 +20,7 @@ export default function CustomCursor() {
   const rotateY = useTransform(cursorX, [0, 1000], [-5, 5]);
 
   useEffect(() => {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
       cursorY.set(e.clientY - 16);

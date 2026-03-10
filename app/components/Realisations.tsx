@@ -56,7 +56,7 @@ export default function Realisations() {
   ];
 
   return (
-    <section  className="relative py-32 bg-white overflow-hidden">
+    <section  className="relative py-20 bg-white overflow-hidden">
       {/* Світлий фон */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
 

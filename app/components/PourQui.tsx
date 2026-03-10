@@ -59,7 +59,7 @@ export default function PourQui() {
   };
 
   return (
-    <section className="relative py-20 md:py-32 bg-white overflow-hidden">
+    <section className="relative py-20  bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
       <div className="absolute top-20 left-10 w-64 h-64 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
       <div className="absolute bottom-20 right-10 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
