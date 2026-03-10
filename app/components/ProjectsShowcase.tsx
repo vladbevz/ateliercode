@@ -1,10 +1,9 @@
-// app/components/ProjectsShowcase.tsx
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, ArrowRight, TrendingUp, Clock, Users, Zap } from 'lucide-react';
 
 const projects = [
@@ -95,38 +94,32 @@ const projects = [
   }
 ];
 
-// ✅ Desktop: 3-device mockup як раніше
 const MultiDeviceMockup = ({ project }: { project: typeof projects[0] }) => (
   <div className="relative w-full h-[500px] flex items-center justify-center">
     <div className={`absolute inset-0 ${project.bgColor} opacity-10 rounded-full blur-3xl scale-150`} />
-    {/* Desktop */}
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] z-10">
       <Image src={project.desktopImage} alt={`${project.title} - desktop`} width={1400} height={900} className="w-full h-auto object-contain drop-shadow-2xl" priority />
     </div>
-    {/* Laptop */}
     <div className="absolute right-[-5%] bottom-[15%] w-[55%] z-20" style={{ transform: 'rotate(2deg)' }}>
       <Image src={project.laptopImage} alt={`${project.title} - laptop`} width={700} height={450} className="w-full h-auto object-contain drop-shadow-xl" />
     </div>
-    {/* Mobile */}
     <div className="absolute left-[0%] bottom-[15%] w-[55%] z-30" style={{ transform: 'rotate(-3deg)' }}>
       <Image src={project.mobileImage} alt={`${project.title} - mobile`} width={280} height={560} className="w-full h-auto object-contain drop-shadow-lg" />
     </div>
   </div>
 );
 
-// ✅ Mobile: простий один скріншот з закругленими кутами
+// ✅ FIX 3: прибрано border-2 і borderColor — немає рамки на мобільному
 const MobileMockup = ({ project }: { project: typeof projects[0] }) => (
-  <div className={`relative w-full rounded-2xl overflow-hidden border-2 ${project.borderColor} shadow-xl`}>
-    <div className={`absolute inset-0 ${project.bgColor} opacity-30`} />
+  <div className="relative w-full rounded-2xl overflow-hidden shadow-sm">
     <Image
       src={project.desktopImage}
       alt={project.title}
       width={800}
       height={500}
-      className="w-full h-auto object-cover relative z-10"
+      className="w-full h-auto object-cover"
       priority
     />
-    {/* Overlay badge */}
     <div className="absolute top-3 left-3 z-20">
       <span className={`text-xs font-semibold px-2 py-1 rounded-full bg-white/90 ${project.textColor} border ${project.borderColor}`}>
         {project.category}
@@ -135,10 +128,12 @@ const MobileMockup = ({ project }: { project: typeof projects[0] }) => (
   </div>
 );
 
+// ✅ FIX 2: анімація тільки по opacity — без x/y зміщення
+// це прибирає вертикальні стрибки на мобільному при flex-col layout
 const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
-  center: { x: 0, opacity: 1, zIndex: 1 },
-  exit: (dir: number) => ({ x: dir < 0 ? 300 : -300, opacity: 0, zIndex: 0 })
+  enter: { opacity: 0 },
+  center: { opacity: 1, zIndex: 1 },
+  exit: { opacity: 0, zIndex: 0 }
 };
 
 export default function ProjectsShowcase() {
@@ -146,18 +141,18 @@ export default function ProjectsShowcase() {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
-  const paginate = (newDir: number) => {
+  // ✅ FIX 1: useCallback щоб paginate мав стабільний референс в useEffect
+  const paginate = useCallback((newDir: number) => {
     setDirection(newDir);
     setCurrentIndex(i => (i + newDir + projects.length) % projects.length);
-  };
+  }, []);
 
-  // Auto-play
+  // ✅ FIX 1: затримка 8 секунд перед першим автоперемиканням
   useEffect(() => {
     const t = setInterval(() => paginate(1), 8000);
     return () => clearInterval(t);
-  }, []);
+  }, [paginate]);
 
-  // ✅ Native touch swipe — без dragConstraints ref який ламається на мобільному
   const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX);
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStart === null) return;
@@ -206,23 +201,19 @@ export default function ProjectsShowcase() {
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
-                custom={direction}
                 variants={slideVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+                transition={{ duration: 0.3 }}
               >
-                {/* ✅ Layout: на мобільному — колонка (mockup зверху, текст знизу) */}
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
 
                   {/* Mockup — зверху на мобільному */}
                   <div className="w-full order-1 lg:order-2">
-                    {/* Desktop: 3-device */}
                     <div className="hidden lg:block">
                       <MultiDeviceMockup project={p} />
                     </div>
-                    {/* Mobile: один скріншот */}
                     <div className="lg:hidden">
                       <MobileMockup project={p} />
                     </div>
@@ -241,11 +232,8 @@ export default function ProjectsShowcase() {
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-3">
                       {p.stats.map((stat, idx) => (
-                        <motion.div
+                        <div
                           key={idx}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.15 + idx * 0.1 }}
                           className={`p-3 md:p-4 rounded-xl ${p.bgColor} border ${p.borderColor}`}
                         >
                           <div className="flex items-center gap-1.5 mb-1">
@@ -253,12 +241,14 @@ export default function ProjectsShowcase() {
                             <span className="text-xs text-gray-500">{stat.label}</span>
                           </div>
                           <div className="text-xl md:text-2xl font-bold text-gray-900">{stat.value}</div>
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
 
                     <Link
                       href={p.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all text-sm"
                     >
                       <span>Voir le projet</span>
