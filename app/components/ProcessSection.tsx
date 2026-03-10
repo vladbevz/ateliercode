@@ -100,20 +100,9 @@ export default function ProcessSection() {
           </p>
         </motion.div>
 
-        {/* Timeline Process */}
-        {/* ✅ FIX 2: прибрано `relative` з цього div — він конфліктував з
-            абсолютно позиціонованою лінією, зміщуючи її на мобільному.
-            Лінія вже `hidden` на мобільному (lg:block), але `relative` на
-            батьківському елементі скидав stacking context і ламав z-index карток */}
+        
         <div className="mb-32">
-          {/* Горизонтальна лінія часу — тільки desktop */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 1.5, delay: 0.5 }}
-            className="absolute top-auto left-8 right-8 h-0.5 bg-gradient-to-r from-gray-900 via-gray-600 to-gray-400 origin-left hidden lg:block"
-            style={{ top: 'calc(var(--process-top, 9rem))' }}
-          />
+          
 
           <div className="grid lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
@@ -124,7 +113,7 @@ export default function ProcessSection() {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
                 // ✅ FIX 3: прибрано `relative` тут — разом з абсолютними
                 // стрілками це створювало overflow на вузьких екранах
-                className="group"
+                className="group relative"
               >
                 {/* Іконка */}
                 <motion.div

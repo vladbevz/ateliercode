@@ -8,7 +8,7 @@ import { Check, ArrowRight, TrendingUp, Users, Clock, Shield, Zap, Sparkles, Cal
 
 export default function Tarifs() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+  const isInView = useInView(containerRef, { once: true, amount: 0 });
   
   // Стан для калькулятора
   const [prixMoyen, setPrixMoyen] = useState(100);

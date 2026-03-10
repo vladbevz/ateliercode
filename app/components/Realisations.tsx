@@ -9,7 +9,7 @@ import { ExternalLink, Github, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Realisations() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+  const isInView = useInView(containerRef, { once: true, amount: 0 });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const projects = [
@@ -56,11 +56,11 @@ export default function Realisations() {
   ];
 
   return (
-    <section ref={containerRef} className="relative py-32 bg-white overflow-hidden">
+    <section  className="relative py-32 bg-white overflow-hidden">
       {/* Світлий фон */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div  ref={containerRef} className="container mx-auto px-4 relative z-10">
         {/* Заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
