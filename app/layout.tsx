@@ -174,25 +174,6 @@ export default function RootLayout({
                         Demander un devis gratuit
                       </Link>
                     </motion.div>
-
-                    {/* Quick stats */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: (menuItems.length + 1) * 0.05 }}
-                      className="mt-6 pt-6 border-t border-gray-200"
-                    >
-                      <div className="grid grid-cols-2 gap-4 text-center">
-                        <div>
-                          <div className="text-sm font-bold text-gray-900">50+</div>
-                          <div className="text-xs text-gray-500">clients</div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-bold text-gray-900">7j</div>
-                          <div className="text-xs text-gray-500">délai moyen</div>
-                        </div>
-                      </div>
-                    </motion.div>
                   </nav>
                 </div>
               </motion.div>
