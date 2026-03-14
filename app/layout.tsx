@@ -52,8 +52,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <title>AtelierCode — Agence web pour professionnels</title>
-        <meta name="description" content="Création de sites web performants pour restaurants, photographes, professions libérales et commerces locaux" />
+        <title>AtelierCode — Création des sites Web</title>
+        <meta name="description" content="Agence web à Nîmes. Création de sites web rapides, modernes et optimisés SEO pour indépendants, PME et professions libérales." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </head>
