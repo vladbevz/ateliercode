@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ateliercode.fr'
+  const baseUrl = 'https://www.ateliercode.fr'
   
   return [
     {
@@ -13,11 +13,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/agence-web-nimes`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/pourqui`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/processus`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -29,12 +35,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/tarifs`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/faq`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
-    // Твої юридичні сторінки
     {
       url: `${baseUrl}/mentions-legales`,
       lastModified: new Date(),
