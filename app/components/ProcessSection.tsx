@@ -32,21 +32,21 @@ export default function ProcessSection() {
       icon: <Palette className="w-8 h-8" />,
       title: "2. Design & UX",
       description: "Création d'une interface qui reflète votre image et guide vos visiteurs vers l'action.",
-      duration: "1-2 jours",
+      duration: "3-4 jours",
       color: "from-gray-700 to-gray-600"
     },
     {
       icon: <Code2 className="w-8 h-8" />,
       title: "3. Développement",
       description: "Code propre, performant et optimisé SEO. Votre site est rapide et visible sur Google.",
-      duration: "3-5 jours",
+      duration: "5-7 jours",
       color: "from-gray-600 to-gray-500"
     },
     {
       icon: <Rocket className="w-8 h-8" />,
       title: "4. Lancement & Suivi",
       description: "Mise en ligne, formation et accompagnement. On ne vous laisse pas tomber après la livraison.",
-      duration: "1-3 jours",
+      duration: "1-2 jours",
       color: "from-gray-500 to-gray-400"
     }
   ];

@@ -18,7 +18,7 @@ export default function Processus() {
       icon: <ClipboardCheck className="w-8 h-8" />,
       title: "1. Analyse",
       description: "On étudie votre marché, vos objectifs et vos concurrents pour définir une stratégie gagnante.",
-      duration: "2-3 jours",
+      duration: "1-2 jours",
       details: [
         "Audit de votre positionnement",
         "Analyse des concurrents",
@@ -57,7 +57,7 @@ export default function Processus() {
       icon: <Rocket className="w-8 h-8" />,
       title: "4. Lancement",
       description: "Mise en ligne, formation et accompagnement pour une transition en douceur.",
-      duration: "2-3 jours",
+      duration: "1-2 jours",
       details: [
         "Déploiement sur Vercel",
         "Configuration nom de domaine",
@@ -96,7 +96,7 @@ export default function Processus() {
           {/* Лінія прогресу — тільки desktop */}
           <motion.div
             style={{ scaleX: scrollYProgress }}
-            className="absolute top-24 left-0 w-full h-1 bg-gradient-to-r from-gray-900 via-gray-600 to-gray-400 origin-left hidden lg:block"
+            className="absolute top-24 left-0 w-full h-1 bg-gradient-to-r from-gray-900 via-gray-600 to-gray-400 origin-left hidden lg:block z-20"
           />
 
           <div className="grid lg:grid-cols-4 gap-8">
@@ -112,13 +112,13 @@ export default function Processus() {
                 {/* Іконка */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className={`relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} text-white flex items-center justify-center mb-6 shadow-xl mx-auto lg:mx-0`}
+                  className={`relative z-30 w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} text-white flex items-center justify-center mb-6 shadow-xl mx-auto lg:mx-0`}
                 >
                   {step.icon}
                 </motion.div>
 
                 {/* Картка */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-200 flex flex-col h-full">
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-200 flex flex-col flex-1">
                   <div className="mb-4">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{step.title}</h3>
                     <div className="flex items-center gap-1 text-sm text-gray-500">
