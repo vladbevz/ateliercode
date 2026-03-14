@@ -1,15 +1,13 @@
-// app/components/Processus.tsx
 'use client';
 
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
-import { ClipboardCheck, Palette, Code2, Rocket, Sparkles, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ClipboardCheck, Palette, Code2, Rocket, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Processus() {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -71,20 +69,21 @@ export default function Processus() {
   ];
 
   return (
-    <section ref={containerRef} className="relative py-20 bg-white overflow-hidden">
-      {/* Світлий фон */}
+    <section className="relative py-20 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
-      
-      <div className="container mx-auto px-4 relative z-10">
+
+      <div ref={containerRef} className="container mx-auto px-4 relative z-10">
+
         {/* Заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            De l'idée à la <br />
+            De l&apos;idée à la <br />
             <span className="text-gray-400">réalisation</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -92,9 +91,9 @@ export default function Processus() {
           </p>
         </motion.div>
 
-        {/* Timeline verticale pour mobile, horizontale pour desktop */}
+        {/* Timeline */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Ligne de progression */}
+          {/* Лінія прогресу — тільки desktop */}
           <motion.div
             style={{ scaleX: scrollYProgress }}
             className="absolute top-24 left-0 w-full h-1 bg-gradient-to-r from-gray-900 via-gray-600 to-gray-400 origin-left hidden lg:block"
@@ -105,11 +104,12 @@ export default function Processus() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3 + index * 0.15 }}
-                className="relative"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+                className="relative flex flex-col"
               >
-                {/* Numéro et icône */}
+                {/* Іконка */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className={`relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} text-white flex items-center justify-center mb-6 shadow-xl mx-auto lg:mx-0`}
@@ -117,28 +117,27 @@ export default function Processus() {
                   {step.icon}
                 </motion.div>
 
-                {/* Contenu */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-200 group">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
+                {/* Картка */}
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-200 flex flex-col h-full">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{step.title}</h3>
                     <div className="flex items-center gap-1 text-sm text-gray-500">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="w-4 h-4 flex-shrink-0" />
                       <span>{step.duration}</span>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-600 mb-6 text-sm">
-                    {step.description}
-                  </p>
 
-                  {/* Détails */}
+                  <p className="text-gray-600 mb-6 text-sm flex-1">{step.description}</p>
+
+                  {/* Деталі */}
                   <div className="space-y-2 pt-4 border-t border-gray-100">
                     {step.details.map((detail, idx) => (
                       <motion.div
                         key={idx}
                         initial={{ opacity: 0, x: -10 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.5 + index * 0.15 + idx * 0.05 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0 }}
+                        transition={{ delay: index * 0.1 + idx * 0.05, duration: 0.3 }}
                         className="flex items-start gap-2"
                       >
                         <CheckCircle2 className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
@@ -147,20 +146,21 @@ export default function Processus() {
                     ))}
                   </div>
 
-                  {/* Indicateur de progression */}
+                  {/* Прогрес бар */}
                   <div className="mt-6 pt-4 border-t border-gray-100">
                     <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
-                        animate={isInView ? { width: `${(index + 1) * 25}%` } : {}}
-                        transition={{ delay: 1, duration: 0.8 }}
+                        whileInView={{ width: `${(index + 1) * 25}%` }}
+                        viewport={{ once: true, amount: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
                         className={`h-full bg-gradient-to-r ${step.color}`}
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Flèche (sauf dernier) */}
+                {/* Стрілка між кроками (тільки desktop) */}
                 {index < steps.length - 1 && (
                   <div className="hidden lg:block absolute -right-4 top-16 text-gray-300">
                     <ArrowRight className="w-6 h-6" />
@@ -171,17 +171,18 @@ export default function Processus() {
           </div>
         </div>
 
-        {/* Section "Pourquoi c'est important" */}
+        {/* Чому важливий процес */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.9 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.6 }}
           className="mt-32 text-center"
         >
           <h3 className="text-3xl font-bold text-gray-900 mb-12">
             Pourquoi un processus structuré ?
           </h3>
-          
+
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
@@ -202,6 +203,10 @@ export default function Processus() {
             ].map((item, idx) => (
               <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
                 whileHover={{ y: -5 }}
                 className="p-6 bg-gray-50 rounded-2xl border border-gray-200"
               >
@@ -216,8 +221,9 @@ export default function Processus() {
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0 }}
+          transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
           <Link
@@ -228,6 +234,7 @@ export default function Processus() {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </Link>
         </motion.div>
+
       </div>
     </section>
   );
