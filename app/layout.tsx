@@ -55,7 +55,7 @@ export default function RootLayout({
         <title>AtelierCode — Création des sites Web</title>
         <meta name="description" content="Agence web à Nîmes. Création de sites web rapides, modernes et optimisés SEO pour indépendants, PME et professions libérales." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/public/images/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
         {/* Кастомний курсор */}
