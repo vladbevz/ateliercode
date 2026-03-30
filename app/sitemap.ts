@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.ateliercode.fr'
-  
+
   return [
     {
       url: baseUrl,
@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/a-propos`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/pourqui`,
@@ -59,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/politique-de-confidentialite`,
+      url: `${baseUrl}/politique-confidentialite`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
