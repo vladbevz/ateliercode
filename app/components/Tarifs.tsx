@@ -131,7 +131,7 @@ export default function Tarifs() {
                 )}
 
                 {/* Plan name + pitch */}
-                <div className="mb-6">
+                <div className="mb-3">
                   <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${plan.dark ? 'text-gray-400' : 'text-gray-400'}`}>
                     {plan.name}
                   </p>
@@ -142,13 +142,14 @@ export default function Tarifs() {
 
                 {/* Price */}
                 <div className="mb-7">
-                  <div className="flex items-end gap-1">
-                    <span className={`text-5xl font-black leading-none ${plan.dark ? 'text-white' : 'text-gray-900'}`}>
-                      {plan.price}€
-                    </span>
-                  </div>
+                  <p className={`text-xs mb-1 ${plan.dark ? 'text-gray-500' : 'text-gray-400'}`}>
+                    à partir de
+                  </p>
+                  <span className={`text-5xl font-black leading-none ${plan.dark ? 'text-white' : 'text-gray-900'}`}>
+                    {plan.price}€
+                  </span>
                   <p className={`text-xs mt-1.5 ${plan.dark ? 'text-gray-500' : 'text-gray-400'}`}>
-                    à partir de · TVA non applicable
+                    TVA non applicable
                   </p>
                 </div>
 
