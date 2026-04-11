@@ -93,7 +93,7 @@ export default function Hero() {
                     2000,
                     'renforce votre image',
                     2000,
-                    'travaille 24h/24',
+                    'travaille 24h/7',
                     2000,
                   ]}
                   wrapper="span"
