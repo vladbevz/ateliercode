@@ -39,7 +39,7 @@ const projects = [
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
     textColor: "text-blue-600",
-    link: "https://photographer-portfolio-pied-ten.vercel.app/"
+    link: "https://www.anastasiasyrmais.pro/"
   },
   {
     id: 3,
