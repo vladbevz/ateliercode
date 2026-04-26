@@ -73,7 +73,7 @@ const projects = [
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
     textColor: "text-purple-600",
-    link: "https://dm-laboratorium.vercel.app/"
+    link: "https://dm-lab.pl/"
   },
   {
     id: 5,
