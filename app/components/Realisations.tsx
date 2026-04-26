@@ -36,7 +36,7 @@ export default function Realisations() {
       category: "Médical",
       description: "Site vitrine avec prise de rendez-vous",
       image: "/images/qui-dental.webp",
-      liveUrl: "https://dm-laboratorium.vercel.app/",
+      liveUrl: "https://dm-lab.pl/",
       githubUrl: "https://github.com/vladbevz/dm-laboratorium"
     },
     {
