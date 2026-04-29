@@ -29,21 +29,12 @@ export const metadata: Metadata = {
     description:
       'Agence web à Nîmes. Création de sites web rapides, modernes et optimisés SEO pour indépendants, PME et professions libérales du Gard.',
     url: 'https://www.ateliercode.fr',
-    images: [
-      {
-        url: '/images/image.webp',
-        width: 1200,
-        height: 630,
-        alt: 'AtelierCode — Agence web à Nîmes',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AtelierCode — Création de sites web à Nîmes | Agence web',
     description:
       'Agence web à Nîmes. Création de sites web rapides, modernes et optimisés SEO pour indépendants, PME et professions libérales du Gard.',
-    images: ['/images/image.webp'],
   },
   robots: {
     index: true,
