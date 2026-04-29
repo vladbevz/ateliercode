@@ -334,8 +334,8 @@ export default function Apropos() {
                 <div className="flex justify-center mb-2">
                   <AlertCircle className="w-6 h-6 text-gray-400" />
                 </div>
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Agence WordPress</p>
-                <p className="text-sm text-gray-400">Solution classique</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Agence classique</p>
+                <p className="text-sm text-gray-400">Solution WordPress</p>
               </div>
 
               {/* Col: AtelierCode (highlighted) */}
