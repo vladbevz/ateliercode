@@ -41,7 +41,7 @@ export default function Tarifs() {
         'SEO local optimisé (Google Maps)',
         'Chargement ultra-rapide (< 1 s)',
         '1 mois de suivi & corrections inclus',
-        'Livré en 1-2 semaines',
+        'Livré en 5-7 jours',
       ],
       popular: true,
       dark: true,
