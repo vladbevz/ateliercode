@@ -159,7 +159,7 @@ export default function Hero() {
           >
             {[
               { icon: <TrendingUp />, value: "+40%", label: "de clients en plus" },
-              { icon: <Zap />, value: "< 2s", label: "de chargement" },
+              { icon: <Zap />, value: "< 1s", label: "de chargement" },
               { icon: <Users />, value: "10+", label: "clients satisfaits" },
               { icon: <Award />, value: "98/100", label: "Lighthouse" },
             ].map((stat, index) => (
