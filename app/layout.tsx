@@ -189,22 +189,44 @@ gtag('config', 'G-P9LNZK8CL1');`,
                 </div>
               </div>
 
-              {/* Navigation */}
+              {/* Services SEO */}
               <div>
                 <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
-                  Navigation
+                  Services
                 </h3>
                 <ul className="space-y-3">
-                  {menuItems.slice(0, 5).map((item) => (
-                    <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
+                  <li>
+                    <Link
+                      href="/agence-web-nimes"
+                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      Agence web Nîmes
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/tarifs"
+                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      Tarifs & forfaits
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/realisations"
+                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      Nos réalisations
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      Devis gratuit
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

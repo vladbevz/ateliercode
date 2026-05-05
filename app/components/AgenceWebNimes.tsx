@@ -7,11 +7,11 @@ import { MapPin, Check, Target, ArrowRight, Clock, Star } from 'lucide-react';
 export default function AgenceWebNimesContent() {
   const services = [
     "Création site web Nîmes",
-    "Développement e-commerce Gard",
-    "Référencement naturel Nîmes",
     "Site vitrine professionnel",
+    "Landing page haute conversion",
+    "Référencement naturel (SEO)",
+    "Optimisation performance",
     "Maintenance site internet",
-    "Formation WordPress"
   ];
 
   const villes = [
