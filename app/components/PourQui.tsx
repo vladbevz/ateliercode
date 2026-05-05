@@ -74,10 +74,10 @@ export default function PourQui() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Des solutions pour <br />
             <span className="text-gray-400">chaque métier</span>
-          </h2>
+          </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Que vous soyez professionnel libéral, PME ou indépendant,
             nous créons le site qui correspond à vos besoins

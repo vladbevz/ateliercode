@@ -43,31 +43,66 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'AtelierCode',
-  description:
-    'Agence web à Nîmes — création de sites web sur mesure pour professionnels, indépendants et PME.',
-  url: 'https://www.ateliercode.fr',
-  telephone: '+33767772915',
-  email: 'contact@ateliercode.fr',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Nîmes',
-    addressRegion: 'Gard',
-    addressCountry: 'FR',
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'AtelierCode',
+    description:
+      'Agence web à Nîmes — création de sites web sur mesure pour professionnels, indépendants et PME.',
+    url: 'https://www.ateliercode.fr',
+    telephone: '+33767772915',
+    email: 'contact@ateliercode.fr',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Nîmes',
+      addressRegion: 'Gard',
+      addressCountry: 'FR',
+    },
+    areaServed: ['Nîmes', 'Gard', 'Occitanie'],
+    serviceType: [
+      'Création de sites web',
+      'Développement web',
+      'Référencement naturel',
+      'Site vitrine',
+      'E-commerce',
+    ],
+    priceRange: '€€',
+    founder: {
+      '@type': 'Person',
+      name: 'Vladyslav Bevz',
+      jobTitle: 'Développeur web & fondateur',
+      url: 'https://www.ateliercode.fr/a-propos',
+    },
   },
-  areaServed: ['Nîmes', 'Gard', 'Occitanie'],
-  serviceType: [
-    'Création de sites web',
-    'Développement web',
-    'Référencement naturel',
-    'Site vitrine',
-    'E-commerce',
-  ],
-  priceRange: '€€',
-};
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Vladyslav Bevz',
+    jobTitle: 'Développeur web fullstack',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'AtelierCode',
+      url: 'https://www.ateliercode.fr',
+    },
+    url: 'https://www.ateliercode.fr/a-propos',
+    email: 'contact@ateliercode.fr',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Nîmes',
+      addressRegion: 'Gard',
+      addressCountry: 'FR',
+    },
+    knowsAbout: [
+      'Développement web',
+      'Next.js',
+      'React',
+      'SEO',
+      'TypeScript',
+      'Création de sites web',
+    ],
+  },
+];
 
 const menuItems = [
   { label: 'Accueil', href: '/' },
