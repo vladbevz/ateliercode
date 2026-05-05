@@ -182,11 +182,11 @@ export default function Apropos() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
               Votre site mérite<br />
               <span className="text-gray-400">d&apos;être trouvé.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
               Nous créons des sites web qui ne se contentent pas d&apos;être beaux —
               ils sont <span className="text-gray-900 font-semibold">optimisés pour être bien référencés sur Google</span> et
               transforment vos visiteurs en clients.
