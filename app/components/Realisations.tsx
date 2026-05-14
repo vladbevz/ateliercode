@@ -32,14 +32,6 @@ export default function Realisations() {
       githubUrl: "https://github.com/vladbevz/aqua-tracker-FE"
     },
     {
-      title: "Laboratoire Dentaire",
-      category: "Médical",
-      description: "Site vitrine avec prise de rendez-vous",
-      image: "/images/qui-dental.webp",
-      liveUrl: "https://dm-lab.pl/",
-      githubUrl: "https://github.com/vladbevz/dm-laboratorium"
-    },
-    {
       title: "Chocolatier",
       category: "Artisanat",
       description: "E-commerce pour chocolatier",

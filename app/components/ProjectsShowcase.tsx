@@ -59,23 +59,6 @@ const projects = [
     link: "https://aqua-tracker-fe-rose.vercel.app/"
   },
   {
-    id: 4,
-    title: "Laboratoire Dentaire",
-    category: "Médical",
-    description: "Site vitrine pour laboratoire dentaire avec présentation des services.",
-    desktopImage: "/images/labo-dentaire/desktop.png",
-    laptopImage: "/images/labo-dentaire/laptop.png",
-    mobileImage: "/images/labo-dentaire/mobile.png",
-    stats: [
-      { label: "Clients", value: "+67%", icon: <Users className="w-3 h-3" /> },
-      { label: "Confiance", value: "98%", icon: <Zap className="w-3 h-3" /> }
-    ],
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200",
-    textColor: "text-purple-600",
-    link: "https://dm-lab.pl/"
-  },
-  {
     id: 5,
     title: "Chocolatier Artisanal",
     category: "Artisanat",
