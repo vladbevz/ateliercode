@@ -156,7 +156,7 @@ gtag('config', 'G-P9LNZK8CL1');`,
           }}
         />
       </head>
-      <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+      <body className={`${inter.className} bg-zinc-950 text-zinc-100 antialiased`}>
         <CustomCursor />
         <Header />
 
@@ -164,22 +164,22 @@ gtag('config', 'G-P9LNZK8CL1');`,
           {children}
         </main>
 
-        <footer className="bg-gray-50 border-t border-gray-200">
+        <footer className="bg-zinc-950 border-t border-zinc-800">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
               {/* Brand */}
               <div className="space-y-4">
-                <Link href="/" className="text-2xl font-bold text-gray-900">
-                  Atelier<span className="text-gray-400">Code</span>
+                <Link href="/" className="text-2xl font-black tracking-tighter text-zinc-100">
+                  Atelier<span className="text-amber-400">Code</span>
                 </Link>
-                <p className="text-sm text-gray-500 leading-relaxed">
+                <p className="text-sm text-zinc-500 leading-relaxed">
                   Création de sites web sur mesure pour professionnels.
-                  Minimaliste, performant, efficace.
+                  Rapide, performant, optimisé Google.
                 </p>
                 <div className="flex gap-4">
                   <a
                     href="https://github.com/vladbevz"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-zinc-600 hover:text-zinc-300 transition-colors"
                     aria-label="GitHub AtelierCode"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -191,120 +191,74 @@ gtag('config', 'G-P9LNZK8CL1');`,
 
               {/* Services SEO */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.18em] mb-5">
                   Services
                 </h3>
                 <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/agence-web-nimes"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Agence web Nîmes
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/blog"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/tarifs"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Tarifs & forfaits
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/realisations"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Nos réalisations
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/contact"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Devis gratuit
-                    </Link>
-                  </li>
+                  {[
+                    { label: 'Agence web Nîmes', href: '/agence-web-nimes' },
+                    { label: 'Blog', href: '/blog' },
+                    { label: 'Tarifs & forfaits', href: '/tarifs' },
+                    { label: 'Nos réalisations', href: '/realisations' },
+                    { label: 'Devis gratuit', href: '/contact' },
+                  ].map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="text-sm text-zinc-500 hover:text-zinc-100 transition-colors">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               {/* Contact */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.18em] mb-5">
                   Contact
                 </h3>
                 <ul className="space-y-3">
                   <li>
-                    <a
-                      href="mailto:contact@ateliercode.fr"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
+                    <a href="mailto:contact@ateliercode.fr" className="text-sm text-zinc-500 hover:text-zinc-100 transition-colors">
                       contact@ateliercode.fr
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="tel:+33767772915"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
+                    <a href="tel:+33767772915" className="text-sm text-zinc-500 hover:text-zinc-100 transition-colors">
                       07 67 77 29 15
                     </a>
                   </li>
-                  <li className="text-sm text-gray-400">Réponse sous 24h</li>
+                  <li className="text-sm text-zinc-600">Réponse sous 24h</li>
                 </ul>
               </div>
 
               {/* Legal */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.18em] mb-5">
                   Infos légales
                 </h3>
                 <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/mentions-legales"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Mentions légales
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/cgv"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      CGV
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/politique-confidentialite"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-                    >
-                      Politique de confidentialité
-                    </Link>
-                  </li>
+                  {[
+                    { label: 'Mentions légales', href: '/mentions-legales' },
+                    { label: 'CGV', href: '/cgv' },
+                    { label: 'Politique de confidentialité', href: '/politique-confidentialite' },
+                  ].map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} className="text-sm text-zinc-500 hover:text-zinc-100 transition-colors">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
             {/* Bottom Bar */}
-            <div className="pt-8 border-t border-gray-200">
+            <div className="pt-8 border-t border-zinc-800">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-zinc-600">
                   © {new Date().getFullYear()} AtelierCode — Tous droits réservés
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-zinc-600">
                   Micro-entreprise • TVA non applicable, art. 293 B du CGI
                 </p>
               </div>

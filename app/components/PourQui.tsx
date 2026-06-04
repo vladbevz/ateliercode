@@ -15,87 +15,78 @@ export default function PourQui() {
   const clients = [
     {
       icon: <Briefcase className="w-6 h-6" />,
-      title: "Professions libérales",
-      description: "Avocats, médecins, consultants — une présence en ligne élégante qui inspire confiance.",
-      // ✅ FIX 1: прибрано /public з шляху
-      image: "/images/qui-photographe.webp",
+      title: 'Professions libérales',
+      description: 'Avocats, médecins, consultants — une présence en ligne élégante qui inspire confiance.',
+      image: '/images/qui-photographe.webp',
       stats: [
-        { label: "Confiance client", value: "+78%" },
-        { label: "Projets décrochés", value: "+40%" }
+        { label: 'Confiance client', value: '+78%' },
+        { label: 'Projets décrochés', value: '+40%' },
       ],
-      success: "A. Syrmais, photographe : +40% de nouveaux projets en 3 mois",
-      color: "from-blue-500/20 to-indigo-500/20"
+      success: 'A. Syrmais, photographe : +40% de nouveaux projets en 3 mois',
+      color: 'from-blue-500/20 to-indigo-500/20',
     },
     {
       icon: <Building className="w-6 h-6" />,
-      title: "PME & TPE ambitieuses",
-      description: "Valorisez votre savoir-faire avec un site minimaliste, efficace, tourné vers la conversion.",
-      image: "/images/qui-restaurant.webp",
+      title: 'PME & TPE ambitieuses',
+      description: 'Valorisez votre savoir-faire avec un site minimaliste, efficace, tourné vers la conversion.',
+      image: '/images/qui-restaurant.webp',
       stats: [
-        { label: "Visibilité locale", value: "+200%" },
-        { label: "Réservations", value: "+36%" }
+        { label: 'Visibilité locale', value: '+200%' },
+        { label: 'Réservations', value: '+36%' },
       ],
-      success: "Restaurant Le 438 : 36% de réservations en plus grâce au site",
-      color: "from-purple-500/20 to-pink-500/20"
+      success: 'Restaurant Le 438 : 36% de réservations en plus grâce au site',
+      color: 'from-purple-500/20 to-pink-500/20',
     },
     {
       icon: <UserCheck className="w-6 h-6" />,
-      title: "Indépendants & créateurs",
-      description: "Artisans, designers, coachs — une vitrine digitale qui raconte votre histoire.",
-      image: "/images/qui-aquatracker.webp",
+      title: 'Indépendants & créateurs',
+      description: 'Artisans, designers, coachs — une vitrine digitale qui raconte votre histoire.',
+      image: '/images/qui-aquatracker.webp',
       stats: [
-        { label: "Notoriété", value: "+150%" },
-        { label: "Rétention", value: "74%" }
+        { label: 'Notoriété', value: '+150%' },
+        { label: 'Rétention', value: '74%' },
       ],
-      success: "Application Aquatracker : 500 nouveaux utilisateurs depuis son lancement",
-      color: "from-green-500/20 to-emerald-500/20"
-    }
+      success: 'Application Aquatracker : 500 nouveaux utilisateurs depuis son lancement',
+      color: 'from-green-500/20 to-emerald-500/20',
+    },
   ];
 
   const handleCardClick = (index: number) => {
-    // На мобільному: toggle (закрити якщо вже відкрито)
-    // На desktop: просто переключити
-    setActiveIndex(prev => prev === index ? -1 : index);
+    setActiveIndex((prev) => (prev === index ? -1 : index));
   };
 
   return (
-    <section className="relative py-20  bg-white overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
-      <div className="absolute top-20 left-10 w-64 h-64 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
+    <section className="relative py-24 bg-zinc-950 overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-600/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* ✅ ref на div всередині, не на section */}
       <div ref={containerRef} className="container mx-auto px-4 relative z-10">
 
-        {/* Заголовок */}
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Des solutions pour <br />
-            <span className="text-gray-400">chaque métier</span>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">Pour qui ?</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-zinc-100 leading-[0.9] mb-5">
+            Des solutions pour<br />
+            <span className="text-zinc-500">chaque métier.</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Que vous soyez professionnel libéral, PME ou indépendant,
-            nous créons le site qui correspond à vos besoins
+            nous créons le site qui correspond à vos besoins.
           </p>
         </motion.div>
 
-        {/* =============================================
-            DESKTOP: layout з двох колонок (як раніше)
-            MOBILE: accordion всередині кожної картки
-            ============================================= */}
-
         {/* DESKTOP lg+ */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Ліва колонка — картки */}
+          {/* Left — cards */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.25 }}
             className="space-y-4"
           >
             {clients.map((client, index) => (
@@ -104,25 +95,25 @@ export default function PourQui() {
                 onClick={() => setActiveIndex(index)}
                 className={`w-full text-left p-6 rounded-2xl border-2 transition-all ${
                   activeIndex === index
-                    ? 'border-gray-900 bg-gray-50 shadow-lg'
-                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                    ? 'border-amber-400/50 bg-zinc-900 shadow-lg shadow-amber-400/5'
+                    : 'border-zinc-800 hover:border-zinc-700 hover:bg-zinc-900/50'
                 }`}
-                whileHover={{ x: 8 }}
+                whileHover={{ x: 6 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-xl flex-shrink-0 ${
-                    activeIndex === index ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
+                  <div className={`p-3 rounded-xl shrink-0 transition-all ${
+                    activeIndex === index ? 'bg-amber-400 text-zinc-950' : 'bg-zinc-800 text-zinc-400'
                   }`}>
                     {client.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className={`text-xl font-bold mb-2 ${
-                      activeIndex === index ? 'text-gray-900' : 'text-gray-700'
+                    <h3 className={`text-lg font-bold mb-1.5 transition-colors ${
+                      activeIndex === index ? 'text-zinc-100' : 'text-zinc-300'
                     }`}>
                       {client.title}
                     </h3>
-                    <p className="text-gray-500 text-sm line-clamp-2">{client.description}</p>
+                    <p className="text-zinc-500 text-sm line-clamp-2">{client.description}</p>
                     {activeIndex === index && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
@@ -130,9 +121,9 @@ export default function PourQui() {
                         className="mt-4 flex gap-3"
                       >
                         {client.stats.map((stat, idx) => (
-                          <div key={idx} className="bg-white px-3 py-2 rounded-lg shadow-sm">
-                            <div className="text-sm font-bold text-gray-900">{stat.value}</div>
-                            <div className="text-xs text-gray-500">{stat.label}</div>
+                          <div key={idx} className="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl">
+                            <div className="text-sm font-black text-amber-400 tracking-tight">{stat.value}</div>
+                            <div className="text-xs text-zinc-500">{stat.label}</div>
                           </div>
                         ))}
                       </motion.div>
@@ -143,10 +134,10 @@ export default function PourQui() {
             ))}
           </motion.div>
 
-          {/* Права колонка — зображення */}
+          {/* Right — image */}
           <motion.div
             key={activeIndex}
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             className="relative"
@@ -154,28 +145,23 @@ export default function PourQui() {
             {activeIndex >= 0 && (
               <>
                 <div className={`absolute inset-0 bg-gradient-to-br ${clients[activeIndex].color} rounded-3xl blur-3xl`} />
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+                <div className="relative bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border border-zinc-800">
                   <div className="relative h-80">
-                    <Image
-                      src={clients[activeIndex].image}
-                      alt={clients[activeIndex].title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <Image src={clients[activeIndex].image} alt={clients[activeIndex].title} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-medium">Success story</span>
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                        <span className="text-xs font-semibold text-zinc-300">Success story</span>
                       </div>
-                      <p className="text-lg font-semibold">{clients[activeIndex].success}</p>
+                      <p className="text-base font-semibold text-zinc-100">{clients[activeIndex].success}</p>
                     </div>
                   </div>
                   <div className="p-6 grid grid-cols-2 gap-4">
                     {clients[activeIndex].stats.map((stat, idx) => (
                       <div key={idx} className="text-center">
-                        <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                        <div className="text-sm text-gray-500">{stat.label}</div>
+                        <div className="text-2xl font-black text-amber-400 tracking-tight">{stat.value}</div>
+                        <div className="text-sm text-zinc-500">{stat.label}</div>
                       </div>
                     ))}
                   </div>
@@ -185,14 +171,11 @@ export default function PourQui() {
           </motion.div>
         </div>
 
-        {/* =============================================
-            MOBILE: accordion — контент розкривається
-            прямо під карткою, юзер не скролить нікуди
-            ============================================= */}
+        {/* MOBILE accordion */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.25 }}
           className="lg:hidden space-y-3 mb-12"
         >
           {clients.map((client, index) => {
@@ -201,72 +184,57 @@ export default function PourQui() {
               <div
                 key={index}
                 className={`rounded-2xl border-2 overflow-hidden transition-all duration-200 ${
-                  isOpen ? 'border-gray-900 shadow-lg' : 'border-gray-200'
+                  isOpen ? 'border-amber-400/40' : 'border-zinc-800'
                 }`}
               >
-                {/* Header картки — завжди видимий */}
                 <button
                   onClick={() => handleCardClick(index)}
                   className={`w-full text-left p-5 transition-colors ${
-                    isOpen ? 'bg-gray-50' : 'bg-white hover:bg-gray-50'
+                    isOpen ? 'bg-zinc-900' : 'bg-zinc-900/40 hover:bg-zinc-900/70'
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl flex-shrink-0 ${
-                      isOpen ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
+                    <div className={`p-3 rounded-xl shrink-0 transition-all ${
+                      isOpen ? 'bg-amber-400 text-zinc-950' : 'bg-zinc-800 text-zinc-400'
                     }`}>
                       {client.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-bold text-gray-900">{client.title}</h3>
-                      <p className="text-gray-500 text-sm mt-0.5 line-clamp-1">{client.description}</p>
+                      <h3 className="text-base font-bold text-zinc-100">{client.title}</h3>
+                      <p className="text-zinc-500 text-sm mt-0.5 line-clamp-1">{client.description}</p>
                     </div>
-                    {/* Chevron індикатор */}
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="flex-shrink-0 text-gray-400"
-                    >
-                      <ChevronDown className="w-5 h-5" />
+                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="shrink-0">
+                      <ChevronDown className={`w-5 h-5 transition-colors ${isOpen ? 'text-amber-400' : 'text-zinc-600'}`} />
                     </motion.div>
                   </div>
                 </button>
 
-                {/* ✅ Контент розкривається одразу під кнопкою */}
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="border-t border-gray-200">
-                        {/* Зображення */}
+                      <div className="border-t border-zinc-800">
                         <div className="relative h-48">
-                          <Image
-                            src={client.image}
-                            alt={client.title}
-                            fill
-                            className="object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                          <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                          <Image src={client.image} alt={client.title} fill className="object-cover" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
+                          <div className="absolute bottom-0 left-0 right-0 p-4">
                             <div className="flex items-center gap-1.5 mb-1">
-                              <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                              <span className="text-xs font-medium">Success story</span>
+                              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                              <span className="text-xs font-medium text-zinc-300">Success story</span>
                             </div>
-                            <p className="text-sm font-semibold leading-snug">{client.success}</p>
+                            <p className="text-sm font-semibold text-zinc-100 leading-snug">{client.success}</p>
                           </div>
                         </div>
-
-                        {/* Stats */}
-                        <div className="p-4 grid grid-cols-2 gap-3 bg-white">
+                        <div className="p-4 grid grid-cols-2 gap-3 bg-zinc-900">
                           {client.stats.map((stat, idx) => (
-                            <div key={idx} className="text-center bg-gray-50 rounded-xl py-3">
-                              <div className="text-xl font-bold text-gray-900">{stat.value}</div>
-                              <div className="text-xs text-gray-500 mt-0.5">{stat.label}</div>
+                            <div key={idx} className="text-center bg-zinc-800 rounded-xl py-3">
+                              <div className="text-xl font-black text-amber-400 tracking-tight">{stat.value}</div>
+                              <div className="text-xs text-zinc-500 mt-0.5">{stat.label}</div>
                             </div>
                           ))}
                         </div>
@@ -281,17 +249,17 @@ export default function PourQui() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.5 }}
           className="text-center"
         >
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 bg-amber-400 hover:bg-amber-300 text-zinc-950 rounded-2xl font-bold transition-all shadow-lg shadow-amber-400/20"
           >
-            <span>Parler de votre projet</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            Parler de votre projet
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
       </div>

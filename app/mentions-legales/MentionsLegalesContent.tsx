@@ -6,11 +6,11 @@ import { ArrowRight } from 'lucide-react';
 
 export default function MentionsLegalesContent() {
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
+    <div className="relative min-h-screen bg-zinc-950 overflow-hidden">
       {/* Фон як в інших секціях */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white pointer-events-none" />
-      <div className="absolute top-20 left-10 w-64 h-64 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-zinc-950 pointer-events-none" />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-amber-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-violet-600/5 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 py-16 md:py-24 relative z-10">
         <motion.div
@@ -23,9 +23,9 @@ export default function MentionsLegalesContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8"
           >
-            <span className="text-sm font-medium text-gray-600 tracking-wide">
+            <span className="text-sm font-medium text-zinc-400 tracking-wide">
               Informations légales
             </span>
           </motion.div>
@@ -37,10 +37,10 @@ export default function MentionsLegalesContent() {
             transition={{ delay: 0.3 }}
             className="mb-12"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-zinc-100 leading-[0.9] mb-4">
               Mentions légales
             </h1>
-            <p className="text-lg text-gray-500">
+            <p className="text-lg text-zinc-400">
               Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.
             </p>
           </motion.div>
@@ -53,13 +53,13 @@ export default function MentionsLegalesContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-zinc-800 text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">
                   1
                 </div>
-                <h2 className="text-xl font-bold text-gray-900">Éditeur du site</h2>
+                <h2 className="text-xl font-bold text-zinc-100">Éditeur du site</h2>
               </div>
               <div className="space-y-3 pl-11">
                 {[
@@ -73,8 +73,8 @@ export default function MentionsLegalesContent() {
                   { label: "Téléphone", value: "+33 7 67 77 29 15" },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:gap-3">
-                    <span className="text-sm font-medium text-gray-400 sm:w-56 flex-shrink-0">{item.label} :</span>
-                    <span className="text-sm text-gray-700">{item.value}</span>
+                    <span className="text-sm font-medium text-zinc-500 sm:w-56 shrink-0">{item.label} :</span>
+                    <span className="text-sm text-zinc-300">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -85,33 +85,33 @@ export default function MentionsLegalesContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-zinc-800 text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">
                   2
                 </div>
-                <h2 className="text-xl font-bold text-gray-900">Hébergement</h2>
+                <h2 className="text-xl font-bold text-zinc-100">Hébergement</h2>
               </div>
               <div className="space-y-4 pl-11">
                 <div>
-                  <p className="text-sm font-medium text-gray-400 mb-2">Développement et déploiement :</p>
-                  <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                    <p className="font-semibold text-gray-900">Vercel Inc.</p>
-                    <p className="text-sm text-gray-500 mt-1">340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
+                  <p className="text-sm font-medium text-zinc-500 mb-2">Développement et déploiement :</p>
+                  <div className="p-4 rounded-xl bg-zinc-800 border border-zinc-700">
+                    <p className="font-semibold text-zinc-100">Vercel Inc.</p>
+                    <p className="text-sm text-zinc-400 mt-1">340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</p>
                     <a href="https://vercel.com" target="_blank" rel="noopener noreferrer"
-                      className="text-sm text-gray-500 hover:text-gray-900 hover:underline transition-colors mt-1 block">
+                      className="text-sm text-zinc-400 hover:text-zinc-100 hover:underline transition-colors mt-1 block">
                       https://vercel.com
                     </a>
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-400 mb-2">Nom de domaine et DNS :</p>
-                  <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
-                    <p className="font-semibold text-gray-900">OVH SAS</p>
-                    <p className="text-sm text-gray-500 mt-1">2 rue Kellermann, 59100 Roubaix, France</p>
+                  <p className="text-sm font-medium text-zinc-500 mb-2">Nom de domaine et DNS :</p>
+                  <div className="p-4 rounded-xl bg-zinc-800 border border-zinc-700">
+                    <p className="font-semibold text-zinc-100">OVH SAS</p>
+                    <p className="text-sm text-zinc-400 mt-1">2 rue Kellermann, 59100 Roubaix, France</p>
                     <a href="https://www.ovh.com" target="_blank" rel="noopener noreferrer"
-                      className="text-sm text-gray-500 hover:text-gray-900 hover:underline transition-colors mt-1 block">
+                      className="text-sm text-zinc-400 hover:text-zinc-100 hover:underline transition-colors mt-1 block">
                       https://www.ovh.com
                     </a>
                   </div>
@@ -124,15 +124,15 @@ export default function MentionsLegalesContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-zinc-800 text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">
                   3
                 </div>
-                <h2 className="text-xl font-bold text-gray-900">Propriété intellectuelle</h2>
+                <h2 className="text-xl font-bold text-zinc-100">Propriété intellectuelle</h2>
               </div>
-              <div className="space-y-3 pl-11 text-sm text-gray-600 leading-relaxed">
+              <div className="space-y-3 pl-11 text-sm text-zinc-400 leading-relaxed">
                 <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.</p>
                 <p>Tous les éléments accessibles sur le site restent la propriété exclusive d'AtelierCode ou de ses partenaires.</p>
                 <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site est interdite, sauf autorisation écrite préalable d'AtelierCode.</p>
@@ -144,20 +144,20 @@ export default function MentionsLegalesContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-xl bg-gray-900 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-zinc-800 text-amber-400 flex items-center justify-center text-sm font-bold shrink-0">
                   4
                 </div>
-                <h2 className="text-xl font-bold text-gray-900">Contact</h2>
+                <h2 className="text-xl font-bold text-zinc-100">Contact</h2>
               </div>
               <div className="pl-11">
-                <p className="text-sm text-gray-600 mb-4">Pour toute question relative à ces mentions légales :</p>
-                <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                  <p className="text-sm font-medium text-gray-400 mb-1">Email :</p>
+                <p className="text-sm text-zinc-400 mb-4">Pour toute question relative à ces mentions légales :</p>
+                <div className="p-5 rounded-xl bg-zinc-800 border border-zinc-700">
+                  <p className="text-sm font-medium text-zinc-500 mb-1">Email :</p>
                   <a href="mailto:contact@ateliercode.fr"
-                    className="text-gray-900 font-semibold hover:underline transition-colors text-lg">
+                    className="text-amber-400 font-semibold hover:underline transition-colors text-lg">
                     contact@ateliercode.fr
                   </a>
                 </div>
@@ -170,9 +170,9 @@ export default function MentionsLegalesContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="mt-16 pt-10 border-t border-gray-200"
+            className="mt-16 pt-10 border-t border-zinc-800"
           >
-            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
+            <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] mb-6">
               Autres documents juridiques
             </h3>
             <div className="flex flex-wrap gap-3">
@@ -181,7 +181,7 @@ export default function MentionsLegalesContent() {
                 { label: "Conditions Générales de Vente", href: "/cgv" },
               ].map((link) => (
                 <Link key={link.href} href={link.href}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-gray-900 text-gray-700 hover:text-gray-900 font-medium transition-all text-sm">
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-700 hover:border-zinc-500 text-zinc-400 hover:text-zinc-100 font-medium transition-all text-sm">
                   <span>{link.label}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -194,7 +194,7 @@ export default function MentionsLegalesContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9 }}
-            className="mt-10 pt-8 border-t border-gray-100 text-center text-sm text-gray-400"
+            className="mt-10 pt-8 border-t border-zinc-800 text-center text-sm text-zinc-600"
           >
             <p>Document établi le : 12/01/2026</p>
             <p className="mt-1">
