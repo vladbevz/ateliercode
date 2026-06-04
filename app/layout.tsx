@@ -6,6 +6,7 @@ import './globals.css';
 import Header from './components/Header';
 import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
+import StickyCTA from './components/StickyCTA';
 import 'html5-device-mockups/dist/device-mockups.min.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -313,6 +314,7 @@ gtag('config', 'G-P9LNZK8CL1');`,
         </footer>
 
         <ScrollToTop />
+        <StickyCTA />
       </body>
     </html>
   );

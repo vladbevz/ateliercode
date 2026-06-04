@@ -2,7 +2,7 @@
 
 import { motion, useScroll } from 'framer-motion';
 import { useRef } from 'react';
-import { ClipboardCheck, Palette, Code2, Rocket, Clock, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ClipboardCheck, Palette, Code2, Rocket, Clock, CheckCircle2, ArrowRight, Target, Award } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Processus() {
@@ -188,18 +188,18 @@ export default function Processus() {
               {
                 title: "Pas de mauvaise surprise",
                 desc: "Chaque étape est validée avec vous avant de passer à la suivante",
-                icon: "🎯"
+                icon: <Target className="w-6 h-6" />,
               },
               {
                 title: "Délais tenus",
                 desc: "Un planning clair et respecté, pas de développement sans fin",
-                icon: "⏱️"
+                icon: <Clock className="w-6 h-6" />,
               },
               {
                 title: "Vous restez maître",
                 desc: "Vous comprenez chaque étape et gardez le contrôle",
-                icon: "👑"
-              }
+                icon: <Award className="w-6 h-6" />,
+              },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -210,7 +210,9 @@ export default function Processus() {
                 whileHover={{ y: -5 }}
                 className="p-6 bg-gray-50 rounded-2xl border border-gray-200"
               >
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="w-12 h-12 rounded-xl bg-gray-900 text-white flex items-center justify-center mb-4 mx-auto">
+                  {item.icon}
+                </div>
                 <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </motion.div>

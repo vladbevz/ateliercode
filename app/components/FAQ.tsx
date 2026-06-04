@@ -3,7 +3,8 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ChevronDown, Search, Sparkles, MessageCircle, FileText, CreditCard, HelpCircle } from 'lucide-react';
+import { ChevronDown, Search, MessageCircle, FileText, CreditCard, HelpCircle, Clock, PenLine, Globe, Calendar, Paintbrush } from 'lucide-react';
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 export default function FAQ() {
@@ -20,55 +21,55 @@ export default function FAQ() {
     { id: 'support', name: 'Support', icon: <MessageCircle className="w-4 h-4" /> }
   ];
 
-  const faqs = [
+  const faqs: { question: string; answer: string; category: string; icon: ReactNode }[] = [
     {
       question: "Combien de temps pour avoir mon site ?",
       answer: "5 à 21 jours selon le projet. Landing page : 2-3 jours. Site vitrine : 5-15 jours. Site avancé : 2-3 semaines.",
       category: 'process',
-      icon: "⏱️"
+      icon: <Clock className="w-5 h-5" />,
     },
     {
       question: "Puis-je modifier mon site moi-même après ?",
       answer: "Oui, deux options principales : 1) Panel admin complet avec Sanity.io (+150€ pour la configuration initiale) qui vous permet de modifier tout le contenu facilement, 2) Forfait maintenance à 50€/mois pour des modifications illimitées effectuées par mes soins.",
       category: 'support',
-      icon: "✏️"
+      icon: <PenLine className="w-5 h-5" />,
     },
     {
       question: "Quel hébergement utilisez-vous ?",
       answer: "Vercel - optimal pour Next.js, rapide et sécurisé. Le nom de domaine (.fr/.com) est inclus la première année (~12€). Après un an, vous renouvelez vous-même (~12€/an) ou via moi.",
       category: 'process',
-      icon: "🌐"
+      icon: <Globe className="w-5 h-5" />,
     },
     {
       question: "Et si je ne sais pas quoi écrire sur mon site ?",
       answer: "Je vous fournis un guide de rédaction et des exemples pour chaque page. Si nécessaire, je peux rédiger les textes avec vous.",
       category: 'support',
-      icon: "📝"
+      icon: <FileText className="w-5 h-5" />,
     },
     {
       question: "Proposez-vous le référencement (SEO) ?",
       answer: "Oui, chaque forfait inclut du SEO : Landing Page (SEO de base), Site Vitrine (SEO optimisé), Site Avancé (SEO premium).",
       category: 'process',
-      icon: "🔍"
+      icon: <Search className="w-5 h-5" />,
     },
     {
       question: "Que se passe-t-il après la première année ?",
       answer: "Après la première année, vous payez : nom de domaine (10-15€/an). Je propose également un forfait maintenance à 50€/mois pour les mises à jour, sécurité et petites modifications.",
       category: 'payment',
-      icon: "📅"
+      icon: <Calendar className="w-5 h-5" />,
     },
     {
       question: "Travaillez-vous avec des templates ?",
       answer: "J'utilise des structures de base mais chaque site est personnalisé selon vos besoins. Je ne vends pas de sites clé-en-main identiques. Votre site sera unique et adapté à votre activité.",
       category: 'process',
-      icon: "🎨"
+      icon: <Paintbrush className="w-5 h-5" />,
     },
     {
       question: "Quelles sont les méthodes de paiement ?",
       answer: "Paiement 50% à la commande, 50% à la livraison. Virement bancaire, PayPal ou carte bancaire (via Stripe). Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée fournie.",
       category: 'payment',
-      icon: "💳"
-    }
+      icon: <CreditCard className="w-5 h-5" />,
+    },
   ];
 
   const filteredFaqs = faqs.filter(faq => {
@@ -81,7 +82,7 @@ export default function FAQ() {
   return (
     <section ref={containerRef} className="relative py-20 bg-white overflow-hidden">
       {/* Світлий фон */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+      <div className="absolute inset-0 bg-linear-to-b from-white via-gray-50 to-white" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Заголовок */}
@@ -164,7 +165,9 @@ export default function FAQ() {
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full p-6 text-left flex items-start gap-4"
                   >
-                    <div className="text-2xl">{faq.icon}</div>
+                    <div className="w-10 h-10 rounded-xl bg-gray-100 text-gray-600 flex items-center justify-center shrink-0">
+                      {faq.icon}
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold text-gray-900 pr-8">
                         {faq.question}

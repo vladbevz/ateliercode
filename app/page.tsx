@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Hero from './components/Hero';
 import ProcessSection from './components/ProcessSection';
 import ProjectsShowcase from './components/ProjectsShowcase';
+import Testimonials from './components/Testimonials';
+import HomePricing from './components/HomePricing';
+import HomeBlogTeaser from './components/HomeBlogTeaser';
 
 export const metadata: Metadata = {
   title: 'AtelierCode — Création de sites web à Nîmes | Agence web',
@@ -23,7 +26,10 @@ export default function Home() {
     <main>
       <Hero />
       <ProcessSection />
+      <Testimonials />
       <ProjectsShowcase />
+      <HomePricing />
+      <HomeBlogTeaser />
     </main>
   );
 }
