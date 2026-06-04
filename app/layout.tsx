@@ -205,6 +205,14 @@ gtag('config', 'G-P9LNZK8CL1');`,
                   </li>
                   <li>
                     <Link
+                      href="/blog"
+                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/tarifs"
                       className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
                     >
