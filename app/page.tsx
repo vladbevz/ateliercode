@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
-import Hero from './components/Hero';
-import ProcessSection from './components/ProcessSection';
-import ProjectsShowcase from './components/ProjectsShowcase';
+import HeroPremium from './components/HeroPremium';
+import StatsStrip from './components/StatsStrip';
+import PillarsPremium from './components/PillarsPremium';
+import ProjectsDark from './components/ProjectsDark';
+import TestimonialsPremium from './components/TestimonialsPremium';
+import PricingPremium from './components/PricingPremium';
+import CtaPremium from './components/CtaPremium';
 
 export const metadata: Metadata = {
   title: 'AtelierCode — Création de sites web à Nîmes | Agence web',
@@ -21,9 +25,26 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <ProcessSection />
-      <ProjectsShowcase />
+      {/* Dark hero — wow factor */}
+      <HeroPremium />
+
+      {/* Proof strip — stays dark */}
+      <StatsStrip />
+
+      {/* 3 pillars — light break */}
+      <PillarsPremium />
+
+      {/* Projects — dark */}
+      <ProjectsDark />
+
+      {/* Testimonials — light break */}
+      <TestimonialsPremium />
+
+      {/* Pricing — dark */}
+      <PricingPremium />
+
+      {/* Final CTA — dark */}
+      <CtaPremium />
     </main>
   );
 }
