@@ -170,7 +170,7 @@ gtag('config', 'G-P9LNZK8CL1');`,
         <CustomCursor />
         <Header />
 
-        <main className="relative pt-4 md:pt-12">
+        <main className="relative pt-8 md:pt-20">
           {children}
         </main>
 
