@@ -171,7 +171,7 @@ export default function Apropos() {
     <section ref={containerRef} className="relative bg-white overflow-hidden">
 
       {/* ─── 1. HERO ─── */}
-      <div className="relative pt-8 pb-24 overflow-hidden">
+      <div className="relative flex flex-col justify-center min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-5rem)] overflow-hidden py-12">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/60 to-white" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gray-100 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gray-100 rounded-full blur-3xl opacity-20 translate-y-1/2 -translate-x-1/3" />
