@@ -91,7 +91,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
             Du projet à la réussite
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -154,7 +154,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mb-16"
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
             Pourquoi votre entreprise a besoin d'un site web ?
           </h3>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">

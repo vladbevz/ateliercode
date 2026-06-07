@@ -55,7 +55,7 @@ export default function Realisations() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
             Des projets qui <br />
             <span className="text-gray-400">parlent d&apos;eux-mêmes</span>
           </h2>
@@ -141,7 +141,7 @@ export default function Realisations() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-gray-200 rounded-full blur-3xl opacity-50 pointer-events-none" />
 
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-5">
                 Explorez tous nos projets sur GitHub
               </h3>
               <motion.a

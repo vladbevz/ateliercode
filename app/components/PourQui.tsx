@@ -74,7 +74,7 @@ export default function PourQui() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Des solutions pour <br />
             <span className="text-gray-400">chaque métier</span>
           </h1>

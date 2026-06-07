@@ -69,7 +69,7 @@ export default function AgenceWebNimesContent() {
               <span className="text-sm font-medium text-gray-600">Agence web locale · Nîmes — Gard (30)</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
               Agence web à Nîmes —<br />
               <span className="text-gray-400">qualité pro, prix accessible.</span>
             </h1>
@@ -109,7 +109,7 @@ export default function AgenceWebNimesContent() {
       </div>
 
       {/* ─── 2. LE PROBLÈME ─── */}
-      <div className="border-y border-gray-200 bg-gray-50 py-20 md:py-24">
+      <div className="border-y border-gray-200 bg-gray-50 py-14 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
@@ -184,7 +184,7 @@ export default function AgenceWebNimesContent() {
       <div className="container mx-auto px-4 relative z-10">
 
         {/* ─── 3. NOTRE RÉPONSE ─── */}
-        <div className="py-20 md:py-28">
+        <div className="py-14 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -192,7 +192,7 @@ export default function AgenceWebNimesContent() {
             className="text-center mb-14"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Notre réponse</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Un site premium,{' '}
               <span className="text-gray-400">à prix d&apos;artisan.</span>
             </h2>
@@ -243,7 +243,7 @@ export default function AgenceWebNimesContent() {
                 }`}>
                   {p.icon}
                 </div>
-                <p className={`text-3xl font-bold mb-2 ${p.dark ? 'text-white' : 'text-gray-900'}`}>
+                <p className={`text-2xl font-bold mb-2 ${p.dark ? 'text-white' : 'text-gray-900'}`}>
                   {p.metric}
                 </p>
                 <h3 className={`text-lg font-bold mb-3 ${p.dark ? 'text-gray-200' : 'text-gray-900'}`}>
@@ -266,7 +266,7 @@ export default function AgenceWebNimesContent() {
             className="text-center mb-14"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Pour qui ?</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Fait pour les{' '}
               <span className="text-gray-400">petites entreprises de Nîmes.</span>
             </h2>
@@ -338,7 +338,7 @@ export default function AgenceWebNimesContent() {
               className="mb-10"
             >
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Agence locale</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Pourquoi choisir une agence web{' '}
                 <span className="text-gray-400">locale à Nîmes ?</span>
               </h2>
@@ -391,7 +391,7 @@ export default function AgenceWebNimesContent() {
             className="text-center mb-14"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Tarifs</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Des prix clairs,{' '}
               <span className="text-gray-400">sans surprise.</span>
             </h2>
@@ -485,7 +485,7 @@ export default function AgenceWebNimesContent() {
             className="text-center mb-10"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Zone d'intervention</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Nîmes et{' '}
               <span className="text-gray-400">tout le Gard.</span>
             </h2>
@@ -525,7 +525,7 @@ export default function AgenceWebNimesContent() {
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
                 Parlons de votre projet
               </p>
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
                 Votre site à Nîmes,<br />
                 <span className="text-gray-400">dès la semaine prochaine.</span>
               </h2>

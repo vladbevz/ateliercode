@@ -82,7 +82,7 @@ export default function Hero() {
             <span className="block">Votre présence digitale —</span>
 
             {/* ✅ окремий блок з достатнім відступом зверху */}
-            <span className="block mt-4 md:mt-6">
+            <span className="block mt-3 md:mt-4">
               {/* ✅ gradient на обгортці, підкреслення — окремий absolute div */}
               <span className="relative inline-block pb-3 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
                 <TypeAnimation
@@ -111,7 +111,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-600 mb-6 max-w-2xl mx-auto"
           >
             Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.{' '}
             <span className="text-gray-900 font-semibold">Rapide, visible sur Google, livré en 3 semaines.</span>
