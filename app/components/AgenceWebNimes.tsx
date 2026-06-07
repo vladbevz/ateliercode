@@ -75,7 +75,7 @@ export default function AgenceWebNimesContent() {
             <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
               Les petites entreprises méritent un site web{' '}
               <span className="text-gray-900 font-semibold">aussi performant que les grandes</span>.
-              Dès 299 €, livré en une semaine — sans compromis sur la qualité.
+              Dès 499 €, livré en une semaine — sans compromis sur la qualité.
             </p>
           </motion.div>
 
