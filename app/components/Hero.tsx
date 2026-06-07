@@ -107,15 +107,23 @@ export default function Hero() {
           </motion.h1>
 
           {/* Підзаголовок */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-600 mb-6 max-w-2xl mx-auto"
+            className="mb-6 max-w-2xl mx-auto space-y-3"
           >
-            Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.{' '}
-            <span className="text-gray-900 font-semibold">Rapide, visible sur Google, livré en 3 semaines.</span>
-          </motion.p>
+            <p className="text-lg md:text-xl text-gray-600">
+              Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['Rapide', 'Visible sur Google', 'Livré en 3 semaines'].map((tag) => (
+                <span key={tag} className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-sm font-semibold text-gray-800">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Кнопки */}
           <motion.div
