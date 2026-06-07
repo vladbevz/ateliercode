@@ -1,0 +1,74 @@
+{
+  "slug": "pourquoi-wordpress-ralentit-votre-site",
+  "title": "Pourquoi WordPress ralentit votre site (et vous coûte plus cher qu'on ne vous le dit)",
+  "date": "2026-06-07",
+  "excerpt": "WordPress propulse 43 % du web, mais personne ne vous explique ce qui se passe après la livraison. Vitesse, coûts cachés, sécurité : voici la vérité.",
+  "category": "Performance web",
+  "sections": [
+    {
+      "paragraphs": [
+        "Vous avez demandé un devis à une agence web à Nîmes. On vous a proposé un site WordPress pour 1 200 €, parfois 3 000 €. C'est rassurant : WordPress, tout le monde connaît. C'est populaire. C'est \"standard\". Sauf que personne ne vous a expliqué ce qui se passe après la livraison."
+      ]
+    },
+    {
+      "heading": "WordPress, c'est quoi concrètement ?",
+      "paragraphs": [
+        "WordPress est un CMS (système de gestion de contenu) créé en 2003. Il propulse aujourd'hui environ 43 % des sites web dans le monde — ce qui en fait la plateforme la plus utilisée sur internet. Mais \"le plus utilisé\" ne veut pas dire \"le meilleur pour votre cas\". Et surtout pas \"le plus rapide\"."
+      ]
+    },
+    {
+      "heading": "Le problème numéro 1 : la vitesse",
+      "paragraphs": [
+        "Google mesure la performance de votre site avec des indicateurs appelés Core Web Vitals. L'un des plus importants s'appelle le LCP (Largest Contentful Paint) : le temps que met votre page à afficher son contenu principal. La recommandation de Google : moins de 2,5 secondes. Un site WordPress moyen avec un thème premium et quelques plugins ? Entre 4 et 8 secondes en conditions réelles.",
+        "Pourquoi ? Parce que WordPress charge, pour chaque visiteur :"
+      ],
+      "list": [
+        "Le moteur PHP qui génère la page à la volée",
+        "Le thème avec ses centaines de fichiers CSS et JS",
+        "Les plugins (formulaire de contact, SEO, cache, sécurité, RGPD…) qui s'empilent",
+        "La base de données qui répond à chaque requête"
+      ]
+    },
+    {
+      "heading": "Ce que ça change pour votre référencement",
+      "paragraphs": [
+        "Google l'a confirmé officiellement : la vitesse est un facteur de classement. Un site lent pénalise votre position dans les résultats de recherche. Concrètement, si un plombier concurrent à Nîmes a un site deux fois plus rapide que le vôtre, Google le favorise — même si votre contenu est meilleur.",
+        "Et ce n'est pas tout. Un site lent, c'est aussi :"
+      ],
+      "list": [
+        "Plus de visiteurs qui repartent avant que la page se charge (on parle de taux de rebond)",
+        "Moins de conversions : les gens appellent moins, remplissent moins vos formulaires",
+        "Une mauvaise image : un site qui rame, ça fait vieillot"
+      ]
+    },
+    {
+      "heading": "Le problème numéro 2 : les coûts cachés",
+      "paragraphs": [
+        "On vous vend WordPress comme une solution économique. Voici ce qu'on oublie de mentionner.",
+        "Les mises à jour permanentes. WordPress, ses thèmes et ses plugins doivent être mis à jour régulièrement — sous peine de failles de sécurité. Certaines agences facturent un contrat de maintenance mensuel entre 30 € et 80 €/mois. Sur 3 ans, ça fait entre 1 080 € et 2 880 € en plus du prix initial.",
+        "L'hébergement spécialisé. Un WordPress lent sur un hébergement bas de gamme, c'est catastrophique. Pour avoir des performances correctes, il faut un hébergement WordPress optimisé — entre 10 € et 30 €/mois.",
+        "Les plugins premium. Le thème de base ne suffit pas. Formulaires avancés, popups, galeries, SEO avancé… chaque fonctionnalité supplémentaire peut nécessiter un plugin payant, souvent en abonnement annuel. Faites le calcul sur 3 ans : le \"site pas cher\" à 1 200 € peut facilement revenir à 4 000 ou 6 000 €."
+      ]
+    },
+    {
+      "heading": "L'alternative : un site construit avec les outils d'aujourd'hui",
+      "paragraphs": [
+        "Chez AtelierCode, je développe des sites avec Next.js — une technologie utilisée par des entreprises comme TikTok, Twitch ou Netflix pour ses performances. La différence fondamentale : les pages sont pré-générées. Quand un visiteur arrive sur votre site, il reçoit un fichier HTML déjà prêt, instantanément. Pas de PHP, pas de base de données sollicitée en temps réel, pas de plugins qui s'accumulent.",
+        "Résultat concret :"
+      ],
+      "list": [
+        "Score PageSpeed entre 95 et 100/100 sur mobile et desktop",
+        "LCP inférieur à 1 seconde en conditions réelles",
+        "Aucun plugin de sécurité nécessaire — la surface d'attaque est quasi inexistante",
+        "Hébergement gratuit sur Vercel pour la plupart des sites vitrine"
+      ]
+    },
+    {
+      "heading": "Ce que ça donne en pratique",
+      "paragraphs": [
+        "Voici un exemple réel : le site que j'ai développé pour un restaurant à Nîmes obtient un score de performance de 98/100 sur mobile. Le site de son concurrent direct, développé par une agence sur WordPress, plafonne à 41/100. Lequel pensez-vous que Google met en avant ?",
+        "Si vous êtes artisan, restaurateur ou commerçant à Nîmes ou en Occitanie, et que vous voulez un site qui travaille vraiment pour vous — rapide, visible sur Google, sans frais cachés — contactez-moi. Je vous prépare une maquette gratuite de votre futur site avant même qu'on signe quoi que ce soit. Un site vitrine complet commence à partir de 499 €."
+      ]
+    }
+  ]
+}
