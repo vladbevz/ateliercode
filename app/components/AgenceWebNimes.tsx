@@ -70,8 +70,7 @@ export default function AgenceWebNimesContent() {
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-              Agence web à Nîmes —<br />
-              <span className="text-gray-400">qualité pro, prix accessible.</span>
+              Agence web à Nîmes — <span className="text-gray-400">qualité pro, prix accessible.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
               Les petites entreprises méritent un site web{' '}
@@ -526,8 +525,7 @@ export default function AgenceWebNimesContent() {
                 Parlons de votre projet
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
-                Votre site à Nîmes,<br />
-                <span className="text-gray-400">dès la semaine prochaine.</span>
+                Votre site à Nîmes, <span className="text-gray-400">dès la semaine prochaine.</span>
               </h2>
               <p className="text-lg text-gray-500 max-w-xl mx-auto mb-10">
                 Devis gratuit sous 24h. Aucun engagement avant que vous soyez convaincu.

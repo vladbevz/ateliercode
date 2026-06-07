@@ -56,8 +56,7 @@ export default function Realisations() {
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
-            Des projets qui <br />
-            <span className="text-gray-400">parlent d&apos;eux-mêmes</span>
+            Des projets qui <span className="text-gray-400">parlent d&apos;eux-mêmes</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Découvrez comment nous avons transformé la présence en ligne de nos clients

@@ -83,8 +83,7 @@ export default function Processus() {
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
-            De l&apos;idée à la <br />
-            <span className="text-gray-400">réalisation</span>
+            De l&apos;idée à la <span className="text-gray-400">réalisation</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Une méthode transparente et éprouvée pour créer votre site web sans stress

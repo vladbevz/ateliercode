@@ -33,8 +33,7 @@ export default function BlogPage() {
         <div className="max-w-3xl mx-auto mb-16">
           <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Blog</p>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Conseils pour votre<br />
-            <span className="text-gray-400">présence en ligne.</span>
+            Conseils pour votre <span className="text-gray-400">présence en ligne.</span>
           </h1>
           <p className="text-xl text-gray-500 leading-relaxed">
             Articles pratiques sur la création de sites web, le SEO local et le digital pour les professionnels du Gard et d&apos;Occitanie.

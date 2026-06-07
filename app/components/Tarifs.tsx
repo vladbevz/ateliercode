@@ -88,8 +88,7 @@ export default function Tarifs() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
-            Des tarifs clairs,<br />
-            <span className="text-gray-400">sans surprise.</span>
+            Des tarifs clairs, <span className="text-gray-400">sans surprise.</span>
           </h2>
           <p className="text-xl text-gray-500 max-w-xl mx-auto">
             Un site web n&apos;est pas une dépense — c&apos;est un investissement qui se rembourse dès les premiers clients.

@@ -92,8 +92,7 @@ export default function FAQ() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5">
-            Des réponses à toutes vos <br />
-            <span className="text-gray-400">questions</span>
+            Des réponses à toutes vos <span className="text-gray-400">questions</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Tout ce que vous devez savoir avant de vous lancer

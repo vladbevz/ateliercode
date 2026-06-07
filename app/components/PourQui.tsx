@@ -75,8 +75,7 @@ export default function PourQui() {
           className="text-center mb-12 md:mb-16"
         >
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Des solutions pour <br />
-            <span className="text-gray-400">chaque métier</span>
+            Des solutions pour <span className="text-gray-400">chaque métier</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Que vous soyez professionnel libéral, PME ou indépendant,

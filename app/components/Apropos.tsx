@@ -183,8 +183,7 @@ export default function Apropos() {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
-              Votre site mérite<br />
-              <span className="text-gray-400">d&apos;être trouvé.</span>
+              Votre site mérite <span className="text-gray-400">d&apos;être trouvé.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
               Nous créons des sites web qui ne se contentent pas d&apos;être beaux —
@@ -619,8 +618,7 @@ export default function Apropos() {
                 Parlons de votre projet
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
-                Prêt à avoir un site qui<br />
-                <span className="text-gray-400">travaille vraiment pour vous ?</span>
+                Prêt à avoir un site qui <span className="text-gray-400">travaille vraiment pour vous ?</span>
               </h2>
               <p className="text-lg text-gray-500 max-w-xl mx-auto mb-10">
                 Devis gratuit, réponse sous 24 h. Aucun engagement avant que vous soyez convaincu.
