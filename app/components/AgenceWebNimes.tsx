@@ -69,7 +69,7 @@ export default function AgenceWebNimesContent() {
               <span className="text-sm font-medium text-gray-600">Agence web locale · Nîmes — Gard (30)</span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
               Agence web à Nîmes — <span className="text-gray-400">qualité pro, prix accessible.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">

@@ -182,7 +182,7 @@ export default function Apropos() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
               Votre site mérite <span className="text-gray-400">d&apos;être trouvé.</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
