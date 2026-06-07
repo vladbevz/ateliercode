@@ -79,7 +79,7 @@ export default function Hero() {
             // ✅ прибрано leading-tight — воно стискало міжрядковий інтервал
             // і TypeAnimation рядок накладався на перший
           >
-            <span className="block">Votre présence digitale à Nîmes —</span>
+            <span className="block">Votre présence digitale —</span>
 
             {/* ✅ окремий блок з достатнім відступом зверху */}
             <span className="block mt-4 md:mt-6">
