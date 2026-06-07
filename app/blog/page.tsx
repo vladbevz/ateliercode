@@ -4,16 +4,16 @@ import { ArrowRight, Calendar } from 'lucide-react';
 import { getAllPosts, formatDate } from '../lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog — Conseils création de sites web pour artisans et PME',
+  title: 'Blog — Conseils web pour artisans & entreprises à Nîmes',
   description:
-    'Articles pratiques sur la création de sites web, le SEO local et le digital pour les artisans, commerçants et PME du Gard et d\'Occitanie. Par AtelierCode, agence web à Nîmes.',
+    'Guides et conseils pour les professionnels à Nîmes : création de site web, SEO local, e-commerce, applications web.',
   alternates: {
     canonical: 'https://www.ateliercode.fr/blog',
   },
   openGraph: {
-    title: 'Blog — AtelierCode | Conseils création de sites web',
+    title: 'Blog — Conseils web pour artisans & entreprises à Nîmes',
     description:
-      'Articles pratiques sur la création de sites web, le SEO local et le digital pour les artisans et PME du Gard.',
+      'Guides et conseils pour les professionnels à Nîmes : création de site web, SEO local, e-commerce, applications web.',
     url: 'https://www.ateliercode.fr/blog',
   },
 };

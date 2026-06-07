@@ -79,7 +79,7 @@ export default function Hero() {
             // ✅ прибрано leading-tight — воно стискало міжрядковий інтервал
             // і TypeAnimation рядок накладався на перший
           >
-            <span className="block">Votre site web</span>
+            <span className="block">Votre présence digitale à Nîmes —</span>
 
             {/* ✅ окремий блок з достатнім відступом зверху */}
             <span className="block mt-4 md:mt-6">
@@ -87,13 +87,13 @@ export default function Hero() {
               <span className="relative inline-block pb-3 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
                 <TypeAnimation
                   sequence={[
-                    'vous apporte plus de clients',
+                    'site vitrine qui convertit',
                     2000,
-                    'augmente votre chiffre',
+                    'boutique e-commerce performante',
                     2000,
-                    'renforce votre image',
+                    'application web sur mesure',
                     2000,
-                    'travaille 24h/7',
+                    'présence qui travaille 24h/7',
                     2000,
                   ]}
                   wrapper="span"
@@ -113,8 +113,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
           >
-            Transformez votre présence en ligne avec un site web qui ne se contente pas d'exister —{' '}
-            <span className="text-gray-900 font-semibold">il performe et convertit.</span>
+            Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.{' '}
+            <span className="text-gray-900 font-semibold">Rapide, visible sur Google, livré en 3 semaines.</span>
           </motion.p>
 
           {/* Кнопки */}

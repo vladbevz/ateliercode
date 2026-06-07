@@ -4,16 +4,16 @@ import ProcessSection from './components/ProcessSection';
 import ProjectsShowcase from './components/ProjectsShowcase';
 
 export const metadata: Metadata = {
-  title: 'AtelierCode — Création de sites web à Nîmes | Agence web',
+  title: 'Développeur web à Nîmes — Sites, E-commerce & Applications | AtelierCode',
   description:
-    'Agence web à Nîmes. Création de sites web rapides, modernes et optimisés SEO pour indépendants, PME et professions libérales du Gard.',
+    'AtelierCode crée des sites vitrine, boutiques e-commerce et applications web sur mesure à Nîmes. React & Next.js, performances 98/100, devis gratuit. À partir de 499 €.',
   alternates: {
     canonical: 'https://www.ateliercode.fr',
   },
   openGraph: {
-    title: 'AtelierCode — Création de sites web à Nîmes | Agence web',
+    title: 'Développeur web à Nîmes — Sites, E-commerce & Applications | AtelierCode',
     description:
-      'Agence web à Nîmes. Création de sites web rapides, modernes et optimisés SEO pour indépendants, PME et professions libérales du Gard.',
+      'AtelierCode crée des sites vitrine, boutiques e-commerce et applications web sur mesure à Nîmes. React & Next.js, performances 98/100, devis gratuit. À partir de 499 €.',
     url: 'https://www.ateliercode.fr',
   },
 };

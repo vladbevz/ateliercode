@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import PourQui from '../components/PourQui';
 
 export const metadata: Metadata = {
-  title: 'Pour qui ? — Sites web pour professionnels et indépendants',
+  title: 'Pour qui ? Artisans, commerces, startups à Nîmes | AtelierCode',
   description:
-    "AtelierCode s'adresse aux professions libérales, PME, TPE et indépendants qui souhaitent un site web professionnel, rapide et performant à Nîmes et dans le Gard.",
+    'AtelierCode crée des sites et applications pour artisans, restaurants, photographes, e-commerçants et startups à Nîmes et dans le Gard.',
   alternates: {
     canonical: 'https://www.ateliercode.fr/pourqui',
   },
   openGraph: {
-    title: 'Pour qui ? — AtelierCode | Sites web pour professionnels',
+    title: 'Pour qui ? Artisans, commerces, startups à Nîmes | AtelierCode',
     description:
-      "AtelierCode s'adresse aux professions libérales, PME, TPE et indépendants qui souhaitent un site web professionnel, rapide et performant.",
+      'AtelierCode crée des sites et applications pour artisans, restaurants, photographes, e-commerçants et startups à Nîmes et dans le Gard.',
     url: 'https://www.ateliercode.fr/pourqui',
   },
 };

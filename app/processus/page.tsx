@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import Processus from '@/app/components/Processus';
 
 export const metadata: Metadata = {
-  title: 'Notre processus — Création de site web en 2 à 3 semaines',
+  title: "Notre processus — De l'idée au site web livré en 3 semaines | AtelierCode",
   description:
-    'Découvrez notre méthode de travail : brief, design, développement, livraison. Un site web livré en 2 à 3 semaines, sans surprise et avec des prix fixes.',
+    'Découvrez comment AtelierCode développe votre site vitrine, e-commerce ou application web à Nîmes : de la maquette à la mise en ligne en 3 étapes claires.',
   alternates: {
     canonical: 'https://www.ateliercode.fr/processus',
   },
   openGraph: {
-    title: 'Notre processus — AtelierCode | Création de site en 3 étapes',
+    title: "Notre processus — De l'idée au site web livré en 3 semaines | AtelierCode",
     description:
-      'Découvrez notre méthode de travail : brief, design, développement, livraison. Un site web livré en 2 à 3 semaines, sans surprise et avec des prix fixes.',
+      'Découvrez comment AtelierCode développe votre site vitrine, e-commerce ou application web à Nîmes : de la maquette à la mise en ligne en 3 étapes claires.',
     url: 'https://www.ateliercode.fr/processus',
   },
 };
