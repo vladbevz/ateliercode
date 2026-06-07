@@ -69,7 +69,7 @@ export default function AgenceWebNimesContent() {
               <span className="text-sm font-medium text-gray-600">Agence web locale · Nîmes — Gard (30)</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
               Agence web à Nîmes —<br />
               <span className="text-gray-400">qualité pro, prix accessible.</span>
             </h1>
@@ -120,7 +120,7 @@ export default function AgenceWebNimesContent() {
             >
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-7">Le problème</p>
               <div className="border-l-4 border-gray-900 pl-6 mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                   Les grandes agences facturent 2 000 à 5 000 €.{' '}
                   <span className="text-gray-400">Le petit commerce du coin, lui, n&apos;a pas ce budget.</span>
                 </h2>
@@ -525,7 +525,7 @@ export default function AgenceWebNimesContent() {
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
                 Parlons de votre projet
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight">
                 Votre site à Nîmes,<br />
                 <span className="text-gray-400">dès la semaine prochaine.</span>
               </h2>

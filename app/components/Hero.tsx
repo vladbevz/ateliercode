@@ -75,7 +75,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 pt-12 md:pt-16 lg:pt-20"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 pt-6 md:pt-10 lg:pt-12"
             // ✅ прибрано leading-tight — воно стискало міжрядковий інтервал
             // і TypeAnimation рядок накладався на перший
           >

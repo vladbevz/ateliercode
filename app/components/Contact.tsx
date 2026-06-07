@@ -120,7 +120,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-         <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Parlons de votre <br />
             <span className="text-gray-400">projet</span>
           </h2>

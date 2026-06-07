@@ -182,7 +182,7 @@ export default function Apropos() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
               Votre site mérite<br />
               <span className="text-gray-400">d&apos;être trouvé.</span>
             </h1>
@@ -234,7 +234,7 @@ export default function Apropos() {
             >
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-7">Le problème</p>
               <div className="border-l-4 border-gray-900 pl-6 mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                   Vous avez investi dans un site web.{' '}
                   <span className="text-gray-400">Il est en page 4 de Google. Vos clients ne le trouvent pas.</span>
                 </h2>
@@ -361,7 +361,7 @@ export default function Apropos() {
           >
             <div className="text-center mb-14">
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Pourquoi Google nous préfère</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                 La technique au service{' '}
                 <span className="text-gray-400">de votre visibilité.</span>
               </h2>
@@ -454,7 +454,7 @@ export default function Apropos() {
                 className="space-y-6 pt-2"
               >
                 <div>
-                  <h3 className="text-4xl font-bold text-gray-900 mb-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-1">
                     Vladyslav <span className="text-gray-400">Bevz</span>
                   </h3>
                   <div className="flex items-center gap-2 text-gray-400">
@@ -508,7 +508,7 @@ export default function Apropos() {
             className="text-center mb-14"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Comparaison</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Pas tous les sites{' '}
               <span className="text-gray-400">se valent.</span>
             </h2>
@@ -574,7 +574,7 @@ export default function Apropos() {
             className="text-center mb-14"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Technologies</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Des outils choisis{' '}
               <span className="text-gray-400">pour votre résultat.</span>
             </h2>
@@ -618,7 +618,7 @@ export default function Apropos() {
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
                 Parlons de votre projet
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight">
                 Prêt à avoir un site qui<br />
                 <span className="text-gray-400">travaille vraiment pour vous ?</span>
               </h2>
