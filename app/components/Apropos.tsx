@@ -235,8 +235,8 @@ export default function Apropos() {
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-7">Le problème</p>
               <div className="border-l-4 border-gray-900 pl-6 mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                  Votre concurrent a dépensé 1 500 € pour un site WordPress.{' '}
-                  <span className="text-gray-400">Il est en page 4 de Google. Personne ne le trouve.</span>
+                  Vous avez investi dans un site web.{' '}
+                  <span className="text-gray-400">Il est en page 4 de Google. Vos clients ne le trouvent pas.</span>
                 </h2>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-2xl shadow-sm">
