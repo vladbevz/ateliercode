@@ -111,18 +111,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-6 max-w-2xl mx-auto space-y-3"
+            className="mb-6 max-w-2xl mx-auto space-y-2"
           >
             <p className="text-lg md:text-xl text-gray-600">
               Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.
             </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {['Rapide', 'Visible sur Google', 'Livré en 3 semaines'].map((tag) => (
-                <span key={tag} className="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-sm font-semibold text-gray-800">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <p className="text-lg md:text-xl font-semibold text-gray-900">
+              Rapide, visible sur Google, livré en 3 semaines.
+            </p>
           </motion.div>
 
           {/* Кнопки */}
