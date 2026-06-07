@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-12 md:pt-0"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-white pt-12 md:pt-0"
     >
       {/* Анімований фон */}
       <motion.div 
@@ -75,7 +75,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 pt-0 md:pt-4 lg:pt-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4"
             // ✅ прибрано leading-tight — воно стискало міжрядковий інтервал
             // і TypeAnimation рядок накладався на перший
           >
@@ -117,7 +117,7 @@ export default function Hero() {
               Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.
             </p>
             <p className="text-lg md:text-xl font-semibold text-gray-900">
-              Rapide, visible sur Google, livré en 3 semaines.
+              Rapide, visible sur Google, livré en 1-3 semaines.
             </p>
           </motion.div>
 
@@ -126,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
@@ -159,7 +159,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
           >
             {[
               { icon: <TrendingUp />, value: "+40%", label: "de clients en plus" },
@@ -172,7 +172,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1 + index * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-100 shadow-lg hover:shadow-xl transition-all group"
+                className="text-center p-4 rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-100 shadow-lg hover:shadow-xl transition-all group"
                 whileHover={{ y: -5 }}
               >
                 <div className="flex justify-center mb-3 text-gray-700 group-hover:scale-110 transition-transform">
