@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-20 md:pt-0"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-12 md:pt-0"
     >
       {/* Анімований фон */}
       <motion.div 
@@ -75,7 +75,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 pt-6 md:pt-10 lg:pt-12"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 pt-0 md:pt-4 lg:pt-6"
             // ✅ прибрано leading-tight — воно стискало міжрядковий інтервал
             // і TypeAnimation рядок накладався на перший
           >
@@ -89,7 +89,7 @@ export default function Hero() {
                   sequence={[
                     'site vitrine qui convertit',
                     2000,
-                    'boutique e-commerce performante',
+                    'boutique e-commerce',
                     2000,
                     'application web sur mesure',
                     2000,
@@ -111,7 +111,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto"
           >
             Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.{' '}
             <span className="text-gray-900 font-semibold">Rapide, visible sur Google, livré en 3 semaines.</span>

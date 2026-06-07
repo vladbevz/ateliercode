@@ -27,7 +27,7 @@ export default function BlogPage() {
       <div className="absolute top-20 right-0 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-30 pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-20 pointer-events-none" />
 
-      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div className="container mx-auto px-4 pt-8 pb-16 md:pb-24 relative z-10">
 
         {/* Header */}
         <div className="max-w-3xl mx-auto mb-16">

@@ -53,7 +53,7 @@ export default function AgenceWebNimesContent() {
     <section ref={containerRef} className="relative bg-white overflow-hidden">
 
       {/* ─── 1. HERO ─── */}
-      <div className="relative py-24 overflow-hidden">
+      <div className="relative pt-8 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-b from-white via-gray-50/60 to-white" />
         <div className="absolute top-0 right-0 w-125 h-125 bg-gray-100 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-100 h-100 bg-gray-100 rounded-full blur-3xl opacity-20 translate-y-1/2 -translate-x-1/3" />

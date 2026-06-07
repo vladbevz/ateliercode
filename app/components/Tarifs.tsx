@@ -75,7 +75,7 @@ export default function Tarifs() {
   ];
 
   return (
-    <section ref={containerRef} className="relative py-24 bg-white overflow-hidden">
+    <section ref={containerRef} className="relative pt-8 pb-24 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/60 to-white" />
 
       <div className="container mx-auto px-4 relative z-10">

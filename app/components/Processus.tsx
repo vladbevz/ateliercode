@@ -69,7 +69,7 @@ export default function Processus() {
   ];
 
   return (
-    <section className="relative py-20 bg-white overflow-hidden">
+    <section className="relative pt-8 pb-20 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
 
       <div ref={containerRef} className="container mx-auto px-4 relative z-10">
