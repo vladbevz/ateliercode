@@ -87,7 +87,7 @@ export default function AgenceWebNimesContent() {
             className="flex flex-wrap justify-center gap-4 md:gap-6"
           >
             {[
-              { value: 'Dès 299 €', label: 'sans abonnement', sub: '' },
+              { value: 'Dès 499 €', label: 'sans abonnement', sub: '' },
               { value: '7–15', label: 'jours de livraison', sub: ' j' },
               { value: '95+', label: 'Score Lighthouse', sub: '/100' },
               { value: '100 %', label: 'clients satisfaits', sub: '' },

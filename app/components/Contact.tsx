@@ -3,7 +3,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Send, Mail, Phone, MessageCircle, Clock, Check, Sparkles, AlertCircle } from 'lucide-react';
+import { Send, Mail, Phone, MessageCircle, Clock, Check, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const containerRef = useRef(null);
@@ -189,7 +189,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3"
                   >
-                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                     <p className="text-sm text-red-600">
                       {error === 'Failed to fetch' 
                         ? 'Erreur de connexion. Veuillez réessayer ou nous contacter directement par email.' 

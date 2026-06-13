@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'AtelierCode — Création de sites web à Nîmes';
+export const alt = 'AtelierCode — Agence web à Nîmes';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -110,12 +110,12 @@ export default function Image() {
               marginBottom: 40,
             }}
           >
-            Création de sites web à Nîmes
+            Agence web à Nîmes — Sites, E-commerce & Applications
           </div>
 
           {/* Pills */}
           <div style={{ display: 'flex', gap: 16 }}>
-            {['Rapide', 'Sur mesure', 'Efficace'].map((label) => (
+            {['Dès 499 €', 'Livré en 1–3 sem.', 'Lighthouse 95+'].map((label) => (
               <div
                 key={label}
                 style={{

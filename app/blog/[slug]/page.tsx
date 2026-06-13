@@ -41,7 +41,13 @@ export default async function ArticlePage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
+    url: `https://www.ateliercode.fr/blog/${post.slug}`,
     datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.ateliercode.fr/blog/${post.slug}`,
+    },
     author: {
       '@type': 'Person',
       name: 'Vladyslav Bevz',
@@ -51,6 +57,10 @@ export default async function ArticlePage({ params }: Props) {
       '@type': 'Organization',
       name: 'AtelierCode',
       url: 'https://www.ateliercode.fr',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.ateliercode.fr/favicon.ico',
+      },
     },
   };
 

@@ -93,7 +93,7 @@ export default function Hero() {
                     2000,
                     'application web sur mesure',
                     2000,
-                    'présence qui travaille 24h/7',
+                    'présence active 24h/24, 7j/7',
                     2000,
                   ]}
                   wrapper="span"
@@ -162,7 +162,7 @@ export default function Hero() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
           >
             {[
-              { icon: <TrendingUp />, value: "+40%", label: "de clients en plus" },
+              { icon: <TrendingUp />, value: "+40%", label: "de clients" },
               { icon: <Zap />, value: "< 1s", label: "de chargement" },
               { icon: <Users />, value: "10+", label: "clients satisfaits" },
               { icon: <Award />, value: "98/100", label: "Lighthouse" },

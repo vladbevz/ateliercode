@@ -1,0 +1,90 @@
+{
+  "slug": "mon-site-existe-mais-personne-nappelle-voici-pourquoi",
+  "title": "Mon site existe, mais personne n'appelle : voici pourquoi",
+  "date": "2026-06-13",
+  "excerpt": "Vous avez un site en ligne, mais le téléphone reste silencieux. Ce n'est pas une malédiction — c'est un problème de conception. Voici les 4 raisons concrètes qui font fuir vos visiteurs.",
+  "category": "Conversion web",
+  "sections": [
+    {
+      "paragraphs": [
+        "Vous avez un site. Il est en ligne, l'adresse fonctionne, il s'affiche correctement sur mobile. Et pourtant — le téléphone reste silencieux.",
+        "Ce n'est pas une malédiction. C'est un problème de conception, et il a des solutions concrètes."
+      ]
+    },
+    {
+      "heading": "Un site qui « existe » n'est pas un site qui convainc",
+      "paragraphs": [
+        "Beaucoup de dirigeants pensent qu'avoir un site suffit. C'est compréhensible : on vous a vendu une vitrine, vous avez une vitrine. Mais une vitrine mal éclairée, mal agencée ou sans prix visible ne fait pas entrer les clients — elle les laisse passer.",
+        "Un site efficace n'est pas une carte de visite numérique. C'est un commercial qui travaille 24h/24. Et comme tout commercial, il doit inspirer confiance en quelques secondes."
+      ]
+    },
+    {
+      "heading": "Les 4 raisons silencieuses qui font fuir vos visiteurs",
+      "paragraphs": []
+    },
+    {
+      "heading": "1. Le visiteur ne comprend pas immédiatement ce que vous faites",
+      "paragraphs": [
+        "Vous avez 3 secondes. Si votre page d'accueil commence par « Bienvenue sur notre site » ou un slogan vague, le visiteur repart. Il n'a pas le temps de chercher.",
+        "Ce qui fonctionne : une phrase d'accroche claire, en haut de page, qui dit exactement qui vous aidez et quel problème vous résolvez. Par exemple : « Coiffeuse à domicile sur Nîmes — réservation en 2 minutes. »"
+      ]
+    },
+    {
+      "heading": "2. Il n'y a aucun signal de confiance visible",
+      "paragraphs": [
+        "Un visiteur que vous ne connaissez pas n'a aucune raison de vous faire confiance par défaut. Il cherche des preuves : avis clients, photos réelles, nom et visage du gérant, numéro de téléphone affiché.",
+        "Un site sans ces éléments ressemble à une boutique avec des vitres teintées. On ne sait pas ce qu'il y a dedans, alors on n'entre pas.",
+        "Ce qui fonctionne : 2 ou 3 avis Google visibles sur la page, une photo de vous (pas un stock photo), et votre numéro en haut à droite — cliquable depuis un téléphone."
+      ]
+    },
+    {
+      "heading": "3. L'appel à l'action est introuvable ou trop timide",
+      "paragraphs": [
+        "Sur beaucoup de sites, le bouton « Contactez-nous » est en bas de page, en gris, en petites lettres. Le visiteur doit le chercher. Il ne le cherche pas.",
+        "Ce qui fonctionne : un bouton d'action visible dès la première section — « Demander un devis », « Prendre rendez-vous », « Appeler maintenant » — avec une couleur qui tranche sur le reste de la page."
+      ]
+    },
+    {
+      "heading": "4. Le site est lent sur mobile",
+      "paragraphs": [
+        "Plus de 70 % des visites se font depuis un smartphone. Si votre site met plus de 3 secondes à charger, la moitié de vos visiteurs partent avant même de voir votre contenu.",
+        "C'est une des limites les plus courantes des sites WordPress avec beaucoup d'extensions : ils s'alourdissent avec le temps, sans que vous le voyez.",
+        "Ce qui fonctionne : un site conçu dès le départ pour la performance mobile, sans plugins inutiles, avec des images optimisées. Un score PageSpeed au-dessus de 90 n'est pas un luxe — c'est la norme attendue par Google."
+      ]
+    },
+    {
+      "heading": "La confiance se construit avant le premier contact",
+      "paragraphs": [
+        "Voici ce qu'un visiteur pense (inconsciemment) en arrivant sur votre site :",
+        "Si votre site répond « oui » à ces trois questions en moins de 10 secondes, vous avez une chance qu'il décroche son téléphone.",
+        "Si la réponse est floue, il ira voir le concurrent — même si vous êtes objectivement meilleur."
+      ],
+      "list": [
+        "Est-ce que ce professionnel est sérieux ?",
+        "Est-ce que d'autres ont déjà fait appel à lui ?",
+        "Est-ce que je saurai facilement comment le contacter ?"
+      ]
+    },
+    {
+      "heading": "Ce qu'on fait concrètement chez AtelierCode",
+      "paragraphs": [
+        "Quand je conçois un site pour un artisan, un indépendant ou une petite entreprise, je pars toujours de la même question : qu'est-ce qui va convaincre un inconnu de vous appeler ?",
+        "Pas de template WordPress générique. Un site fait pour votre activité, votre ville, vos clients."
+      ],
+      "list": [
+        "Une structure de page pensée pour guider le regard vers l'action",
+        "Des témoignages clients intégrés proprement, pas bricolés",
+        "Un site rapide sur mobile (mes clients affichent régulièrement 90+ sur PageSpeed)",
+        "Un numéro de téléphone cliquable, un formulaire simple, un accès clair"
+      ]
+    },
+    {
+      "heading": "En résumé",
+      "paragraphs": [
+        "Un site qui ne génère pas d'appels n'est pas nécessairement un mauvais site — c'est souvent un site qui n'a pas été pensé pour convertir.",
+        "La bonne nouvelle : ces problèmes sont tous corrigeables. Parfois en quelques ajustements, parfois en repartant d'une base plus solide.",
+        "Si vous vous reconnaissez dans l'un de ces quatre points, on peut en parler — sans engagement, sans jargon."
+      ]
+    }
+  ]
+}
