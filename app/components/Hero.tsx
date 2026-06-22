@@ -1,211 +1,125 @@
 // app/components/Hero.tsx
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Zap, Award } from 'lucide-react';
-import { TypeAnimation } from 'react-type-animation';
+import { useState } from 'react';
 import Link from 'next/link';
-import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const projects = [
+  { name: "Le 438", category: "Restaurant · Vauvert", image: "/images/mockups/le438-mockup.webp" },
+  { name: "Lymar Dermo Esthetic", category: "Beauté · Saint-Georges", image: "/images/mockups/lymar-mockup.webp" },
+  { name: "Portfolio Photographe", category: "Photographie", image: "/images/mockups/syrmais-mockup.webp" },
+  { name: "AquaTracker", category: "Application web", image: "/images/mockups/water-mockup.webp" },
+  { name: "Artisan Carreleur", category: "Artisanat & Rénovation", image: "/images/mockups/kp-mockup.webp" },
+  { name: "Entreprise de Rénovation", category: "Rénovation", image: "/images/mockups/gr-mockup.webp" },
+  { name: "Serrurier Nîmes", category: "Services", image: "/images/mockups/vb-mockup.webp" },
+  { name: "Chocolatier", category: "E-commerce", image: "/images/mockups/choc-mockup.webp" },
+];
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
+  const [current, setCurrent] = useState(0);
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const prev = () => setCurrent(i => (i === 0 ? projects.length - 1 : i - 1));
+  const next = () => setCurrent(i => (i === projects.length - 1 ? 0 : i + 1));
 
   return (
-    <section 
-      ref={containerRef} 
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-white pt-12 md:pt-0"
-    >
-      {/* Анімований фон */}
-      <motion.div 
-        style={{ y, opacity }}
-        className="absolute inset-0"
-      >
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gray-100 rounded-full mix-blend-multiply filter blur-3xl animate-blob" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-gray-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000" />
-      </motion.div>
+    <section className="min-h-screen flex items-center border-b border-gray-200">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      {/* Плаваючі точки — тільки на клієнті */}
-      {mounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-gray-300 rounded-full"
-              initial={{
-                x: Math.random() * 100 + '%',
-                y: Math.random() * 100 + '%',
-              }}
-              animate={{
-                y: [null, -30, 30, -30],
-                x: [null, 30, -30, 30],
-              }}
-              transition={{
-                duration: Math.random() * 10 + 10,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
-      )}
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          
-          {/* Заголовок */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4"
-            // ✅ прибрано leading-tight — воно стискало міжрядковий інтервал
-            // і TypeAnimation рядок накладався на перший
-          >
-            <span className="block">Votre présence digitale —</span>
-
-            {/* ✅ окремий блок з достатнім відступом зверху */}
-            <span className="block mt-3 md:mt-4">
-              {/* ✅ gradient на обгортці, підкреслення — окремий absolute div */}
-              <span className="relative inline-block pb-3 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                <TypeAnimation
-                  sequence={[
-                    'site vitrine qui convertit',
-                    2000,
-                    'boutique e-commerce',
-                    2000,
-                    'application web sur mesure',
-                    2000,
-                    'présence active 24h/24, 7j/7',
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
-                {/* Підкреслення не впливає на layout рядків вище */}
-                <span className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gray-900 to-gray-600 rounded-full" />
-              </span>
-            </span>
-          </motion.h1>
-
-          {/* Підзаголовок */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-6 max-w-2xl mx-auto space-y-2"
-          >
-            <p className="text-lg md:text-xl text-gray-600">
-              Site vitrine, e-commerce ou application web — AtelierCode développe sur mesure à Nîmes avec React & Next.js.
+          {/* Ліва колонка */}
+          <div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
+              Votre site web,<br />livré rapidement.
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-md mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
+              Site vitrine, e-commerce ou application web — professionnel, rapide, et visible dans les résultats Google.
+              Livré en 1 à 3 semaines.
             </p>
-            <p className="text-lg md:text-xl font-semibold text-gray-900">
-              Rapide, visible sur Google, livré en 1-3 semaines.
-            </p>
-          </motion.div>
-
-          {/* Кнопки */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: '200ms' }}>
               <Link
                 href="/contact"
-                className="group relative px-10 py-5 bg-gray-900 text-white rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all shadow-2xl flex items-center gap-3 overflow-hidden"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
               >
-                <span className="relative z-10">Obtenir un devis gratuit</span>
-                <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700"
-                  initial={{ x: '100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
+                Obtenir un devis gratuit
               </Link>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/processus"
-                className="px-10 py-5 border-2 border-gray-200 text-gray-700 rounded-2xl font-semibold text-lg hover:border-gray-300 hover:bg-gray-50 transition-all flex items-center gap-3"
+                className="inline-flex items-center justify-center px-8 py-3.5 border border-gray-200 text-gray-700 rounded-md font-medium hover:border-gray-300 hover:bg-gray-50 active:scale-[0.98] transition-all duration-150"
               >
-                <span>Comment ça marche ?</span>
+                Comment ça marche ?
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          {/* Статистика */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
-          >
-            {[
-              { icon: <TrendingUp />, value: "+40%", label: "de clients" },
-              { icon: <Zap />, value: "< 1s", label: "de chargement" },
-              { icon: <Users />, value: "10+", label: "clients satisfaits" },
-              { icon: <Award />, value: "98/100", label: "Lighthouse" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 + index * 0.1 }}
-                className="text-center p-4 rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-100 shadow-lg hover:shadow-xl transition-all group"
-                whileHover={{ y: -5 }}
+          {/* Права колонка — слайдер */}
+          <div className="border border-gray-200 rounded-lg overflow-hidden animate-fade-up" style={{ animationDelay: '300ms' }}>
+            {/* Browser bar */}
+            <div className="flex items-center gap-1.5 px-3 py-2.5 bg-gray-50 border-b border-gray-200">
+              <span className="w-2.5 h-2.5 rounded-full bg-gray-300" />
+              <span className="w-2.5 h-2.5 rounded-full bg-gray-300" />
+              <span className="w-2.5 h-2.5 rounded-full bg-gray-300" />
+              <span className="font-mono text-xs text-gray-400 ml-2 flex-1 text-center">
+                ateliercode.fr
+              </span>
+            </div>
+
+            {/* Slides */}
+            <div className="relative overflow-hidden">
+              <div
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{ transform: `translateX(-${current * 100}%)` }}
               >
-                <div className="flex justify-center mb-3 text-gray-700 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-500">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Скрол індикатор */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex flex-col items-center gap-2"
-            >
-              <span className="text-xs text-gray-400 tracking-widest">SCROLL</span>
-              <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-                <motion.div
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-1 h-2 bg-gray-400 rounded-full mt-2"
-                />
+                {projects.map((project, idx) => (
+                  <div key={idx} className="relative w-full shrink-0 aspect-video bg-gray-50">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority={idx === 0}
+                    />
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          </motion.div>
+
+              {/* Prev / Next */}
+              <button
+                onClick={prev}
+                aria-label="Projet précédent"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-white border border-gray-200 rounded-md flex items-center justify-center hover:border-gray-400 active:scale-95 transition-all duration-150"
+              >
+                <ChevronLeft className="w-5 h-5 text-gray-600" />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Projet suivant"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 bg-white border border-gray-200 rounded-md flex items-center justify-center hover:border-gray-400 active:scale-95 transition-all duration-150"
+              >
+                <ChevronRight className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+
+            {/* Caption + dots */}
+            <div className="px-4 py-3 bg-white border-t border-gray-200 flex items-center justify-between">
+              <div>
+                <span className="text-sm font-medium text-gray-900">{projects[current].name}</span>
+                <span className="text-xs text-gray-400 ml-2">{projects[current].category}</span>
+              </div>
+              <div className="flex gap-1.5">
+                {projects.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrent(idx)}
+                    aria-label={`Projet ${idx + 1}`}
+                    className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === current ? 'bg-gray-900' : 'bg-gray-300'}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>

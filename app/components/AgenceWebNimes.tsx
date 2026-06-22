@@ -1,17 +1,14 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import Link from 'next/link';
 import {
   MapPin, ArrowRight, Check, Euro, Clock, Zap,
-  Star, Phone, Target, Shield, XCircle, CheckCircle2,
-  Gauge, Search, TrendingUp, Building2
+  Star, Phone, Target,
+  XCircle, Search, TrendingUp, Building2
 } from 'lucide-react';
+import AnimateIn from './AnimateIn';
 
 export default function AgenceWebNimesContent() {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0 });
 
   const villes = [
     { name: "Nîmes", dept: "Gard (30)" },
@@ -26,118 +23,73 @@ export default function AgenceWebNimesContent() {
 
   const plans = [
     {
-      name: 'Landing Page',
-      price: '299 €',
-      pitch: 'Une page, un message, un objectif.',
-      features: ['1 page sur mesure', 'Formulaire de contact', 'SEO de base', 'Livré en 3–5 jours'],
+      name: 'Site Vitrine',
+      price: 'dès 499 €',
+      pitch: 'Votre meilleur commercial — 24h/24.',
+      features: ['4 à 6 pages sur mesure', 'SEO local optimisé', '1 mois de suivi', 'Livré en 7–10 jours'],
       dark: false,
     },
     {
-      name: 'Site Vitrine',
-      price: '499 €',
-      pitch: 'Votre meilleur commercial — 24h/24.',
-      features: ['4 à 5 pages', 'SEO local optimisé', '1 mois de suivi', 'Livré en 5–7 jours'],
+      name: 'E-commerce',
+      price: 'dès 990 €',
+      pitch: 'Vendez en ligne dès demain.',
+      features: ['Boutique Stripe complète', 'Catalogue & gestion stock', 'SEO e-commerce', 'Livré en 2–4 semaines'],
       dark: true,
-      popular: true,
     },
     {
-      name: 'Site Pro',
-      price: '799 €',
-      pitch: 'Pour dominer votre marché local.',
-      features: ['6 à 8 pages', 'Blog + Analytics', 'SEO avancé', '3 mois de suivi'],
+      name: 'Application web',
+      price: 'Sur devis',
+      pitch: 'Un outil métier sur mesure.',
+      features: ['React & Next.js sur mesure', 'Back-end, API, auth', 'Dashboard admin', 'Estimation gratuite'],
       dark: false,
     },
   ];
 
   return (
-    <section ref={containerRef} className="relative bg-white overflow-hidden">
+    <section className="relative bg-white">
 
       {/* ─── 1. HERO ─── */}
-      <div className="relative flex flex-col justify-center min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-5rem)] overflow-hidden py-12">
-        <div className="absolute inset-0 bg-linear-to-b from-white via-gray-50/60 to-white" />
-        <div className="absolute top-0 right-0 w-125 h-125 bg-gray-100 rounded-full blur-3xl opacity-30 -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-100 h-100 bg-gray-100 rounded-full blur-3xl opacity-20 translate-y-1/2 -translate-x-1/3" />
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-8">
-              <MapPin className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-600">Agence web locale · Nîmes — Gard (30)</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              Agence web à Nîmes — <span className="text-gray-400">qualité pro, prix accessible.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Les petites entreprises méritent un site web{' '}
-              <span className="text-gray-900 font-semibold">aussi performant que les grandes</span>.
-              Dès 499 €, livré en une semaine — sans compromis sur la qualité.
-            </p>
-          </motion.div>
-
-          {/* Proof bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 md:gap-6"
-          >
-            {[
-              { value: 'Dès 499 €', label: 'sans abonnement', sub: '' },
-              { value: '7–15', label: 'jours de livraison', sub: ' j' },
-              { value: '95+', label: 'Score Lighthouse', sub: '/100' },
-              { value: '100 %', label: 'clients satisfaits', sub: '' },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.4 + idx * 0.08 }}
-                className="flex flex-col items-center px-6 py-4 bg-white border border-gray-200 rounded-2xl shadow-sm min-w-32.5"
-              >
-                <span className="text-2xl font-bold text-gray-900">{item.value}<span className="text-lg text-gray-400">{item.sub}</span></span>
-                <span className="text-xs text-gray-500 mt-1 text-center">{item.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+      <div className="min-h-screen flex items-center border-b border-gray-200 py-16">
+        <div className="container mx-auto px-4 text-center w-full">
+          <p className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-6 animate-fade-up">
+            Agence web locale · Nîmes — Gard (30)
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up" style={{ animationDelay: '100ms' }}>
+            Agence web à Nîmes — qualité pro, prix accessible.
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
+            Les petites entreprises méritent un site web{' '}
+            <span className="text-gray-900 font-semibold">aussi performant que les grandes</span>.
+            Dès 499 €, livré en une semaine — sans compromis sur la qualité.
+          </p>
+          <p className="font-mono text-xs tracking-widest uppercase text-gray-400 mt-6 animate-fade-up" style={{ animationDelay: '300ms' }}>
+            Dès 499 € · Livré en 7–15 jours · Score 95+/100
+          </p>
         </div>
       </div>
 
       {/* ─── 2. LE PROBLÈME ─── */}
-      <div className="border-y border-gray-200 bg-gray-50 py-14 md:py-20">
+      <div className="border-b border-gray-200 bg-gray-50 py-14 md:py-20">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <AnimateIn className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.1 }}
-            >
+            <div>
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-7">Le problème</p>
               <div className="border-l-4 border-gray-900 pl-6 mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                  Les grandes agences facturent 2 000 à 5 000 €.{' '}
-                  <span className="text-gray-400">Le petit commerce du coin, lui, n&apos;a pas ce budget.</span>
+                  Les grandes agences facturent 2 000 à 5 000 €.
+                  Le petit commerce du coin, lui, n&apos;a pas ce budget.
                 </h2>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-2xl shadow-sm">
+              <div className="flex items-center gap-3 p-4 bg-white border border-gray-200 rounded-lg">
                 <XCircle className="w-5 h-5 text-gray-400 shrink-0" />
                 <span className="text-sm text-gray-600 font-medium">
                   Sans site performant, vos clients potentiels vont chez le concurrent
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.2 }}
-              className="space-y-4"
-            >
+            <div className="space-y-4">
               {[
                 {
                   score: '2 000 €',
@@ -158,12 +110,9 @@ export default function AgenceWebNimesContent() {
                   desc: 'Moins de 1 % des internautes consultent la deuxième page. La page 4, personne ne la voit.',
                 },
               ].map((item, idx) => (
-                <motion.div
+                <div
                   key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.25 + idx * 0.1 }}
-                  className="flex items-start gap-4 p-5 bg-white border border-gray-200 rounded-2xl shadow-sm"
+                  className="flex items-start gap-4 p-5 bg-white border border-gray-200 rounded-lg"
                 >
                   <div className="shrink-0 text-right whitespace-nowrap">
                     <span className="text-2xl font-bold text-gray-900 leading-none">{item.score}</span>
@@ -173,31 +122,25 @@ export default function AgenceWebNimesContent() {
                     <p className="text-sm font-bold text-gray-800 mb-1">{item.label}</p>
                     <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </div>
+            </div>
+          </AnimateIn>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4">
 
         {/* ─── 3. NOTRE RÉPONSE ─── */}
         <div className="py-14 md:py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-center mb-14"
-          >
+          <AnimateIn className="text-center mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Notre réponse</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Un site premium,{' '}
-              <span className="text-gray-400">à prix d&apos;artisan.</span>
+              Un site premium, à prix d&apos;artisan.
             </h2>
-          </motion.div>
+          </AnimateIn>
 
-          <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <AnimateIn className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto" delay={100}>
             {[
               {
                 icon: <Euro className="w-7 h-7" />,
@@ -221,23 +164,13 @@ export default function AgenceWebNimesContent() {
                 dark: false,
               },
             ].map((p, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.15 + idx * 0.1 }}
-                className={`rounded-3xl p-8 md:p-10 relative overflow-hidden ${
-                  p.dark ? 'bg-gray-900' : 'bg-white border border-gray-200 shadow-sm'
+                className={`rounded-lg p-8 md:p-10 hover:-translate-y-0.5 transition-all duration-200 ${
+                  p.dark ? 'bg-gray-900' : 'bg-white border border-gray-200 hover:border-gray-300'
                 }`}
               >
-                {p.dark && (
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.06, 0.12, 0.06] }}
-                    transition={{ duration: 6, repeat: Infinity }}
-                    className="absolute -top-20 -right-20 w-64 h-64 bg-white rounded-full blur-3xl pointer-events-none"
-                  />
-                )}
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${
+                <div className={`w-14 h-14 rounded-md flex items-center justify-center mb-6 ${
                   p.dark ? 'bg-white/10 text-white' : 'bg-gray-900 text-white'
                 }`}>
                   {p.icon}
@@ -251,30 +184,24 @@ export default function AgenceWebNimesContent() {
                 <p className={`text-sm leading-relaxed ${p.dark ? 'text-gray-400' : 'text-gray-500'}`}>
                   {p.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </AnimateIn>
         </div>
 
         {/* ─── 4. POUR QUI ─── */}
         <div className="pb-20 md:pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-center mb-14"
-          >
+          <AnimateIn className="text-center mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Pour qui ?</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Fait pour les{' '}
-              <span className="text-gray-400">petites entreprises de Nîmes.</span>
+              Fait pour les petites entreprises de Nîmes.
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
               Artisans, commerçants, professions libérales, TPE — votre activité mérite une présence en ligne qui travaille pour vous.
             </p>
-          </motion.div>
+          </AnimateIn>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <AnimateIn className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto" delay={100}>
             {[
               {
                 icon: <Building2 className="w-6 h-6" />,
@@ -301,14 +228,11 @@ export default function AgenceWebNimesContent() {
                 examples: ['Portfolio', 'Tarifs & prestations', 'Contact direct'],
               },
             ].map((item, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.15 + idx * 0.1 }}
-                className="flex gap-5 p-7 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                className="flex gap-5 p-7 bg-white border border-gray-200 rounded-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-gray-900 text-white flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-md bg-gray-900 text-white flex items-center justify-center">
                   {item.icon}
                 </div>
                 <div>
@@ -316,32 +240,26 @@ export default function AgenceWebNimesContent() {
                   <p className="text-sm text-gray-500 leading-relaxed mb-3">{item.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {item.examples.map((ex, i) => (
-                      <span key={i} className="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">
+                      <span key={i} className="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-md">
                         {ex}
                       </span>
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </AnimateIn>
         </div>
 
         {/* ─── 5. POURQUOI LOCAL ─── */}
         <div className="pb-20 md:pb-28">
-          <div className="max-w-5xl mx-auto bg-gray-50 border border-gray-200 rounded-3xl p-10 md:p-14">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
-              className="mb-10"
-            >
+          <AnimateIn className="max-w-5xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-10 md:p-14">
+            <div className="mb-10">
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Agence locale</p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                Pourquoi choisir une agence web{' '}
-                <span className="text-gray-400">locale à Nîmes ?</span>
+                Pourquoi choisir une agence web locale à Nîmes ?
               </h2>
-            </motion.div>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
@@ -361,70 +279,37 @@ export default function AgenceWebNimesContent() {
                   desc: 'Je connais les quartiers, les mots-clés locaux et les habitudes des consommateurs gardois. Votre SEO est ciblé.',
                 },
               ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2 + idx * 0.1 }}
-                  className="flex gap-4"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-gray-900 text-white flex items-center justify-center shrink-0">
+                <div key={idx} className="flex gap-4">
+                  <div className="w-11 h-11 rounded-md bg-gray-900 text-white flex items-center justify-center shrink-0">
                     {item.icon}
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </div>
+          </AnimateIn>
         </div>
 
         {/* ─── 6. TARIFS ─── */}
         <div className="pb-20 md:pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-center mb-14"
-          >
+          <AnimateIn className="text-center mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Tarifs</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Des prix clairs,{' '}
-              <span className="text-gray-400">sans surprise.</span>
+              Des prix clairs, sans surprise.
             </h2>
-          </motion.div>
+          </AnimateIn>
 
-          <div className="grid lg:grid-cols-3 gap-5 items-center max-w-5xl mx-auto mb-8">
+          <AnimateIn className="grid lg:grid-cols-3 gap-5 items-center max-w-5xl mx-auto mb-8" delay={100}>
             {plans.map((plan, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.15 + idx * 0.1 }}
-                className="relative"
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                    <div className="flex items-center gap-1.5 px-4 py-1.5 bg-white border border-gray-200 text-gray-900 text-xs font-bold rounded-full shadow-md">
-                      <Star className="w-3.5 h-3.5" />
-                      LE PLUS CHOISI
-                    </div>
-                  </div>
-                )}
-                <div className={`rounded-3xl overflow-hidden flex flex-col h-full ${
+              <div key={idx} className="relative">
+                <div className={`rounded-lg overflow-hidden flex flex-col h-full hover:-translate-y-0.5 transition-all duration-200 ${
                   plan.dark
-                    ? 'bg-gray-900 shadow-2xl shadow-gray-900/30 pt-14 pb-10 px-10'
-                    : 'bg-white border border-gray-200 py-10 px-10'
+                    ? 'bg-gray-900 py-10 px-10'
+                    : 'bg-white border border-gray-200 hover:border-gray-300 py-10 px-10'
                 }`}>
-                  {plan.dark && (
-                    <motion.div
-                      animate={{ scale: [1, 1.3, 1], opacity: [0.06, 0.12, 0.06] }}
-                      transition={{ duration: 6, repeat: Infinity }}
-                      className="absolute -top-16 -right-16 w-64 h-64 bg-white rounded-full blur-3xl pointer-events-none"
-                    />
-                  )}
                   <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${plan.dark ? 'text-gray-400' : 'text-gray-400'}`}>
                     {plan.name}
                   </p>
@@ -437,7 +322,7 @@ export default function AgenceWebNimesContent() {
                   <ul className="space-y-2.5 mb-8 flex-1">
                     {plan.features.map((f, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <div className={`shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center ${
+                        <div className={`shrink-0 mt-0.5 w-4 h-4 rounded-md flex items-center justify-center ${
                           plan.dark ? 'bg-white/15' : 'bg-gray-100'
                         }`}>
                           <Check className={`w-2.5 h-2.5 ${plan.dark ? 'text-white' : 'text-gray-600'}`} />
@@ -448,131 +333,74 @@ export default function AgenceWebNimesContent() {
                   </ul>
                   <Link
                     href="/contact"
-                    className={`relative z-10 flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl font-semibold text-sm transition-all group/btn ${
+                    className={`flex items-center justify-center py-3.5 px-5 rounded-md font-semibold text-sm active:scale-[0.98] transition-all duration-150 ${
                       plan.dark
                         ? 'bg-white text-gray-900 hover:bg-gray-100'
                         : 'bg-gray-900 text-white hover:bg-gray-800'
                     }`}
                   >
                     Demander un devis
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </AnimateIn>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.5 }}
-            className="text-center"
-          >
+          <div className="text-center mt-8">
             <Link href="/tarifs" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors font-medium">
               Voir tous les détails des forfaits
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* ─── 7. ZONE D'INTERVENTION ─── */}
         <div className="pb-20 md:pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-center mb-10"
-          >
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Zone d'intervention</p>
+          <AnimateIn className="text-center mb-10">
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Zone d&apos;intervention</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Nîmes et{' '}
-              <span className="text-gray-400">tout le Gard.</span>
+              Nîmes et tout le Gard.
             </h2>
             <p className="text-lg text-gray-500 max-w-xl mx-auto mt-4">
-              Basé à Nîmes, j'interviens dans tout le Gard et l'Occitanie — en présentiel ou à distance selon vos préférences.
+              Basé à Nîmes, j&apos;interviens dans tout le Gard et l&apos;Occitanie — en présentiel ou à distance selon vos préférences.
             </p>
-          </motion.div>
+          </AnimateIn>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <AnimateIn className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto" delay={100}>
             {villes.map((ville, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.1 + idx * 0.06 }}
-                className="p-4 rounded-2xl bg-white border border-gray-200 shadow-sm text-center hover:shadow-md transition-shadow"
+                className="p-4 rounded-lg bg-white border border-gray-200 text-center hover:border-gray-300 transition-colors"
               >
                 <div className="flex items-center justify-center gap-1 mb-1">
                   <MapPin className="w-3 h-3 text-gray-400" />
                   <span className="text-gray-900 font-semibold text-sm">{ville.name}</span>
                 </div>
                 <div className="text-gray-400 text-xs">{ville.dept}</div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </AnimateIn>
         </div>
 
         {/* ─── 8. CTA ─── */}
         <div className="pb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="text-center mb-12">
-              <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
-                Parlons de votre projet
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
-                Votre site à Nîmes, <span className="text-gray-400">dès la semaine prochaine.</span>
-              </h2>
-              <p className="text-lg text-gray-500 max-w-xl mx-auto mb-10">
-                Devis gratuit sous 24h. Aucun engagement avant que vous soyez convaincu.
-              </p>
-              <Link
-                href="/contact"
-                className="group/btn inline-flex items-center gap-3 px-10 py-5 bg-gray-900 text-white rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl"
-              >
-                Obtenir mon devis gratuit
-                <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1.5 transition-transform" />
-              </Link>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-5">
-              {[
-                {
-                  icon: <CheckCircle2 className="w-5 h-5" />,
-                  title: 'Devis gratuit & sans engagement',
-                  desc: 'Je prends le temps de comprendre votre activité avant de vous proposer quoi que ce soit.',
-                },
-                {
-                  icon: <Shield className="w-5 h-5" />,
-                  title: 'Prix fixe, aucune surprise',
-                  desc: 'Le prix est annoncé avant de commencer. Pas d\'extras cachés, pas de dépassement de budget.',
-                },
-                {
-                  icon: <Gauge className="w-5 h-5" />,
-                  title: 'Qualité technique garantie',
-                  desc: 'Score Lighthouse 95+, chargement < 1 s, SEO local natif — pas un template, un vrai site sur mesure.',
-                },
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2 + idx * 0.1 }}
-                  className="flex flex-col items-center text-center p-6 bg-white border border-gray-200 rounded-2xl shadow-sm"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-700 mb-4">
-                    {item.icon}
-                  </div>
-                  <p className="font-bold text-gray-900 mb-2">{item.title}</p>
-                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <AnimateIn className="text-center">
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
+              Parlons de votre projet
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
+              Votre site à Nîmes, dès la semaine prochaine.
+            </h2>
+            <p className="text-lg text-gray-500 max-w-xl mx-auto mb-10">
+              Devis gratuit sous 24h. Aucun engagement avant que vous soyez convaincu.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-10 py-5 bg-gray-900 text-white rounded-md font-semibold text-lg hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+            >
+              Obtenir mon devis gratuit
+            </Link>
+          </AnimateIn>
         </div>
 
       </div>

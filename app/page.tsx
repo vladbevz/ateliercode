@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from './components/Hero';
 import ProcessSection from './components/ProcessSection';
-import ProjectsShowcase from './components/ProjectsShowcase';
 
 export const metadata: Metadata = {
   title: 'Agence web à Nîmes — Sites, E-commerce & Applications | AtelierCode',
@@ -23,7 +22,6 @@ export default function Home() {
     <main>
       <Hero />
       <ProcessSection />
-      <ProjectsShowcase />
     </main>
   );
 }

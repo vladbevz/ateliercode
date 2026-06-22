@@ -4,12 +4,11 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-// Лейбли для budget і timeline
-const budgetLabels: Record<string, string> = {
-  '299': 'Moins de 300€',
-  '499': '300€ – 500€',
-  '799': '500€ – 800€',
-  'plus': 'Plus de 800€',
+const projetLabels: Record<string, string> = {
+  'vitrine': 'Site Vitrine (dès 499€)',
+  'ecommerce': 'E-commerce (dès 990€)',
+  'application': 'Application web (sur devis)',
+  'autre': 'Je ne sais pas encore',
 }
 
 const timelineLabels: Record<string, string> = {
@@ -21,9 +20,8 @@ const timelineLabels: Record<string, string> = {
 
 export async function POST(request: NextRequest) {
   try {
-    const { nom, email, telephone, message, budget, timeline } = await request.json()
+    const { nom, email, telephone, message, projet, timeline } = await request.json()
 
-    // Валідація обов'язкових полів
     if (!nom || !email || !message) {
       return NextResponse.json(
         { error: 'Tous les champs obligatoires doivent être remplis' },
@@ -31,7 +29,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const budgetLabel = budget ? (budgetLabels[budget] ?? budget) : 'Non précisé'
+    const projetLabel = projet ? (projetLabels[projet] ?? projet) : 'Non précisé'
     const timelineLabel = timeline ? (timelineLabels[timeline] ?? timeline) : 'Non précisé'
     const receivedAt = new Date().toLocaleString('fr-FR')
 
@@ -86,8 +84,8 @@ export async function POST(request: NextRequest) {
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                   <td style="padding: 10px 16px; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px 0 0 8px; width: 50%;">
-                    <p style="font-size: 11px; color: #9CA3AF; margin: 0 0 4px 0;">Budget approximatif</p>
-                    <p style="font-size: 15px; font-weight: 600; color: #111827; margin: 0;">${budgetLabel}</p>
+                    <p style="font-size: 11px; color: #9CA3AF; margin: 0 0 4px 0;">Type de projet</p>
+                    <p style="font-size: 15px; font-weight: 600; color: #111827; margin: 0;">${projetLabel}</p>
                   </td>
                   <td style="padding: 10px 16px; background: #F9FAFB; border: 1px solid #E5E7EB; border-left: none; border-radius: 0 8px 8px 0;">
                     <p style="font-size: 11px; color: #9CA3AF; margin: 0 0 4px 0;">Objectif de lancement</p>
@@ -149,8 +147,8 @@ export async function POST(request: NextRequest) {
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                   <td style="padding: 10px 16px; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px 0 0 8px; width: 50%;">
-                    <p style="font-size: 11px; color: #9CA3AF; margin: 0 0 4px 0;">Budget</p>
-                    <p style="font-size: 14px; font-weight: 600; color: #111827; margin: 0;">${budgetLabel}</p>
+                    <p style="font-size: 11px; color: #9CA3AF; margin: 0 0 4px 0;">Type de projet</p>
+                    <p style="font-size: 14px; font-weight: 600; color: #111827; margin: 0;">${projetLabel}</p>
                   </td>
                   <td style="padding: 10px 16px; background: #F9FAFB; border: 1px solid #E5E7EB; border-left: none; border-radius: 0 8px 8px 0;">
                     <p style="font-size: 11px; color: #9CA3AF; margin: 0 0 4px 0;">Lancement souhaité</p>

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
-import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
 import 'html5-device-mockups/dist/device-mockups.min.css';
@@ -168,7 +167,6 @@ gtag('config', 'G-P9LNZK8CL1');`,
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
-        <CustomCursor />
         <Header />
 
         <main className="relative pt-8 md:pt-20">
