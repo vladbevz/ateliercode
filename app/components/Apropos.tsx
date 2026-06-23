@@ -122,7 +122,7 @@ export default function Apropos() {
             </p>
           </AnimateIn>
 
-          <AnimateIn className="mb-12 max-w-2xl" delay={100}>
+          <AnimateIn className="mb-12 max-w-2xl mx-auto" delay={100}>
             <p className="text-gray-600 mb-4">Parce qu&apos;un site standardisé implique souvent :</p>
             <ul className="space-y-3 mb-6">
               {[
@@ -146,7 +146,7 @@ export default function Apropos() {
           </AnimateIn>
 
           <AnimateIn delay={150}>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Ce qui change quand vous travaillez avec moi</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Ce qui change quand vous travaillez avec moi</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
@@ -212,7 +212,7 @@ export default function Apropos() {
             </div>
           </AnimateIn>
 
-          <AnimateIn className="flex flex-wrap gap-8" delay={150}>
+          <AnimateIn className="flex flex-wrap gap-8 justify-center" delay={150}>
             {["Pas de frais cachés.", "Pas d'abonnements imposés.", "Pas de mauvaises surprises."].map((item, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-900 shrink-0" />
@@ -251,7 +251,7 @@ export default function Apropos() {
           </AnimateIn>
 
           <AnimateIn delay={200}>
-            <p className="text-sm text-gray-500 max-w-2xl">
+            <p className="text-sm text-gray-500 max-w-2xl mx-auto text-center">
               Les outils utilisés sont importants, mais ce qui compte vraiment, c&apos;est le résultat : un site qui fonctionne parfaitement et qui accompagne le développement de votre activité.
             </p>
           </AnimateIn>
