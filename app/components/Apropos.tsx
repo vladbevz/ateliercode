@@ -5,14 +5,36 @@ import Link from 'next/link';
 import {
   MapPin, Code2,
   Gauge, Search, Paintbrush,
-  Shield, Globe,
-  Zap
+  Shield, Globe, Zap, CheckCircle2,
 } from 'lucide-react';
 import Image from 'next/image';
 import AnimateIn from './AnimateIn';
 
 export default function Apropos() {
   const [imageError, setImageError] = useState(false);
+
+  const avantages = [
+    {
+      icon: <Gauge className="w-5 h-5" />,
+      title: 'Un site rapide',
+      desc: "Vos visiteurs n'attendent pas. Votre site se charge rapidement, même sur smartphone. Une bonne vitesse améliore l'expérience utilisateur et favorise votre visibilité sur Google.",
+    },
+    {
+      icon: <Search className="w-5 h-5" />,
+      title: 'Un site pensé pour être trouvé',
+      desc: "Dès sa conception, votre site est structuré pour être compris facilement par les moteurs de recherche. Une base solide, sans dépendre de prestations SEO coûteuses.",
+    },
+    {
+      icon: <Shield className="w-5 h-5" />,
+      title: 'Une solution durable',
+      desc: "Je développe des sites fiables et faciles à maintenir afin d'éviter les mauvaises surprises et les interventions répétées après la mise en ligne.",
+    },
+    {
+      icon: <Paintbrush className="w-5 h-5" />,
+      title: 'Un design qui vous ressemble',
+      desc: "Chaque entreprise est différente. Votre site l'est aussi. Pas de modèle générique : le design est pensé pour refléter votre activité, votre image et vos valeurs.",
+    },
+  ];
 
   const stack = [
     {
@@ -27,7 +49,7 @@ export default function Apropos() {
     },
     {
       name: 'TypeScript',
-      desc: "Un code vérifié à chaque étape du développement. Moins de bugs, moins de corrections coûteuses.",
+      desc: 'Un code vérifié à chaque étape du développement. Moins de bugs, moins de corrections coûteuses.',
       icon: <Shield className="w-5 h-5" />,
     },
     {
@@ -62,31 +84,27 @@ export default function Apropos() {
             </p>
           </div>
           <div className="grid md:grid-cols-[auto_1fr] gap-12 items-start animate-fade-up" style={{ animationDelay: '200ms' }}>
-            {/* Photo */}
-            <div className="relative">
-              <div className="relative w-65 aspect-3/4 rounded-lg overflow-hidden border border-gray-200">
-                {!imageError ? (
-                  <Image
-                    src="/images/image.webp"
-                    alt="Vladyslav Bevz - Développeur web à Nîmes"
-                    fill
-                    className="object-cover object-top"
-                    sizes="260px"
-                    priority
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <Code2 className="w-16 h-16 mx-auto mb-3 opacity-50" />
-                      <p className="font-medium">Vladyslav Bevz</p>
-                    </div>
+            <div className="relative w-65 aspect-3/4 rounded-lg overflow-hidden border border-gray-200 shrink-0">
+              {!imageError ? (
+                <Image
+                  src="/images/image.webp"
+                  alt="Vladyslav Bevz - Développeur web à Nîmes"
+                  fill
+                  className="object-cover object-top"
+                  sizes="260px"
+                  priority
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <Code2 className="w-16 h-16 mx-auto mb-3 opacity-50" />
+                    <p className="font-medium">Vladyslav Bevz</p>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* Bio */}
             <div className="space-y-5 pt-2">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-1">Vladyslav Bevz</h2>
@@ -95,7 +113,6 @@ export default function Apropos() {
                   <span className="text-sm">Nîmes, France · Développeur full-stack · Auto-entrepreneur</span>
                 </div>
               </div>
-
               <p className="text-gray-600 leading-relaxed">
                 Je m&apos;appelle Vladyslav et je suis développeur web à Nîmes. J&apos;ai créé AtelierCode parce que je voyais trop de sites devenir lents, instables ou coûteux à maintenir avec le temps.
               </p>
@@ -113,74 +130,27 @@ export default function Apropos() {
       {/* ─── 2. POURQUOI ATELIERCODE ─── */}
       <div className="py-20 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-5xl">
-          <AnimateIn className="text-center mb-12">
+          <AnimateIn className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
               Pourquoi choisir AtelierCode plutôt qu&apos;une solution prête à l&apos;emploi ?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Pourquoi faire appel à moi plutôt qu&apos;à une agence ou à une plateforme de création de sites ?
+              Les solutions standardisées sont souvent trop génériques, surchargées de fonctionnalités inutiles et coûteuses à maintenir. Chez AtelierCode, je construis uniquement ce dont vous avez besoin — ni plus, ni moins.
             </p>
           </AnimateIn>
 
-          <AnimateIn className="mb-12 max-w-2xl mx-auto" delay={100}>
-            <p className="text-gray-600 mb-4">Parce qu&apos;un site standardisé implique souvent :</p>
-            <ul className="space-y-3 mb-6">
-              {[
-                "un design très similaire à celui de centaines d'autres entreprises ;",
-                "des fonctionnalités dont vous n'avez pas réellement besoin ;",
-                "des performances limitées qui peuvent faire fuir vos visiteurs ;",
-                "des coûts supplémentaires qui apparaissent au fil du temps.",
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-gray-600">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2.5 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="font-semibold text-gray-900 mb-1">
-              Chez AtelierCode, je construis uniquement ce dont vous avez besoin. Ni plus, ni moins.
-            </p>
-            <p className="text-gray-600">
-              Chaque site est conçu sur mesure, avec une seule priorité : répondre précisément à vos objectifs, sans complexité inutile.
-            </p>
-          </AnimateIn>
-
-          <AnimateIn delay={150}>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Ce qui change quand vous travaillez avec moi</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: <Gauge className="w-5 h-5" />,
-                  title: "Un site rapide",
-                  desc: "Vos visiteurs n'attendent pas. Votre site se charge rapidement, même sur smartphone. Une bonne vitesse améliore l'expérience utilisateur et favorise également votre visibilité sur Google.",
-                },
-                {
-                  icon: <Search className="w-5 h-5" />,
-                  title: "Un site pensé pour être trouvé",
-                  desc: "Dès sa conception, votre site est structuré pour être compris facilement par les moteurs de recherche. Une base solide qui vous aide à être visible sans dépendre systématiquement de prestations SEO coûteuses.",
-                },
-                {
-                  icon: <Shield className="w-5 h-5" />,
-                  title: "Une solution durable",
-                  desc: "Je développe des sites fiables et faciles à maintenir afin d'éviter les mauvaises surprises et les interventions répétées après la mise en ligne.",
-                },
-                {
-                  icon: <Paintbrush className="w-5 h-5" />,
-                  title: "Un design qui vous ressemble",
-                  desc: "Chaque entreprise est différente. Votre site l'est aussi. Pas de modèle générique : le design est pensé pour refléter votre activité, votre image et vos valeurs.",
-                },
-              ].map((item, idx) => (
-                <div key={idx} className="flex gap-5 p-7 bg-white border border-gray-200 rounded-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200">
-                  <div className="shrink-0 w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                  </div>
+          <AnimateIn className="grid md:grid-cols-2 gap-6" delay={100}>
+            {avantages.map((item, idx) => (
+              <div key={idx} className="flex gap-5 p-7 bg-white border border-gray-200 rounded-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200">
+                <div className="shrink-0 w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
+                  {item.icon}
                 </div>
-              ))}
-            </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </AnimateIn>
         </div>
       </div>
@@ -188,7 +158,7 @@ export default function Apropos() {
       {/* ─── 3. COMBIEN ÇA COÛTE ─── */}
       <div className="py-20 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-5xl">
-          <AnimateIn className="text-center mb-12">
+          <AnimateIn className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
               Combien coûte un site web ?
             </h2>
@@ -197,7 +167,7 @@ export default function Apropos() {
             </p>
           </AnimateIn>
 
-          <AnimateIn className="grid md:grid-cols-2 gap-6 mb-10" delay={100}>
+          <AnimateIn className="grid md:grid-cols-2 gap-6 mb-8" delay={100}>
             <div className="p-7 border border-gray-200 rounded-lg">
               <h3 className="font-bold text-gray-900 mb-3">Avec une structure traditionnelle</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
@@ -212,10 +182,14 @@ export default function Apropos() {
             </div>
           </AnimateIn>
 
-          <AnimateIn className="flex flex-wrap gap-8 justify-center" delay={150}>
-            {["Pas de frais cachés.", "Pas d'abonnements imposés.", "Pas de mauvaises surprises."].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-900 shrink-0" />
+          <AnimateIn className="grid md:grid-cols-3 gap-4" delay={150}>
+            {[
+              'Pas de frais cachés.',
+              "Pas d'abonnements imposés.",
+              'Pas de mauvaises surprises.',
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-3 p-5 bg-gray-50 border border-gray-200 rounded-lg">
+                <CheckCircle2 className="w-5 h-5 text-gray-900 shrink-0" />
                 <span className="font-medium text-gray-900 text-sm">{item}</span>
               </div>
             ))}
@@ -226,7 +200,7 @@ export default function Apropos() {
       {/* ─── 4. STACK ─── */}
       <div className="py-20 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-5xl">
-          <AnimateIn className="text-center mb-12">
+          <AnimateIn className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
               Comment je construis votre site
             </h2>
@@ -235,7 +209,7 @@ export default function Apropos() {
             </p>
           </AnimateIn>
 
-          <AnimateIn className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" delay={100}>
+          <AnimateIn className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" delay={100}>
             {stack.map((tech) => (
               <div
                 key={tech.name}
@@ -249,12 +223,6 @@ export default function Apropos() {
               </div>
             ))}
           </AnimateIn>
-
-          <AnimateIn delay={200}>
-            <p className="text-sm text-gray-500 max-w-2xl mx-auto text-center">
-              Les outils utilisés sont importants, mais ce qui compte vraiment, c&apos;est le résultat : un site qui fonctionne parfaitement et qui accompagne le développement de votre activité.
-            </p>
-          </AnimateIn>
         </div>
       </div>
 
@@ -265,9 +233,6 @@ export default function Apropos() {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Parlons de votre projet
             </h2>
-            <p className="text-lg text-gray-500 max-w-xl mx-auto mb-3">
-              Vous souhaitez savoir ce qui est possible pour votre entreprise ?
-            </p>
             <p className="text-gray-600 max-w-xl mx-auto mb-3">
               J&apos;analyse votre besoin, je vous explique les solutions adaptées à votre activité et je vous communique un tarif clair.
             </p>
