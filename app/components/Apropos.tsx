@@ -80,7 +80,7 @@ export default function Apropos() {
               L&apos;histoire d&apos;AtelierCode
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-              AtelierCode, c&apos;est moi : un développeur qui travaille directement avec vous, pas une agence qui disparaît après la signature du contrat.
+              On ne fait pas que de beaux sites — on fait des sites qui vous ramènent des clients.
             </p>
           </div>
           <div className="grid md:grid-cols-[auto_1fr] gap-12 items-start animate-fade-up" style={{ animationDelay: '200ms' }}>
