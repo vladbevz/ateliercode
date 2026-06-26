@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
+import CookieBanner from './components/CookieBanner';
+import CookieResetButton from './components/CookieResetButton';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
 import 'html5-device-mockups/dist/device-mockups.min.css';
@@ -137,33 +138,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {/* Microsoft Clarity */}
-        <Script
-          id="clarity-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){
-c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "wa1u7c5kzt");`,
-          }}
-        />
-        {/* Google Analytics 4 */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-P9LNZK8CL1"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="ga4-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-P9LNZK8CL1');`,
-          }}
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
@@ -303,6 +277,9 @@ gtag('config', 'G-P9LNZK8CL1');`,
                       Politique de confidentialité
                     </Link>
                   </li>
+                  <li>
+                    <CookieResetButton />
+                  </li>
                 </ul>
               </div>
             </div>
@@ -321,6 +298,7 @@ gtag('config', 'G-P9LNZK8CL1');`,
           </div>
         </footer>
 
+        <CookieBanner />
         <ScrollToTop />
         <WhatsAppButton />
       </body>
