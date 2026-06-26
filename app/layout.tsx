@@ -156,8 +156,8 @@ export default function RootLayout({
                   Atelier<span className="text-gray-400">Code</span>
                 </Link>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Création de sites web sur mesure pour professionnels.
-                  Minimaliste, performant, efficace.
+                  Site vitrine, e-commerce ou application web — professionnel, rapide, et visible dans les résultats Google.
+              Livré en 1 à 3 semaines.
                 </p>
                 <div className="flex gap-4">
                   <a
