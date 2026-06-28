@@ -215,10 +215,10 @@ export default function Apropos() {
                 key={tech.name}
                 className="bg-white rounded-lg p-6 border border-gray-200 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <div className="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center text-gray-700 mb-4">
+                <div className="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center text-gray-700 mb-4 mx-auto">
                   {tech.icon}
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">{tech.name}</h4>
+                <h4 className="text-lg font-bold text-gray-900 mb-2 text-center">{tech.name}</h4>
                 <p className="text-sm text-gray-500 leading-relaxed">{tech.desc}</p>
               </div>
             ))}
