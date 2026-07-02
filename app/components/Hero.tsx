@@ -34,7 +34,7 @@ export default function Hero() {
               Votre site web,<br />livré rapidement.
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-md mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
-              Site vitrine, e-commerce ou application web — professionnel, rapide, et visible dans les résultats Google.
+              Site vitrine, e-commerce ou application web — professionnel, rapide, et visible dans les résultats Google. <br/>
               Livré en 1 à 3 semaines.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: '200ms' }}>
@@ -57,9 +57,9 @@ export default function Hero() {
           <div className="border border-gray-200 rounded-lg overflow-hidden animate-fade-up" style={{ animationDelay: '300ms' }}>
             {/* Browser bar */}
             <div className="flex items-center gap-1.5 px-3 py-2.5 bg-gray-50 border-b border-gray-200">
-              <span className="w-2.5 h-2.5 rounded-full bg-gray-300" />
-              <span className="w-2.5 h-2.5 rounded-full bg-gray-300" />
-              <span className="w-2.5 h-2.5 rounded-full bg-gray-300" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
               <span className="font-mono text-xs text-gray-400 ml-2 flex-1 text-center">
                 ateliercode.fr
               </span>
