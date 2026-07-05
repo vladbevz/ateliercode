@@ -40,12 +40,21 @@ export const metadata: Metadata = {
     description:
       'AtelierCode développe des sites vitrine, e-commerce et applications web sur mesure à Nîmes et en Occitanie. Rapide, moderne, optimisé SEO. Devis gratuit. À partir de 499 €.',
     url: 'https://www.ateliercode.fr',
+    images: [
+      {
+        url: 'https://www.ateliercode.fr/images/og-cover.png',
+        width: 1280,
+        height: 720,
+        alt: 'AtelierCode — Sites web & Applications à Nîmes',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'AtelierCode — Sites web & Applications à Nîmes | React & Next.js',
     description:
       'AtelierCode développe des sites vitrine, e-commerce et applications web sur mesure à Nîmes et en Occitanie. Rapide, moderne, optimisé SEO. Devis gratuit. À partir de 499 €.',
+    images: ['https://www.ateliercode.fr/images/og-cover.png'],
   },
   robots: {
     index: true,
