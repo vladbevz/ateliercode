@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import PolitiqueConfidentialiteContent from './PolitiqueConfidentialiteContent';
 
 export const metadata: Metadata = {
-  title: 'Politique de confidentialité — AtelierCode',
+  title: 'Politique de confidentialité',
   description:
     'Politique de confidentialité de AtelierCode. Découvrez comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD.',
   alternates: {

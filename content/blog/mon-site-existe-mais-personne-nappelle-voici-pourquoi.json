@@ -48,7 +48,7 @@
       "heading": "4. Le site est lent sur mobile",
       "paragraphs": [
         "Plus de 70 % des visites se font depuis un smartphone. Si votre site met plus de 3 secondes à charger, la moitié de vos visiteurs partent avant même de voir votre contenu.",
-        "C'est une des limites les plus courantes des sites WordPress avec beaucoup d'extensions : ils s'alourdissent avec le temps, sans que vous le voyez.",
+        "C'est une des limites les plus courantes des sites WordPress avec beaucoup d'extensions : ils s'alourdissent avec le temps, sans que vous le voyez. Nous détaillons [pourquoi WordPress ralentit votre site](/blog/pourquoi-wordpress-ralentit-votre-site) et ce que ça coûte vraiment.",
         "Ce qui fonctionne : un site conçu dès le départ pour la performance mobile, sans plugins inutiles, avec des images optimisées. Un score PageSpeed au-dessus de 90 n'est pas un luxe — c'est la norme attendue par Google."
       ]
     },
@@ -69,7 +69,7 @@
       "heading": "Ce qu'on fait concrètement chez AtelierCode",
       "paragraphs": [
         "Quand je conçois un site pour un artisan, un indépendant ou une petite entreprise, je pars toujours de la même question : qu'est-ce qui va convaincre un inconnu de vous appeler ?",
-        "Pas de template WordPress générique. Un site fait pour votre activité, votre ville, vos clients."
+        "Pas de template WordPress générique. Un site fait pour votre activité, votre ville, vos clients — découvrez [notre processus de A à Z](/processus)."
       ],
       "list": [
         "Une structure de page pensée pour guider le regard vers l'action",
@@ -83,7 +83,7 @@
       "paragraphs": [
         "Un site qui ne génère pas d'appels n'est pas nécessairement un mauvais site — c'est souvent un site qui n'a pas été pensé pour convertir.",
         "La bonne nouvelle : ces problèmes sont tous corrigeables. Parfois en quelques ajustements, parfois en repartant d'une base plus solide.",
-        "Si vous vous reconnaissez dans l'un de ces quatre points, on peut en parler — sans engagement, sans jargon."
+        "Si vous vous reconnaissez dans l'un de ces quatre points, [on peut en parler](/contact) — sans engagement, sans jargon."
       ]
     }
   ]

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import AgenceWebNimesContent from '../components/AgenceWebNimes';
 
 export const metadata: Metadata = {
-  title: 'Agence web Nîmes — Sites, E-commerce & Applications React | AtelierCode',
+  title: 'Agence web Nîmes — Sites, E-commerce & Applications React',
   description:
     'AtelierCode, agence web à Nîmes spécialisée React & Next.js. Sites vitrine, boutiques e-commerce et applications web sur mesure pour professionnels du Gard.',
   alternates: {

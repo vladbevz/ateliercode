@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Processus from '@/app/components/Processus';
 
 export const metadata: Metadata = {
-  title: "Notre processus — De l'idée au site web livré en 3 semaines | AtelierCode",
+  title: "Notre processus — De l'idée au site web livré en 3 semaines",
   description:
     'Découvrez comment AtelierCode développe votre site vitrine, e-commerce ou application web à Nîmes : de la maquette à la mise en ligne en 3 étapes claires.',
   alternates: {

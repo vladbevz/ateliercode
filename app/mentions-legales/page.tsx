@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import MentionsLegalesContent from './MentionsLegalesContent';
 
 export const metadata: Metadata = {
-  title: 'Mentions légales — AtelierCode',
+  title: 'Mentions légales',
   description:
     'Mentions légales de AtelierCode, agence web à Nîmes. Informations sur l\'éditeur, l\'hébergement et la propriété intellectuelle du site.',
   alternates: {

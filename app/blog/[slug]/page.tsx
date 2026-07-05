@@ -31,6 +31,24 @@ export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
+function renderTextWithLinks(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return part;
+    const [, label, href] = match;
+    return (
+      <Link
+        key={i}
+        href={href}
+        className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors"
+      >
+        {label}
+      </Link>
+    );
+  });
+}
+
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -120,7 +138,7 @@ export default async function ArticlePage({ params }: Props) {
 
               {section.paragraphs[0] && (
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  {section.paragraphs[0]}
+                  {renderTextWithLinks(section.paragraphs[0])}
                 </p>
               )}
 
@@ -137,7 +155,7 @@ export default async function ArticlePage({ params }: Props) {
 
               {section.paragraphs.slice(1).map((p, i) => (
                 <p key={i} className="text-lg text-gray-600 leading-relaxed mt-4">
-                  {p}
+                  {renderTextWithLinks(p)}
                 </p>
               ))}
             </div>

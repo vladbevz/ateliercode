@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import CGVContent from './CGVContent';
 
 export const metadata: Metadata = {
-  title: 'CGV — Conditions Générales de Vente | AtelierCode',
+  title: 'CGV — Conditions Générales de Vente',
   description:
     'Conditions Générales de Vente de AtelierCode, agence web à Nîmes. Tarifs, modalités de paiement, délais et garanties pour vos projets de création de sites web.',
   alternates: {
