@@ -36,7 +36,7 @@ export default function PourQui() {
       icon: <Building className="w-6 h-6" />,
       title: 'E-commerce & applications web',
       description: 'Boutiques en ligne, SaaS, outils métier — des solutions sur mesure en React & Next.js, rapides, scalables et pensées pour la conversion.',
-      image: '/images/qui-aquatracker.webp',
+      image: '/images/mockups/water-mockup.webp',
       stats: [
         { label: 'Utilisateurs', value: '500+' },
         { label: 'Performance', value: '98/100' },
