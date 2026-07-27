@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/blog/creer-site-internet-nimes-combien-ca-coute-2026',
+        destination: '/blog/combien-coute-site-internet-artisan-2026',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

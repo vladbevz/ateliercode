@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 
 const projects = [
   { name: "Le 438", category: "Restaurant · Vauvert", image: "/images/mockups/le438-mockup.webp" },
@@ -30,6 +30,10 @@ export default function Hero() {
 
           {/* Ліва колонка */}
           <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 mb-5 rounded-full border border-gray-200 bg-gray-50 text-xs font-medium text-gray-600 animate-fade-up">
+              <Check className="w-3.5 h-3.5 text-gray-500" />
+              Maquette gratuite avant tout engagement
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
               Un site qui vous ramène des clients.
             </h1>
