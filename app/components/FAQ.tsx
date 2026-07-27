@@ -43,6 +43,10 @@ export default function FAQ() {
     answer: 'Paiement 50% à la commande, 50% à la livraison. Virement bancaire, PayPal ou carte bancaire (via Stripe). Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée fournie.',
   },
   {
+    question: 'Proposez-vous une maquette avant de m’engager ?',
+    answer: 'Oui. Avant tout engagement, je vous prépare une maquette gratuite de votre futur site, pour que vous voyiez concrètement à quoi il ressemblera. Aucun paiement n’est demandé à ce stade — vous décidez de continuer uniquement si la direction vous convient.',
+  },
+  {
     question: 'Mon site sera-t-il adapté aux mobiles ?',
     answer: 'Oui, tous les sites sont conçus mobile-first. Chaque page est testée sur smartphone, tablette et desktop avant la livraison.',
   },
