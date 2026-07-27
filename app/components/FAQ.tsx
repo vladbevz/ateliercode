@@ -9,64 +9,72 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const faqs = [
-    {
-      question: 'Combien de temps pour avoir mon site ?',
-      answer: '5 à 21 jours selon le projet. Landing page : 2-3 jours. Site vitrine : 5-15 jours. Site avancé : 2-3 semaines.',
-    },
-    {
-      question: 'Puis-je modifier mon site moi-même après ?',
-      answer: 'Oui, deux options principales : 1) Panel admin complet avec Sanity.io (+150€ pour la configuration initiale) qui vous permet de modifier tout le contenu facilement, 2) Forfait maintenance à 50€/mois pour des modifications illimitées effectuées par mes soins.',
-    },
-    {
-      question: 'Quel hébergement utilisez-vous ?',
-      answer: 'Vercel - optimal pour Next.js, rapide et sécurisé. Le nom de domaine (.fr/.com) est inclus la première année (~12€). Après un an, vous renouvelez vous-même (~12€/an) ou via moi.',
-    },
-    {
-      question: 'Et si je ne sais pas quoi écrire sur mon site ?',
-      answer: 'Je vous fournis un guide de rédaction et des exemples pour chaque page. Si nécessaire, je peux rédiger les textes avec vous.',
-    },
-    {
-      question: 'Proposez-vous le référencement (SEO) ?',
-      answer: 'Oui, chaque forfait inclut du SEO : Landing Page (SEO de base), Site Vitrine (SEO optimisé), Site Avancé (SEO premium).',
-    },
-    {
-      question: 'Que se passe-t-il après la première année ?',
-      answer: 'Après la première année, vous payez : nom de domaine (10-15€/an). Je propose également un forfait maintenance à 50€/mois pour les mises à jour, sécurité et petites modifications.',
-    },
-    {
-      question: 'Travaillez-vous avec des templates ?',
-      answer: "J'utilise des structures de base mais chaque site est personnalisé selon vos besoins. Je ne vends pas de sites clé-en-main identiques. Votre site sera unique et adapté à votre activité.",
-    },
-    {
-      question: 'Quelles sont les méthodes de paiement ?',
-      answer: 'Paiement 50% à la commande, 50% à la livraison. Virement bancaire, PayPal ou carte bancaire (via Stripe). Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée fournie.',
-    },
-    {
-      question: 'Mon site sera-t-il adapté aux mobiles ?',
-      answer: 'Oui, tous les sites sont conçus mobile-first. Chaque page est testée sur smartphone, tablette et desktop avant la livraison.',
-    },
-    {
-      question: 'Que dois-je vous fournir pour commencer ?',
-      answer: 'Les éléments de base suffisent : votre logo (ou on en discute), vos photos si vous en avez, une description de votre activité et vos coordonnées. Je vous guide pour le reste avec un questionnaire de démarrage.',
-    },
-    {
-      question: 'Travaillez-vous avec des clients hors de Nîmes ?',
-      answer: 'Oui, je travaille avec des clients partout en France. Tout se passe à distance — appel visio, échanges par mail ou WhatsApp. La localisation ne change rien à la qualité du suivi.',
-    },
-    {
-      question: 'Puis-je voir le site avant de payer le solde ?',
-      answer: "Oui. Avant la livraison finale, vous accédez à une version de prévisualisation en ligne. Le solde n'est dû qu'une fois que vous êtes satisfait du résultat.",
-    },
-    {
-      question: 'Faites-vous aussi du e-commerce ?',
-      answer: "Oui, je développe des boutiques en ligne avec panier, paiement sécurisé (Stripe) et gestion des commandes. C'est inclus dans le forfait Site Avancé ou sur devis selon le volume de produits.",
-    },
-    {
-      question: 'Que se passe-t-il si le résultat ne me convient pas ?',
-      answer: "Deux rondes de corrections sont incluses dans chaque forfait. Si après ça le résultat ne vous convient toujours pas, on en discute directement — mon objectif est que vous soyez satisfait à la livraison.",
-    },
-  ];
+ const faqs = [
+  {
+    question: 'Combien de temps pour avoir mon site ?',
+    answer: 'Ça dépend du projet : 7 à 10 jours pour un site vitrine, 2 à 4 semaines pour une boutique e-commerce. Pour une application web, le délai est estimé ensemble selon la complexité du projet.',
+  },
+  {
+    question: 'Puis-je modifier mon site moi-même après la livraison ?',
+    answer: "Oui, c'est possible. On en discute ensemble selon vos besoins et je vous propose la solution la plus adaptée à votre situation — pas de système compliqué imposé par défaut.",
+  },
+  {
+    question: 'Quel hébergement utilisez-vous ?',
+    answer: "Vercel — optimal pour Next.js, rapide et sécurisé. L'hébergement est inclus la première année. Le nom de domaine (.fr/.com) est également inclus la première année (~12€), puis vous le renouvelez vous-même ou via moi.",
+  },
+  {
+    question: 'Et si je ne sais pas quoi écrire sur mon site ?',
+    answer: "Pas de souci, je m'en occupe. Je rédige les textes avec vous en fonction de votre activité, pour que votre site vous ressemble sans que vous ayez à écrire une seule ligne.",
+  },
+  {
+    question: 'Le référencement (SEO) est-il inclus ?',
+    answer: "Oui, dans tous les forfaits. Structure optimisée pour Google dès la conception, balises et sitemap, temps de chargement ultra-rapide, et référencement local (Google Maps) pour être visible auprès de vos clients près de chez vous.",
+  },
+  {
+    question: 'Que se passe-t-il après la première année ?',
+    answer: "Vous ne payez que le renouvellement du nom de domaine (10-15€/an). Si vous souhaitez des mises à jour, des évolutions ou un suivi régulier au-delà, on en discute ensemble selon vos besoins.",
+  },
+  {
+    question: 'Travaillez-vous avec des templates ?',
+    answer: "J'utilise des structures de base mais chaque site est personnalisé selon vos besoins. Je ne vends pas de sites clé-en-main identiques. Votre site sera unique et adapté à votre activité.",
+  },
+  {
+    question: 'Quelles sont les méthodes de paiement ?',
+    answer: 'Paiement 50% à la commande, 50% à la livraison. Virement bancaire, PayPal ou carte bancaire (via Stripe). Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée fournie.',
+  },
+  {
+    question: 'Mon site sera-t-il adapté aux mobiles ?',
+    answer: 'Oui, tous les sites sont conçus mobile-first. Chaque page est testée sur smartphone, tablette et desktop avant la livraison.',
+  },
+  {
+    question: 'Que dois-je vous fournir pour commencer ?',
+    answer: "Les éléments de base suffisent : votre logo (ou on en discute), vos photos si vous en avez, une description de votre activité et vos coordonnées. Si vous n'avez pas encore de textes, je m'en charge — je vous guide pour le reste avec un questionnaire de démarrage.",
+  },
+  {
+    question: 'Travaillez-vous avec des clients hors de Nîmes ?',
+    answer: 'Oui, je travaille avec des clients partout en France. Tout se passe à distance — appel visio, échanges par mail ou WhatsApp. La localisation ne change rien à la qualité du suivi.',
+  },
+  {
+    question: 'Puis-je suivre l\u2019avancement de mon site pendant sa création ?',
+    answer: "Oui, vous suivez tout le processus de développement, pas seulement le résultat final. Je vous partage l'avancement à chaque étape, vous savez toujours où en est votre projet avant la livraison.",
+  },
+  {
+    question: 'Faites-vous aussi du e-commerce ?',
+    answer: "Oui, ça fait partie du forfait E-commerce (dès 990€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées.",
+  },
+  {
+    question: 'Proposez-vous aussi des applications web ?',
+    answer: "Oui. Au-delà du site vitrine ou de la boutique, je développe des outils métier sur mesure : back-end, API, authentification, dashboard admin, intégrations avec vos outils existants (CRM, paiement...).",
+  },
+  {
+    question: 'Combien coûte une application web ?',
+    answer: "Le tarif dépend entièrement de la complexité du projet — c'est pourquoi c'est toujours sur devis. Je vous propose une estimation gratuite sous 24h après avoir échangé sur vos besoins.",
+  },
+  {
+    question: 'Que se passe-t-il si le résultat ne me convient pas ?',
+    answer: "Deux rondes de corrections sont incluses dans chaque forfait. Si après ça le résultat ne vous convient toujours pas, on en discute directement — mon objectif est que vous soyez satisfait à la livraison.",
+  },
+];
 
   const filteredFaqs = faqs.filter(
     faq =>
