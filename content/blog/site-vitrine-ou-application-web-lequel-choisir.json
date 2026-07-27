@@ -1,0 +1,81 @@
+{
+  "slug": "site-vitrine-ou-application-web-lequel-choisir",
+  "title": "Site vitrine ou application web : de quoi votre commerce a-t-il vraiment besoin ?",
+  "date": "2026-07-27",
+  "excerpt": "Vous hésitez entre un site vitrine et une application sur mesure ? Voici les questions simples qui vous donnent la réponse — sans jargon technique.",
+  "category": "Choix technique",
+  "sections": [
+    {
+      "paragraphs": [
+        "Un client me contacte récemment : « Je veux une application pour mon salon de coiffure. » En creusant, ce dont il avait vraiment besoin, c'était d'un site vitrine avec un bouton de prise de rendez-vous. Résultat : un projet à 499 €, livré en une semaine, au lieu d'un développement sur mesure à plusieurs milliers d'euros.",
+        "L'inverse arrive aussi : des commerçants qui se contentent d'un site vitrine basique, alors que leur activité a besoin d'un vrai outil — gestion de stock, réservations en temps réel, espace client. Résultat : ils bricolent avec des solutions externes qui ne se parlent pas entre elles.",
+        "Le mot « application » fait peur ou fait rêver, selon les cas. Mais ce n'est pas une question de prestige — c'est une question de besoin réel. Voici comment le déterminer en quelques minutes."
+      ]
+    },
+    {
+      "heading": "Un site vitrine suffit si...",
+      "paragraphs": [
+        "Un site vitrine, c'est du contenu qui ne change pas à chaque visite : vos services, vos horaires, vos coordonnées, votre histoire. Il convainc un visiteur et le pousse à vous contacter — par téléphone, formulaire ou prise de rendez-vous externe (Doctolib, Calendly, etc.).",
+        "C'est le cas de la grande majorité des artisans, commerçants et professions libérales à Nîmes et dans le Gard. Un site vitrine bien construit — rapide, clair, optimisé pour le référencement local — fait le travail à 90 % des cas."
+      ],
+      "list": [
+        "Votre activité repose sur la confiance et le contact humain (artisan, profession libérale, restaurant)",
+        "Vos informations changent rarement — quelques mises à jour par an suffisent",
+        "Vous n'avez pas besoin que vos visiteurs créent un compte ou se connectent",
+        "Vous voulez être trouvé sur Google et donner envie qu'on vous appelle"
+      ]
+    },
+    {
+      "heading": "Une boutique en ligne (e-commerce) si...",
+      "paragraphs": [
+        "Différent d'un site vitrine classique : ici, les visiteurs achètent directement, sans passer par un appel ou un message."
+      ],
+      "list": [
+        "Vous vendez des produits physiques ou numériques que le client peut choisir et payer en ligne",
+        "Vous avez un catalogue qui évolue (nouveaux produits, stock, prix)",
+        "Vous voulez encaisser sans intervention manuelle de votre part"
+      ]
+    },
+    {
+      "heading": "Une application web si...",
+      "paragraphs": [
+        "Une application, c'est un outil qui fait quelque chose pour l'utilisateur — pas seulement afficher de l'information. La différence se voit à ces signaux :",
+        "Exemple concret : une salle de sport qui veut que ses membres réservent des créneaux de cours en temps réel, voient leur historique et paient leur abonnement en ligne — c'est une application, pas un site vitrine avec un bouton de contact."
+      ],
+      "list": [
+        "Vos utilisateurs doivent créer un compte et se connecter pour accéder à un espace personnel",
+        "Votre activité implique des données qui changent en permanence et doivent être calculées, filtrées ou croisées (disponibilités, réservations multiples, stock en temps réel)",
+        "Vous avez besoin de connecter plusieurs outils entre eux (CRM, paiement, calendrier, base de données clients)",
+        "Un site classique ne suffit plus : vous bricolez déjà avec des tableurs Excel, des outils tiers qui ne communiquent pas, ou des process manuels chronophages"
+      ]
+    },
+    {
+      "heading": "Les 4 questions à se poser avant de choisir",
+      "paragraphs": [
+        "Posez-vous ces questions, dans l'ordre :",
+        "Si vous avez répondu « non » aux trois premières questions, vous n'avez probablement pas besoin d'une application — et c'est une bonne nouvelle pour votre budget et vos délais."
+      ],
+      "list": [
+        "Mes visiteurs doivent-ils se connecter à un compte personnel ? Si oui → application.",
+        "Mon contenu change-t-il plusieurs fois par semaine, avec des données qui interagissent entre elles ? Si oui → application ou e-commerce.",
+        "Est-ce que je vends des produits directement en ligne ? Si oui → e-commerce.",
+        "Mon objectif principal est-il qu'on me contacte ou qu'on me trouve sur Google ? Si oui → site vitrine."
+      ]
+    },
+    {
+      "heading": "Ce qui coûte cher, ce n'est pas le mot « application »",
+      "paragraphs": [
+        "Beaucoup de prestataires font gonfler un projet simple en le présentant comme une application pour justifier un tarif plus élevé. À l'inverse, certains commerçants se privent d'un outil qui leur ferait gagner un temps réel, par peur du mot « application » et de son coût supposé.",
+        "La bonne question n'est jamais « site ou application », c'est « qu'est-ce qui résout mon problème, sans rien en plus ». Un site vitrine à 499 € qui répond exactement au besoin vaut mieux qu'une application à 3000 € qui fait des choses dont vous n'avez pas l'usage."
+      ]
+    },
+    {
+      "heading": "Ce qu'on fait chez AtelierCode",
+      "paragraphs": [
+        "Quand un client me contacte avec une idée d'application, je commence toujours par comprendre le besoin réel — pas par vendre la solution la plus chère. Si un site vitrine suffit, je le dis. Si votre activité a vraiment besoin d'un outil sur mesure (back-end, authentification, dashboard admin), on en discute concrètement, avec un devis clair adapté à la complexité réelle du projet.",
+        "Les trois solutions sont là pour ça : [Site Vitrine dès 499 €](/tarifs), [E-commerce dès 990 €](/tarifs), ou [Application web sur devis](/tarifs) — le bon choix, pas le plus gros forfait.",
+        "Vous hésitez encore ? [Parlons-en](/contact) — je vous prépare une maquette gratuite de la solution qui correspond réellement à votre activité, avant tout engagement."
+      ]
+    }
+  ]
+}
