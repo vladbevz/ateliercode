@@ -144,7 +144,7 @@ export default function AgenceWebNimesContent() {
             {[
               {
                 icon: <Euro className="w-7 h-7" />,
-                metric: 'Dès 299 €',
+                metric: 'Dès 499 €',
                 title: 'Prix transparent',
                 desc: 'Pas d\'abonnement caché, pas de surprise. Un tarif fixe annoncé avant de commencer — adapté au budget du petit commerce.',
                 dark: false,
