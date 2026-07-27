@@ -29,13 +29,28 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Ліва колонка */}
-          <div className="relative">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
-              Un site qui vous ramène des clients.
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-md mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
-              Site vitrine, e-commerce ou application web, développé sur mesure à Nîmes. Rapide, visible sur Google, livré en 1 à 3 semaines.
-            </p>
+          <div>
+            <div className="relative">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
+                Un site qui vous ramène des clients.
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-md mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
+                Site vitrine, e-commerce ou application web, développé sur mesure à Nîmes. Rapide, visible sur Google, livré en 1 à 3 semaines.
+              </p>
+
+              {/* Badge tampon */}
+              <div
+                className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-24 h-24 -rotate-12 items-center justify-center rounded-full border-2 border-gray-900 bg-white shadow-sm animate-fade-up"
+                style={{ animationDelay: '300ms' }}
+              >
+                <div className="flex items-center justify-center w-[82%] h-[82%] rounded-full border border-gray-900 text-center px-1">
+                  <span className="text-[9px] font-bold uppercase leading-tight tracking-widest text-gray-900">
+                    Maquette<br />gratuite
+                  </span>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: '200ms' }}>
               <Link
                 href="/contact"
@@ -49,18 +64,6 @@ export default function Hero() {
               >
                 Comment ça marche ?
               </Link>
-            </div>
-
-            {/* Badge tampon */}
-            <div
-              className="hidden lg:flex absolute right-0 bottom-2 translate-x-1/2 w-24 h-24 -rotate-12 items-center justify-center rounded-full border-2 border-gray-900 bg-white shadow-sm animate-fade-up"
-              style={{ animationDelay: '300ms' }}
-            >
-              <div className="flex items-center justify-center w-[82%] h-[82%] rounded-full border border-gray-900 text-center px-1">
-                <span className="text-[9px] font-bold uppercase leading-tight tracking-widest text-gray-900">
-                  Maquette<br />gratuite
-                </span>
-              </div>
             </div>
           </div>
 
