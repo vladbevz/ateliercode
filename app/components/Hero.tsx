@@ -31,11 +31,10 @@ export default function Hero() {
           {/* Ліва колонка */}
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
-              Votre site web,<br />livré rapidement.
+              Un site qui vous ramène des clients.
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-md mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
-              Site vitrine, e-commerce ou application web — professionnel, rapide, et visible dans les résultats Google. <br/>
-              Livré en 1 à 3 semaines.
+              Site vitrine, e-commerce ou application web, développé sur mesure à Nîmes. Rapide, visible sur Google, livré en 1 à 3 semaines.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: '200ms' }}>
               <Link
