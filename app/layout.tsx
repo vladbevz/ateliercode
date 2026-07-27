@@ -7,6 +7,7 @@ import CookieBanner from './components/CookieBanner';
 import CookieResetButton from './components/CookieResetButton';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
+import { villes } from './lib/villes-data';
 import 'html5-device-mockups/dist/device-mockups.min.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -158,7 +159,7 @@ export default function RootLayout({
 
         <footer className="bg-gray-50 border-t border-gray-200">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
               {/* Brand */}
               <div className="space-y-4">
                 <Link href="/" className="text-2xl font-bold text-gray-900">
@@ -227,6 +228,25 @@ export default function RootLayout({
                       Devis gratuit
                     </Link>
                   </li>
+                </ul>
+              </div>
+
+              {/* Nos zones */}
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+                  Nos zones
+                </h3>
+                <ul className="space-y-3">
+                  {villes.map((ville) => (
+                    <li key={ville.slug}>
+                      <Link
+                        href={`/agence-web/${ville.slug}`}
+                        className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                      >
+                        {ville.nom}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 

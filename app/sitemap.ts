@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from './lib/blog'
+import { villes } from './lib/villes-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.ateliercode.fr'
@@ -7,6 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  const villePages = villes.map((ville) => ({
+    url: `${baseUrl}/agence-web/${ville.slug}`,
+    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
@@ -72,6 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    ...villePages,
     ...blogPosts,
   ]
 }
