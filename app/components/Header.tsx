@@ -58,12 +58,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden xl:flex items-center gap-1">
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors group ${
+                className={`relative px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors group ${
                   isActive(item.href)
                     ? 'text-gray-900'
                     : 'text-gray-500 hover:text-gray-900'
@@ -83,7 +83,7 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2 group"
+              className="ml-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl font-medium whitespace-nowrap hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2 group"
             >
               <span>Devis gratuit</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -93,7 +93,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg bg-gray-100 border border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-300 transition-colors"
+            className="xl:hidden p-2 rounded-lg bg-gray-100 border border-gray-200 text-gray-600 hover:text-gray-900 hover:border-gray-300 transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -109,7 +109,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 overflow-hidden shadow-lg"
+            className="xl:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 overflow-hidden shadow-lg"
           >
             <div className="container mx-auto px-4 py-6">
               <nav className="flex flex-col space-y-1">
