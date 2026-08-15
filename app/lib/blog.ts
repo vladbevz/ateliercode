@@ -13,6 +13,8 @@ export type BlogPost = {
   date: string;
   excerpt: string;
   category?: string;
+  image?: string;
+  imageAlt?: string;
   sections: BlogSection[];
 };
 

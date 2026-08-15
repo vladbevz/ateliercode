@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react';
 import { getPostBySlug, getAllPosts, formatDate } from '../../lib/blog';
 
@@ -23,6 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://www.ateliercode.fr/blog/${post.slug}`,
       type: 'article',
       publishedTime: post.date,
+      images: post.image
+        ? [{ url: `https://www.ateliercode.fr${post.image}`, width: 1024, height: 559, alt: post.imageAlt || post.title }]
+        : undefined,
     },
   };
 }
@@ -66,6 +70,7 @@ export default async function ArticlePage({ params }: Props) {
       '@type': 'WebPage',
       '@id': `https://www.ateliercode.fr/blog/${post.slug}`,
     },
+    ...(post.image && { image: `https://www.ateliercode.fr${post.image}` }),
     author: {
       '@type': 'Person',
       name: 'Vladyslav Bevz',
@@ -122,6 +127,19 @@ export default async function ArticlePage({ params }: Props) {
           </h1>
 
           <p className="text-xl text-gray-500 leading-relaxed">{post.excerpt}</p>
+
+          {post.image && (
+            <div className="relative mt-8 aspect-video rounded-xl overflow-hidden border border-gray-200">
+              <Image
+                src={post.image}
+                alt={post.imageAlt || post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            </div>
+          )}
 
           <div className="mt-8 border-t border-gray-200" />
         </header>

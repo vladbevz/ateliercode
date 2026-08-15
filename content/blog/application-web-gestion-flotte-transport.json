@@ -1,0 +1,63 @@
+{
+  "slug": "application-web-gestion-flotte-transport",
+  "title": "Il gérait 20 chauffeurs dans sa tête. On a construit l'outil qui a tout changé.",
+  "date": "2026-08-03",
+  "excerpt": "Un patron de transport sous-traitant gérait vingt chauffeurs, une flotte et des pannes par téléphone, sans visibilité en temps réel sur sa rentabilité. Voici l'application qu'on a construite pour lui.",
+  "category": "Application web",
+  "image": "/images/blog/gestion-flotte-transport.jpg",
+  "imageAlt": "Avant/après : un gérant débordé par la paperasse, puis pilotant son activité depuis une tablette",
+  "sections": [
+    {
+      "paragraphs": [
+        "Vingt chauffeurs sur la route. Des camions qui tombent en panne. Des tournées à planifier. Des véhicules à surveiller. Des assurances qui expirent. Et au bout du fil, une dizaine d'appels par jour — chacun qui attend une réponse, une décision, une information.",
+        "C'est la réalité d'un patron de transport sous-traitant pour de grands groupes logistiques. Il porte tout. Et jusqu'ici, il le portait dans sa tête."
+      ]
+    },
+    {
+      "heading": "Le problème n'était pas un manque d'organisation. C'était un manque d'outils.",
+      "paragraphs": [
+        "Son activité dépend de grandes entreprises logistiques qui lui confient des tournées. Le revers de ce modèle : ces donneurs d'ordre lui transmettent ses statistiques de performance une fois par mois. Un mois de décalage pour savoir si une tournée est rentable, si un chauffeur performe, si quelque chose cloche.",
+        "En attendant, les informations arrivaient par téléphone. Un chauffeur signalait une panne en appelant. Un autre demandait sa tournée du lendemain par SMS. Un troisième avait oublié d'entrer son kilométrage. Le patron jonglait, répondait, relançait — et perdait un temps considérable à gérer des flux d'information qu'aucun outil ne centralisait.",
+        "Les pannes, surtout, étaient un point de tension. Quand un camion tombait en panne sur la route, le patron l'apprenait par un appel. Sans photo, sans détail immédiat, sans moyen de savoir si le véhicule pouvait continuer ou était immobilisé. Chaque incident mobilisait plusieurs échanges avant qu'une décision puisse être prise."
+      ]
+    },
+    {
+      "heading": "Ce qu'on a construit",
+      "paragraphs": [
+        "Une application web complète, avec deux interfaces distinctes pensées pour deux réalités différentes. Vous pouvez découvrir d'autres projets sur mesure dans nos [réalisations](/realisations)."
+      ]
+    },
+    {
+      "heading": "Pour le patron : un tableau de bord en temps réel",
+      "paragraphs": [
+        "Dès l'ouverture, il voit ce qui compte : les alertes prioritaires (contrôle technique expiré, assurance à renouveler, véhicule immobilisé), l'état de sa flotte, le planning de ses équipes sur le mois.",
+        "La section rentabilité lui donne enfin ce que ses donneurs d'ordre lui transmettaient avec un mois de retard — mais en direct. Par chauffeur, par tournée, sur la période qu'il choisit : jours travaillés, seuils de performance atteints, taux de réussite. Il voit en un coup d'œil ce qui fonctionne et ce qui mérite attention, sans attendre le rapport mensuel."
+      ]
+    },
+    {
+      "heading": "Pour les chauffeurs : une application mobile simple",
+      "paragraphs": [
+        "Le matin, un chauffeur ouvre l'app, sélectionne sa tournée et son véhicule, entre le kilométrage. En moins d'une minute, le patron sait qui est parti avec quoi.",
+        "Et quand une panne survient — c'est là que tout change. Le chauffeur signale directement depuis son téléphone : il décrit le problème, indique si le véhicule peut continuer ou est immobilisé, et joint une photo. En quelques secondes, le patron reçoit une notification avec toutes les informations dont il a besoin pour réagir. Pas d'appel. Pas de va-et-vient. Une décision peut être prise immédiatement.",
+        "Le carburant est tracé au même endroit : véhicule, litres, kilométrage. L'historique est accessible à tout moment, sans avoir à appeler personne."
+      ]
+    },
+    {
+      "heading": "Ce que ça a changé",
+      "paragraphs": [
+        "Le gain principal, c'est une chose difficile à quantifier mais immédiatement visible : la charge mentale.",
+        "Avant, le patron devait tenir à jour dans sa tête l'état de vingt chauffeurs, de plusieurs véhicules, de dizaines d'échéances. Il répondait aux appels au lieu de piloter son activité. Il découvrait des problèmes après coup.",
+        "Maintenant, l'information vient à lui — structurée, à temps, avec ce qu'il faut pour agir. Une panne se produit : il reçoit une notification, voit la photo, sait si le véhicule roule encore. Il prend sa décision sans décrocher son téléphone.",
+        "Et pour la rentabilité — ce qu'il attendait de ses donneurs d'ordre chaque mois — il l'a désormais en continu. Ce n'est plus une information qu'on lui transmet. C'est une information qu'il possède."
+      ]
+    },
+    {
+      "heading": "Ce que ce projet illustre",
+      "paragraphs": [
+        "Une application sur mesure n'est pas un luxe réservé aux grandes entreprises. C'est une réponse concrète à un problème concret : trop d'information dispersée, trop de temps passé à la collecter, pas assez de visibilité pour décider vite.",
+        "Si vous gérez des équipes terrain, une flotte, des interventions ou des processus qui reposent aujourd'hui sur des appels, des SMS ou des fichiers partagés — la question n'est pas « est-ce qu'une appli pourrait m'aider ? ». C'est « combien de temps je perds encore à faire autrement ? »",
+        "Je travaille sur ce type de projet [à partir de devis](/tarifs). Si ça vous parle, [on peut en discuter](/contact)."
+      ]
+    }
+  ]
+}

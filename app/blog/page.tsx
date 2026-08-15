@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { getAllPosts, formatDate } from '../lib/blog';
 
@@ -47,7 +48,19 @@ export default function BlogPage() {
           <div className="max-w-3xl mx-auto space-y-6">
             {posts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
-                <article className="p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                <article className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                  {post.image && (
+                    <div className="relative aspect-video">
+                      <Image
+                        src={post.image}
+                        alt={post.imageAlt || post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 768px"
+                      />
+                    </div>
+                  )}
+                  <div className="p-8">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     {post.category && (
                       <span className="text-xs font-semibold text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">
@@ -73,6 +86,7 @@ export default function BlogPage() {
                     Lire la suite
                     <ArrowRight className="w-4 h-4" />
                   </span>
+                  </div>
                 </article>
               </Link>
             ))}
