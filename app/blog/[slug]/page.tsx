@@ -188,10 +188,10 @@ export default async function ArticlePage({ params }: Props) {
               AtelierCode · Nîmes
             </p>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Vous êtes artisan ou commerçant ?
+              Un projet de site ou d&apos;application en tête ?
             </h3>
             <p className="text-gray-400 mb-7 max-w-md mx-auto">
-              Devis gratuit sous 24h. Site vitrine sur mesure dès 499 €, livré en une semaine.
+              Devis gratuit sous 24h. Site vitrine dès 499 €, application web sur devis.
             </p>
             <Link
               href="/contact"
