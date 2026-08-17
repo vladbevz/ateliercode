@@ -73,14 +73,15 @@ export default function PourQui() {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-full text-left p-6 rounded-lg border-2 transition-all duration-200 ${
+                className={`w-full text-left p-6 rounded-lg border-2 transition-all duration-200 reveal group ${
                   activeIndex === index
                     ? 'border-gray-900 bg-gray-50'
                     : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                 }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-md shrink-0 transition-colors ${
+                  <div className={`p-3 rounded-md shrink-0 transition-all duration-200 group-hover:scale-110 ${
                     activeIndex === index ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
                   }`}>
                     {client.icon}
@@ -186,7 +187,7 @@ export default function PourQui() {
         <AnimateIn className="text-center" delay={200}>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
           >
             Parler de votre projet
           </Link>

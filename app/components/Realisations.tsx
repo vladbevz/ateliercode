@@ -90,15 +90,16 @@ export default function Realisations() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 hover:-translate-y-0.5 transition-all duration-200"
+              className="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 hover:-translate-y-0.5 transition-all duration-200 reveal group"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative aspect-video">
+              <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="p-4">
@@ -117,7 +118,7 @@ export default function Realisations() {
         <AnimateIn className="text-center mt-14" delay={100}>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
           >
             Vous avez un projet similaire ?
           </Link>
