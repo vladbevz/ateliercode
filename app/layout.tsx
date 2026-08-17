@@ -201,6 +201,14 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
+                      href="/application-web-nimes"
+                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                    >
+                      Application web sur mesure
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/blog"
                       className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
                     >
