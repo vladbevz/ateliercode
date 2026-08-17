@@ -7,6 +7,13 @@ import AnimateIn from './AnimateIn';
 export default function Realisations() {
   const projects = [
     {
+      title: 'KFM Transport',
+      category: 'Application web',
+      description: 'Dashboard de gestion de flotte et application mobile chauffeurs',
+      image: '/images/mockups/kfm-mockup.png',
+      year: '2026',
+    },
+    {
       title: 'Le 438',
       category: 'Restauration',
       description: 'Site vitrine avec menu interactif',

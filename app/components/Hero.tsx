@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const projects = [
+  { name: "KFM Transport", category: "Application web · Gestion de flotte", image: "/images/mockups/kfm-mockup.png" },
   { name: "Le 438", category: "Restaurant · Vauvert", image: "/images/mockups/le438-mockup.webp" },
   { name: "Lymar Dermo Esthetic", category: "Beauté · Saint-Georges", image: "/images/mockups/lymar-mockup.webp" },
   { name: "Portfolio Photographe", category: "Photographie", image: "/images/mockups/syrmais-mockup.webp" },
