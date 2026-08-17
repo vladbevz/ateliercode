@@ -7,6 +7,7 @@ import CookieBanner from './components/CookieBanner';
 import CookieResetButton from './components/CookieResetButton';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
+import ScrollRevealProvider from './components/ScrollRevealProvider';
 import { villes } from './lib/villes-data';
 import 'html5-device-mockups/dist/device-mockups.min.css';
 
@@ -154,6 +155,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+        <ScrollRevealProvider />
         <Header />
 
         <main className="relative pt-8 md:pt-20">
