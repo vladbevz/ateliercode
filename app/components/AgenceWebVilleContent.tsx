@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import {
   MapPin, ArrowRight, Check, Euro, Clock, Zap,
-  Star, Navigation, Target,
+  Star, Navigation, Target, Paintbrush,
   XCircle, Search, TrendingUp, Building2
 } from 'lucide-react';
 import AnimateIn from './AnimateIn';
@@ -293,6 +293,36 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
           </AnimateIn>
         </div>
 
+        {/* ─── 5ter. OFFRES GRATUITES ─── */}
+        <div className="pb-14 md:pb-20">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-4">
+            <div className="flex gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <div className="shrink-0 w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="font-bold text-gray-900 mb-1">Premier rendez-vous gratuit</p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Je me déplace gratuitement pour le premier rendez-vous — brief, questions,
+                  présentation du projet. Sans engagement de votre part.
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+              <div className="shrink-0 w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
+                <Paintbrush className="w-5 h-5" />
+              </div>
+              <div>
+                <p className="font-bold text-gray-900 mb-1">Maquette offerte avant commande</p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Avant de vous engager, vous voyez à quoi ressemblera votre site.
+                  La maquette est gratuite — vous commandez seulement si elle vous convient.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* ─── 5bis. CONTENU LOCAL UNIQUE ─── */}
         <div className="pb-14 md:pb-20">
           <AnimateIn className="max-w-5xl mx-auto border-l-4 border-gray-900 pl-8">
@@ -422,6 +452,9 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
             >
               Obtenir mon devis gratuit
             </Link>
+            <p className="text-sm text-gray-400 mt-4 text-center">
+              Déplacement gratuit · Maquette offerte · Sans engagement
+            </p>
           </AnimateIn>
         </div>
 
