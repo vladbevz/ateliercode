@@ -51,7 +51,11 @@ export default function ProcessSection() {
         {/* Steps */}
         <div className="grid lg:grid-cols-4 gap-8 mb-16 relative">
           {steps.map((step, index) => (
-            <div key={index} className="relative flex flex-col items-center">
+            <div
+              key={index}
+              className="relative flex flex-col items-center reveal"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               {/* Контейнер для іконки та стрілки */}
               <div className="relative w-full flex items-center justify-center mb-4">
                 {/* Іконка */}
@@ -95,7 +99,7 @@ export default function ProcessSection() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 transition-colors btn-sweep"
           >
             Démarrer votre projet
           </Link>

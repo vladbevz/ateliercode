@@ -31,7 +31,7 @@ export default function Hero() {
 
           {/* Ліва колонка */}
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 hero-animate hero-animate-1">
               Un site qui vous ramène des clients.
             </h1>
 
@@ -48,7 +48,7 @@ export default function Hero() {
             </div>
 
             <div className="relative mb-8">
-              <p className="text-lg md:text-xl text-gray-600 max-w-md animate-fade-up" style={{ animationDelay: '100ms' }}>
+              <p className="text-lg md:text-xl text-gray-600 max-w-md hero-animate hero-animate-2">
                 Site vitrine, e-commerce ou application web, développé sur mesure à Nîmes. Rapide, visible sur Google, livré en 1 à 3 semaines.
               </p>
 
@@ -65,10 +65,10 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: '200ms' }}>
+            <div className="flex flex-col sm:flex-row gap-3 hero-animate hero-animate-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
               >
                 Obtenir un devis gratuit
               </Link>
