@@ -9,9 +9,11 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import AnimateIn from './AnimateIn';
+import { useFlipCard } from '../hooks/useFlipCard';
 
 export default function Apropos() {
   const [imageError, setImageError] = useState(false);
+  useFlipCard();
 
   const avantages = [
     {
@@ -211,15 +213,25 @@ export default function Apropos() {
 
           <AnimateIn className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" delay={100}>
             {stack.map((tech) => (
-              <div
-                key={tech.name}
-                className="bg-white rounded-lg p-6 border border-gray-200 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200"
-              >
-                <div className="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center text-gray-700 mb-4 mx-auto">
-                  {tech.icon}
+              <div key={tech.name} className="flip-card h-48 cursor-pointer">
+                <div className="flip-card-inner rounded-lg">
+
+                  {/* FACE AVANT — icône + nom */}
+                  <div className="flip-card-front bg-white border border-gray-200 rounded-lg flex flex-col items-center justify-center gap-3 p-6">
+                    <div className="w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
+                      {tech.icon}
+                    </div>
+                    <h4 className="text-base font-bold text-gray-900">{tech.name}</h4>
+                    <p className="text-xs text-gray-400">Toucher pour en savoir plus</p>
+                  </div>
+
+                  {/* FACE ARRIÈRE — description */}
+                  <div className="flip-card-back bg-gray-900 text-white rounded-lg flex flex-col justify-center p-6">
+                    <h4 className="text-sm font-bold mb-3">{tech.name}</h4>
+                    <p className="text-sm text-gray-300 leading-relaxed">{tech.desc}</p>
+                  </div>
+
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2 text-center">{tech.name}</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">{tech.desc}</p>
               </div>
             ))}
           </AnimateIn>
@@ -241,7 +253,7 @@ export default function Apropos() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-10 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+              className="inline-flex items-center px-10 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
             >
               Demander votre devis gratuit — réponse sous 24 heures
             </Link>
