@@ -293,6 +293,28 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
           </AnimateIn>
         </div>
 
+        {/* ─── 5bis. CONTENU LOCAL UNIQUE ─── */}
+        <div className="pb-14 md:pb-20">
+          <AnimateIn className="max-w-5xl mx-auto border-l-4 border-gray-900 pl-8">
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+              {ville.nom} & le web
+            </p>
+            <div className="space-y-4">
+              {ville.contenuUnique.map((paragraphe, idx) => (
+                <p key={idx} className="text-gray-600 leading-relaxed">
+                  {paragraphe}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-gray-500 mt-6">
+              Vous êtes plutôt côté Nîmes ?{' '}
+              <Link href="/agence-web-nimes" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                Découvrez notre page dédiée à l&apos;agence web à Nîmes
+              </Link>.
+            </p>
+          </AnimateIn>
+        </div>
+
         {/* ─── 6. TARIFS ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">

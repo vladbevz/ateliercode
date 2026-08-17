@@ -80,7 +80,10 @@ const jsonLd = [
       addressRegion: 'Gard',
       addressCountry: 'FR',
     },
-    areaServed: ['Nîmes', 'Gard', 'Occitanie'],
+    areaServed: [
+      'Nîmes', 'Alès', 'Uzès', 'Bagnols-sur-Cèze', 'Beaucaire', 'Le Grau-du-Roi',
+      'Vauvert', 'Saint-Gilles', 'Montpellier', 'Avignon', 'Gard', 'Occitanie',
+    ],
     serviceType: [
       'Création de sites web',
       'Développement web',
