@@ -119,7 +119,7 @@ export default function FAQ() {
           {filteredFaqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-md border border-gray-200 hover:border-gray-300 transition-all duration-200"
+              className="bg-white rounded-md border border-gray-200 hover:border-gray-300 hover:bg-gray-50/50 transition-all duration-200"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -165,7 +165,7 @@ export default function FAQ() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+                className="px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
               >
                 Poser une question
               </Link>

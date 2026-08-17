@@ -132,7 +132,7 @@ export default function Processus() {
         <AnimateIn className="text-center mt-16" delay={100}>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
           >
             Démarrer votre projet
           </Link>

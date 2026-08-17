@@ -106,7 +106,7 @@ export default function ApplicationWebNimesPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8 animate-fade-up" style={{ animationDelay: '250ms' }}>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
             >
               Décrire mon projet
             </Link>
@@ -271,7 +271,7 @@ export default function ApplicationWebNimesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-10 py-5 bg-gray-900 text-white rounded-md font-semibold text-lg hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+              className="inline-flex items-center px-10 py-5 bg-gray-900 text-white rounded-md font-semibold text-lg hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
             >
               Décrire mon projet
             </Link>

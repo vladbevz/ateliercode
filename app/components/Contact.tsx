@@ -120,7 +120,7 @@ export default function Contact() {
                 </p>
                 <button
                   onClick={resetForm}
-                  className="px-6 py-3 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+                  className="px-6 py-3 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
                 >
                   Envoyer un autre message
                 </button>
@@ -212,7 +212,7 @@ export default function Contact() {
 
                 <button
                   type="submit" disabled={isSubmitting}
-                  className="w-full py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  className="w-full py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 btn-sweep"
                 >
                   {isSubmitting ? (
                     <>

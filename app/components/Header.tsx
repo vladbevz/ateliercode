@@ -83,7 +83,7 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl font-medium whitespace-nowrap hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2 group"
+              className="ml-4 px-6 py-2.5 bg-gray-900 text-white rounded-xl font-medium whitespace-nowrap hover:bg-gray-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2 group btn-sweep"
             >
               <span>Devis gratuit</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -144,7 +144,7 @@ export default function Header() {
                   <Link
                     href="/contact"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block py-3 px-4 bg-gray-900 text-white rounded-lg font-medium text-center hover:bg-gray-800 transition-colors"
+                    className="block py-3 px-4 bg-gray-900 text-white rounded-lg font-medium text-center hover:bg-gray-800 transition-colors btn-sweep"
                   >
                     Demander un devis gratuit
                   </Link>

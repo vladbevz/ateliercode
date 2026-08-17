@@ -363,7 +363,7 @@ export default function AgenceWebNimesContent() {
                     className={`flex items-center justify-center py-3.5 px-5 rounded-md font-semibold text-sm active:scale-[0.98] transition-all duration-150 ${
                       plan.dark
                         ? 'bg-white text-gray-900 hover:bg-gray-100'
-                        : 'bg-gray-900 text-white hover:bg-gray-800'
+                        : 'bg-gray-900 text-white hover:bg-gray-800 btn-sweep'
                     }`}
                   >
                     Demander un devis
@@ -423,7 +423,7 @@ export default function AgenceWebNimesContent() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-10 py-5 bg-gray-900 text-white rounded-md font-semibold text-lg hover:bg-gray-800 active:scale-[0.98] transition-all duration-150"
+              className="inline-flex items-center px-10 py-5 bg-gray-900 text-white rounded-md font-semibold text-lg hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
             >
               Obtenir mon devis gratuit
             </Link>
