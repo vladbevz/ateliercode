@@ -12,8 +12,6 @@ import { villes as toutesLesVilles } from '../lib/villes-data';
 
 export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
 
-  const deptCode = ville.codePostal.slice(0, 2);
-
   const zoneVilles = [
     { name: 'Nîmes', dept: 'Gard (30)' },
     ...toutesLesVilles
@@ -51,10 +49,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
       {/* ─── 1. HERO ─── */}
       <div className="min-h-screen flex items-center border-b border-gray-200 py-16">
         <div className="container mx-auto px-4 text-center w-full">
-          <p className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-6 animate-fade-up">
-            Agence web · {ville.nom} — {ville.departement} ({deptCode})
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up" style={{ animationDelay: '100ms' }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
             Agence web à {ville.nom} — qualité pro, prix accessible.
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>

@@ -97,10 +97,7 @@ export default function ApplicationWebNimesPage() {
       {/* ─── 1. HERO ─── */}
       <div className="min-h-screen flex items-center border-b border-gray-200 py-16">
         <div className="container mx-auto px-4 text-center w-full">
-          <p className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-6 animate-fade-up">
-            Développeur indépendant · Nîmes, Gard (30)
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up" style={{ animationDelay: '100ms' }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
             Une application pensée pour votre métier,<br />pas pour un autre.
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
