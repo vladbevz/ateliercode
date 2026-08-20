@@ -7,18 +7,17 @@ import {
   XCircle, Search, TrendingUp, Building2
 } from 'lucide-react';
 import AnimateIn from './AnimateIn';
+import { villes as toutesLesVilles } from '../lib/villes-data';
 
 export default function AgenceWebNimesContent() {
 
   const villes = [
-    { name: "Nîmes", dept: "Gard (30)" },
-    { name: "Alès", dept: "Gard (30)" },
-    { name: "Uzès", dept: "Gard (30)" },
-    { name: "Bagnols-sur-Cèze", dept: "Gard (30)" },
-    { name: "Beaucaire", dept: "Gard (30)" },
-    { name: "Le Grau-du-Roi", dept: "Gard (30)" },
-    { name: "Montpellier", dept: "Hérault (34)" },
-    { name: "Avignon", dept: "Vaucluse (84)" },
+    { name: 'Nîmes', dept: 'Gard (30)', href: '/agence-web-nimes' },
+    ...toutesLesVilles.map((v) => ({
+      name: v.nom,
+      dept: `${v.departement} (${v.codePostal.slice(0, 2)})`,
+      href: `/agence-web/${v.slug}`,
+    })),
   ];
 
   const plans = [
@@ -395,16 +394,17 @@ export default function AgenceWebNimesContent() {
 
           <AnimateIn className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto" delay={100}>
             {villes.map((ville, idx) => (
-              <div
+              <Link
                 key={idx}
-                className="p-4 rounded-lg bg-white border border-gray-200 text-center hover:border-gray-300 transition-colors"
+                href={ville.href}
+                className="city-card p-4 rounded-lg bg-white border border-gray-200 text-center hover:border-gray-300 transition-colors"
               >
                 <div className="flex items-center justify-center gap-1 mb-1">
                   <MapPin className="w-3 h-3 text-gray-400" />
                   <span className="text-gray-900 font-semibold text-sm">{ville.name}</span>
                 </div>
                 <div className="text-gray-400 text-xs">{ville.dept}</div>
-              </div>
+              </Link>
             ))}
           </AnimateIn>
         </div>

@@ -13,10 +13,10 @@ import { villes as toutesLesVilles } from '../lib/villes-data';
 export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
 
   const zoneVilles = [
-    { name: 'Nîmes', dept: 'Gard (30)' },
+    { name: 'Nîmes', dept: 'Gard (30)', href: '/agence-web-nimes' },
     ...toutesLesVilles
       .filter((v) => v.slug !== ville.slug)
-      .map((v) => ({ name: v.nom, dept: `${v.departement} (${v.codePostal.slice(0, 2)})` })),
+      .map((v) => ({ name: v.nom, dept: `${v.departement} (${v.codePostal.slice(0, 2)})`, href: `/agence-web/${v.slug}` })),
   ];
 
   const plans = [
@@ -415,16 +415,17 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
 
           <AnimateIn className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto" delay={100}>
             {zoneVilles.map((v, idx) => (
-              <div
+              <Link
                 key={idx}
-                className="p-4 rounded-lg bg-white border border-gray-200 text-center hover:border-gray-300 transition-colors"
+                href={v.href}
+                className="city-card p-4 rounded-lg bg-white border border-gray-200 text-center hover:border-gray-300 transition-colors"
               >
                 <div className="flex items-center justify-center gap-1 mb-1">
                   <MapPin className="w-3 h-3 text-gray-400" />
                   <span className="text-gray-900 font-semibold text-sm">{v.name}</span>
                 </div>
                 <div className="text-gray-400 text-xs">{v.dept}</div>
-              </div>
+              </Link>
             ))}
           </AnimateIn>
         </div>

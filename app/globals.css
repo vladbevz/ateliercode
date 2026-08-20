@@ -218,6 +218,15 @@
   transform: translateX(0);
 }
 
+/* ─── City card press pulse ─── */
+.city-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.city-card:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 6px rgba(17, 24, 39, 0.12);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
