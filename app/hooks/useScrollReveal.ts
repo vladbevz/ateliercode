@@ -18,15 +18,26 @@ export function useScrollReveal() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
+            // On fixe l'état "révélé" en style inline plutôt qu'en classe :
+            // toute classe ajoutée hors de React sur un élément dont le
+            // className est contrôlé par JSX est effacée au prochain
+            // re-render (ex. clic qui change un state local dans le même
+            // composant — voir PourQui.tsx). Le style inline, lui, n'est
+            // jamais réécrit par React sur des propriétés qu'il ne gère
+            // pas lui-même (ici JSX ne fixe que transitionDelay).
+            const el = entry.target as HTMLElement;
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            observer.unobserve(el);
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => {
+    document.querySelectorAll('.reveal').forEach((el) => {
+      const style = (el as HTMLElement).style;
+      if (style.opacity === '1') return;
       observer.observe(el);
     });
 

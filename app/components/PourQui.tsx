@@ -36,12 +36,12 @@ export default function PourQui() {
       icon: <Building className="w-6 h-6" />,
       title: 'E-commerce & applications web',
       description: 'Boutiques en ligne, SaaS, outils métier — des solutions sur mesure en React & Next.js, rapides, scalables et pensées pour la conversion.',
-      image: '/images/mockups/water-mockup.webp',
+      image: '/images/mockups/kfm-mockup.png',
       stats: [
-        { label: 'Utilisateurs', value: '500+' },
-        { label: 'Performance', value: '98/100' },
+        { label: 'Chauffeurs gérés', value: '20' },
+        { label: 'Signalement panne', value: '<30s' },
       ],
-      success: 'AquaTracker — application React, 500 utilisateurs dès le premier mois',
+      success: 'KFM Transport — dashboard temps réel pour la gestion de flotte',
     },
   ];
 
