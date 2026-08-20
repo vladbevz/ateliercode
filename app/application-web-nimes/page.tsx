@@ -243,14 +243,14 @@ export default function ApplicationWebNimesPage() {
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Comment on travaille.
+              Comment on travaille
             </h2>
           </AnimateIn>
 
           <AnimateIn className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto" delay={100}>
             {etapes.map((etape, idx) => (
               <div key={idx} className="border border-gray-200 rounded-lg p-6">
-                <h3 className="font-mono text-sm font-bold text-gray-900 mb-3 tracking-wide">{etape.title}</h3>
+                <h3 className="font-bold text-gray-900 mb-2">{etape.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{etape.desc}</p>
               </div>
             ))}
