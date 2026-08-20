@@ -1,0 +1,59 @@
+{
+  "slug": "site-en-ligne-six-mois-invisible-google",
+  "title": "Mon site est en ligne depuis 6 mois. Pourquoi je n'apparais pas sur Google ?",
+  "date": "2026-08-20",
+  "excerpt": "Votre site est en ligne depuis six mois, mais personne ne vous trouve en cherchant votre activité sur Google. Voici les quatre raisons les plus fréquentes — et comment les corriger.",
+  "category": "SEO local",
+  "image": "/images/blog/site-6mois.webp",
+  "imageAlt": "Un dirigeant perplexe devant une recherche Google : pourquoi son site reste invisible six mois après sa mise en ligne",
+  "sections": [
+    {
+      "paragraphs": [
+        "Vous avez payé pour un site web. Il est en ligne, il est beau, vos amis l'ont trouvé en tapant votre nom. Et pourtant — quand un inconnu cherche « plombier Nîmes » ou « restaurant Vauvert », vous n'existez pas.",
+        "Six mois après la mise en ligne, le téléphone ne sonne pas plus qu'avant. Vous commencez à vous demander si le web, c'est vraiment pour vous.",
+        "Ce n'est pas le web le problème. C'est ce qu'on ne vous a pas dit au moment de la livraison."
+      ]
+    },
+    {
+      "heading": "Raison n°1 : Google ne sait pas encore que vous existez",
+      "paragraphs": [
+        "Un site qui vient d'être mis en ligne n'apparaît pas automatiquement sur Google. Il faut que Google le trouve, le lise, et décide qu'il mérite d'être montré.",
+        "Ce processus s'appelle l'indexation. Et il ne se fait pas tout seul — surtout si personne n'a soumis votre site à Google Search Console, et si aucun autre site ne pointe vers le vôtre.",
+        "Six mois, c'est suffisant pour être indexé. Mais si votre site a été livré sans cette étape, vous repartez de zéro."
+      ]
+    },
+    {
+      "heading": "Raison n°2 : votre site parle de vous, pas de ce que vos clients cherchent",
+      "paragraphs": [
+        "C'est la raison la plus fréquente — et la moins visible.",
+        "Quand quelqu'un cherche « électricien urgence Nîmes », Google va chercher une page qui contient ces mots-là. Si votre site dit « nous intervenons rapidement sur toute la région » sans jamais mentionner Nîmes ni le mot « urgence », Google ne fait pas le lien.",
+        "Beaucoup de sites sont bien écrits du point de vue du propriétaire, mais incompréhensibles du point de vue de Google. Chaque page doit répondre à une question précise que quelqu'un tape vraiment dans le moteur de recherche."
+      ]
+    },
+    {
+      "heading": "Raison n°3 : votre site charge trop lentement",
+      "paragraphs": [
+        "Depuis 2021, Google prend en compte la vitesse de chargement comme facteur de classement direct.",
+        "Un site WordPress chargé de plugins, d'images non optimisées et d'un hébergement bas de gamme peut mettre 4 à 6 secondes à s'afficher. Google le sait — et il préfère vous montrer après un concurrent plus rapide.",
+        "Ce n'est pas une question d'esthétique. C'est une question de technique — nous détaillons ce mécanisme dans [notre article sur la lenteur de WordPress](/blog/pourquoi-wordpress-ralentit-votre-site)."
+      ]
+    },
+    {
+      "heading": "Raison n°4 : personne ne parle de vous ailleurs sur internet",
+      "paragraphs": [
+        "Google mesure votre crédibilité en partie par le nombre de sites qui parlent de vous. On appelle ça les backlinks.",
+        "Un nouveau site sans aucun lien entrant part avec un handicap. Google ne sait pas encore si vous êtes sérieux, ou si vous allez disparaître dans six mois.",
+        "La solution n'est pas de payer des dizaines de liens artificiels — c'est de commencer par les bases : fiche Google Business complète, inscription dans les annuaires locaux (Pages Jaunes, Malt si vous êtes freelance), et idéalement quelques mentions dans la presse locale ou des partenaires. Nous détaillons cette démarche dans [notre guide pour trouver des clients sans publicité](/blog/artisan-trouver-clients-internet-sans-publicite)."
+      ]
+    },
+    {
+      "heading": "Ce que ça veut dire concrètement",
+      "paragraphs": [
+        "Un site invisible après six mois, ce n'est pas une fatalité — c'est souvent un problème de départ qu'on peut diagnostiquer en quelques minutes.",
+        "Dans la grande majorité des cas, c'est une combinaison de ces quatre raisons. Et dans la grande majorité des cas, ça se règle.",
+        "Si vous êtes dans cette situation, commencez par vérifier si votre site est indexé : ouvrez Google et tapez site:votredomaine.fr. Si aucune page n'apparaît — vous avez votre premier problème à régler.",
+        "Pour le reste, [on peut en parler](/contact)."
+      ]
+    }
+  ]
+}
