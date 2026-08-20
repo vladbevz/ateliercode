@@ -60,7 +60,7 @@ export default function AgenceWebNimesContent() {
             Dès 499 €, livré en une semaine — sans compromis sur la qualité.
           </p>
           <p className="font-mono text-xs tracking-widest uppercase text-gray-400 mt-6 animate-fade-up" style={{ animationDelay: '300ms' }}>
-            Dès 499 € · Livré en 7–15 jours · Score 95+/100
+            Dès 499 € · Livré en 7–15 jours · Maquette gratuite
           </p>
         </div>
       </div>
