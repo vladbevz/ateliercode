@@ -79,6 +79,18 @@ export default function Hero() {
                 Comment ça marche ?
               </Link>
             </div>
+
+            <div className="flex flex-wrap gap-x-4 gap-y-2 mt-5 text-sm hero-animate hero-animate-4">
+              <Link href="/tarifs" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                Voir les tarifs
+              </Link>
+              <Link href="/realisations" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                Nos réalisations
+              </Link>
+              <Link href="/blog" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                Le blog
+              </Link>
+            </div>
           </div>
 
           {/* Права колонка — слайдер */}

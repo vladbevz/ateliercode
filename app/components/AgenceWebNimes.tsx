@@ -319,6 +319,32 @@ export default function AgenceWebNimesContent() {
           </div>
         </div>
 
+        {/* ─── 5bis. CONTENU LOCAL UNIQUE ─── */}
+        <div className="pb-14 md:pb-20">
+          <AnimateIn className="max-w-5xl mx-auto border-l-4 border-gray-900 pl-8">
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+              Nîmes & le web
+            </p>
+            <div className="space-y-4">
+              <p className="text-gray-600 leading-relaxed">
+                Nîmes, préfecture du Gard et ville d&apos;environ 150 000 habitants, conjugue un centre historique romain parmi les plus visités de France — les Arènes, la Maison Carrée — et un tissu économique fait avant tout de commerces de proximité, d&apos;artisans et de professions libérales. Cette double identité, touristique et locale, crée deux besoins numériques différents : être visible auprès des visiteurs de passage, et être trouvé par les habitants qui cherchent un professionnel près de chez eux.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Le centre-ville historique concentre une forte densité de commerçants et d&apos;indépendants, souvent en concurrence directe avec les zones commerciales périphériques et avec les grandes enseignes déjà bien installées en ligne. Un site bien référencé sur les recherches locales — « plombier Nîmes », « restaurant centre-ville Nîmes » — fait souvent la différence entre un client qui appelle et un client qui passe au résultat suivant sur Google.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                AtelierCode est basé à Nîmes même — pas seulement dans le nom du domaine. Les rendez-vous se font en présentiel dans le centre-ville ou à distance selon ce qui vous arrange, et je connais directement les quartiers, les zones commerciales et les habitudes de recherche des Nîmois.
+              </p>
+            </div>
+            <p className="text-sm text-gray-500 mt-6">
+              La preuve par l&apos;exemple ?{' '}
+              <Link href="/realisations" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                Découvrez nos réalisations à Nîmes et dans le Gard
+              </Link>.
+            </p>
+          </AnimateIn>
+        </div>
+
         {/* ─── 6. TARIFS ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
