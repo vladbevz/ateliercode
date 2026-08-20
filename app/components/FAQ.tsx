@@ -5,6 +5,24 @@ import { ChevronDown, Search, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import AnimateIn from './AnimateIn';
 
+function renderTextWithLinks(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) return part;
+    const [, label, href] = match;
+    return (
+      <Link
+        key={i}
+        href={href}
+        className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors"
+      >
+        {label}
+      </Link>
+    );
+  });
+}
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -64,7 +82,7 @@ export default function FAQ() {
   },
   {
     question: 'Faites-vous aussi du e-commerce ?',
-    answer: "Oui, ça fait partie du forfait E-commerce (dès 990€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées.",
+    answer: "Oui, ça fait partie du forfait E-commerce (dès 990€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées — voir le détail sur la page [Tarifs](/tarifs).",
   },
   {
     question: 'Proposez-vous aussi des applications web ?',
@@ -72,7 +90,7 @@ export default function FAQ() {
   },
   {
     question: 'Combien coûte une application web ?',
-    answer: "Le tarif dépend entièrement de la complexité du projet — c'est pourquoi c'est toujours sur devis. Je vous propose une estimation gratuite sous 24h après avoir échangé sur vos besoins.",
+    answer: "Le tarif dépend entièrement de la complexité du projet — c'est pourquoi c'est toujours sur devis. Je vous propose une estimation gratuite sous 24h après avoir échangé sur vos besoins. Voir aussi la page [Application web à Nîmes](/application-web-nimes).",
   },
   {
     question: 'Que se passe-t-il si le résultat ne me convient pas ?',
@@ -142,7 +160,7 @@ export default function FAQ() {
                 }`}
               >
                 <p className="text-gray-600 leading-relaxed px-6 pb-6">
-                  {faq.answer}
+                  {renderTextWithLinks(faq.answer)}
                 </p>
               </div>
             </div>

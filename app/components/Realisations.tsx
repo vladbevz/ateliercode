@@ -81,7 +81,7 @@ export default function Realisations() {
             Des projets qui parlent d&apos;eux-mêmes
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Découvrez comment nous avons transformé la présence en ligne de nos clients
+            Découvrez comment nous avons transformé la présence en ligne de nos clients à Nîmes et dans le Gard
           </p>
         </div>
 

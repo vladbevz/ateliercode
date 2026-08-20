@@ -87,7 +87,7 @@ export default function Contact() {
             Parlons de votre projet
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Discutons de vos besoins pour créer une solution web adaptée à votre activité
+            Discutons de vos besoins pour créer, à Nîmes, une solution web adaptée à votre activité
           </p>
         </div>
 

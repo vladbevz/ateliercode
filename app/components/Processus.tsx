@@ -66,7 +66,7 @@ export default function Processus() {
             De l&apos;idée à la réalisation
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Une méthode transparente et éprouvée pour créer votre site web sans stress
+            Une méthode transparente et éprouvée pour créer votre site web à Nîmes, sans stress
           </p>
         </div>
 

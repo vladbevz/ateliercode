@@ -59,7 +59,7 @@ export default function PourQui() {
             Des solutions pour chaque métier
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Que vous soyez professionnel libéral, PME ou indépendant,
+            Que vous soyez professionnel libéral, PME ou indépendant à Nîmes et dans le Gard,
             nous créons le site qui correspond à vos besoins
           </p>
         </div>

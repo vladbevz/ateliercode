@@ -101,7 +101,7 @@ export default function ApplicationWebNimesPage() {
             Une application pensée pour votre métier,<br />pas pour un autre.
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
-            Automatisation, gestion d&apos;équipes, suivi en temps réel — on construit l&apos;outil qui correspond exactement à votre fonctionnement.
+            Automatisation, gestion d&apos;équipes, suivi en temps réel — on construit, à Nîmes, l&apos;outil qui correspond exactement à votre fonctionnement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8 animate-fade-up" style={{ animationDelay: '250ms' }}>
             <Link
