@@ -73,7 +73,7 @@ export default function ProcessSection() {
                   {step.body}
                 </p>
                 <div className="mt-auto flex items-center gap-2 text-sm text-gray-500">
-                  <span className="w-[5px] h-[5px] rounded-full shrink-0 bg-gray-900" />
+                  <span className="w-1.25 h-1.25 rounded-full shrink-0 bg-gray-900" />
                   {step.time}
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function ProcessSection() {
                     {step.n}
                   </span>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <span className="w-[5px] h-[5px] rounded-full bg-gray-900" />
+                    <span className="w-1.25 h-1.25 rounded-full bg-gray-900" />
                     {step.time}
                   </div>
                 </div>
