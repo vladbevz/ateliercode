@@ -11,28 +11,24 @@ export default function ProcessSection() {
       short: 'Analyse & Stratégie',
       body: "On étudie votre marché, vos concurrents et vos objectifs pour créer une stratégie sur mesure.",
       time: '1–2 jours',
-      livrable: 'Brief + plan de site',
     },
     {
       n: '02',
       short: 'Design & UX',
       body: "Création d'une interface qui reflète votre image et guide vos visiteurs vers l'action.",
       time: '3–4 jours',
-      livrable: 'Maquettes validées',
     },
     {
       n: '03',
       short: 'Développement',
       body: 'Code propre, performant et optimisé SEO. Votre site est rapide et visible sur Google.',
       time: '5–7 jours',
-      livrable: 'Site en préprod',
     },
     {
       n: '04',
       short: 'Lancement & Suivi',
       body: 'Mise en ligne, formation et accompagnement. On ne vous laisse pas tomber après la livraison.',
       time: '1–2 jours',
-      livrable: 'Mise en ligne + formation',
     },
   ];
 
@@ -40,63 +36,44 @@ export default function ProcessSection() {
     <section className="bg-white">
 
       {/* Méthode */}
-      <div className="py-20" style={{ background: '#f7f5f0' }}>
+      <div className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
 
           {/* Заголовок */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-11">
-            <div className="max-w-2xl">
-              <h2
-                className="text-4xl md:text-[44px] leading-[1.05] tracking-tight font-semibold mb-3"
-                style={{ color: '#141210' }}
-              >
-                Du projet à la réussite
-              </h2>
-              <p className="text-lg md:text-[15.5px] leading-relaxed" style={{ color: '#75706a' }}>
-                Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux, mais{' '}
-                <strong className="font-semibold" style={{ color: '#141210' }}>
-                  qui rapportent des clients
-                </strong>
-              </p>
-            </div>
-            <span
-              className="hidden md:inline font-mono text-[11px] tracking-[0.14em] uppercase whitespace-nowrap"
-              style={{ color: '#a09a90' }}
-            >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+              Du projet à la réussite
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux,
+              mais qui <span className="text-gray-900 font-semibold">rapportent des clients</span>
+            </p>
+            <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-400 mt-5">
               Survolez une étape
-            </span>
+            </p>
           </div>
 
           {/* Steps — accordéon horizontal (desktop) */}
-          <div
-            className="hidden md:flex rounded-2xl overflow-hidden bg-white"
-            style={{ border: '1px solid rgba(20,18,14,.14)', minHeight: 300 }}
-          >
+          <div className="hidden md:flex rounded-2xl overflow-hidden bg-white border border-gray-200" style={{ minHeight: 300 }}>
             {steps.map((step, index) => (
               <div
                 key={step.n}
                 tabIndex={0}
-                className="process-panel flex flex-col gap-4 px-6 lg:px-7 py-8 outline-none"
-                style={{
-                  borderRight: index < steps.length - 1 ? '1px solid rgba(20,18,14,.1)' : undefined,
-                }}
+                className={`process-panel flex flex-col gap-4 px-6 lg:px-7 py-8 outline-none ${
+                  index < steps.length - 1 ? 'border-r border-gray-100' : ''
+                }`}
               >
-                <div className="process-num font-mono text-xs tracking-[0.14em]" style={{ color: '#a09a90' }}>
+                <div className="process-num font-mono text-xs uppercase tracking-wide text-gray-400">
                   {step.n}
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight" style={{ color: '#141210' }}>
+                <h3 className="text-xl font-bold text-gray-900">
                   {step.short}
                 </h3>
-                <div className="process-body flex-1 flex flex-col gap-3">
-                  <p className="text-[14.5px] leading-relaxed" style={{ color: '#75706a' }}>
-                    {step.body}
-                  </p>
-                  <div className="font-mono text-[11px] tracking-[0.1em] uppercase" style={{ color: '#a09a90' }}>
-                    Livrable — <span className="normal-case tracking-normal" style={{ color: '#141210' }}>{step.livrable}</span>
-                  </div>
-                </div>
-                <div className="mt-auto flex items-center gap-2 font-mono text-xs" style={{ color: '#75706a' }}>
-                  <span className="w-[5px] h-[5px] rounded-full shrink-0" style={{ background: 'oklch(0.7 0.16 55)' }} />
+                <p className="process-body flex-1 text-sm leading-relaxed text-gray-600">
+                  {step.body}
+                </p>
+                <div className="mt-auto flex items-center gap-2 text-sm text-gray-500">
+                  <span className="w-[5px] h-[5px] rounded-full shrink-0 bg-gray-900" />
                   {step.time}
                 </div>
               </div>
@@ -108,30 +85,23 @@ export default function ProcessSection() {
             {steps.map((step) => (
               <div
                 key={step.n}
-                className="rounded-xl bg-white px-5 py-6 flex flex-col gap-3"
-                style={{ border: '1px solid rgba(20,18,14,.14)' }}
+                className="rounded-xl bg-white px-5 py-6 flex flex-col gap-3 border border-gray-200"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-[0.14em]" style={{ color: 'oklch(0.7 0.16 55)' }}>
+                  <span className="font-mono text-xs uppercase tracking-wide text-gray-400">
                     {step.n}
                   </span>
-                  <div className="flex items-center gap-2 font-mono text-xs" style={{ color: '#75706a' }}>
-                    <span className="w-[5px] h-[5px] rounded-full" style={{ background: 'oklch(0.7 0.16 55)' }} />
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <span className="w-[5px] h-[5px] rounded-full bg-gray-900" />
                     {step.time}
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold tracking-tight" style={{ color: '#141210' }}>
+                <h3 className="text-lg font-bold text-gray-900">
                   {step.short}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#75706a' }}>
+                <p className="text-sm leading-relaxed text-gray-600">
                   {step.body}
                 </p>
-                <div
-                  className="font-mono text-[11px] tracking-[0.1em] uppercase pt-3"
-                  style={{ color: '#a09a90', borderTop: '1px solid rgba(20,18,14,.1)' }}
-                >
-                  Livrable — <span className="normal-case tracking-normal" style={{ color: '#141210' }}>{step.livrable}</span>
-                </div>
               </div>
             ))}
           </div>

@@ -237,14 +237,14 @@
 .process-panel:hover,
 .process-panel:focus-visible {
   flex-grow: 2.6;
-  background: #fffdf8;
+  background: #f9fafb;
 }
 .process-panel .process-num {
   transition: color 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.25, 1);
 }
 .process-panel:hover .process-num,
 .process-panel:focus-visible .process-num {
-  color: oklch(0.7 0.16 55);
+  color: #111827;
   transform: translateY(-3px);
 }
 .process-panel .process-body {
