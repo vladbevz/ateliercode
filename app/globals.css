@@ -227,6 +227,44 @@
   box-shadow: 0 0 0 6px rgba(17, 24, 39, 0.12);
 }
 
+/* ─── Process accordion (Du projet à la réussite) ───
+   Pure CSS hover/focus accordion — no JS state. */
+.process-panel {
+  flex: 1 1 0%;
+  min-width: 0;
+  transition: flex-grow 0.55s cubic-bezier(0.2, 0.8, 0.25, 1), background-color 0.4s ease;
+}
+.process-panel:hover,
+.process-panel:focus-visible {
+  flex-grow: 2.6;
+  background: #fffdf8;
+}
+.process-panel .process-num {
+  transition: color 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+.process-panel:hover .process-num,
+.process-panel:focus-visible .process-num {
+  color: oklch(0.7 0.16 55);
+  transform: translateY(-3px);
+}
+.process-panel .process-body {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s 0.08s ease, transform 0.45s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+.process-panel:hover .process-body,
+.process-panel:focus-visible .process-body {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-panel,
+  .process-panel .process-num,
+  .process-panel .process-body {
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
