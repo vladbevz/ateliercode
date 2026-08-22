@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {
   MapPin, Code2,
   Gauge, Search, Paintbrush,
-  Shield, Globe, Zap, CheckCircle2,
+  Shield, CheckCircle2,
 } from 'lucide-react';
 import Image from 'next/image';
 import AnimateIn from './AnimateIn';
@@ -41,33 +41,33 @@ export default function Apropos() {
   const stack = [
     {
       name: 'Next.js',
+      category: 'Framework',
       desc: "Le framework qui génère des pages ultra-rapides. Vos clients n'attendent pas — Google vous récompense.",
-      icon: <Zap className="w-5 h-5" />,
     },
     {
       name: 'React',
+      category: 'Librairie UI',
       desc: "La technologie derrière Facebook et Airbnb. Votre site réagit instantanément, sans rechargement de page.",
-      icon: <Code2 className="w-5 h-5" />,
     },
     {
       name: 'TypeScript',
+      category: 'Langage',
       desc: 'Un code vérifié à chaque étape du développement. Moins de bugs, moins de corrections coûteuses.',
-      icon: <Shield className="w-5 h-5" />,
     },
     {
       name: 'Tailwind CSS',
+      category: 'Styles',
       desc: "Chaque pixel est à sa place sur tous les écrans — mobile, tablette, desktop. Rien n'est laissé au hasard.",
-      icon: <Paintbrush className="w-5 h-5" />,
     },
     {
       name: 'Vercel',
+      category: 'Hébergement',
       desc: "Hébergement professionnel, déploiement automatique, HTTPS inclus. Votre site ne tombe jamais.",
-      icon: <Globe className="w-5 h-5" />,
     },
     {
       name: 'SEO natif',
+      category: 'Référencement',
       desc: "Balises, sitemap, structure sémantique, Core Web Vitals — tout est optimisé sans plugin supplémentaire.",
-      icon: <Search className="w-5 h-5" />,
     },
   ];
 
@@ -141,16 +141,19 @@ export default function Apropos() {
             </p>
           </AnimateIn>
 
-          <AnimateIn className="grid md:grid-cols-2 gap-6" delay={100}>
+          <AnimateIn className="border-y border-gray-200 divide-y divide-gray-200" delay={100}>
             {avantages.map((item, idx) => (
-              <div key={idx} className="flex gap-5 p-7 bg-white border border-gray-200 rounded-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200">
-                <div className="shrink-0 w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
-                  {item.icon}
+              <div
+                key={idx}
+                className="group grid md:grid-cols-[240px_1fr] gap-3 md:gap-12 -mx-2 px-2 py-9 rounded-md transition-colors duration-200 hover:bg-gray-50"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-gray-900 transition-transform duration-200 group-hover:translate-x-1">
+                    {item.icon}
+                  </span>
+                  <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                </div>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </AnimateIn>
@@ -169,14 +172,14 @@ export default function Apropos() {
             </p>
           </AnimateIn>
 
-          <AnimateIn className="grid md:grid-cols-2 gap-6 mb-8" delay={100}>
-            <div className="p-7 border border-gray-200 rounded-lg">
+          <AnimateIn className="grid md:grid-cols-2 rounded-lg border border-gray-200 overflow-hidden mb-10" delay={100}>
+            <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-gray-200">
               <h3 className="font-bold text-gray-900 mb-3">Avec une structure traditionnelle</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
                 Une partie du budget sert à financer les frais de fonctionnement, les intermédiaires et la gestion du projet.
               </p>
             </div>
-            <div className="p-7 bg-gray-900 text-white rounded-lg">
+            <div className="p-8 md:p-10 bg-gray-900 text-white">
               <h3 className="font-bold mb-3">Avec AtelierCode</h3>
               <p className="text-sm text-gray-300 leading-relaxed">
                 Vous travaillez directement avec le développeur qui réalise votre site. Une solution personnalisée, performante et durable, avec un devis clair et transparent dès le départ.
@@ -184,15 +187,15 @@ export default function Apropos() {
             </div>
           </AnimateIn>
 
-          <AnimateIn className="grid md:grid-cols-3 gap-4" delay={150}>
+          <AnimateIn className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3" delay={150}>
             {[
               'Pas de frais cachés.',
               "Pas d'abonnements imposés.",
               'Pas de mauvaises surprises.',
             ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-3 p-5 bg-gray-50 border border-gray-200 rounded-lg">
-                <CheckCircle2 className="w-5 h-5 text-gray-900 shrink-0" />
-                <span className="font-medium text-gray-900 text-sm">{item}</span>
+              <div key={idx} className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-gray-900 shrink-0" />
+                <span className="font-medium text-gray-700 text-sm">{item}</span>
               </div>
             ))}
           </AnimateIn>
@@ -216,17 +219,16 @@ export default function Apropos() {
               <div key={tech.name} className="flip-card h-48 cursor-pointer">
                 <div className="flip-card-inner rounded-lg">
 
-                  {/* FACE AVANT — icône + nom */}
-                  <div className="flip-card-front bg-white border border-gray-200 rounded-lg flex flex-col items-center justify-center gap-3 p-6">
-                    <div className="w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center">
-                      {tech.icon}
-                    </div>
-                    <h4 className="text-base font-bold text-gray-900">{tech.name}</h4>
-                    <p className="text-xs text-gray-400">Toucher pour en savoir plus</p>
+                  {/* FACE AVANT — catégorie + nom */}
+                  <div className="flip-card-front bg-white border border-gray-200 rounded-lg flex flex-col justify-between p-6">
+                    <span className="font-mono text-xs uppercase tracking-wide text-gray-400">{tech.category}</span>
+                    <h4 className="text-2xl font-bold text-gray-900">{tech.name}</h4>
+                    <span className="text-xs text-gray-400">Toucher pour en savoir plus</span>
                   </div>
 
                   {/* FACE ARRIÈRE — description */}
                   <div className="flip-card-back bg-gray-900 text-white rounded-lg flex flex-col justify-center p-6">
+                    <span className="font-mono text-xs uppercase tracking-wide text-gray-500 mb-3">{tech.category}</span>
                     <h4 className="text-sm font-bold mb-3">{tech.name}</h4>
                     <p className="text-sm text-gray-300 leading-relaxed">{tech.desc}</p>
                   </div>
