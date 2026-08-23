@@ -257,10 +257,21 @@
   opacity: 1;
   transform: translateY(0);
 }
+.process-panel .process-icon {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+.process-panel:hover .process-icon,
+.process-panel:focus-visible .process-icon {
+  opacity: 0;
+  transform: translateY(-8px);
+}
 @media (prefers-reduced-motion: reduce) {
   .process-panel,
   .process-panel .process-num,
-  .process-panel .process-body {
+  .process-panel .process-body,
+  .process-panel .process-icon {
     transition: none;
   }
 }

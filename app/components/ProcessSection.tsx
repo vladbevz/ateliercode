@@ -3,6 +3,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Search, Palette, Code2, Rocket } from 'lucide-react';
 
 export default function ProcessSection() {
   const steps = [
@@ -11,24 +12,28 @@ export default function ProcessSection() {
       short: 'Analyse & Stratégie',
       body: "On étudie votre marché, vos concurrents et vos objectifs pour créer une stratégie sur mesure.",
       time: '1–2 jours',
+      icon: <Search className="w-10 h-10" strokeWidth={1.5} />,
     },
     {
       n: '02',
       short: 'Design & UX',
       body: "Création d'une interface qui reflète votre image et guide vos visiteurs vers l'action.",
       time: '3–4 jours',
+      icon: <Palette className="w-10 h-10" strokeWidth={1.5} />,
     },
     {
       n: '03',
       short: 'Développement',
       body: 'Code propre, performant et optimisé SEO. Votre site est rapide et visible sur Google.',
       time: '5–7 jours',
+      icon: <Code2 className="w-10 h-10" strokeWidth={1.5} />,
     },
     {
       n: '04',
       short: 'Lancement & Suivi',
       body: 'Mise en ligne, formation et accompagnement. On ne vous laisse pas tomber après la livraison.',
       time: '1–2 jours',
+      icon: <Rocket className="w-10 h-10" strokeWidth={1.5} />,
     },
   ];
 
@@ -69,9 +74,14 @@ export default function ProcessSection() {
                 <h3 className="text-xl font-bold text-gray-900">
                   {step.short}
                 </h3>
-                <p className="process-body flex-1 text-sm leading-relaxed text-gray-600">
-                  {step.body}
-                </p>
+                <div className="relative flex-1 min-h-0">
+                  <div className="process-icon absolute inset-0 flex items-center justify-center text-gray-300">
+                    {step.icon}
+                  </div>
+                  <p className="process-body text-sm leading-relaxed text-gray-600">
+                    {step.body}
+                  </p>
+                </div>
                 <div className="mt-auto flex items-center gap-2 text-sm text-gray-500">
                   <span className="w-1.25 h-1.25 rounded-full shrink-0 bg-gray-900" />
                   {step.time}

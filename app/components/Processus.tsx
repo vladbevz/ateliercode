@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Search, Palette, Code2, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import AnimateIn from './AnimateIn';
 
@@ -11,6 +11,7 @@ export default function Processus() {
       title: 'Analyse',
       description: 'On étudie votre marché, vos objectifs et vos concurrents pour définir une stratégie gagnante.',
       duration: '1-2 jours',
+      icon: <Search className="w-10 h-10" strokeWidth={1.5} />,
       details: [
         'Audit de votre positionnement',
         'Analyse des concurrents',
@@ -23,6 +24,7 @@ export default function Processus() {
       title: 'Design',
       description: "Création de maquettes qui reflètent votre image et optimisent l'expérience utilisateur.",
       duration: '3-4 jours',
+      icon: <Palette className="w-10 h-10" strokeWidth={1.5} />,
       details: [
         'Wireframes interactifs',
         'Design unique et personnalisé',
@@ -35,6 +37,7 @@ export default function Processus() {
       title: 'Développement',
       description: 'Intégration avec les dernières technologies pour un site rapide, sécurisé et évolutif.',
       duration: '5-7 jours',
+      icon: <Code2 className="w-10 h-10" strokeWidth={1.5} />,
       details: [
         'Code propre et maintenable',
         'Optimisation SEO',
@@ -47,6 +50,7 @@ export default function Processus() {
       title: 'Lancement',
       description: 'Mise en ligne, formation et accompagnement pour une transition en douceur.',
       duration: '1-2 jours',
+      icon: <Rocket className="w-10 h-10" strokeWidth={1.5} />,
       details: [
         'Déploiement sur Vercel',
         'Configuration nom de domaine',
@@ -86,15 +90,20 @@ export default function Processus() {
               <h3 className="text-xl font-bold text-gray-900">
                 {step.title}
               </h3>
-              <div className="process-body flex-1 flex flex-col gap-4">
-                <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>
-                <div className="space-y-2 pt-4 border-t border-gray-100">
-                  {step.details.map((detail, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-gray-400 shrink-0" />
-                      <span className="text-xs text-gray-500">{detail}</span>
-                    </div>
-                  ))}
+              <div className="relative flex-1 min-h-0">
+                <div className="process-icon absolute inset-0 flex items-center justify-center text-gray-300">
+                  {step.icon}
+                </div>
+                <div className="process-body flex flex-col gap-4">
+                  <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>
+                  <div className="space-y-2 pt-4 border-t border-gray-100">
+                    {step.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-gray-400 shrink-0" />
+                        <span className="text-xs text-gray-500">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="mt-auto flex items-center gap-2 text-sm text-gray-500">
