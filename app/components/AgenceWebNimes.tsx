@@ -136,32 +136,35 @@ export default function AgenceWebNimesContent() {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="border-t border-gray-200 divide-y divide-gray-200">
               {[
                 {
-                  icon: <MapPin className="w-6 h-6" />,
+                  icon: <MapPin className="w-5 h-5" />,
                   title: 'Réunion en présentiel',
                   desc: 'On peut se voir à Nîmes pour le brief, la présentation du site ou les révisions. Pas de visio obligatoire.',
                 },
                 {
-                  icon: <Phone className="w-6 h-6" />,
+                  icon: <Phone className="w-5 h-5" />,
                   title: 'Vous parlez au développeur',
                   desc: 'Pas de commercial entre vous et moi. Chaque échange est direct, rapide, sans perte d\'information.',
                 },
                 {
-                  icon: <Search className="w-6 h-6" />,
+                  icon: <Search className="w-5 h-5" />,
                   title: 'Connaissance du marché local',
                   desc: 'Je connais les quartiers, les mots-clés locaux et les habitudes des consommateurs gardois. Votre SEO est ciblé.',
                 },
               ].map((item, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <div className="w-11 h-11 rounded-md bg-gray-900 text-white flex items-center justify-center shrink-0">
-                    {item.icon}
+                <div
+                  key={idx}
+                  className="group grid md:grid-cols-[240px_1fr] gap-3 md:gap-10 py-8 rounded-md transition-colors duration-200 hover:bg-white"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-gray-900 transition-transform duration-200 group-hover:translate-x-1">
+                      {item.icon}
+                    </span>
+                    <h3 className="font-bold text-gray-900">{item.title}</h3>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                  </div>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
