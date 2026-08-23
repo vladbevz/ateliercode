@@ -6,6 +6,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import AnimateIn from '../components/AnimateIn';
+import CommentOnTravaille from '../components/CommentOnTravaille';
 
 export const metadata: Metadata = {
   title: 'Application web sur mesure à Nîmes',
@@ -54,21 +55,6 @@ const exemplesClients = [
   { icon: <FileText className="w-4 h-4" />, label: 'Outil de devis ou de facturation automatisé' },
   { icon: <TrendingUp className="w-4 h-4" />, label: 'Tableau de bord de rentabilité par projet' },
   { icon: <HardHat className="w-4 h-4" />, label: 'Suivi de chantiers ou de projets en cours' },
-];
-
-const etapes = [
-  {
-    title: '01 — On discute',
-    desc: 'Vous décrivez votre activité et le problème à résoudre. Pas besoin de savoir ce que vous voulez techniquement — c\'est notre rôle de traduire ça en solution.',
-  },
-  {
-    title: '02 — On construit',
-    desc: "On développe l'application par étapes, avec des points réguliers. Vous voyez l'avancement, vous validez, vous ajustez.",
-  },
-  {
-    title: '03 — Vous prenez la main',
-    desc: 'Livraison, formation, documentation. Et je reste disponible après — vous n\'êtes pas seul une fois le projet terminé.',
-  },
 ];
 
 export default function ApplicationWebNimesPage() {
@@ -213,13 +199,8 @@ export default function ApplicationWebNimesPage() {
             </h2>
           </AnimateIn>
 
-          <AnimateIn className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto" delay={100}>
-            {etapes.map((etape, idx) => (
-              <div key={idx} className="border border-gray-200 rounded-lg p-6">
-                <h3 className="font-bold text-gray-900 mb-2">{etape.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{etape.desc}</p>
-              </div>
-            ))}
+          <AnimateIn delay={100}>
+            <CommentOnTravaille />
           </AnimateIn>
         </div>
 
