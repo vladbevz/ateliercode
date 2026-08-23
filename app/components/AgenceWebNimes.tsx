@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   MapPin, ArrowRight, Check,
   Star, Phone, Target, Paintbrush,
@@ -20,6 +21,27 @@ export default function AgenceWebNimesContent() {
       dept: `${v.departement} (${v.codePostal.slice(0, 2)})`,
       href: `/agence-web/${v.slug}`,
     })),
+  ];
+
+  const featuredProjects = [
+    {
+      title: 'KFM Transport',
+      category: 'Application web',
+      description: 'Dashboard de gestion de flotte et application mobile chauffeurs',
+      image: '/images/mockups/kfm-mockup.png',
+    },
+    {
+      title: 'Le 438',
+      category: 'Restauration',
+      description: 'Site vitrine avec menu interactif',
+      image: '/images/mockups/le438-mockup.webp',
+    },
+    {
+      title: 'Lymar Dermo Esthetic',
+      category: 'Beauté & Esthétique',
+      description: 'Site vitrine avec prise de rendez-vous',
+      image: '/images/mockups/lymar-mockup.webp',
+    },
   ];
 
   const plans = [
@@ -68,8 +90,49 @@ export default function AgenceWebNimesContent() {
 
       <div className="container mx-auto px-4">
 
-        {/* ─── 2. POUR QUI ─── */}
+        {/* ─── 2. RÉALISATIONS ─── */}
         <div className="pt-14 md:pt-20 pb-20 md:pb-28">
+          <AnimateIn className="text-center mb-14">
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Réalisations</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Des projets qui parlent d&apos;eux-mêmes.
+            </h2>
+          </AnimateIn>
+
+          <AnimateIn className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto" delay={100}>
+            {featuredProjects.map((project, idx) => (
+              <div
+                key={idx}
+                className="group border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="font-medium text-gray-900">{project.title}</span>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide font-mono mt-1">{project.category}</p>
+                  <p className="text-sm text-gray-500 mt-1">{project.description}</p>
+                </div>
+              </div>
+            ))}
+          </AnimateIn>
+
+          <div className="text-center mt-8">
+            <Link href="/realisations" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors font-medium">
+              Voir toutes nos réalisations
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* ─── 3. POUR QUI ─── */}
+        <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Pour qui ?</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -128,7 +191,7 @@ export default function AgenceWebNimesContent() {
           </AnimateIn>
         </div>
 
-        {/* ─── 3. POURQUOI LOCAL ─── */}
+        {/* ─── 4. POURQUOI LOCAL ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="max-w-5xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-10 md:p-14">
             <div className="mb-10">
@@ -179,7 +242,7 @@ export default function AgenceWebNimesContent() {
           </AnimateIn>
         </div>
 
-        {/* ─── 4. OFFRES GRATUITES ─── */}
+        {/* ─── 5. OFFRES GRATUITES ─── */}
         <div className="pb-14 md:pb-20">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-4">
             <div className="flex gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg">
@@ -209,7 +272,7 @@ export default function AgenceWebNimesContent() {
           </div>
         </div>
 
-        {/* ─── 5. CONTENU LOCAL UNIQUE ─── */}
+        {/* ─── 6. CONTENU LOCAL UNIQUE ─── */}
         <div className="pb-14 md:pb-20">
           <AnimateIn className="max-w-5xl mx-auto border-l-4 border-gray-900 pl-8">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
@@ -235,7 +298,7 @@ export default function AgenceWebNimesContent() {
           </AnimateIn>
         </div>
 
-        {/* ─── 6. TARIFS ─── */}
+        {/* ─── 7. TARIFS ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Tarifs</p>
@@ -296,7 +359,7 @@ export default function AgenceWebNimesContent() {
           </div>
         </div>
 
-        {/* ─── 7. ZONE D'INTERVENTION ─── */}
+        {/* ─── 8. ZONE D'INTERVENTION ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Zone d&apos;intervention</p>
@@ -325,7 +388,7 @@ export default function AgenceWebNimesContent() {
           </AnimateIn>
         </div>
 
-        {/* ─── 8. CTA ─── */}
+        {/* ─── 9. CTA ─── */}
         <div className="pb-24">
           <AnimateIn className="text-center">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
