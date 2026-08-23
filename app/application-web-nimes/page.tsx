@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Clock, Phone, BarChart3,
   Users, Truck, Wrench, ClipboardList, Package,
   CalendarDays, UserCircle, FileText, TrendingUp, HardHat,
   ArrowRight,
@@ -40,24 +39,6 @@ export const metadata: Metadata = {
     canonical: 'https://www.ateliercode.fr/application-web-nimes',
   },
 };
-
-const problemes = [
-  {
-    icon: <Clock className="w-5 h-5" />,
-    phrase: 'Vous perdez des heures sur des tâches répétitives.',
-    desc: "Saisies manuelles, copier-coller entre fichiers, mises à jour à la main — des tâches qu'un outil bien conçu ferait en quelques secondes.",
-  },
-  {
-    icon: <Phone className="w-5 h-5" />,
-    phrase: 'Vos équipes vous appellent pour tout.',
-    desc: "Planning, pannes, informations du jour, confirmations — tout passe par vous. Vous ne pouvez pas être partout à la fois, et l'information se perd en route.",
-  },
-  {
-    icon: <BarChart3 className="w-5 h-5" />,
-    phrase: 'Vous pilotez à l\'aveugle.',
-    desc: 'Les chiffres arrivent trop tard — fin de semaine, fin de mois. Quand vous savez ce qui s\'est passé, il est souvent trop tard pour décider.',
-  },
-];
 
 const exemplesGestion = [
   { icon: <Users className="w-4 h-4" />, label: 'Suivi des heures travaillées et des congés' },
@@ -125,23 +106,8 @@ export default function ApplicationWebNimesPage() {
 
       <div className="container mx-auto px-4">
 
-        {/* ─── 2. LES 3 PROBLÈMES ─── */}
-        <div className="py-14 md:py-20">
-          <AnimateIn className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {problemes.map((item, idx) => (
-              <div key={idx} className="border border-gray-200 rounded-lg p-6">
-                <div className="w-10 h-10 rounded-md bg-gray-900 text-white flex items-center justify-center mb-4">
-                  {item.icon}
-                </div>
-                <p className="font-bold text-gray-900 mb-2">{item.phrase}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </AnimateIn>
-        </div>
-
-        {/* ─── 3. CE QU'ON PEUT CONSTRUIRE ─── */}
-        <div className="pb-20 md:pb-28">
+        {/* ─── 2. CE QU'ON PEUT CONSTRUIRE ─── */}
+        <div className="pt-14 md:pt-20 pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Ce qu&apos;on peut construire pour vous.
@@ -191,7 +157,7 @@ export default function ApplicationWebNimesPage() {
           </AnimateIn>
         </div>
 
-        {/* ─── 4. CAS CONCRET ─── */}
+        {/* ─── 3. CAS CONCRET ─── */}
         <div id="cas-concret" className="pb-20 md:pb-28 scroll-mt-24">
           <AnimateIn className="text-center mb-14">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -239,7 +205,7 @@ export default function ApplicationWebNimesPage() {
           </AnimateIn>
         </div>
 
-        {/* ─── 5. COMMENT ÇA SE PASSE ─── */}
+        {/* ─── 4. COMMENT ÇA SE PASSE ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -257,7 +223,7 @@ export default function ApplicationWebNimesPage() {
           </AnimateIn>
         </div>
 
-        {/* ─── 6. CTA FINAL ─── */}
+        {/* ─── 5. CTA FINAL ─── */}
         <div className="pb-24">
           <AnimateIn className="text-center">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
