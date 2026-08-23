@@ -9,8 +9,10 @@ import {
 import AnimateIn from './AnimateIn';
 import type { VilleData } from '../lib/villes-data';
 import { villes as toutesLesVilles } from '../lib/villes-data';
+import { useFlipCard } from '../hooks/useFlipCard';
 
 export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
+  useFlipCard();
 
   const zoneVilles = [
     { name: 'Nîmes', dept: 'Gard (30)', href: '/agence-web-nimes' },
@@ -135,35 +137,41 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
               </h2>
             </div>
 
-            <div className="border-t border-gray-200 divide-y divide-gray-200">
+            <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  icon: <Navigation className="w-5 h-5" />,
+                  icon: <Navigation className="w-8 h-8" strokeWidth={1.5} />,
                   title: `À ${ville.distanceKm} km de Nîmes`,
                   desc: `${ville.dureeTrajet} — je peux me déplacer sur ${ville.nom} pour le brief ou la présentation du site, ou tout faire à distance si c'est plus simple pour vous.`,
                 },
                 {
-                  icon: <Search className="w-5 h-5" />,
+                  icon: <Search className="w-8 h-8" strokeWidth={1.5} />,
                   title: 'Connaissance du marché local',
                   desc: ville.contexteLocal,
                 },
                 {
-                  icon: <Building2 className="w-5 h-5" />,
+                  icon: <Building2 className="w-8 h-8" strokeWidth={1.5} />,
                   title: 'Vous parlez au développeur',
                   desc: 'Pas de commercial entre vous et moi. Chaque échange est direct, rapide, sans perte d\'information.',
                 },
               ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group grid md:grid-cols-[240px_1fr] gap-3 md:gap-10 py-8 rounded-md transition-colors duration-200 hover:bg-white"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-gray-900 transition-transform duration-200 group-hover:translate-x-1">
-                      {item.icon}
-                    </span>
-                    <h3 className="font-bold text-gray-900">{item.title}</h3>
+                <div key={idx} className="flip-card h-52 cursor-pointer">
+                  <div className="flip-card-inner rounded-lg">
+
+                    {/* FACE AVANT — icône + titre */}
+                    <div className="flip-card-front bg-white border border-gray-200 rounded-lg flex flex-col items-center justify-center gap-3 p-6 text-center">
+                      <span className="text-gray-900">{item.icon}</span>
+                      <h3 className="text-base font-bold text-gray-900">{item.title}</h3>
+                      <span className="text-xs text-gray-400">Toucher pour en savoir plus</span>
+                    </div>
+
+                    {/* FACE ARRIÈRE — description */}
+                    <div className="flip-card-back bg-gray-900 text-white rounded-lg flex flex-col justify-center p-6">
+                      <h4 className="text-sm font-bold mb-3">{item.title}</h4>
+                      <p className="text-sm text-gray-300 leading-relaxed">{item.desc}</p>
+                    </div>
+
                   </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
