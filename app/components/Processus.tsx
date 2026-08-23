@@ -11,7 +11,7 @@ export default function Processus() {
       title: 'Analyse',
       description: 'On étudie votre marché, vos objectifs et vos concurrents pour définir une stratégie gagnante.',
       duration: '1-2 jours',
-      icon: <Search className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <Search className="w-16 h-16" strokeWidth={1.5} />,
       details: [
         'Audit de votre positionnement',
         'Analyse des concurrents',
@@ -24,7 +24,7 @@ export default function Processus() {
       title: 'Design',
       description: "Création de maquettes qui reflètent votre image et optimisent l'expérience utilisateur.",
       duration: '3-4 jours',
-      icon: <Palette className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <Palette className="w-16 h-16" strokeWidth={1.5} />,
       details: [
         'Wireframes interactifs',
         'Design unique et personnalisé',
@@ -37,7 +37,7 @@ export default function Processus() {
       title: 'Développement',
       description: 'Intégration avec les dernières technologies pour un site rapide, sécurisé et évolutif.',
       duration: '5-7 jours',
-      icon: <Code2 className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <Code2 className="w-16 h-16" strokeWidth={1.5} />,
       details: [
         'Code propre et maintenable',
         'Optimisation SEO',
@@ -50,7 +50,7 @@ export default function Processus() {
       title: 'Lancement',
       description: 'Mise en ligne, formation et accompagnement pour une transition en douceur.',
       duration: '1-2 jours',
-      icon: <Rocket className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <Rocket className="w-16 h-16" strokeWidth={1.5} />,
       details: [
         'Déploiement sur Vercel',
         'Configuration nom de domaine',
@@ -84,14 +84,11 @@ export default function Processus() {
                 index < steps.length - 1 ? 'border-r border-gray-100' : ''
               }`}
             >
-              <div className="process-num font-mono text-xs uppercase tracking-wide text-gray-400">
-                {step.n}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">
+              <h3 className="text-xl font-bold text-gray-900 text-center">
                 {step.title}
               </h3>
               <div className="relative flex-1 min-h-0">
-                <div className="process-icon absolute inset-0 flex items-center justify-center text-gray-300">
+                <div className="process-icon absolute inset-0 flex items-center justify-center text-gray-900">
                   {step.icon}
                 </div>
                 <div className="process-body flex flex-col gap-4">
@@ -106,8 +103,8 @@ export default function Processus() {
                   </div>
                 </div>
               </div>
-              <div className="mt-auto flex items-center gap-2 text-sm text-gray-500">
-                <span className="w-1.25 h-1.25 rounded-full shrink-0 bg-gray-900" />
+              <div className="mt-auto flex items-center justify-center gap-2 text-lg font-medium text-gray-700">
+                <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-gray-900" />
                 {step.duration}
               </div>
             </div>
