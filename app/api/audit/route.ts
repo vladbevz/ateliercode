@@ -502,16 +502,35 @@ async function checkCarbon(url: string, pageSizeBytes: number | null): Promise<{
 // 6. DNS — SPF / DMARC
 // ─────────────────────────────────────────────────────────────────────────
 
+// `ENODATA`/`ENOTFOUND` mean the record genuinely doesn't exist — not
+// worth retrying. Anything else (ESERVFAIL, ETIMEOUT, connection resets)
+// is treated as a transient resolver hiccup and retried once, since
+// running in a serverless function means every invocation can hit DNS
+// with a cold resolver.
+async function resolveTxtWithRetry(hostname: string): Promise<string[]> {
+  try {
+    return (await dns.resolveTxt(hostname)).flat();
+  } catch (error: any) {
+    if (error?.code === 'ENODATA' || error?.code === 'ENOTFOUND') return [];
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      return (await dns.resolveTxt(hostname)).flat();
+    } catch {
+      return [];
+    }
+  }
+}
+
 async function checkDns(url: string): Promise<{ hasSPF: boolean; hasDMARC: boolean } | null> {
   try {
     const hostname = new URL(url).hostname;
     const run = async () => {
-      const txtRecords = await dns.resolveTxt(hostname).catch(() => []);
-      const hasSPF = txtRecords.flat().some((r) => r.startsWith('v=spf1'));
-      const dmarcRecords = await dns.resolveTxt(`_dmarc.${hostname}`).catch(() => []);
+      const txtRecords = await resolveTxtWithRetry(hostname);
+      const hasSPF = txtRecords.some((r) => r.startsWith('v=spf1'));
+      const dmarcRecords = await resolveTxtWithRetry(`_dmarc.${hostname}`);
       return { hasSPF, hasDMARC: dmarcRecords.length > 0 };
     };
-    return await withTimeout(run(), 5000, null);
+    return await withTimeout(run(), 8000, null);
   } catch (error) {
     console.error('Audit — DNS check failed:', error);
     return null;
