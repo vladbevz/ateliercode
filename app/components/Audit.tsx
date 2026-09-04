@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Check, X, AlertTriangle } from 'lucide-react';
@@ -98,12 +98,12 @@ function StatusIcon({ status }: { status: Status }) {
   return <X className="w-4 h-4 text-red-500 shrink-0" />;
 }
 
-function ScoreCard({ label, score }: { label: string; score: number }) {
+function ScoreCard({ label, score, hint }: { label: string; score: number; hint: string }) {
   const status = cardStatusLabel(score);
   const barColor = score >= 90 ? '#16a34a' : score >= 50 ? '#ea580c' : '#dc2626';
   const numberClass = score >= 90 ? 'text-green-600' : score >= 50 ? 'text-orange-600' : 'text-red-600';
   return (
-    <div className="border border-gray-200 rounded-lg p-6">
+    <div className="border border-gray-200 rounded-lg p-6 bg-white">
       <p className="font-mono text-xs uppercase tracking-wide text-gray-400 mb-4">{label}</p>
       <div className="flex items-baseline gap-1 mb-4">
         <span className={`text-4xl font-bold ${numberClass}`}>{score}</span>
@@ -112,15 +112,25 @@ function ScoreCard({ label, score }: { label: string; score: number }) {
       <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden w-full mb-3">
         <div className="h-full rounded-full transition-all duration-700" style={{ width: `${score}%`, backgroundColor: barColor }} />
       </div>
-      <p className={`text-sm font-medium ${status.className}`}>{status.label}</p>
+      <p className={`text-sm font-medium ${status.className} mb-1`}>{status.label}</p>
+      <p className="text-xs text-gray-400 leading-relaxed">{hint}</p>
+    </div>
+  );
+}
+
+function SectionCard({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+  return (
+    <div id={id} className="scroll-mt-24 bg-gray-50 rounded-2xl p-6 md:p-8">
+      <h3 className="text-lg font-bold text-gray-900 mb-6">{title}</h3>
+      {children}
     </div>
   );
 }
 
 function SectionTable({ children }: { children: React.ReactNode }) {
   return (
-    <div className="overflow-x-auto border border-gray-200 rounded-lg">
-      <table className="w-full text-sm border-collapse min-w-125">{children}</table>
+    <div className="hidden md:block overflow-x-auto border border-gray-200 rounded-lg bg-white">
+      <table className="w-full text-sm border-collapse">{children}</table>
     </div>
   );
 }
@@ -131,6 +141,22 @@ function Th({ children }: { children: React.ReactNode }) {
 
 function Td({ children }: { children: React.ReactNode }) {
   return <td className="py-3 px-4 text-gray-600 whitespace-nowrap">{children}</td>;
+}
+
+function MobileCardList({ children }: { children: React.ReactNode }) {
+  return <div className="md:hidden space-y-3">{children}</div>;
+}
+
+function MobileCard({ title, reference, children }: { title: string; reference?: string; children: React.ReactNode }) {
+  return (
+    <div className="border border-gray-200 rounded-lg p-4 bg-white">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <span className="font-medium text-gray-900">{title}</span>
+        {reference && <span className="text-xs text-gray-400 whitespace-nowrap">Réf. {reference}</span>}
+      </div>
+      {children}
+    </div>
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────
@@ -224,7 +250,7 @@ function buildProblems(result: AuditResult): Problem[] {
     problems.push({
       key: 'images_alt',
       priority: 2,
-      title: 'Trop d\'images sans texte alternatif',
+      title: "Trop d'images sans texte alternatif",
       description: `${result.content.imagesWithoutAlt} images sur ${result.content.totalImages} n'ont pas d'attribut alt. Cela nuit à votre référencement et à l'accessibilité du site.`,
       cause: "Attribut alt oublié lors de l'ajout des images au site.",
     });
@@ -254,7 +280,7 @@ function buildProblems(result: AuditResult): Problem[] {
       key: 'dmarc_missing',
       priority: 3,
       title: 'Protection DMARC absente',
-      description: "Sans DMARC, votre nom de domaine peut être utilisé pour usurper votre identité dans des emails frauduleux.",
+      description: 'Sans DMARC, votre nom de domaine peut être utilisé pour usurper votre identité dans des emails frauduleux.',
       cause: 'Enregistrement DNS DMARC (_dmarc.votredomaine) non configuré.',
     });
   }
@@ -312,6 +338,14 @@ function buildGoodMetrics(result: AuditResult): string[] {
 // Main component
 // ─────────────────────────────────────────────────────────────────────────
 
+const LOADING_MESSAGES = [
+  'Analyse de la vitesse mobile...',
+  'Analyse de la vitesse ordinateur...',
+  'Vérification du référencement...',
+  'Contrôle de la sécurité...',
+  'Calcul de l\'empreinte carbone...',
+];
+
 export default function Audit() {
   const [inputValue, setInputValue] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'results'>('idle');
@@ -319,6 +353,16 @@ export default function Audit() {
   const [result, setResult] = useState<AuditResult | null>(null);
   const [analyzedAt, setAnalyzedAt] = useState<Date | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loadingStep, setLoadingStep] = useState(0);
+
+  useEffect(() => {
+    if (status !== 'loading') return;
+    setLoadingStep(0);
+    const interval = setInterval(() => {
+      setLoadingStep((s) => Math.min(s + 1, LOADING_MESSAGES.length - 1));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [status]);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -365,14 +409,11 @@ export default function Audit() {
 
         {status !== 'results' && (
           <div className="max-w-2xl mx-auto text-center">
-            <p className="font-mono text-xs uppercase tracking-wide text-gray-400 mb-5">
-              Outil gratuit · AtelierCode
-            </p>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
               Mon site est-il efficace ?
             </h1>
-            <p className="text-lg text-gray-500 mb-8">
-              Entrez l&apos;URL de votre site pour obtenir un audit complet : vitesse, SEO, sécurité, mobile. Résultat en quelques secondes.
+            <p className="text-lg text-gray-500 mb-10">
+              Entrez l&apos;URL de votre site pour obtenir un audit complet : vitesse, SEO, sécurité, mobile.
             </p>
 
             {status === 'idle' && (
@@ -394,18 +435,19 @@ export default function Audit() {
                 >
                   Analyser mon site
                 </button>
-                <p className="font-mono text-xs uppercase tracking-wide text-gray-400">
-                  Gratuit · Aucune inscription · Résultats instantanés
-                </p>
               </form>
             )}
 
             {status === 'loading' && (
-              <div className="flex items-center gap-3 py-12 justify-center">
-                <div className="w-4 h-4 border-2 border-gray-200 border-t-gray-900 rounded-full animate-spin" />
-                <span className="text-sm text-gray-500">
-                  Analyse de {displayUrl(submittedUrl)} en cours...
-                </span>
+              <div className="flex flex-col items-center gap-5 py-16">
+                <div className="w-12 h-12 border-4 border-gray-200 border-t-gray-900 rounded-full animate-spin" />
+                <div className="text-center">
+                  <p className="font-medium text-gray-900 mb-1">{displayUrl(submittedUrl)}</p>
+                  <p className="text-sm text-gray-500">{LOADING_MESSAGES[loadingStep]}</p>
+                </div>
+                <p className="text-xs text-gray-400 max-w-xs">
+                  Un premier passage peut prendre jusqu&apos;à une minute — Google analyse votre site en temps réel.
+                </p>
               </div>
             )}
           </div>
@@ -459,7 +501,7 @@ function ResultsView({
       </div>
 
       {/* Navigation par ancre */}
-      <nav className="flex gap-4 border-b border-gray-200 mb-8 overflow-x-auto">
+      <nav className="flex gap-4 border-b border-gray-200 mb-10 overflow-x-auto">
         {TABS.map((tab) => (
           <a
             key={tab}
@@ -471,12 +513,14 @@ function ResultsView({
         ))}
       </nav>
 
-      <div className="space-y-16">
+      <div className="space-y-6">
         <PerformanceSection result={result} />
         <SeoContentSection result={result} />
         <SecuritySection result={result} />
         <CarbonSection result={result} />
+      </div>
 
+      <div className="space-y-10 mt-14">
         {/* Ce qu'il faut corriger */}
         <div>
           <h3 className="text-lg font-bold text-gray-900 mb-4">Ce qu&apos;il faut corriger</h3>
@@ -552,24 +596,42 @@ function ResultsView({
 // Section 1 — Performance
 // ─────────────────────────────────────────────────────────────────────────
 
+type PerfRow = {
+  key: string;
+  label: string;
+  mobileValue: string;
+  mobileStatus: Status;
+  desktopValue: string;
+  desktopStatus: Status;
+  reference: string;
+};
+
+function buildPerfRows(ps: NonNullable<AuditResult['pagespeed']>): PerfRow[] {
+  return [
+    { key: 'lcp', label: 'LCP', mobileValue: `${ps.mobile.lcp} s`, mobileStatus: lcpStatus(ps.mobile.lcp), desktopValue: `${ps.desktop.lcp} s`, desktopStatus: lcpStatus(ps.desktop.lcp), reference: '< 2.5 s' },
+    { key: 'cls', label: 'CLS', mobileValue: `${ps.mobile.cls}`, mobileStatus: clsStatus(ps.mobile.cls), desktopValue: `${ps.desktop.cls}`, desktopStatus: clsStatus(ps.desktop.cls), reference: '< 0.1' },
+    { key: 'fcp', label: 'FCP', mobileValue: `${ps.mobile.fcp} s`, mobileStatus: fcpStatus(ps.mobile.fcp), desktopValue: `${ps.desktop.fcp} s`, desktopStatus: fcpStatus(ps.desktop.fcp), reference: '< 1.8 s' },
+    { key: 'tbt', label: 'TBT', mobileValue: `${ps.mobile.tbt} ms`, mobileStatus: tbtStatus(ps.mobile.tbt), desktopValue: `${ps.desktop.tbt} ms`, desktopStatus: tbtStatus(ps.desktop.tbt), reference: '< 200 ms' },
+    { key: 'tti', label: 'TTI', mobileValue: `${ps.mobile.tti} s`, mobileStatus: ttiStatus(ps.mobile.tti), desktopValue: `${ps.desktop.tti} s`, desktopStatus: ttiStatus(ps.desktop.tti), reference: '< 3.8 s' },
+  ];
+}
+
 function PerformanceSection({ result }: { result: AuditResult }) {
   const ps = result.pagespeed;
 
   return (
-    <div id="Performance" className="scroll-mt-24">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">Performance</h3>
-
+    <SectionCard id="Performance" title="Performance">
       {!ps ? (
-        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5">
+        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5 bg-white">
           Données de performance indisponibles pour ce site.
         </p>
       ) : (
         <div className="space-y-6">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <ScoreCard label="Mobile" score={ps.mobile.performance} />
-            <ScoreCard label="Desktop" score={ps.desktop.performance} />
-            <ScoreCard label="Accessibilité" score={ps.mobile.accessibility} />
-            <ScoreCard label="Bonnes pratiques" score={ps.mobile.bestPractices} />
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <ScoreCard label="Mobile" score={ps.mobile.performance} hint="Vitesse de chargement sur smartphone" />
+            <ScoreCard label="Desktop" score={ps.desktop.performance} hint="Vitesse de chargement sur ordinateur" />
+            <ScoreCard label="Accessibilité" score={ps.mobile.accessibility} hint="Facilité d'usage pour tous les visiteurs" />
+            <ScoreCard label="Bonnes pratiques" score={ps.mobile.bestPractices} hint="Respect des standards techniques modernes" />
           </div>
 
           <SectionTable>
@@ -582,45 +644,40 @@ function PerformanceSection({ result }: { result: AuditResult }) {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">LCP</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.mobile.lcp} s <StatusIcon status={lcpStatus(ps.mobile.lcp)} /></span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.desktop.lcp} s <StatusIcon status={lcpStatus(ps.desktop.lcp)} /></span></Td>
-                <Td>&lt; 2.5 s</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">CLS</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.mobile.cls} <StatusIcon status={clsStatus(ps.mobile.cls)} /></span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.desktop.cls} <StatusIcon status={clsStatus(ps.desktop.cls)} /></span></Td>
-                <Td>&lt; 0.1</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">FCP</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.mobile.fcp} s <StatusIcon status={fcpStatus(ps.mobile.fcp)} /></span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.desktop.fcp} s <StatusIcon status={fcpStatus(ps.desktop.fcp)} /></span></Td>
-                <Td>&lt; 1.8 s</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">TBT</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.mobile.tbt} ms <StatusIcon status={tbtStatus(ps.mobile.tbt)} /></span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.desktop.tbt} ms <StatusIcon status={tbtStatus(ps.desktop.tbt)} /></span></Td>
-                <Td>&lt; 200 ms</Td>
-              </tr>
-              <tr className="hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">TTI</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.mobile.tti} s <StatusIcon status={ttiStatus(ps.mobile.tti)} /></span></Td>
-                <Td><span className="inline-flex items-center gap-1.5">{ps.desktop.tti} s <StatusIcon status={ttiStatus(ps.desktop.tti)} /></span></Td>
-                <Td>&lt; 3.8 s</Td>
-              </tr>
+              {buildPerfRows(ps).map((row) => (
+                <tr key={row.key} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                  <Td><span className="font-medium text-gray-900">{row.label}</span></Td>
+                  <Td><span className="inline-flex items-center gap-1.5">{row.mobileValue} <StatusIcon status={row.mobileStatus} /></span></Td>
+                  <Td><span className="inline-flex items-center gap-1.5">{row.desktopValue} <StatusIcon status={row.desktopStatus} /></span></Td>
+                  <Td>{row.reference}</Td>
+                </tr>
+              ))}
             </tbody>
           </SectionTable>
 
+          <MobileCardList>
+            {buildPerfRows(ps).map((row) => (
+              <MobileCard key={row.key} title={row.label} reference={row.reference}>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Mobile</p>
+                    <span className="inline-flex items-center gap-1.5 text-sm text-gray-700">{row.mobileValue} <StatusIcon status={row.mobileStatus} /></span>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-400 mb-1">Desktop</p>
+                    <span className="inline-flex items-center gap-1.5 text-sm text-gray-700">{row.desktopValue} <StatusIcon status={row.desktopStatus} /></span>
+                  </div>
+                </div>
+              </MobileCard>
+            ))}
+          </MobileCardList>
+
           {ps.mobile.opportunities.length > 0 && (
-            <div>
-              <p className="text-sm font-bold text-gray-900 mb-2">Opportunités d&apos;amélioration</p>
+            <div className="border border-gray-200 rounded-lg p-5 bg-white">
+              <p className="text-sm font-bold text-gray-900 mb-3">Opportunités d&apos;amélioration</p>
               <div>
                 {ps.mobile.opportunities.map((opp) => (
-                  <div key={opp} className="flex items-start gap-3 text-sm py-2 border-b border-gray-100 last:border-b-0">
+                  <div key={opp} className="flex items-start gap-3 text-sm py-2 border-b border-gray-100 last:border-b-0 last:pb-0">
                     <AlertTriangle className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
                     <span className="text-gray-600">{opp}</span>
                   </div>
@@ -630,7 +687,7 @@ function PerformanceSection({ result }: { result: AuditResult }) {
           )}
         </div>
       )}
-    </div>
+    </SectionCard>
   );
 }
 
@@ -647,16 +704,97 @@ function ogCompleteness(result: AuditResult): { status: Status; value: string } 
   return { status: 'warning', value: c.ogImage ? 'Incomplet' : "Pas d'image" };
 }
 
+type SeoRow = { key: string; label: string; status: Status; statusText: string; value: string; reference: string };
+
+function buildSeoRows(result: AuditResult, c: NonNullable<AuditResult['content']>): SeoRow[] {
+  const h1s = h1Status(c.h1Count);
+  const imgRatio = c.totalImages > 0 ? c.imagesWithoutAlt / c.totalImages : 0;
+  const og = ogCompleteness(result);
+
+  return [
+    {
+      key: 'title',
+      label: 'Titre',
+      status: c.titleStatus === 'good' ? 'good' : c.titleStatus === 'missing' ? 'bad' : 'warning',
+      statusText: `${c.titleStatus === 'good' ? 'Bon' : c.titleStatus === 'missing' ? 'Absent' : c.titleStatus === 'too_short' ? 'Trop court' : 'Trop long'} (${c.titleLength} car.)`,
+      value: c.title || '—',
+      reference: 'Idéal 50-65 car.',
+    },
+    {
+      key: 'meta',
+      label: 'Meta description',
+      status: c.metaDescStatus === 'good' ? 'good' : c.metaDescStatus === 'missing' ? 'bad' : 'warning',
+      statusText: `${c.metaDescStatus === 'good' ? 'Bonne' : c.metaDescStatus === 'missing' ? 'Absente' : c.metaDescStatus === 'too_short' ? 'Trop courte' : 'Trop longue'} (${c.metaDescLength} car.)`,
+      value: c.metaDesc || '—',
+      reference: 'Idéal 140-160 car.',
+    },
+    {
+      key: 'h1',
+      label: 'H1',
+      status: h1s === 'good' ? 'good' : h1s === 'missing' ? 'bad' : 'warning',
+      statusText: h1s === 'good' ? 'Un seul' : h1s === 'missing' ? 'Absent' : `${c.h1Count} détectés`,
+      value: c.h1Text || '—',
+      reference: 'Un seul H1 par page',
+    },
+    {
+      key: 'canonical',
+      label: 'Canonical',
+      status: c.canonical ? 'good' : 'warning',
+      statusText: c.canonical ? 'Présent' : 'Absent',
+      value: c.canonical || '—',
+      reference: 'Recommandé',
+    },
+    {
+      key: 'og',
+      label: 'Open Graph',
+      status: og.status,
+      statusText: og.value,
+      value: c.ogImage ? 'Image présente' : "Pas d'image",
+      reference: 'Pour partage réseaux',
+    },
+    {
+      key: 'schema',
+      label: 'Schema.org',
+      status: c.hasSchema ? 'good' : 'bad',
+      statusText: c.hasSchema ? 'Présent' : 'Absent',
+      value: c.schemaTypes.length > 0 ? c.schemaTypes.join(', ') : '—',
+      reference: 'Pour rich snippets Google',
+    },
+    {
+      key: 'alt',
+      label: 'Images sans alt',
+      status: c.imagesWithoutAlt === 0 ? 'good' : imgRatio > 0.5 ? 'bad' : 'warning',
+      statusText: `${c.imagesWithoutAlt}/${c.totalImages}`,
+      value: c.totalImages > 0 ? `${Math.round(imgRatio * 100)}% manquants` : '—',
+      reference: 'Impact SEO + accessibilité',
+    },
+    {
+      key: 'sitemap',
+      label: 'Sitemap',
+      status: result.sitemap?.hasSitemap ? 'good' : 'warning',
+      statusText: result.sitemap?.hasSitemap ? 'Présent' : 'Absent',
+      value: result.sitemap?.hasSitemap ? '/sitemap.xml' : '—',
+      reference: 'Recommandé',
+    },
+    {
+      key: 'robots',
+      label: 'Robots.txt',
+      status: !result.robots?.hasRobots ? 'warning' : result.robots.robotsBlocked ? 'bad' : 'good',
+      statusText: !result.robots?.hasRobots ? 'Absent' : result.robots.robotsBlocked ? 'Bloque les moteurs' : 'Présent',
+      value: '—',
+      reference: 'Recommandé',
+    },
+  ];
+}
+
 function SeoContentSection({ result }: { result: AuditResult }) {
   const c = result.content;
   const l = result.local;
 
   return (
-    <div id="SEO & Contenu" className="scroll-mt-24">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">SEO &amp; Contenu</h3>
-
+    <SectionCard id="SEO & Contenu" title="SEO & Contenu">
       {!c ? (
-        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5">
+        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5 bg-white">
           Contenu de la page indisponible pour ce site.
         </p>
       ) : (
@@ -671,124 +809,56 @@ function SeoContentSection({ result }: { result: AuditResult }) {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Titre</span></Td>
-                <Td>
-                  <span className="inline-flex items-center gap-1.5">
-                    <StatusIcon status={c.titleStatus === 'good' ? 'good' : c.titleStatus === 'missing' ? 'bad' : 'warning'} />
-                    {c.titleStatus === 'good' ? 'Bon' : c.titleStatus === 'missing' ? 'Absent' : c.titleStatus === 'too_short' ? 'Trop court' : 'Trop long'} ({c.titleLength} car.)
-                  </span>
-                </Td>
-                <Td><span className="truncate block max-w-50">{c.title || '—'}</span></Td>
-                <Td>Idéal 50-65 car.</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Meta description</span></Td>
-                <Td>
-                  <span className="inline-flex items-center gap-1.5">
-                    <StatusIcon status={c.metaDescStatus === 'good' ? 'good' : c.metaDescStatus === 'missing' ? 'bad' : 'warning'} />
-                    {c.metaDescStatus === 'good' ? 'Bonne' : c.metaDescStatus === 'missing' ? 'Absente' : c.metaDescStatus === 'too_short' ? 'Trop courte' : 'Trop longue'} ({c.metaDescLength} car.)
-                  </span>
-                </Td>
-                <Td><span className="truncate block max-w-50">{c.metaDesc || '—'}</span></Td>
-                <Td>Idéal 140-160 car.</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">H1</span></Td>
-                <Td>
-                  <span className="inline-flex items-center gap-1.5">
-                    <StatusIcon status={h1Status(c.h1Count) === 'good' ? 'good' : h1Status(c.h1Count) === 'missing' ? 'bad' : 'warning'} />
-                    {h1Status(c.h1Count) === 'good' ? 'Un seul' : h1Status(c.h1Count) === 'missing' ? 'Absent' : `${c.h1Count} détectés`}
-                  </span>
-                </Td>
-                <Td><span className="truncate block max-w-50">{c.h1Text || '—'}</span></Td>
-                <Td>Un seul H1 par page</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Canonical</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5"><StatusIcon status={c.canonical ? 'good' : 'warning'} />{c.canonical ? 'Présent' : 'Absent'}</span></Td>
-                <Td><span className="truncate block max-w-50">{c.canonical || '—'}</span></Td>
-                <Td>Recommandé</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Open Graph</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5"><StatusIcon status={ogCompleteness(result).status} />{ogCompleteness(result).value}</span></Td>
-                <Td>{c.ogImage ? 'Image présente' : "Pas d'image"}</Td>
-                <Td>Pour partage réseaux</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Schema.org</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5"><StatusIcon status={c.hasSchema ? 'good' : 'bad'} />{c.hasSchema ? 'Présent' : 'Absent'}</span></Td>
-                <Td>{c.schemaTypes.length > 0 ? c.schemaTypes.join(', ') : '—'}</Td>
-                <Td>Pour rich snippets Google</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Images sans alt</span></Td>
-                <Td>
-                  <span className="inline-flex items-center gap-1.5">
-                    <StatusIcon status={c.imagesWithoutAlt === 0 ? 'good' : c.totalImages > 0 && c.imagesWithoutAlt / c.totalImages > 0.5 ? 'bad' : 'warning'} />
-                    {c.imagesWithoutAlt}/{c.totalImages}
-                  </span>
-                </Td>
-                <Td>{c.totalImages > 0 ? `${Math.round((c.imagesWithoutAlt / c.totalImages) * 100)}% manquants` : '—'}</Td>
-                <Td>Impact SEO + accessibilité</Td>
-              </tr>
-              <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Sitemap</span></Td>
-                <Td><span className="inline-flex items-center gap-1.5"><StatusIcon status={result.sitemap?.hasSitemap ? 'good' : 'warning'} />{result.sitemap?.hasSitemap ? 'Présent' : 'Absent'}</span></Td>
-                <Td>{result.sitemap?.hasSitemap ? '/sitemap.xml' : '—'}</Td>
-                <Td>Recommandé</Td>
-              </tr>
-              <tr className="hover:bg-gray-50 transition-colors">
-                <Td><span className="font-medium text-gray-900">Robots.txt</span></Td>
-                <Td>
-                  <span className="inline-flex items-center gap-1.5">
-                    <StatusIcon status={!result.robots?.hasRobots ? 'warning' : result.robots.robotsBlocked ? 'bad' : 'good'} />
-                    {!result.robots?.hasRobots ? 'Absent' : result.robots.robotsBlocked ? 'Bloque les moteurs' : 'Présent'}
-                  </span>
-                </Td>
-                <Td>—</Td>
-                <Td>Recommandé</Td>
-              </tr>
+              {buildSeoRows(result, c).map((row) => (
+                <tr key={row.key} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                  <Td><span className="font-medium text-gray-900">{row.label}</span></Td>
+                  <Td><span className="inline-flex items-center gap-1.5"><StatusIcon status={row.status} />{row.statusText}</span></Td>
+                  <Td><span className="truncate block max-w-50">{row.value}</span></Td>
+                  <Td>{row.reference}</Td>
+                </tr>
+              ))}
             </tbody>
           </SectionTable>
 
+          <MobileCardList>
+            {buildSeoRows(result, c).map((row) => (
+              <MobileCard key={row.key} title={row.label} reference={row.reference}>
+                <p className="inline-flex items-center gap-1.5 text-sm text-gray-700 mb-1">
+                  <StatusIcon status={row.status} />{row.statusText}
+                </p>
+                <p className="text-sm text-gray-500 truncate">{row.value}</p>
+              </MobileCard>
+            ))}
+          </MobileCardList>
+
           {l && (
             <div>
-              <p className="text-sm font-bold text-gray-900 mb-2">Local SEO</p>
-              <SectionTable>
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <Th>Signal</Th>
-                    <Th>Statut</Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                    <Td><span className="font-medium text-gray-900">Numéro de téléphone</span></Td>
-                    <Td><StatusIcon status={l.hasPhone ? 'good' : 'bad'} /></Td>
-                  </tr>
-                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                    <Td><span className="font-medium text-gray-900">Adresse / code postal</span></Td>
-                    <Td><StatusIcon status={l.hasAddress ? 'good' : 'bad'} /></Td>
-                  </tr>
-                  <tr className="hover:bg-gray-50 transition-colors">
-                    <Td><span className="font-medium text-gray-900">Google Analytics</span></Td>
-                    <Td><StatusIcon status={c.hasGA ? 'good' : 'bad'} /></Td>
-                  </tr>
-                </tbody>
-              </SectionTable>
+              <p className="text-sm font-bold text-gray-900 mb-3">Local SEO</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="border border-gray-200 rounded-lg p-4 bg-white flex items-center justify-between gap-3">
+                  <span className="text-sm text-gray-700">Numéro de téléphone</span>
+                  <StatusIcon status={l.hasPhone ? 'good' : 'bad'} />
+                </div>
+                <div className="border border-gray-200 rounded-lg p-4 bg-white flex items-center justify-between gap-3">
+                  <span className="text-sm text-gray-700">Adresse / code postal</span>
+                  <StatusIcon status={l.hasAddress ? 'good' : 'bad'} />
+                </div>
+                <div className="border border-gray-200 rounded-lg p-4 bg-white flex items-center justify-between gap-3">
+                  <span className="text-sm text-gray-700">Google Analytics</span>
+                  <StatusIcon status={c.hasGA ? 'good' : 'bad'} />
+                </div>
+              </div>
             </div>
           )}
 
           {c.ogImage && (
             <div>
-              <p className="text-sm font-bold text-gray-900 mb-2">Aperçu du partage sur les réseaux</p>
-              <div className="border border-gray-200 rounded-lg overflow-hidden max-w-sm">
+              <p className="text-sm font-bold text-gray-900 mb-3">Aperçu du partage sur les réseaux</p>
+              <div className="border border-gray-200 rounded-lg overflow-hidden max-w-sm bg-white">
                 <div className="relative aspect-video">
                   <Image src={c.ogImage} alt="" fill className="object-cover" unoptimized />
                 </div>
-                <div className="p-3 bg-gray-50">
+                <div className="p-3">
                   <p className="text-xs text-gray-400 uppercase">{displayUrl(result.url)}</p>
                   <p className="text-sm font-medium text-gray-900 truncate">{c.ogTitle || c.title}</p>
                   <p className="text-xs text-gray-500 line-clamp-2">{c.ogDescription || c.metaDesc}</p>
@@ -798,7 +868,7 @@ function SeoContentSection({ result }: { result: AuditResult }) {
           )}
         </div>
       )}
-    </div>
+    </SectionCard>
   );
 }
 
@@ -806,75 +876,91 @@ function SeoContentSection({ result }: { result: AuditResult }) {
 // Section 3 — Sécurité & Technique
 // ─────────────────────────────────────────────────────────────────────────
 
-function SecuritySection({ result }: { result: AuditResult }) {
+type SecRow = { key: string; label: string; status: Status | null; detail: string };
+
+function buildSecurityRows(result: AuditResult): SecRow[] {
   const c = result.content;
   const l = result.local;
   const sec = result.security;
 
+  return [
+    { key: 'https', label: 'HTTPS', status: l ? (l.hasHTTPS ? 'good' : 'bad') : null, detail: l ? (l.hasHTTPS ? 'SSL actif' : 'Non sécurisé') : '—' },
+    {
+      key: 'safebrowsing',
+      label: 'Safe Browsing Google',
+      status: result.safeBrowsing ? (result.safeBrowsing.isSafe ? 'good' : 'bad') : null,
+      detail: result.safeBrowsing ? (result.safeBrowsing.isSafe ? 'Aucune menace détectée' : result.safeBrowsing.threats.join(', ')) : 'Non vérifié',
+    },
+    {
+      key: 'headers',
+      label: 'En-têtes de sécurité',
+      status: sec ? securityStatus(sec.grade) : null,
+      detail: sec ? `Grade ${sec.grade} (${sec.score}/100)` : 'Non disponible',
+    },
+    { key: 'spf', label: 'SPF (email)', status: result.dns ? (result.dns.hasSPF ? 'good' : 'warning') : null, detail: "Protège contre l'usurpation" },
+    { key: 'dmarc', label: 'DMARC (email)', status: result.dns ? (result.dns.hasDMARC ? 'good' : 'warning') : null, detail: 'Protection email' },
+    { key: 'favicon', label: 'Favicon', status: c ? (c.hasFavicon ? 'good' : 'warning') : null, detail: '—' },
+    {
+      key: 'scripts',
+      label: 'Scripts externes',
+      status: c ? (c.externalScripts > 10 ? 'warning' : 'good') : null,
+      detail: c ? `${c.externalScripts}${c.externalScripts > 10 ? ' — risque performance' : ''}` : '—',
+    },
+    {
+      key: 'size',
+      label: 'Taille de page',
+      status: c ? (c.pageSize > 2 * 1024 * 1024 ? 'warning' : 'good') : null,
+      detail: c ? `${formatMB(c.pageSize)} — recommandé < 2 MB` : '—',
+    },
+  ];
+}
+
+function SecuritySection({ result }: { result: AuditResult }) {
+  const sec = result.security;
+  const rows = buildSecurityRows(result);
+
   return (
-    <div id="Sécurité" className="scroll-mt-24">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">Sécurité &amp; Technique</h3>
+    <SectionCard id="Sécurité" title="Sécurité & Technique">
+      <div className="space-y-4">
+        <SectionTable>
+          <thead>
+            <tr className="border-b border-gray-200">
+              <Th>Check</Th>
+              <Th>Statut</Th>
+              <Th>Détail</Th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.key} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                <Td><span className="font-medium text-gray-900">{row.label}</span></Td>
+                <Td>{row.status ? <StatusIcon status={row.status} /> : <span className="text-gray-300">—</span>}</Td>
+                <Td>{row.detail}</Td>
+              </tr>
+            ))}
+          </tbody>
+        </SectionTable>
 
-      <SectionTable>
-        <thead>
-          <tr className="border-b border-gray-200">
-            <Th>Check</Th>
-            <Th>Statut</Th>
-            <Th>Détail</Th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">HTTPS</span></Td>
-            <Td><StatusIcon status={l?.hasHTTPS ? 'good' : 'bad'} /></Td>
-            <Td>{l?.hasHTTPS ? 'SSL actif' : 'Non sécurisé'}</Td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">Safe Browsing Google</span></Td>
-            <Td>{result.safeBrowsing ? <StatusIcon status={result.safeBrowsing.isSafe ? 'good' : 'bad'} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>{result.safeBrowsing ? (result.safeBrowsing.isSafe ? 'Aucune menace détectée' : result.safeBrowsing.threats.join(', ')) : 'Non vérifié'}</Td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">En-têtes de sécurité</span></Td>
-            <Td>{sec ? <StatusIcon status={securityStatus(sec.grade)} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>{sec ? `Grade ${sec.grade} (${sec.score}/100)` : 'Non disponible'}</Td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">SPF (email)</span></Td>
-            <Td>{result.dns ? <StatusIcon status={result.dns.hasSPF ? 'good' : 'warning'} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>Protège contre l&apos;usurpation</Td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">DMARC (email)</span></Td>
-            <Td>{result.dns ? <StatusIcon status={result.dns.hasDMARC ? 'good' : 'warning'} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>Protection email</Td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">Favicon</span></Td>
-            <Td>{c ? <StatusIcon status={c.hasFavicon ? 'good' : 'warning'} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>—</Td>
-          </tr>
-          <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">Scripts externes</span></Td>
-            <Td>{c ? <StatusIcon status={c.externalScripts > 10 ? 'warning' : 'good'} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>{c ? `${c.externalScripts}${c.externalScripts > 10 ? ' — risque performance' : ''}` : '—'}</Td>
-          </tr>
-          <tr className="hover:bg-gray-50 transition-colors">
-            <Td><span className="font-medium text-gray-900">Taille de page</span></Td>
-            <Td>{c ? <StatusIcon status={c.pageSize > 2 * 1024 * 1024 ? 'warning' : 'good'} /> : <span className="text-gray-300">—</span>}</Td>
-            <Td>{c ? `${formatMB(c.pageSize)} — recommandé < 2 MB` : '—'}</Td>
-          </tr>
-        </tbody>
-      </SectionTable>
+        <MobileCardList>
+          {rows.map((row) => (
+            <MobileCard key={row.key} title={row.label}>
+              <p className="inline-flex items-center gap-1.5 text-sm text-gray-700">
+                {row.status ? <StatusIcon status={row.status} /> : <span className="text-gray-300">—</span>}
+                {row.detail}
+              </p>
+            </MobileCard>
+          ))}
+        </MobileCardList>
 
-      {sec && (
-        <p className="text-sm text-gray-500 mt-4">
-          Le grade de sécurité ({sec.grade}) est calculé à partir des en-têtes de sécurité renvoyés par votre serveur —
-          chiffrement, politique de contenu, protection contre les attaques courantes. Un grade inférieur à B peut
-          signaler votre site comme peu fiable.
-        </p>
-      )}
-    </div>
+        {sec && (
+          <p className="text-sm text-gray-500">
+            Le grade de sécurité ({sec.grade}) est calculé à partir des en-têtes de sécurité renvoyés par votre serveur —
+            chiffrement, politique de contenu, protection contre les attaques courantes. Un grade inférieur à B peut
+            signaler votre site comme peu fiable.
+          </p>
+        )}
+      </div>
+    </SectionCard>
   );
 }
 
@@ -886,15 +972,13 @@ function CarbonSection({ result }: { result: AuditResult }) {
   const carbon = result.carbon;
 
   return (
-    <div id="CO₂" className="scroll-mt-24">
-      <h3 className="text-lg font-bold text-gray-900 mb-4">CO₂ &amp; Impact</h3>
-
+    <SectionCard id="CO₂" title="CO₂ & Impact">
       {!carbon ? (
-        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5">
+        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5 bg-white">
           Estimation carbone indisponible pour ce site.
         </p>
       ) : (
-        <div className="border border-gray-200 rounded-lg p-6">
+        <div className="border border-gray-200 rounded-lg p-6 bg-white">
           <p className="text-3xl font-bold text-gray-900 mb-1">{carbon.gramsPerVisit}g</p>
           <p className="text-sm text-gray-500 mb-4">de CO₂ par visite</p>
           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden mb-4">
@@ -904,10 +988,10 @@ function CarbonSection({ result }: { result: AuditResult }) {
             Votre site est plus propre que <strong>{carbon.cleanerThan}%</strong> des sites testés.
             {carbon.cleanerThan < 50
               ? " Des images lourdes et des scripts nombreux augmentent l'empreinte carbone de chaque visite."
-              : ' C\'est un bon score — votre site est relativement léger.'}
+              : " C'est un bon score — votre site est relativement léger."}
           </p>
         </div>
       )}
-    </div>
+    </SectionCard>
   );
 }
