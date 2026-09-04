@@ -19,13 +19,19 @@ function normalizeUrl(input: string): string | null {
   try {
     const parsed = new URL(withProtocol);
     if (!parsed.hostname.includes('.')) return null;
+    // Avoid forcing a bare trailing slash (e.g. "https://example.com/")
+    // for root URLs — the PSI Lighthouse runner can fail on some sites
+    // when the root is requested with an explicit trailing slash.
+    if (parsed.pathname === '/' && !parsed.search && !parsed.hash) {
+      return parsed.origin;
+    }
     return parsed.toString();
   } catch {
     return null;
   }
 }
 
-async function fetchPsi(url: string, strategy: 'mobile' | 'desktop', categories: string[]) {
+async function fetchPsiOnce(url: string, strategy: 'mobile' | 'desktop', categories: string[]) {
   const params = new URLSearchParams();
   params.set('url', url);
   params.set('strategy', strategy);
@@ -43,6 +49,18 @@ async function fetchPsi(url: string, strategy: 'mobile' | 'desktop', categories:
   }
 
   return data;
+}
+
+// The PSI Lighthouse runner occasionally fails transiently with a generic
+// "Something went wrong" 500, unrelated to the request itself — retrying
+// once resolves the vast majority of these.
+async function fetchPsi(url: string, strategy: 'mobile' | 'desktop', categories: string[]) {
+  try {
+    return await fetchPsiOnce(url, strategy, categories);
+  } catch {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return fetchPsiOnce(url, strategy, categories);
+  }
 }
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
@@ -70,7 +88,7 @@ function extractSeo(data: any) {
     hasTitle: audits['document-title']?.score === 1,
     hasDescription: audits['meta-description']?.score === 1,
     isIndexable: audits['is-crawlable']?.score === 1,
-    hasViewport: audits['viewport']?.score === 1,
+    hasViewport: audits['viewport-insight']?.score === 1,
   };
 }
 
