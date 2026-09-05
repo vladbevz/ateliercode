@@ -14,7 +14,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ville = getVilleBySlug(slug);
   if (!ville) return {};
 
-  const title = `Agence web ${ville.nom} — Sites & Applications`;
+  const title = ville.titleFocus
+    ? `Agence ${ville.titleFocus} & sites web à ${ville.nom}`
+    : `Agence web ${ville.nom} — Sites & Applications`;
 
   return {
     title,

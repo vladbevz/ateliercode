@@ -8,6 +8,9 @@ export interface VilleData {
   contexteLocal: string;
   metaDescription: string;
   contenuUnique: string[];
+  /** Optional focus keyword surfaced in the page title (e.g. "e-commerce")
+   * for cities where search demand skews toward a specific service. */
+  titleFocus?: string;
 }
 
 export const villes: VilleData[] = [
@@ -124,7 +127,8 @@ export const villes: VilleData[] = [
     distanceKm: 50,
     dureeTrajet: '45 minutes via l\'A9',
     contexteLocal: 'Préfecture de l\'Hérault et pôle French Tech, avec un tissu dense de startups, indépendants et professions libérales — un marché plus concurrentiel où un site rapide et bien référencé fait la différence.',
-    metaDescription: 'AtelierCode développe des sites vitrine, e-commerce et applications web sur mesure pour les indépendants et petites entreprises de Montpellier.',
+    metaDescription: 'AtelierCode développe des boutiques e-commerce et sites vitrine sur mesure pour les indépendants et petites entreprises de Montpellier. Rapides, sécurisés, sans abonnement imposé.',
+    titleFocus: 'e-commerce',
     contenuUnique: [
       'Montpellier est la huitième ville de France et l\'une des métropoles qui croît le plus vite en Europe. Son écosystème économique est dominé par le numérique, la santé, l\'enseignement supérieur et une scène startup active — un terrain favorable pour des projets web ambitieux.',
       'La concurrence y est plus forte qu\'à Nîmes, ce qui rend la qualité technique encore plus déterminante. Un site rapide, bien référencé et pensé pour la conversion n\'est pas un luxe dans ce marché — c\'est un minimum. React et Next.js donnent ici un avantage concret sur les sites WordPress que l\'on trouve en masse chez les prestataires locaux.',
