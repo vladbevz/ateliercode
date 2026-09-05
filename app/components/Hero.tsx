@@ -90,6 +90,9 @@ export default function Hero() {
               <Link href="/blog" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Le blog
               </Link>
+              <Link href="/audit" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                Audit gratuit
+              </Link>
             </div>
           </div>
 
