@@ -52,6 +52,28 @@ function securityStatus(grade: string): Status {
   if (grade === 'C') return 'warning';
   return 'bad';
 }
+function redirectStatus(hops: number): Status {
+  if (hops === 0) return 'good';
+  if (hops === 1) return 'warning';
+  return 'bad';
+}
+function w3cStatus(grade: string): Status {
+  if (grade === 'perfect') return 'good';
+  if (grade === 'poor') return 'bad';
+  return 'warning';
+}
+function cruxStatus(category: string | null): Status | null {
+  if (category === 'FAST') return 'good';
+  if (category === 'AVERAGE') return 'warning';
+  if (category === 'SLOW') return 'bad';
+  return null;
+}
+function cruxLabel(category: string | null): string {
+  if (category === 'FAST') return 'Rapide';
+  if (category === 'AVERAGE') return 'Moyen';
+  if (category === 'SLOW') return 'Lent';
+  return '—';
+}
 
 // ─────────────────────────────────────────────────────────────────────────
 // Formatting
@@ -68,6 +90,18 @@ function displayUrl(raw: string): string {
 
 function formatAuditDate(date: Date): string {
   return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// CrUX "_MS" metrics are raw milliseconds; "_SCORE" metrics (CLS) are the
+// score × 100. Both come back as `percentile` in the PSI response.
+function formatCruxSeconds(percentile: number | null): string {
+  return percentile == null ? '—' : `${(percentile / 1000).toFixed(1)} s`;
+}
+function formatCruxMs(percentile: number | null): string {
+  return percentile == null ? '—' : `${percentile} ms`;
+}
+function formatCruxScore(percentile: number | null): string {
+  return percentile == null ? '—' : (percentile / 100).toFixed(2);
 }
 
 function formatMB(bytes: number): string {
@@ -466,7 +500,7 @@ export default function Audit() {
 // Results view
 // ─────────────────────────────────────────────────────────────────────────
 
-const TABS = ['Performance', 'SEO & Contenu', 'Sécurité', 'CO₂'];
+const TABS = ['Performance', 'CrUX', 'SEO & Contenu', 'Sécurité', 'CO₂', 'Google Business Profile'];
 
 function ResultsView({
   result,
@@ -515,9 +549,11 @@ function ResultsView({
 
       <div className="space-y-6">
         <PerformanceSection result={result} />
+        <CruxSection result={result} />
         <SeoContentSection result={result} />
         <SecuritySection result={result} />
         <CarbonSection result={result} />
+        <GbpSection result={result} />
       </div>
 
       <div className="space-y-10 mt-14">
@@ -685,6 +721,84 @@ function PerformanceSection({ result }: { result: AuditResult }) {
               </div>
             </div>
           )}
+        </div>
+      )}
+    </SectionCard>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// CrUX — données terrain (vrais utilisateurs Chrome)
+// ─────────────────────────────────────────────────────────────────────────
+
+type CruxRow = { key: string; label: string; value: string; category: string | null };
+
+function buildCruxRows(crux: NonNullable<AuditResult['crux']>): CruxRow[] {
+  const rows: CruxRow[] = [
+    { key: 'lcp', label: 'LCP', value: formatCruxSeconds(crux.lcp.percentile), category: crux.lcp.category },
+    { key: 'cls', label: 'CLS', value: formatCruxScore(crux.cls.percentile), category: crux.cls.category },
+    { key: 'inp', label: 'INP', value: formatCruxMs(crux.inp.percentile), category: crux.inp.category },
+  ];
+  if (crux.fid.category) {
+    rows.push({ key: 'fid', label: 'FID', value: formatCruxMs(crux.fid.percentile), category: crux.fid.category });
+  }
+  return rows;
+}
+
+function CruxSection({ result }: { result: AuditResult }) {
+  const crux = result.crux;
+
+  return (
+    <SectionCard id="CrUX" title="Données terrain (CrUX)">
+      {!crux || !crux.hasData ? (
+        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5 bg-white">
+          Ce domaine n&apos;a pas assez de trafic pour générer des données terrain Chrome.
+        </p>
+      ) : (
+        <div className="space-y-4">
+          <p className="text-sm text-gray-500">
+            Ces données proviennent de vrais utilisateurs Chrome, pas d&apos;un test en laboratoire.
+          </p>
+
+          <SectionTable>
+            <thead>
+              <tr className="border-b border-gray-200">
+                <Th>Métrique</Th>
+                <Th>Score terrain</Th>
+                <Th>Catégorie</Th>
+              </tr>
+            </thead>
+            <tbody>
+              {buildCruxRows(crux).map((row) => (
+                <tr key={row.key} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                  <Td><span className="font-medium text-gray-900">{row.label}</span></Td>
+                  <Td>{row.value}</Td>
+                  <Td>
+                    {cruxStatus(row.category) ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        {cruxLabel(row.category)} <StatusIcon status={cruxStatus(row.category)!} />
+                      </span>
+                    ) : (
+                      <span className="text-gray-300">—</span>
+                    )}
+                  </Td>
+                </tr>
+              ))}
+            </tbody>
+          </SectionTable>
+
+          <MobileCardList>
+            {buildCruxRows(crux).map((row) => (
+              <MobileCard key={row.key} title={row.label}>
+                <p className="text-sm text-gray-700 mb-1">{row.value}</p>
+                {cruxStatus(row.category) && (
+                  <span className="inline-flex items-center gap-1.5 text-sm text-gray-500">
+                    {cruxLabel(row.category)} <StatusIcon status={cruxStatus(row.category)!} />
+                  </span>
+                )}
+              </MobileCard>
+            ))}
+          </MobileCardList>
         </div>
       )}
     </SectionCard>
@@ -866,6 +980,66 @@ function SeoContentSection({ result }: { result: AuditResult }) {
               </div>
             </div>
           )}
+
+          {result.hreflang?.hasHreflang && (
+            <div>
+              <p className="text-sm font-bold text-gray-900 mb-3">Hreflang</p>
+              <div className="border border-gray-200 rounded-lg p-4 bg-white flex flex-wrap gap-2">
+                {result.hreflang.links.map((l2, i) => (
+                  <span key={i} className="font-mono text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                    {l2.lang}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {result.brokenLinks && (
+            <div>
+              <p className="text-sm font-bold text-gray-900 mb-3">Liens internes</p>
+              <div className="border border-gray-200 rounded-lg p-5 bg-white">
+                <div className="flex items-center gap-2">
+                  <StatusIcon status={result.brokenLinks.broken.length === 0 ? 'good' : 'bad'} />
+                  <p className="text-sm text-gray-700">
+                    {result.brokenLinks.broken.length === 0
+                      ? `${result.brokenLinks.checked} liens vérifiés — aucun lien brisé`
+                      : `${result.brokenLinks.broken.length} liens brisés sur ${result.brokenLinks.checked} vérifiés`}
+                  </p>
+                </div>
+                {result.brokenLinks.broken.length > 0 && (
+                  <ul className="space-y-1.5 mt-3">
+                    {result.brokenLinks.broken.map((b) => (
+                      <li key={b.url} className="text-xs text-gray-500 flex items-center gap-2">
+                        <span className="font-mono text-red-500 shrink-0">{b.status}</span>
+                        <span className="truncate">{b.url}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          )}
+
+          {result.mixedContent && (
+            <div>
+              <p className="text-sm font-bold text-gray-900 mb-3">Contenu mixte</p>
+              <div className="border border-gray-200 rounded-lg p-5 bg-white">
+                <div className="flex items-center gap-2">
+                  <StatusIcon status={result.mixedContent.hasMixedContent ? 'bad' : 'good'} />
+                  <p className="text-sm text-gray-700">
+                    {result.mixedContent.hasMixedContent ? 'Contenu HTTP détecté sur ce site HTTPS' : 'Aucun contenu mixte détecté'}
+                  </p>
+                </div>
+                {result.mixedContent.hasMixedContent && (
+                  <ul className="space-y-1.5 mt-3">
+                    {result.mixedContent.examples.map((ex, i) => (
+                      <li key={i} className="text-xs text-gray-500 font-mono truncate">{ex}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </SectionCard>
@@ -885,6 +1059,24 @@ function buildSecurityRows(result: AuditResult): SecRow[] {
 
   return [
     { key: 'https', label: 'HTTPS', status: l ? (l.hasHTTPS ? 'good' : 'bad') : null, detail: l ? (l.hasHTTPS ? 'SSL actif' : 'Non sécurisé') : '—' },
+    {
+      key: 'redirects',
+      label: 'Redirections',
+      status: result.redirectChain ? redirectStatus(result.redirectChain.hops) : null,
+      detail: result.redirectChain
+        ? result.redirectChain.hops === 0
+          ? 'Aucune redirection'
+          : `${result.redirectChain.hops} redirection${result.redirectChain.hops > 1 ? 's' : ''}${result.redirectChain.hops === 1 ? ' (normal)' : ' — impact performance'}`
+        : '—',
+    },
+    {
+      key: 'w3c',
+      label: 'Validation HTML (W3C)',
+      status: result.w3c ? w3cStatus(result.w3c.grade) : null,
+      detail: result.w3c
+        ? `${result.w3c.errors} erreur${result.w3c.errors !== 1 ? 's' : ''}${result.w3c.warnings > 0 ? `, ${result.w3c.warnings} avertissement${result.w3c.warnings > 1 ? 's' : ''}` : ''}`
+        : 'Non disponible',
+    },
     {
       key: 'safebrowsing',
       label: 'Safe Browsing Google',
@@ -990,6 +1182,51 @@ function CarbonSection({ result }: { result: AuditResult }) {
               ? " Des images lourdes et des scripts nombreux augmentent l'empreinte carbone de chaque visite."
               : " C'est un bon score — votre site est relativement léger."}
           </p>
+        </div>
+      )}
+    </SectionCard>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// Google Business Profile
+// ─────────────────────────────────────────────────────────────────────────
+
+function GbpSection({ result }: { result: AuditResult }) {
+  const gbp = result.gbp;
+
+  return (
+    <SectionCard id="Google Business Profile" title="Google Business Profile">
+      {!gbp ? (
+        <p className="text-sm text-gray-500 border border-gray-200 rounded-lg p-5 bg-white">
+          Vérification indisponible pour ce site.
+        </p>
+      ) : gbp.places?.found ? (
+        <div className="border border-gray-200 rounded-lg p-6 bg-white space-y-2">
+          <p className="text-sm text-green-600 flex items-center gap-2">
+            <Check className="w-4 h-4" /> Fiche Google Business Profile détectée
+          </p>
+          <p className="text-sm text-gray-600">
+            {gbp.places.name}
+            {gbp.places.rating != null && ` — ${gbp.places.rating}★ (${gbp.places.reviewCount ?? 0} avis)`}
+          </p>
+        </div>
+      ) : (
+        <div className="border border-gray-200 rounded-lg p-6 bg-white space-y-2">
+          <div className="flex items-center gap-2 text-sm text-gray-700">
+            <StatusIcon status={gbp.signals.hasMapsLink ? 'good' : 'bad'} />
+            <span>{gbp.signals.hasMapsLink ? 'Lien Google Maps présent sur le site' : 'Aucun lien Google Maps détecté'}</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-gray-700">
+            <StatusIcon status={gbp.signals.hasLocalBusinessSchema ? 'good' : 'bad'} />
+            <span>{gbp.signals.hasLocalBusinessSchema ? 'Données structurées LocalBusiness présentes' : 'Données structurées LocalBusiness absentes'}</span>
+          </div>
+          {gbp.signals.confidence === 'none' && (
+            <p className="text-xs text-gray-400 pt-1">
+              Nous ne pouvons pas confirmer la présence d&apos;une fiche Google Business Profile sans l&apos;API Places.
+              Vérifiez directement sur maps.google.com.
+            </p>
+          )}
         </div>
       )}
     </SectionCard>
