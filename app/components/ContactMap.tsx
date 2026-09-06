@@ -15,7 +15,7 @@ const markerIcon = L.divIcon({
 
 export default function ContactMap() {
   return (
-    <div className="site-map h-72 md:h-80">
+    <div className="site-map h-44 md:h-52">
       <MapContainer
         center={POSITION}
         zoom={15}

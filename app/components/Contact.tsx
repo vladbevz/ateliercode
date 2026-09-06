@@ -7,7 +7,7 @@ import AnimateIn from './AnimateIn';
 
 const ContactMap = dynamic(() => import('./ContactMap'), {
   ssr: false,
-  loading: () => <div className="h-72 md:h-80 bg-gray-50 animate-pulse" />,
+  loading: () => <div className="h-44 md:h-52 bg-gray-50 animate-pulse" />,
 });
 
 export default function Contact() {
@@ -61,21 +61,21 @@ export default function Contact() {
 
   const contactMethods = [
     {
-      icon: <Mail className="w-5 h-5" />,
+      icon: <Mail className="w-4 h-4" />,
       title: 'Email',
       value: 'contact@ateliercode.fr',
       link: 'mailto:contact@ateliercode.fr',
       responseTime: 'Réponse sous 24h',
     },
     {
-      icon: <Phone className="w-5 h-5" />,
+      icon: <Phone className="w-4 h-4" />,
       title: 'Téléphone',
       value: '07 67 77 29 15',
       link: 'tel:+33767772915',
       responseTime: 'Disponible 9h–19h',
     },
     {
-      icon: <MessageCircle className="w-5 h-5" />,
+      icon: <MessageCircle className="w-4 h-4" />,
       title: 'WhatsApp',
       value: '07 67 77 29 15',
       link: 'https://wa.me/33767772915',
@@ -100,37 +100,37 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto">
 
           {/* Méthodes de contact + carte */}
-          <AnimateIn className="grid md:grid-cols-2 gap-6 mb-6" delay={150}>
-            <div className="flex flex-col gap-4">
+          <AnimateIn className="grid md:grid-cols-2 gap-4 mb-6" delay={150}>
+            <div className="flex flex-col gap-2.5">
               {contactMethods.map((method, index) => (
                 <a
                   key={index}
                   href={method.link}
-                  className="flex items-start gap-4 p-5 border border-gray-200 rounded-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200"
+                  className="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors duration-200"
                 >
-                  <span className="text-gray-900 shrink-0 mt-0.5">{method.icon}</span>
+                  <span className="text-gray-900 shrink-0">{method.icon}</span>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900">{method.title}</p>
-                    <p className="text-sm text-gray-500">{method.value}</p>
-                    <p className="text-xs text-gray-400 mt-1">{method.responseTime}</p>
+                    <p className="text-sm font-medium text-gray-900">{method.title}</p>
+                    <p className="text-xs text-gray-500">{method.value}</p>
                   </div>
+                  <span className="text-xs text-gray-400 shrink-0 hidden sm:block">{method.responseTime}</span>
                 </a>
               ))}
             </div>
 
             <div className="border border-gray-200 rounded-lg overflow-hidden flex flex-col">
               <ContactMap />
-              <div className="p-5 flex items-center gap-3 border-t border-gray-200 mt-auto">
-                <MapPin className="w-5 h-5 text-gray-400 shrink-0" />
+              <div className="p-3.5 flex items-center gap-2.5 border-t border-gray-200 mt-auto">
+                <MapPin className="w-4 h-4 text-gray-400 shrink-0" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-gray-900">AtelierCode</p>
-                  <p className="text-sm text-gray-500">19 rue Ménard, 30000 Nîmes</p>
+                  <p className="text-sm font-medium text-gray-900">AtelierCode</p>
+                  <p className="text-xs text-gray-500">19 rue Ménard, 30000 Nîmes</p>
                 </div>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=19+rue+M%C3%A9nard%2C+30000+N%C3%AEmes"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors shrink-0"
+                  className="text-xs text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors shrink-0"
                 >
                   Itinéraire
                 </a>
