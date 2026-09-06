@@ -106,9 +106,9 @@ export default function Contact() {
                 <a
                   key={index}
                   href={method.link}
-                  className="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors duration-200"
+                  className="contact-method flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors duration-200"
                 >
-                  <span className="text-gray-900 shrink-0">{method.icon}</span>
+                  <span className="contact-icon text-gray-900 shrink-0">{method.icon}</span>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900">{method.title}</p>
                     <p className="text-xs text-gray-500">{method.value}</p>
