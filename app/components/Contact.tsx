@@ -101,7 +101,7 @@ export default function Contact() {
 
           {/* Méthodes de contact + carte */}
           <AnimateIn className="grid md:grid-cols-2 gap-4 mb-6" delay={150}>
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col justify-between gap-2.5 h-full">
               {contactMethods.map((method, index) => (
                 <a
                   key={index}
