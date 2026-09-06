@@ -1,8 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Send, Mail, Phone, MessageCircle, Check, AlertCircle } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import { Send, Mail, Phone, MessageCircle, MapPin, Check, AlertCircle } from 'lucide-react';
 import AnimateIn from './AnimateIn';
+
+const ContactMap = dynamic(() => import('./ContactMap'), {
+  ssr: false,
+  loading: () => <div className="h-72 md:h-80 bg-gray-50 animate-pulse" />,
+});
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -232,6 +238,28 @@ export default function Contact() {
                 </p>
               </form>
             )}
+          </div>
+        </AnimateIn>
+
+        {/* Adresse & carte */}
+        <AnimateIn className="max-w-3xl mx-auto mt-6" delay={250}>
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
+            <ContactMap />
+            <div className="p-6 flex items-center gap-4 border-t border-gray-200">
+              <MapPin className="w-5 h-5 text-gray-400 shrink-0" />
+              <div className="flex-1 min-w-0">
+                <p className="font-medium text-gray-900">AtelierCode</p>
+                <p className="text-sm text-gray-500">19 rue Ménard, 30000 Nîmes</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=19+rue+M%C3%A9nard%2C+30000+N%C3%AEmes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors shrink-0"
+              >
+                Itinéraire
+              </a>
+            </div>
           </div>
         </AnimateIn>
 

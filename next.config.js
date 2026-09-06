@@ -1,10 +1,11 @@
 // script-src/connect-src/img-src also allow Google Analytics (gtag.js) and
 // Microsoft Clarity, both loaded from CookieBanner.tsx after consent.
+// img-src also allows CartoDB's free basemap tiles for the Contact page map.
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
+  "img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://*.basemaps.cartocdn.com",
   "font-src 'self' data:",
   "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms",
   "frame-ancestors 'none'",

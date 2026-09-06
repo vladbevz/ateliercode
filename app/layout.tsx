@@ -76,9 +76,16 @@ const jsonLd = [
     email: 'contact@ateliercode.fr',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '19 rue Ménard',
+      postalCode: '30000',
       addressLocality: 'Nîmes',
       addressRegion: 'Gard',
       addressCountry: 'FR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 43.8402392,
+      longitude: 4.3564017,
     },
     areaServed: [
       'Nîmes', 'Alès', 'Uzès', 'Bagnols-sur-Cèze', 'Beaucaire', 'Le Grau-du-Roi',
