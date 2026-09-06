@@ -97,23 +97,49 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Méthodes de contact */}
-        <AnimateIn className="flex flex-wrap justify-center gap-3 mb-12" delay={150}>
-          {contactMethods.map((method, index) => (
-            <a
-              key={index}
-              href={method.link}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 border border-gray-200 rounded-md text-sm font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 active:scale-[0.98] transition-all duration-150"
-            >
-              <span className="text-gray-500">{method.icon}</span>
-              <span>{method.title}</span>
-              <span className="text-gray-400 text-xs">{method.responseTime}</span>
-            </a>
-          ))}
-        </AnimateIn>
+        <div className="max-w-4xl mx-auto">
 
-        {/* Formulaire */}
-        <AnimateIn className="max-w-3xl mx-auto" delay={200}>
+          {/* Méthodes de contact + carte */}
+          <AnimateIn className="grid md:grid-cols-2 gap-6 mb-6" delay={150}>
+            <div className="flex flex-col gap-4">
+              {contactMethods.map((method, index) => (
+                <a
+                  key={index}
+                  href={method.link}
+                  className="flex items-start gap-4 p-5 border border-gray-200 rounded-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <span className="text-gray-900 shrink-0 mt-0.5">{method.icon}</span>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-gray-900">{method.title}</p>
+                    <p className="text-sm text-gray-500">{method.value}</p>
+                    <p className="text-xs text-gray-400 mt-1">{method.responseTime}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div className="border border-gray-200 rounded-lg overflow-hidden flex flex-col">
+              <ContactMap />
+              <div className="p-5 flex items-center gap-3 border-t border-gray-200 mt-auto">
+                <MapPin className="w-5 h-5 text-gray-400 shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium text-gray-900">AtelierCode</p>
+                  <p className="text-sm text-gray-500">19 rue Ménard, 30000 Nîmes</p>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=19+rue+M%C3%A9nard%2C+30000+N%C3%AEmes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors shrink-0"
+                >
+                  Itinéraire
+                </a>
+              </div>
+            </div>
+          </AnimateIn>
+
+          {/* Formulaire */}
+          <AnimateIn delay={200}>
           <div className="bg-white rounded-lg border border-gray-200 p-8">
             {isSubmitted ? (
               <div className="text-center py-12 animate-fade-in">
@@ -239,29 +265,9 @@ export default function Contact() {
               </form>
             )}
           </div>
-        </AnimateIn>
+          </AnimateIn>
 
-        {/* Adresse & carte */}
-        <AnimateIn className="max-w-3xl mx-auto mt-6" delay={250}>
-          <div className="border border-gray-200 rounded-lg overflow-hidden">
-            <ContactMap />
-            <div className="p-6 flex items-center gap-4 border-t border-gray-200">
-              <MapPin className="w-5 h-5 text-gray-400 shrink-0" />
-              <div className="flex-1 min-w-0">
-                <p className="font-medium text-gray-900">AtelierCode</p>
-                <p className="text-sm text-gray-500">19 rue Ménard, 30000 Nîmes</p>
-              </div>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=19+rue+M%C3%A9nard%2C+30000+N%C3%AEmes"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors shrink-0"
-              >
-                Itinéraire
-              </a>
-            </div>
-          </div>
-        </AnimateIn>
+        </div>
 
       </div>
     </section>

@@ -1,11 +1,13 @@
 // script-src/connect-src/img-src also allow Google Analytics (gtag.js) and
 // Microsoft Clarity, both loaded from CookieBanner.tsx after consent.
-// img-src also allows CartoDB's free basemap tiles for the Contact page map.
+// img-src also allows OpenStreetMap's free tile servers for the Contact
+// page map (CartoDB's free basemap tiles started requiring an API key —
+// they now watermark "API KEY REQUIRED" across unauthenticated requests).
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://*.basemaps.cartocdn.com",
+  "img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://*.tile.openstreetmap.org",
   "font-src 'self' data:",
   "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms",
   "frame-ancestors 'none'",
