@@ -131,7 +131,10 @@ export default function ApplicationWebNimesPage() {
           <AnimateIn className="text-center mt-12" delay={150}>
             <p className="text-gray-500 max-w-xl mx-auto mb-4">
               Vous avez un besoin qui ne figure pas dans cette liste ?
-              C&apos;est souvent le cas — et c&apos;est précisément pour ça qu&apos;on travaille sur mesure.
+              C&apos;est souvent le cas — et c&apos;est précisément pour ça qu&apos;on travaille sur mesure. Si vous cherchez plutôt un site vitrine ou une boutique en ligne, direction notre{' '}
+              <Link href="/agence-web-nimes" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+                agence web à Nîmes
+              </Link>.
             </p>
             <Link
               href="/contact"
