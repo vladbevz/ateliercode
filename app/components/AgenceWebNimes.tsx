@@ -9,6 +9,7 @@ import {
 import AnimateIn from './AnimateIn';
 import ProjectSlider from './ProjectSlider';
 import { villes as toutesLesVilles } from '../lib/villes-data';
+import { projects } from '../lib/projects-data';
 import { useFlipCard } from '../hooks/useFlipCard';
 
 export default function AgenceWebNimesContent() {
@@ -21,12 +22,6 @@ export default function AgenceWebNimesContent() {
       dept: `${v.departement} (${v.codePostal.slice(0, 2)})`,
       href: `/agence-web/${v.slug}`,
     })),
-  ];
-
-  const featuredProjects = [
-    { name: 'KFM Transport', category: 'Application web · Gestion de flotte', image: '/images/mockups/kfm-mockup.png' },
-    { name: 'Le 438', category: 'Restaurant · Vauvert', image: '/images/mockups/le438-mockup.webp' },
-    { name: 'Lymar Dermo Esthetic', category: 'Beauté · Saint-Georges', image: '/images/mockups/lymar-mockup.webp' },
   ];
 
   const plans = [
@@ -74,7 +69,7 @@ export default function AgenceWebNimesContent() {
               </p>
             </div>
 
-            <ProjectSlider projects={featuredProjects} />
+            <ProjectSlider projects={projects} />
           </div>
         </div>
       </div>

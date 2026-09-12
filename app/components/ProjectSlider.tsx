@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-export type SliderProject = { name: string; category: string; image: string };
+import type { SliderProject } from '../lib/projects-data';
 
 export default function ProjectSlider({ projects }: { projects: SliderProject[] }) {
   const [current, setCurrent] = useState(0);
