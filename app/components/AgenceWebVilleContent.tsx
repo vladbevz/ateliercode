@@ -26,14 +26,14 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
   const plans = [
     {
       name: 'Site Vitrine',
-      price: 'dès 499 €',
+      price: '499 €',
       pitch: 'Votre meilleur commercial — 24h/24.',
       features: ['4 à 6 pages sur mesure', 'SEO local optimisé', '1 mois de suivi', 'Livré en 7–10 jours'],
       dark: false,
     },
     {
       name: 'E-commerce',
-      price: 'dès 990 €',
+      price: '990 €',
       pitch: 'Vendez en ligne dès demain.',
       features: ['Boutique Stripe complète', 'Catalogue & gestion stock', 'SEO e-commerce', 'Livré en 2–4 semaines'],
       dark: true,
@@ -259,7 +259,9 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
                     {plan.name}
                   </p>
                   <p className={`text-sm mb-5 ${plan.dark ? 'text-gray-300' : 'text-gray-500'}`}>{plan.pitch}</p>
-                  <p className={`text-xs mb-1 ${plan.dark ? 'text-gray-500' : 'text-gray-400'}`}>à partir de</p>
+                  {plan.price !== 'Sur devis' && (
+                    <p className={`text-xs mb-1 ${plan.dark ? 'text-gray-500' : 'text-gray-400'}`}>à partir de</p>
+                  )}
                   <span className={`text-5xl font-black leading-none mb-1 ${plan.dark ? 'text-white' : 'text-gray-900'}`}>
                     {plan.price}
                   </span>
