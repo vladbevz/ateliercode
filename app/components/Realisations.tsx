@@ -14,6 +14,13 @@ export default function Realisations() {
       year: '2026',
     },
     {
+      title: 'Flocage Breo',
+      category: 'E-commerce · Configurateur 3D',
+      description: 'Configurateur 3D pour personnaliser un t-shirt avant commande',
+      image: '/images/mockups/breo-mockup.png',
+      year: '2026',
+    },
+    {
       title: 'Le 438',
       category: 'Restauration',
       description: 'Site vitrine avec menu interactif',
@@ -67,13 +74,6 @@ export default function Realisations() {
       category: 'Services',
       description: 'Site vitrine pour serrurier professionnel',
       image: '/images/mockups/vb-mockup.webp',
-      year: '2026',
-    },
-    {
-      title: 'Flocage Breo',
-      category: 'E-commerce · Configurateur 3D',
-      description: 'Configurateur 3D pour personnaliser un t-shirt avant commande',
-      image: '/images/mockups/breo-mockup.png',
       year: '2026',
     },
   ];
