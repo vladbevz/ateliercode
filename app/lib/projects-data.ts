@@ -10,4 +10,5 @@ export const projects: SliderProject[] = [
   { name: 'Entreprise de Rénovation', category: 'Rénovation', image: '/images/mockups/gr-mockup.webp' },
   { name: 'Serrurier Nîmes', category: 'Services', image: '/images/mockups/vb-mockup.webp' },
   { name: 'Chocolatier', category: 'E-commerce', image: '/images/mockups/choc-mockup.webp' },
+  { name: 'Flocage Breo', category: 'E-commerce · Configurateur 3D', image: '/images/mockups/breo-mockup.png' },
 ];
