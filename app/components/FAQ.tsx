@@ -96,6 +96,22 @@ export default function FAQ() {
     question: 'Que se passe-t-il si le résultat ne me convient pas ?',
     answer: "Deux rondes de corrections sont incluses dans chaque forfait. Si après ça le résultat ne vous convient toujours pas, on en discute directement — mon objectif est que vous soyez satisfait à la livraison.",
   },
+  {
+    question: 'Travaillez-vous avec WordPress ou Elementor ?',
+    answer: "Non, je ne développe pas sous WordPress ni Elementor. Je construis chaque site en React/Next.js — un code sur-mesure sans thème ni plugins, ce qui donne un site nettement plus rapide et sans les frais de maintenance récurrents d'un CMS classique. Le détail des raisons est expliqué dans [cet article](/blog/pourquoi-wordpress-ralentit-votre-site).",
+  },
+  {
+    question: 'Utilisez-vous des outils no-code (Webflow, Bubble) ?',
+    answer: "Non, tout est développé en code sur-mesure (React/Next.js), pas avec un outil no-code. C'est plus de travail au départ, mais ça donne un site plus rapide, sans limites de personnalisation et sans dépendance à une plateforme tierce — un vrai avantage pour le référencement Google.",
+  },
+  {
+    question: 'Proposez-vous des boutiques Magento ?',
+    answer: "Non, je ne travaille pas avec Magento — trop lourd et coûteux à maintenir pour la plupart des TPE/PME. Pour l'e-commerce, je construis des boutiques sur-mesure en Next.js avec paiement Stripe : plus rapides, plus simples à gérer, et sans les frais d'hébergement et de maintenance qu'exige Magento. Voir le forfait [E-commerce](/tarifs).",
+  },
+  {
+    question: 'Développez-vous des applications mobiles natives (iOS/Android) ?',
+    answer: "Pas d'application native publiée sur l'App Store ou le Play Store. Je développe des applications web accessibles depuis un navigateur, sur mobile comme sur ordinateur — souvent suffisant, et plus rapide et moins cher à faire évoluer qu'une app native. Voir la page [Application web sur mesure](/application-web-nimes).",
+  },
 ];
 
   const filteredFaqs = faqs.filter(

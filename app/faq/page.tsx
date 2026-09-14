@@ -84,6 +84,38 @@ const faqSchema = {
         text: 'Paiement 50% à la commande, 50% à la livraison. Virement bancaire, PayPal ou carte bancaire (via Stripe). Pas de TVA (micro-entreprise, article 293 B du CGI). Facture détaillée fournie.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'Travaillez-vous avec WordPress ou Elementor ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Non, je ne développe pas sous WordPress ni Elementor. Je construis chaque site en React/Next.js — un code sur-mesure sans thème ni plugins, ce qui donne un site nettement plus rapide et sans les frais de maintenance récurrents d'un CMS classique.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Utilisez-vous des outils no-code (Webflow, Bubble) ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Non, tout est développé en code sur-mesure (React/Next.js), pas avec un outil no-code. C'est plus rapide, sans limites de personnalisation et sans dépendance à une plateforme tierce — un vrai avantage pour le référencement Google.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Proposez-vous des boutiques Magento ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Non, je ne travaille pas avec Magento — trop lourd et coûteux à maintenir pour la plupart des TPE/PME. Pour l'e-commerce, je construis des boutiques sur-mesure en Next.js avec paiement Stripe : plus rapides et plus simples à gérer.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Développez-vous des applications mobiles natives (iOS/Android) ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Pas d'application native publiée sur l'App Store ou le Play Store. Je développe des applications web accessibles depuis un navigateur, sur mobile comme sur ordinateur — souvent suffisant, et plus rapide et moins cher à faire évoluer.",
+      },
+    },
   ],
 };
 

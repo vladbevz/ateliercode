@@ -13,7 +13,8 @@
     {
       "heading": "WordPress, c'est quoi concrètement ?",
       "paragraphs": [
-        "WordPress est un CMS (système de gestion de contenu) créé en 2003. Il propulse aujourd'hui environ 43 % des sites web dans le monde — ce qui en fait la plateforme la plus utilisée sur internet. Mais \"le plus utilisé\" ne veut pas dire \"le meilleur pour votre cas\". Et surtout pas \"le plus rapide\"."
+        "WordPress est un CMS (système de gestion de contenu) créé en 2003. Il propulse aujourd'hui environ 43 % des sites web dans le monde — ce qui en fait la plateforme la plus utilisée sur internet. Mais \"le plus utilisé\" ne veut pas dire \"le meilleur pour votre cas\". Et surtout pas \"le plus rapide\".",
+        "La plupart des agences construisent ces sites avec Elementor, l'éditeur visuel le plus répandu sur WordPress. Pratique pour glisser-déposer des blocs, mais chaque section ajoutée charge son propre code CSS/JS — c'est l'une des principales causes de lenteur sur les sites Elementor que je vois passer."
       ]
     },
     {
