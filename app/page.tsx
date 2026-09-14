@@ -3,16 +3,16 @@ import Hero from './components/Hero';
 import ProcessSection from './components/ProcessSection';
 
 export const metadata: Metadata = {
-  title: 'AtelierCode — Développeur web freelance à Nîmes (React/Next.js)',
+  title: 'AtelierCode — Sites web & Applications à Nîmes',
   description:
-    'Sites vitrine, e-commerce et applications sur mesure, développés en React/Next.js à Nîmes. 5× plus rapide que WordPress. Devis gratuit, maquette offerte.',
+    'AtelierCode crée des sites vitrine, e-commerce et applications sur mesure à Nîmes et en Occitanie. Rapide, visible sur Google. Devis gratuit, maquette offerte.',
   alternates: {
     canonical: 'https://www.ateliercode.fr',
   },
   openGraph: {
-    title: 'AtelierCode — Développeur web freelance à Nîmes (React/Next.js)',
+    title: 'AtelierCode — Sites web & Applications à Nîmes',
     description:
-      'Sites vitrine, e-commerce et applications sur mesure, développés en React/Next.js à Nîmes. 5× plus rapide que WordPress. Devis gratuit, maquette offerte.',
+      'AtelierCode crée des sites vitrine, e-commerce et applications sur mesure à Nîmes et en Occitanie. Rapide, visible sur Google. Devis gratuit, maquette offerte.',
     url: 'https://www.ateliercode.fr',
   },
 };
