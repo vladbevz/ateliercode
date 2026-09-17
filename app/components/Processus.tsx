@@ -147,7 +147,7 @@ export default function Processus() {
               { title: 'Délais tenus', desc: 'Un planning clair et respecté, pas de développement sans fin', icon: <Clock className="w-6 h-6" /> },
               { title: 'Vous restez maître', desc: 'Vous comprenez chaque étape et gardez le contrôle', icon: <Compass className="w-6 h-6" /> },
             ].map((item, idx) => (
-              <div key={idx} className="p-6 bg-white rounded-lg border-2 border-gray-200 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200">
+              <div key={idx} className="p-6 bg-white rounded-lg border-2 border-gray-200 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-center text-center">
                 <div className="p-3 rounded-md bg-gray-100 text-gray-600 inline-flex mb-4">
                   {item.icon}
                 </div>
