@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle2, Search, Palette, Code2, Rocket } from 'lucide-react';
+import { CheckCircle2, Search, Palette, Code2, Rocket, ShieldCheck, Clock, Compass } from 'lucide-react';
 import Link from 'next/link';
 import AnimateIn from './AnimateIn';
 
@@ -143,11 +143,14 @@ export default function Processus() {
           </h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { title: 'Pas de mauvaise surprise', desc: 'Chaque étape est validée avec vous avant de passer à la suivante' },
-              { title: 'Délais tenus', desc: 'Un planning clair et respecté, pas de développement sans fin' },
-              { title: 'Vous restez maître', desc: 'Vous comprenez chaque étape et gardez le contrôle' },
+              { title: 'Pas de mauvaise surprise', desc: 'Chaque étape est validée avec vous avant de passer à la suivante', icon: <ShieldCheck className="w-6 h-6" /> },
+              { title: 'Délais tenus', desc: 'Un planning clair et respecté, pas de développement sans fin', icon: <Clock className="w-6 h-6" /> },
+              { title: 'Vous restez maître', desc: 'Vous comprenez chaque étape et gardez le contrôle', icon: <Compass className="w-6 h-6" /> },
             ].map((item, idx) => (
-              <div key={idx} className="p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200">
+              <div key={idx} className="p-6 bg-white rounded-lg border-2 border-gray-200 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-200">
+                <div className="p-3 rounded-md bg-gray-100 text-gray-600 inline-flex mb-4">
+                  {item.icon}
+                </div>
                 <h4 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
               </div>
