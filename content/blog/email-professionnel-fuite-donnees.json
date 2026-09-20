@@ -1,0 +1,50 @@
+{
+  "slug": "email-professionnel-fuite-donnees",
+  "title": "Votre adresse e-mail professionnelle a peut-être déjà été volée — et vous ne le savez pas.",
+  "date": "2026-09-20",
+  "excerpt": "Des milliards de comptes compromis circulent sur le dark web, souvent sans que les victimes le sachent. Voici comment vérifier en deux minutes si votre adresse professionnelle est concernée — et quoi faire si c'est le cas.",
+  "category": "Sécurité web",
+  "sections": [
+    {
+      "paragraphs": [
+        "Il y a quelques semaines, je suis tombé sur un article de Service-Public sur les fuites de données personnelles. En tant que développeur, j'ai réagi immédiatement — pas parce que c'est une nouveauté, mais parce que je sais exactement à quel point ce problème est sous-estimé par les professionnels indépendants et les petites entreprises.",
+        "Voici ce qui arrive régulièrement : une plateforme que vous avez utilisée — un service de newsletter, un outil de gestion, un site e-commerce, une application — se fait pirater. Vos données, dont votre adresse e-mail et votre mot de passe, se retrouvent dans une base de données vendue sur le dark web. Vous n'êtes jamais averti. La plateforme minimise l'incident. Et vous continuez à utiliser le même mot de passe partout."
+      ]
+    },
+    {
+      "heading": "Ce que ça change pour vous en tant que professionnel",
+      "paragraphs": [
+        "Pour un particulier, une fuite de données c'est une nuisance. Pour un professionnel, c'est potentiellement une catastrophe.",
+        "Votre adresse e-mail professionnelle est la clé de votre activité. Elle donne accès à votre outil de facturation, votre espace client, votre hébergeur, votre nom de domaine, vos réseaux sociaux professionnels. Si quelqu'un met la main dessus avec le bon mot de passe, il peut prendre le contrôle de votre présence en ligne en quelques minutes — et vous couper l'accès à tout le reste.",
+        "Ce n'est pas une hypothèse. C'est ce qui arrive à des centaines d'entreprises chaque semaine, souvent des TPE qui n'ont pas les ressources pour réagir rapidement."
+      ]
+    },
+    {
+      "heading": "Comment vérifier en deux minutes",
+      "paragraphs": [
+        "Il existe un outil gratuit, fiable et utilisé par les professionnels de la sécurité du monde entier : Have I Been Pwned (haveibeenpwned.com).",
+        "Vous entrez votre adresse e-mail. En quelques secondes, le site vous indique si elle apparaît dans une fuite de données connue, quelle plateforme était concernée, et à quelle date. L'outil recense à ce jour plus de 14 milliards de comptes compromis issus de centaines de fuites documentées.",
+        "Si votre adresse apparaît : ne paniquez pas, mais agissez. Changez immédiatement le mot de passe du service concerné, et vérifiez si vous utilisez ce même mot de passe ailleurs. Si c'est le cas, changez-le partout."
+      ]
+    },
+    {
+      "heading": "Les trois erreurs les plus courantes",
+      "paragraphs": [
+        "Trois habitudes reviennent presque à chaque fois :"
+      ],
+      "list": [
+        "Utiliser le même mot de passe partout — c'est la principale raison pour laquelle une fuite sur un site mineur peut compromettre votre compte bancaire ou votre espace hébergeur. Un mot de passe différent par service est la règle de base, et un gestionnaire de mots de passe comme Bitwarden (gratuit) rend ça simple.",
+        "Ne jamais activer la double authentification — la 2FA (code envoyé par SMS ou via une application) est la deuxième ligne de défense si votre mot de passe est compromis. Activez-la sur votre messagerie, votre hébergeur, votre outil de facturation, vos réseaux sociaux.",
+        "Négliger les adresses secondaires — vous avez peut-être une vieille adresse Gmail utilisée pour des inscriptions diverses. Si elle apparaît dans une fuite, vérifiez qu'elle n'est pas liée à des services professionnels que vous utilisez encore."
+      ]
+    },
+    {
+      "heading": "Et votre site web dans tout ça ?",
+      "paragraphs": [
+        "Un site bien développé ne stocke pas de mots de passe en clair, force le HTTPS sur toutes les pages, et ne conserve pas de données sensibles sans raison. C'est une des raisons pour lesquelles nous développons nos sites sans plugin tiers fragile et avec des pratiques de sécurité intégrées dès le départ — pas rajoutées après coup.",
+        "Si vous avez un doute sur la sécurité de votre site ou de votre infrastructure digitale, [on peut en discuter](/contact). C'est gratuit et ça prend quinze minutes.",
+        "Commencez par vérifier votre adresse e-mail sur [haveibeenpwned.com](https://haveibeenpwned.com). Ça prend deux minutes — et vous serez peut-être surpris du résultat."
+      ]
+    }
+  ]
+}
