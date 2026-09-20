@@ -83,6 +83,9 @@ export default function Tarifs() {
           <p className="text-xl text-gray-500 max-w-xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
             Un site web n&apos;est pas une dépense — c&apos;est un investissement qui se rembourse dès les premiers clients.
           </p>
+          <p className="text-sm text-gray-400 max-w-xl mx-auto mt-4 animate-fade-up" style={{ animationDelay: '150ms' }}>
+            Prix fixes, sans surprise, pour les artisans, commerçants et professionnels de Nîmes et du Gard — le même tarif que vous soyez à Nîmes, Alès ou Montpellier.
+          </p>
         </div>
 
         {/* Cards */}

@@ -60,7 +60,7 @@ export default function AgenceWebNimesContent() {
                 Agence web à Nîmes — qualité pro, prix accessible.
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
-                Les petites entreprises méritent un site web{' '}
+                La création de site internet à Nîmes ne devrait pas être compliquée. Les petites entreprises méritent un site web{' '}
                 <span className="text-gray-900 font-semibold">aussi performant que les grandes</span>.
                 Dès 499 €, livré en une semaine — sans compromis sur la qualité.
               </p>
