@@ -1,0 +1,63 @@
+{
+  "slug": "seo-plus-important-que-design",
+  "title": "Votre site est beau. Vos concurrents, eux, sont sur Google.",
+  "date": "2026-09-27",
+  "excerpt": "Un site web a deux existences qui n'ont presque rien en commun : celle que vous voyez, et celle que Google voit. Voici pourquoi le design ne sert à rien si personne ne trouve votre site.",
+  "category": "SEO & visibilité",
+  "sections": [
+    {
+      "paragraphs": [
+        "Un site web a deux existences qui n'ont presque rien en commun : celle que vous voyez, et celle que Google voit."
+      ]
+    },
+    {
+      "heading": "Deux publics, deux lectures du même site",
+      "paragraphs": [
+        "Un site web est jugé par deux types de lecteurs qui n'ont presque rien en commun.",
+        "Les humains voient une interface. Couleurs, typographie, photos, équilibre de la mise en page. Leur cerveau fait une évaluation en quelques secondes : est-ce professionnel ? Est-ce cohérent avec ce que je cherche ? Le jugement est largement visuel, et il est légitime — un site négligé envoie un signal sur l'attention portée au travail.",
+        "Google, lui, ne voit pas d'interface. Il parcourt un document. Des balises HTML, du texte brut, des métadonnées. Il enregistre combien de temps votre serveur met à répondre, combien d'autres sites pointent vers le vôtre, si les gens qui arrivent restent ou repartent immédiatement. Votre logo, vos photos et votre palette de couleurs sont invisibles pour lui. Ce qui existe, c'est le texte, la structure, la vitesse.",
+        "Ce décalage explique presque tous les sites « beaux mais introuvables »."
+      ]
+    },
+    {
+      "heading": "La vitesse, facteur invisible",
+      "paragraphs": [
+        "On pense à Google comme à une bibliothèque — ce qui compte, c'est que l'information soit là. Mais depuis 2021 et l'intégration des Core Web Vitals dans l'algorithme, Google se soucie aussi de comment cette information se charge. Un site qui met plus de trois secondes à apparaître sur mobile est pénalisé dans les résultats — indépendamment de son contenu. Et les visiteurs qui arrivent malgré tout : plus d'un sur deux quitte la page avant qu'elle soit affichée. Ils ne voient ni votre design, ni votre offre.",
+        "Les bibliothèques animées, les images haute résolution non optimisées, les effets d'entrée sur chaque section — tout ça coûte du temps de chargement. Ce n'est pas interdit. Mais ça se paie en classement et en taux de rebond."
+      ]
+    },
+    {
+      "heading": "La question des mots",
+      "paragraphs": [
+        "Pas au sens de la rédaction littéraire — au sens littéral : quels mots utilisez-vous sur vos pages ?",
+        "Un plombier qui écrit « nous intervenons rapidement dans toute la région » n'apparaîtra pas quand quelqu'un cherche « plombier urgence Nîmes ». Ce n'est pas que Google ne comprend pas — c'est qu'il compare une requête à un corpus de texte. Si les mots d'une requête ne sont pas dans ce texte, la page n'est pas candidate pour cette requête.",
+        "Les synonymes, les formulations qui sonnent mieux, les tournures élégantes ont leur place une fois qu'on a résolu le problème de base : les termes précis que vos clients tapent sur leur téléphone à 23h — « dépannage chaudière Nîmes », « comptable micro-entrepreneur Gard », « électricien urgence 30 » — doivent apparaître explicitement quelque part sur votre site."
+      ]
+    },
+    {
+      "heading": "La crédibilité se construit en dehors de vous",
+      "paragraphs": [
+        "Google mesure ce qu'on appelle les liens entrants : combien d'autres sites font référence au vôtre, et lesquels. Un site sans aucun lien entrant est traité comme un inconnu — il existe, mais personne ne le connaît encore. Être listé dans des annuaires locaux sérieux, mentionné par des partenaires, référencé dans des plateformes professionnelles : ça construit progressivement une présence que Google commence à considérer comme légitime.",
+        "C'est un travail lent. Ça ne se fait pas en un weekend. Mais c'est cumulatif — et une fois en place, ça travaille en continu, sans que vous ayez à faire quoi que ce soit."
+      ]
+    },
+    {
+      "heading": "Ce que ça change pour le design",
+      "paragraphs": [
+        "Le design n'est pas inutile dans tout ça. Mais son rôle est précis : convertir les gens qui sont déjà là.",
+        "Quelqu'un arrive sur votre site via Google — il a cherché, il a cliqué, il vous a trouvé. Maintenant il vous évalue. Un site professionnel, clair, rapide à comprendre, avec une information de contact évidente : il décroche son téléphone. Un site confus, surchargé, qui lui demande de chercher comment vous contacter : il repart.",
+        "C'est là que le design fait la différence. Pas pour être trouvé — pour convertir quelqu'un qui a déjà été convaincu de cliquer.",
+        "L'erreur de priorité est de traiter les deux comme équivalents, ou d'investir d'abord dans ce qui se voit parce que c'est plus facile à évaluer et à montrer autour de soi. J'ai vu des sites sobres, construits proprement, avec un contenu structuré et un travail SEO sérieux, surclasser des sites très travaillés visuellement qui avaient coûté trois fois plus cher. La différence n'était pas le budget — c'était dans quoi le budget avait été mis."
+      ]
+    },
+    {
+      "heading": "Avant de parler couleurs",
+      "paragraphs": [
+        "Si vous créez ou refaites votre site, quelques questions à poser avant de choisir la palette :",
+        "Quel sera le temps de chargement sur mobile ? Comment sera configuré le référencement technique dès le départ ? Sur quels mots-clés cherchez-vous à apparaître dans six mois, et ces mots seront-ils réellement dans le contenu de vos pages ?",
+        "Un site web est d'abord un outil commercial. La beauté vient ensuite — elle sert à convertir les gens qui ont déjà été convaincus de cliquer.",
+        "Vous voulez savoir où en est votre site aujourd'hui ? Testez-le gratuitement sur [ateliercode.fr/audit](/audit) — vitesse, SEO, sécurité, résultat en 30 secondes."
+      ]
+    }
+  ]
+}
