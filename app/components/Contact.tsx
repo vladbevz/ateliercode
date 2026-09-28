@@ -72,7 +72,7 @@ export default function Contact() {
       title: 'Téléphone',
       value: '07 67 77 29 15',
       link: 'tel:+33767772915',
-      responseTime: 'Disponible 9h–19h',
+      responseTime: 'Disponible 9h–18h',
     },
     {
       icon: <MessageCircle className="w-4 h-4" />,
