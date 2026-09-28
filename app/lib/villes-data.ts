@@ -71,7 +71,7 @@ export const villes: VilleData[] = [
     contenuUnique: [
       'Beaucaire occupe une position stratégique aux portes de la Camargue, en face de Tarascon, à la frontière entre le Gard et les Bouches-du-Rhône. La ville est connue pour son histoire commerciale — ses foires médiévales en faisaient l\'une des places marchandes les plus importantes d\'Europe — et cette tradition entrepreneuriale persiste dans un tissu local actif.',
       'La zone commerciale de Beaucaire concentre de nombreux commerçants et artisans qui cherchent à toucher une clientèle qui dépasse les frontières du Gard. Un site e-commerce ou un site vitrine bien référencé permet d\'atteindre des clients de Tarascon, Arles ou Saint-Rémy sans frais supplémentaires.',
-      'Beaucaire se trouve à 25 km de Nîmes, facilement accessible via la N113. Je peux me déplacer pour les rendez-vous si nécessaire.',
+      'Beaucaire se trouve à 25 km de Nîmes, facilement accessible via la D999. Je peux me déplacer pour les rendez-vous si nécessaire.',
     ],
   },
   {
@@ -116,7 +116,7 @@ export const villes: VilleData[] = [
     contenuUnique: [
       'Saint-Gilles est une commune gardoise à la porte de la Camargue, connue pour son abbatiale classée au patrimoine mondial de l\'UNESCO et pour son marché agricole actif. Carrefour entre Nîmes, Arles et le littoral, la ville bénéficie d\'une position géographique qui lui permet d\'attirer une clientèle venue de plusieurs directions.',
       'Le tissu économique local mêle agriculture, artisanat, commerces de proximité et petites entreprises de services. Des secteurs qui ont souvent en commun une même problématique : être visible sur Google pour les recherches locales, sans avoir le budget des grandes agences.',
-      'Saint-Gilles se trouve à 20 km de Nîmes, facilement accessible via la N572. Je peux intervenir en présentiel ou à distance selon vos préférences.',
+      'Saint-Gilles se trouve à 20 km de Nîmes, facilement accessible via la D42. Je peux intervenir en présentiel ou à distance selon vos préférences.',
     ],
   },
   {
@@ -156,4 +156,20 @@ export const villes: VilleData[] = [
 
 export function getVilleBySlug(slug: string): VilleData | undefined {
   return villes.find((v) => v.slug === slug);
+}
+
+/** Villes dont le nom commence par une voyelle : "de" s'élide en "d'". */
+const VILLES_AVEC_ELISION = new Set(['Alès', 'Uzès', 'Avignon']);
+
+/** "de" + nom de ville, avec élision ("d'Avignon") ou contraction ("du Grau-du-Roi") si nécessaire. */
+export function avecDe(ville: VilleData): string {
+  if (ville.nom === 'Le Grau-du-Roi') return 'du Grau-du-Roi';
+  if (VILLES_AVEC_ELISION.has(ville.nom)) return `d'${ville.nom}`;
+  return `de ${ville.nom}`;
+}
+
+/** "à" + nom de ville, avec contraction ("au Grau-du-Roi") si nécessaire. */
+export function avecA(ville: VilleData): string {
+  if (ville.nom === 'Le Grau-du-Roi') return 'au Grau-du-Roi';
+  return `à ${ville.nom}`;
 }

@@ -10,7 +10,7 @@ import {
 import AnimateIn from './AnimateIn';
 import ProjectSlider from './ProjectSlider';
 import type { VilleData } from '../lib/villes-data';
-import { villes as toutesLesVilles } from '../lib/villes-data';
+import { villes as toutesLesVilles, avecDe, avecA } from '../lib/villes-data';
 import { projects } from '../lib/projects-data';
 import { useFlipCard } from '../hooks/useFlipCard';
 
@@ -57,7 +57,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5 animate-fade-up">
-                Agence web à {ville.nom} — qualité pro, prix accessible.
+                Agence web {avecA(ville)} — qualité pro, prix accessible.
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
                 Les petites entreprises méritent un site web{' '}
@@ -122,7 +122,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
           <AnimateIn className="text-center mb-14">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Pour qui ?</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Fait pour les petites entreprises de {ville.nom}.
+              Fait pour les petites entreprises {avecDe(ville)}.
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
               Artisans, commerçants, professions libérales, TPE — votre activité mérite une présence en ligne qui travaille pour vous.
@@ -183,7 +183,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
             <div className="mb-10">
               <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Agence locale</p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                Pourquoi choisir une agence web locale à {ville.nom} ?
+                Pourquoi choisir une agence web locale {avecA(ville)} ?
               </h2>
             </div>
 
@@ -348,7 +348,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
           <AnimateIn className="text-center mb-10">
             <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Zone d&apos;intervention</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Basé à Nîmes, actif à {ville.nom}.
+              Basé à Nîmes, actif {avecA(ville)}.
             </h2>
             <p className="text-lg text-gray-500 max-w-xl mx-auto mt-4">
               {ville.nom} se trouve à {ville.distanceKm} km de Nîmes ({ville.dureeTrajet}). J&apos;interviens aussi dans le reste du Gard et l&apos;Occitanie — en présentiel ou à distance selon vos préférences.
@@ -379,7 +379,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
               Parlons de votre projet
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
-              Votre site à {ville.nom}, dès la semaine prochaine.
+              Votre site {avecA(ville)}, dès la semaine prochaine.
             </h2>
             <p className="text-lg text-gray-500 max-w-xl mx-auto mb-10">
               Devis gratuit sous 24h. Aucun engagement avant que vous soyez convaincu.
