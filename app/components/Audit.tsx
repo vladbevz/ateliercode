@@ -469,7 +469,47 @@ export default function Audit() {
                 >
                   Analyser mon site
                 </button>
+                <p className="text-xs text-gray-400">
+                  Gratuit, sans inscription — résultat en moins d&apos;une minute.
+                </p>
               </form>
+            )}
+
+            {status === 'idle' && (
+              <div className="mt-16 pt-12 border-t border-gray-200 text-left">
+                <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">
+                  Ce que l&apos;audit vérifie
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Vitesse & performance</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Est-ce que votre site charge assez vite sur mobile ? Un site lent fait fuir les visiteurs et pénalise votre position sur Google.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Référencement (SEO)</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Vos titres, descriptions et la structure de vos pages sont-ils construits pour apparaître dans les résultats de recherche ?
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Sécurité</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Votre site protège-t-il correctement les échanges avec vos visiteurs (HTTPS, en-têtes de sécurité, DNS) ?
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Mobile & présence locale</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Votre site est-il bien adapté aux smartphones, et relié à votre fiche Google Business Profile ?
+                    </p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed mt-8 text-center">
+                  Chaque résultat est expliqué en langage clair, avec ce qui va bien et ce qui mérite d&apos;être corrigé — pas juste une note sur 100 sans contexte.
+                </p>
+              </div>
             )}
 
             {status === 'loading' && (
