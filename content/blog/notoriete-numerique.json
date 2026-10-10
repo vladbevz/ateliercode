@@ -1,0 +1,57 @@
+{
+  "slug": "notoriete-numerique",
+  "title": "Notoriété numérique : ce que Google sait sur vous en dehors de votre site",
+  "date": "2026-10-10",
+  "excerpt": "Google ne vous juge pas seulement sur votre site — il cherche ce que le reste du web dit de vous. Voici ce qui compte vraiment dans la notoriété numérique, et dans quel ordre le construire.",
+  "category": "SEO & visibilité",
+  "sections": [
+    {
+      "paragraphs": [
+        "La notoriété numérique n'est pas une question d'abonnés.",
+        "La plupart des gens associent ce terme à la visibilité sur les réseaux sociaux — le nombre de followers, les likes, les partages. C'est une confusion compréhensible, mais elle mène à investir au mauvais endroit.",
+        "Pour Google, la notoriété numérique est quelque chose de plus précis : la somme des signaux externes qui attestent que vous existez, que vous êtes qui vous dites être, et que d'autres sources que vous-même vous considèrent comme légitime."
+      ]
+    },
+    {
+      "heading": "Ce que Google cherche à mesurer",
+      "paragraphs": [
+        "L'algorithme de Google repose sur un principe simple : un résultat fiable doit être corroboré par des sources indépendantes. Quand il évalue votre site, il ne se contente pas de lire ce que vous dites de vous-même. Il cherche ce que le reste du web dit de vous.",
+        "Un électricien dans le Gard qui apparaît sur PagesJaunes, dans l'annuaire de sa chambre de métiers, avec un profil Google Business Profile complet et une trentaine d'avis — Google a de nombreux signaux pour conclure que cet électricien existe, qu'il est actif, et qu'il sert la région qu'il prétend servir.",
+        "Un autre électricien avec un site plus soigné mais absent de ces sources n'a aucun de ces signaux. Google doit lui faire confiance sur parole. Et Google ne fonctionne pas sur la confiance — il fonctionne sur la corroboration."
+      ]
+    },
+    {
+      "heading": "Les composantes concrètes",
+      "paragraphs": [
+        "Les citations locales. C'est le fondement. Votre nom, adresse et numéro de téléphone doivent apparaître de manière cohérente sur les principaux annuaires et répertoires : PagesJaunes, Mappy, les plateformes sectorielles, l'annuaire de votre chambre professionnelle. Chaque occurrence est un signal. Les incohérences — un numéro différent ici et là, une adresse abrégée différemment d'un site à l'autre — affaiblissent ce signal au lieu de le renforcer.",
+        "Le profil Google Business Profile. C'est votre fiche dans Google Maps et dans les résultats locaux. Une fiche complète — catégorie précise, horaires, photos récentes, description, attributs pertinents — est l'un des facteurs de visibilité locale les plus directs. Les avis qui s'y accumulent amplifient l'effet.",
+        "Les liens entrants. Quand un autre site fait un lien vers le vôtre, c'est une forme de recommandation que Google prend en compte. La qualité compte davantage que la quantité : un lien depuis le site de la CCI de votre département vaut bien plus que dix liens depuis des annuaires génériques de basse qualité. Un article qui vous cite, une interview locale, une mention dans la presse régionale — ce sont des liens qui construisent la notoriété durablement, parce qu'ils viennent de sources indépendantes et établies.",
+        "Le contenu qui établit l'expertise. Des articles de blog, des guides pratiques, des réponses aux questions que vos clients posent vraiment — tout contenu qui fait référence dans votre secteur contribue à votre notoriété. Google associe progressivement votre site à un domaine de compétence, et d'autres sites commencent à vous citer. C'est un cercle vertueux qui se met en place lentement, mais qui finit par fonctionner sans effort supplémentaire de votre part."
+      ]
+    },
+    {
+      "heading": "Ce que les réseaux sociaux apportent — et ce qu'ils n'apportent pas",
+      "paragraphs": [
+        "Les réseaux sociaux ont une place dans la notoriété numérique, mais elle est plus indirecte qu'on ne le pense. Google n'indexe pas les likes ni les abonnés. Ce qu'il peut détecter : si vos profils sociaux existent et sont cohérents avec votre identité professionnelle, si du contenu que vous publiez génère des partages et des liens vers votre site, si des gens cherchent votre nom sur Google après vous avoir découvert ailleurs.",
+        "Autrement dit : les réseaux ne construisent pas votre notoriété numérique par eux-mêmes, mais ils peuvent l'amplifier si le reste est déjà en place."
+      ]
+    },
+    {
+      "heading": "L'ordre des priorités",
+      "paragraphs": [
+        "Pour une activité locale — artisan, commerce, profession libérale — l'ordre efficace est le suivant.",
+        "D'abord, les fondations : profil Google Business Profile complet, présence dans les principaux annuaires locaux et sectoriels, cohérence des informations partout où vous apparaissez.",
+        "Ensuite, la réputation active : accumuler des avis Google authentiques, être mentionné sur des sites locaux — associations, partenaires, presse régionale —, chercher des liens entrants depuis des sources pertinentes dans votre secteur ou votre territoire.",
+        "Enfin, le contenu : articles, guides, réponses aux questions de vos clients. Ce qui établit progressivement votre expertise sur des requêtes que vous n'auriez pas ciblées autrement.",
+        "Les réseaux viennent en support de tout ça, pas à sa place."
+      ]
+    },
+    {
+      "paragraphs": [
+        "La notoriété numérique se construit lentement. C'est précisément ce qui en fait un avantage durable : une fois construite, elle est difficile à copier. Un concurrent qui lance un beau site aujourd'hui ne peut pas reproduire en quelques semaines trois ans de présence cohérente, d'avis accumulés et de mentions externes.",
+        "C'est le type d'investissement qui prend du temps à démarrer — et qui continue à travailler sans que vous ayez à intervenir.",
+        "Vous voulez savoir où en est votre présence en ligne aujourd'hui ? Testez votre site gratuitement sur [ateliercode.fr/audit](/audit)."
+      ]
+    }
+  ]
+}
