@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.ateliercode.fr'),
   title: {
-    default: 'AtelierCode — Sites web & Applications à Nîmes',
+    default: 'AtelierCode — Sites web & Applications à Nîmes | Dès 499 €',
     template: '%s | AtelierCode',
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: 'AtelierCode',
     locale: 'fr_FR',
     type: 'website',
-    title: 'AtelierCode — Sites web & Applications à Nîmes',
+    title: 'AtelierCode — Sites web & Applications à Nîmes | Dès 499 €',
     description:
       'AtelierCode crée des sites vitrine, e-commerce et applications sur mesure à Nîmes et en Occitanie. Rapide, visible sur Google. Devis gratuit, maquette offerte.',
     url: 'https://www.ateliercode.fr',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AtelierCode — Sites web & Applications à Nîmes',
+    title: 'AtelierCode — Sites web & Applications à Nîmes | Dès 499 €',
     description:
       'AtelierCode crée des sites vitrine, e-commerce et applications sur mesure à Nîmes et en Occitanie. Rapide, visible sur Google. Devis gratuit, maquette offerte.',
     images: ['https://www.ateliercode.fr/images/og-cover.png'],

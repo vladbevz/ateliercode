@@ -3,14 +3,14 @@ import Hero from './components/Hero';
 import ProcessSection from './components/ProcessSection';
 
 export const metadata: Metadata = {
-  title: 'AtelierCode — Sites web & Applications à Nîmes',
+  title: 'AtelierCode — Sites web & Applications à Nîmes | Dès 499 €',
   description:
     'AtelierCode crée des sites vitrine, e-commerce et applications sur mesure à Nîmes et en Occitanie. Rapide, visible sur Google. Devis gratuit, maquette offerte.',
   alternates: {
     canonical: 'https://www.ateliercode.fr',
   },
   openGraph: {
-    title: 'AtelierCode — Sites web & Applications à Nîmes',
+    title: 'AtelierCode — Sites web & Applications à Nîmes | Dès 499 €',
     description:
       'AtelierCode crée des sites vitrine, e-commerce et applications sur mesure à Nîmes et en Occitanie. Rapide, visible sur Google. Devis gratuit, maquette offerte.',
     url: 'https://www.ateliercode.fr',
