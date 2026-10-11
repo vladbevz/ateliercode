@@ -5,14 +5,14 @@ import { ArrowRight, Calendar } from 'lucide-react';
 import { getAllPosts, formatDate } from '../lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog — Conseils web pour artisans & entreprises à Nîmes',
+  title: 'Blog — Conseils web pour pros à Nîmes',
   description:
     'Guides et conseils pour les professionnels à Nîmes : création de site web, SEO local, e-commerce, applications web.',
   alternates: {
     canonical: 'https://www.ateliercode.fr/blog',
   },
   openGraph: {
-    title: 'Blog — Conseils web pour artisans & entreprises à Nîmes',
+    title: 'Blog — Conseils web pour pros à Nîmes',
     description:
       'Guides et conseils pour les professionnels à Nîmes : création de site web, SEO local, e-commerce, applications web.',
     url: 'https://www.ateliercode.fr/blog',

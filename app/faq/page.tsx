@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import FAQ from '../components/FAQ';
 
 export const metadata: Metadata = {
-  title: 'FAQ — Questions fréquentes sur la création de sites web',
+  title: 'FAQ — Création de site web à Nîmes',
   description:
     'Toutes les réponses à vos questions sur la création de sites web avec AtelierCode : délais de livraison, tarifs, processus, maintenance et support.',
   alternates: {
