@@ -12,14 +12,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  const seoTitle = post.seoTitle || post.title;
+
   return {
-    title: post.title,
+    title: seoTitle,
     description: post.excerpt,
     alternates: {
       canonical: `https://www.ateliercode.fr/blog/${post.slug}`,
     },
     openGraph: {
-      title: post.title,
+      title: seoTitle,
       description: post.excerpt,
       url: `https://www.ateliercode.fr/blog/${post.slug}`,
       type: 'article',

@@ -10,6 +10,9 @@ export type BlogSection = {
 export type BlogPost = {
   slug: string;
   title: string;
+  /** Short, keyword-focused title for <title>/SEO — falls back to `title`
+   * when absent. `title` itself stays the punchy on-page H1/headline. */
+  seoTitle?: string;
   date: string;
   excerpt: string;
   category?: string;
