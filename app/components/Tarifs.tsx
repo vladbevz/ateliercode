@@ -164,6 +164,21 @@ export default function Tarifs() {
           </div>
         </AnimateIn>
 
+        {/* Pas d'abonnement mensuel */}
+        <AnimateIn className="max-w-3xl mx-auto mb-16" delay={100}>
+          <h2 className="text-xl font-bold text-gray-900 mb-4 text-center">
+            Pas d&apos;abonnement mensuel.
+          </h2>
+          <div className="space-y-4">
+            <p className="text-gray-600 leading-relaxed">
+              L&apos;hébergement et le certificat SSL (HTTPS) sont inclus la première année — pas de 15 à 30 € par mois à payer à un hébergeur, pas de contrat de maintenance imposé pour que votre site continue de fonctionner. Après la première année, la seule dépense récurrente est le renouvellement du nom de domaine (10 à 15 €/an), que vous pouvez gérer vous-même ou via moi.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Le code source vous appartient et vous est fourni — vous n&apos;êtes pas enfermé chez un prestataire parce que votre site « tourne » sur sa plateforme propriétaire. Si un jour vous voulez changer de développeur ou gérer le site en interne, rien ne vous en empêche.
+            </p>
+          </div>
+        </AnimateIn>
+
         {/* ROI Calculator */}
         <AnimateIn className="max-w-3xl mx-auto" delay={100}>
           <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
