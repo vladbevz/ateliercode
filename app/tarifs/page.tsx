@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Tarifs from '@/app/components/Tarifs';
 
 export const metadata: Metadata = {
-  title: 'Tarifs — Sites web & Applications à Nîmes | Dès 499 €',
+  title: { absolute: 'Tarifs — Sites web & Applications à Nîmes | Dès 499 €' },
   description:
     'Forfaits clairs pour site vitrine, boutique e-commerce ou application web à Nîmes. À partir de 499 €, sans abonnement caché. Devis gratuit.',
   alternates: {
