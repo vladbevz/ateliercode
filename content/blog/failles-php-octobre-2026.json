@@ -1,0 +1,65 @@
+{
+  "slug": "failles-php-octobre-2026",
+  "title": "Quand la CNIL coupe son site par précaution : ce que les failles PHP d'octobre nous apprennent",
+  "seoTitle": "Faille PHP d'octobre : ce qu'il faut savoir",
+  "date": "2026-11-02",
+  "excerpt": "Le 21 octobre, la CNIL, Météo-France et plusieurs préfectures ont coupé leur site par précaution face à deux failles critiques dans PHP. Voici ce que ça change pour n'importe quel site, y compris le vôtre.",
+  "category": "Sécurité & maintenance",
+  "image": "/images/blog/procedure-depannage-wordpress.jpg.webp",
+  "imageAlt": "Trousse de premiers secours à côté du logo WordPress, symbole de l'urgence à sécuriser son site après une faille critique",
+  "sections": [
+    {
+      "paragraphs": [
+        "Le 21 octobre dernier, la CNIL a coupé son site. Météo-France aussi. Et les préfectures, sur instruction de l'ANSSI. Pas à cause d'une cyberattaque confirmée — par précaution, en attendant un correctif.",
+        "Ce n'est pas une anecdote sur les organismes publics. C'est une illustration de ce qu'une vulnérabilité critique dans PHP peut provoquer sur n'importe quel site — des institutions nationales jusqu'au site d'un artisan dans le Gard."
+      ]
+    },
+    {
+      "heading": "Ce qui s'est passé",
+      "paragraphs": [
+        "Deux failles ont été découvertes dans PHP, notées 9,2 sur 10 par les experts en sécurité. La note n'est pas arbitraire : elle reflète ce que ces failles permettent concrètement — exécuter des commandes à distance sur un serveur, sans mot de passe, sans s'authentifier. Un accès complet à la machine.",
+        "L'équipe de PHP avait annoncé la sortie des correctifs pour le 21 octobre à 16 heures. Mais les détails des failles ont commencé à circuler avant l'heure prévue — un phénomène classique appelé fuite d'informations avant embargo. À partir de ce moment, le risque d'exploitation est devenu réel avant que les patchs soient disponibles. C'est pourquoi des organismes ont préféré couper leurs sites plutôt qu'attendre. Les correctifs sont finalement sortis à 15h40, vingt minutes plus tôt que prévu.",
+        "Les sites touchés par cette précaution : la CNIL, Météo-France, impots.gouv.fr, l'ADEME, des sites de préfectures et de collectivités, Les Échos, Challenges. À l'étranger : des sites gouvernementaux néerlandais et finlandais, et 4chan."
+      ]
+    },
+    {
+      "heading": "La confusion WordPress",
+      "paragraphs": [
+        "Une grande partie de la couverture médiatique a mélangé PHP et WordPress, comme si mettre WordPress à jour suffisait à se protéger. Ce n'est pas le cas.",
+        "WordPress est une application qui tourne sur PHP — mais PHP lui-même est une couche plus basse, installée sur le serveur. Mettre WordPress à jour ne met pas PHP à jour. Ce sont deux niveaux distincts. La mise à jour de PHP se fait chez l'hébergeur, par l'administrateur du serveur — pas depuis l'interface WordPress.",
+        "Autrement dit, un site WordPress parfaitement à jour — dernière version du CMS, tous les plugins à jour — peut rester vulnérable si la version de PHP qui tourne en dessous n'a pas été corrigée."
+      ]
+    },
+    {
+      "heading": "Le vrai problème : les versions oubliées",
+      "paragraphs": [
+        "Les failles du 21 octobre ont révélé quelque chose de plus profond que le bug lui-même : une grande partie du web tourne sur des versions de PHP qui ne reçoivent plus aucune mise à jour de sécurité.",
+        "PHP 7.4 est officiellement abandonné depuis fin 2022. PHP 8.1 depuis fin 2023. PHP 8.2 arrive en fin de vie le 31 décembre 2026. Pourtant ces versions continuent de faire tourner des milliers de sites — parce que personne n'a fait le travail de migration, parce que l'hébergeur ne le fait pas automatiquement, ou simplement parce que le site a été livré et oublié.",
+        "Une version abandonnée ne recevra jamais le correctif pour les failles d'octobre. Ni pour les suivantes."
+      ]
+    },
+    {
+      "heading": "Ce que ça change pour un commerce ou un artisan",
+      "paragraphs": [
+        "Un site mal configuré ne fait pas la une des journaux. Mais les conséquences sont les mêmes à une autre échelle : un site piraté est détecté par Google et blacklisté. Il disparaît des résultats. Les visiteurs qui essaient d'y accéder reçoivent un avertissement de sécurité. Le référencement accumulé pendant des mois disparaît, et la reconstruction prend du temps.",
+        "Ce n'est pas une hypothèse. C'est le scénario habituel d'un site WordPress non maintenu : une version de PHP obsolète, des plugins qui n'ont pas été mis à jour depuis un an, et un jour, quelqu'un qui profite d'une vulnérabilité connue — pas une faille sophistiquée, juste celle qui existe depuis six mois et que personne n'a corrigée.",
+        "La vitesse d'exploitation est réelle. En 2024, après la correction d'une faille PHP similaire, les premières attaques ont été observées moins de 48 heures après la publication du correctif. Les attaquants ne cherchent pas les sites les plus intéressants — ils cherchent les sites les plus faciles."
+      ]
+    },
+    {
+      "heading": "Comment ne pas en faire partie",
+      "paragraphs": [
+        "La réponse tient en deux points.",
+        "D'abord, la version de PHP. Un site bien géré tourne sur une version encore maintenue, mise à jour par l'hébergeur ou par l'administrateur dès qu'un correctif sort. Vérifier quelle version PHP tourne sous votre site prend trente secondes — la plupart des panneaux d'hébergement l'affichent directement. Si c'est 7.x ou 8.1, il y a un problème à régler maintenant.",
+        "Ensuite, la configuration serveur. Les failles d'octobre étaient particulièrement dangereuses sur Apache avec mod_php — une configuration héritée, encore très répandue. Les serveurs configurés avec PHP-FPM derrière Nginx présentaient un risque théoriquement moindre dans ce cas précis. Ce n'est pas un détail de performance — c'est un choix d'architecture qui a des conséquences concrètes sur la surface d'attaque de votre site.",
+        "Ni l'un ni l'autre ne s'improvise. Et ni l'un ni l'autre ne se règle depuis l'interface WordPress."
+      ]
+    },
+    {
+      "paragraphs": [
+        "Les failles du 21 octobre ont été corrigées. La prochaine série de vulnérabilités critiques sera annoncée dans quelques semaines ou quelques mois — c'est le rythme normal de la sécurité informatique. La question n'est pas de savoir si une nouvelle faille apparaîtra, mais si votre site sera dans un état où elle peut être appliquée en moins de 24 heures.",
+        "Vous ne savez pas quelle version PHP tourne sous votre site, ni si votre configuration est à jour ? Testez votre site gratuitement sur [ateliercode.fr/audit](/audit) — le rapport identifie les vulnérabilités techniques en 30 secondes."
+      ]
+    }
+  ]
+}
