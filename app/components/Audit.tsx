@@ -509,6 +509,9 @@ export default function Audit() {
                 <p className="text-sm text-gray-500 leading-relaxed mt-8 text-center">
                   Chaque résultat est expliqué en langage clair, avec ce qui va bien et ce qui mérite d&apos;être corrigé — pas juste une note sur 100 sans contexte.
                 </p>
+                <p className="text-sm text-gray-500 leading-relaxed mt-4 text-center">
+                  Cet audit SEO gratuit s&apos;adresse aux artisans, commerçants et professions libérales de Nîmes et du Gard qui veulent savoir où ils en sont avant d&apos;investir dans un nouveau site ou une refonte.
+                </p>
               </div>
             )}
 
