@@ -1,0 +1,68 @@
+{
+  "slug": "google-ai-overviews-impact-commerce-local",
+  "title": "Google génère maintenant ses propres réponses. Ce que ça change pour un commerce local.",
+  "seoTitle": "IA Overviews Google : impact SEO local",
+  "date": "2026-11-11",
+  "excerpt": "Les AI Overviews de Google répondent directement à 80 % des recherches sans que l'utilisateur clique nulle part. Pour un artisan ou un commerce local, le tableau est différent — et moins catastrophique qu'on pourrait le croire.",
+  "category": "SEO & visibilité",
+  "sections": [
+    {
+      "paragraphs": [
+        "Depuis quelques mois, quelque chose a changé sur Google. Tapez « comment enlever une tache de rouille » ou « meilleure huile moteur pour diesel » — et avant même les résultats classiques, Google affiche une réponse rédigée directement par son IA. Pas un lien. Une réponse. Complète, sourcée, sans avoir besoin de cliquer nulle part.",
+        "Cette fonctionnalité s'appelle les AI Overviews. Elle apparaît aujourd'hui sur plus de 80 % des recherches Google. Et pour beaucoup de sites, elle a changé le jeu en quelques semaines.",
+        "Mais pour un plombier, un restaurant ou un artisan à Nîmes, le tableau est différent — et moins catastrophique qu'on pourrait le croire."
+      ]
+    },
+    {
+      "heading": "Ce que font les AI Overviews",
+      "paragraphs": [
+        "Concrètement : Google lit les contenus web, synthétise une réponse en haut de page, et la plupart des gens ne cliquent plus jamais sur un lien. Des études mesurent une baisse du taux de clic organique de 1,76 % à 0,61 % lorsqu'un AI Overview est présent. Sur les requêtes en mode IA avancé (AI Mode), 93 % des sessions se terminent sans aucun clic.",
+        "Pour les sites qui vivaient des articles de blog informatifs — « comment poser du carrelage », « quel régime alimentaire pour maigrir » — c'est une rupture nette. Google a absorbé leur contenu, synthétisé leurs réponses, et les a rendus moins nécessaires comme destination.",
+        "Ce modèle frappe en priorité les requêtes informationnelles : les AI Overviews apparaissent sur 36 % des recherches de ce type. Sur les requêtes commerciales, ce chiffre tombe à 8 %. Sur les requêtes transactionnelles — « acheter », « réserver », « appeler » — à 5 %."
+      ]
+    },
+    {
+      "heading": "Pourquoi les recherches locales sont une exception partielle",
+      "paragraphs": [
+        "« Plombier Nîmes urgence » ou « restaurant végétarien Montpellier » sont des requêtes transactionnelles avec une dimension géographique. L'intention est claire : trouver quelqu'un, maintenant, dans un périmètre défini. Google ne peut pas vraiment synthétiser une réponse IA à ça — il doit vous montrer des résultats réels, avec des adresses, des numéros de téléphone, des avis.",
+        "C'est pourquoi le local pack — le bloc avec la carte et les trois entreprises — résiste encore. C'est aussi pourquoi une fiche Google Business Profile bien remplie reste plus utile aujourd'hui qu'elle ne l'était il y a un an.",
+        "La nuance, c'est que « résiste » ne veut pas dire « immunisé ». Les données montrent que même dans les recherches locales, les AI Overviews apparaissent dans 40 % des cas, selon une étude portant sur 60 000 recherches. Et quand ils apparaissent, ils citent des entreprises spécifiques — pas toutes, quelques-unes, celles dont le contenu et la fiche sont les plus complets."
+      ]
+    },
+    {
+      "heading": "Ce qui change concrètement",
+      "paragraphs": [
+        "Avant les AI Overviews, l'objectif était simple : apparaître dans les dix premiers résultats Google pour des mots-clés pertinents.",
+        "Aujourd'hui, il y a un niveau supplémentaire. Google lit votre site, lit votre fiche, lit vos avis — et décide s'il va vous citer dans sa réponse IA ou vous ignorer. Les sites cités dans les AI Overviews obtiennent un taux de clic organique 35 % supérieur à celui des sites non cités qui sont pourtant classés dans les mêmes résultats.",
+        "Être dans le top 10 n'est plus suffisant. Être cité par l'IA dans sa réponse, c'est mieux.",
+        "Et les critères pour être cité ne sont pas mystérieux. Selon les analyses disponibles, 76 % des URLs citées dans les AI Overviews figurent déjà dans le top 10 organique. La base reste la même — un bon contenu, bien structuré, sur un site technique sain. Ce qui change, c'est l'importance des signaux de confiance : données structurées, fiche GBP complète, cohérence entre site et fiche, volume et fraîcheur des avis."
+      ]
+    },
+    {
+      "heading": "Ce que ça veut dire pour un artisan ou un commerce",
+      "paragraphs": [
+        "La mauvaise nouvelle d'abord : un site vitrine sans contenu, sans données structurées et sans fiche Google à jour ne sera ni dans le local pack ni dans les réponses IA. Il sera invisible dans les deux cas.",
+        "La bonne nouvelle : les signaux qui vous protègent ne sont pas complexes. Ce sont les mêmes qu'on recommandait avant les AI Overviews — appliqués avec plus de rigueur.",
+        "Ce qui compte maintenant :",
+        "La fiche Google Business Profile doit être complète : catégorie principale correcte, horaires à jour, photos récentes, description claire de votre activité avec vos mots-clés naturels. L'IA de Google lit cette fiche comme un document source. Si elle est vide ou approximative, vous n'existez pas pour elle.",
+        "Les avis récents comptent. Pas pour le nombre — pour la fraîcheur. Des dizaines d'avis de 2022 valent moins que cinq avis du mois dernier. Google évalue la fiche comme active ou passive, et ça influence sa décision d'inclure votre adresse dans une réponse.",
+        "Les données structurées sur votre site permettent à Google de lire mécaniquement vos informations — nom, adresse, téléphone, type d'activité — sans interprétation. Un site sans schéma LocalBusiness n'est pas incorrect, mais il est moins lisible pour l'IA.",
+        "Le contenu de votre site doit répondre à des questions réelles. Pas forcément un blog — mais vos pages de service doivent expliquer ce que vous faites, pour qui, dans quelle zone géographique, et pourquoi vous plutôt qu'un autre. C'est ce contenu que l'IA synthétise quand elle décide de vous mentionner."
+      ]
+    },
+    {
+      "heading": "Ce que ça ne change pas",
+      "paragraphs": [
+        "Le référencement local fondamental reste stable : proximité, pertinence, réputation. Un bon site bien structuré sur un hébergement rapide, une fiche GBP active, des avis réguliers — ce triptyque fonctionnait avant les AI Overviews et continue de fonctionner.",
+        "Ce qui change, c'est la tolérance aux approximations. Un site lent avec des informations incohérentes entre la fiche et les pages pouvait s'en sortir. Aujourd'hui il y a un filtre supplémentaire — l'IA — qui lit avant l'utilisateur et décide s'il vaut la peine d'être mentionné.",
+        "La question n'est pas « comment survivre aux AI Overviews ». C'est « est-ce que mon site et ma fiche sont assez lisibles pour que l'IA de Google me cite plutôt que mon concurrent ? »",
+        "La réponse se trouve dans les détails techniques que la plupart des sites locaux ont négligés depuis des années."
+      ]
+    },
+    {
+      "paragraphs": [
+        "Votre fiche Google est-elle complète ? Votre site a-t-il les données structurées qui le rendent lisible pour les IA ? Analysez votre site gratuitement sur [ateliercode.fr/audit](/audit) — le rapport identifie en 30 secondes ce que Google voit de vous."
+      ]
+    }
+  ]
+}
