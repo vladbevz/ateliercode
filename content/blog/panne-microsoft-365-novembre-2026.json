@@ -1,0 +1,56 @@
+{
+  "slug": "panne-microsoft-365-novembre-2026",
+  "title": "Microsoft 365 en panne 24 heures : ce que la défaillance en cascade nous apprend",
+  "seoTitle": "Panne Microsoft 365 : ce qu'il faut retenir",
+  "date": "2026-11-15",
+  "excerpt": "Le 12 novembre, Microsoft 365 s'est arrêté pendant 24 heures dans le monde entier. Pas une cyberattaque — une défaillance en cascade. Ce que ça révèle sur la dépendance aux fournisseurs uniques.",
+  "category": "Sécurité & maintenance",
+  "image": "/images/blog/micrsosoft365panne.webp",
+  "imageAlt": "Nuage Microsoft 365 entouré des icônes Outlook, Teams et Copilot marquées d'un symbole d'alerte",
+  "sections": [
+    {
+      "paragraphs": [
+        "Le 12 novembre en fin d'après-midi, Microsoft 365 s'est arrêté. Vingt-quatre heures.",
+        "Outlook d'abord, puis Teams, OneDrive, SharePoint. Des millions d'utilisateurs dans le monde ont perdu l'accès à leur messagerie professionnelle, leurs fichiers, leurs réunions. La Mairie de Paris ne répondait plus aux emails. Air France et la Société Générale signalaient des perturbations. Le NHS britannique repassait sur des dossiers papier dans plusieurs hôpitaux. En Australie, des services de police étaient affectés. En Nouvelle-Zélande, les ambassades ne pouvaient plus traiter les demandes de visa. La Cnav française activait son plan de continuité d'activité.",
+        "Microsoft a confirmé que ses services étaient progressivement restaurés le vendredi 13 dans l'après-midi. La cause n'était pas une cyberattaque."
+      ]
+    },
+    {
+      "heading": "Comment une mise à jour devient une panne mondiale",
+      "paragraphs": [
+        "L'origine était une mise à niveau de capacité réseau — une opération de maintenance ordinaire, réalisée régulièrement sur les grandes infrastructures. Un défaut dans cette mise à niveau a provoqué la défaillance de plusieurs serveurs.",
+        "Ce qui s'est passé ensuite est mécanique.",
+        "Quand des serveurs tombent, leur trafic est automatiquement redirigé vers les autres. Les autres reçoivent donc plus de charge que prévu. S'ils ne peuvent pas l'absorber, ils tombent à leur tour. Leur trafic est redirigé vers ce qui reste. Et ainsi de suite.",
+        "C'est ce qu'on appelle une défaillance en cascade : chaque maillon qui cède fragilise les suivants. Le problème initial n'était pas catastrophique. C'est sa propagation qui l'a rendu difficile à contenir.",
+        "La reprise s'est révélée laborieuse pour la même raison : des serveurs remis en ligne retombaient dès qu'ils recevaient du trafic. Microsoft a dû les réintroduire progressivement, en surveillant leur stabilité, plutôt que de tout remettre en ligne d'un coup."
+      ]
+    },
+    {
+      "heading": "La vraie question n'est pas Microsoft",
+      "paragraphs": [
+        "Les pannes de grande infrastructure sont régulières. CrowdStrike en juillet 2024 — un fichier de mise à jour défectueux avait mis hors service des millions de postes Windows dans le monde, immobilisant des aéroports et des banques. AWS en décembre 2021. OVH en mars 2021. Chaque incident est présenté comme exceptionnel. Collectivement, ils forment un rythme.",
+        "Ce qui a changé, c'est l'étendue des dégâts à chaque fois.",
+        "Non pas parce que les pannes sont plus graves techniquement, mais parce que la dépendance a augmenté. Quand une organisation utilise Microsoft 365 pour son email, son calendrier, sa visioconférence, son stockage de fichiers, sa gestion documentaire et son authentification — une seule défaillance touche tout à la fois. Ce n'est pas un outil qui s'arrête. C'est l'infrastructure entière de communication.",
+        "La Mairie de Vichy n'a pas perdu son email ce jour-là. Elle a perdu sa capacité à communiquer avec les citoyens sur tous ses canaux numériques simultanément — email et formulaire de contact en ligne compris, les deux transitant par la même suite.",
+        "La question n'est pas de savoir si Microsoft ou Google ou AWS est fiable. Ces infrastructures sont gérées par des milliers d'ingénieurs et affichent des taux de disponibilité de 99,9 %. La question est ce que représente le 0,1 % restant quand tous les outils d'une organisation convergent vers le même fournisseur."
+      ]
+    },
+    {
+      "heading": "Ce que ça change, ou pas",
+      "paragraphs": [
+        "Après CrowdStrike, des entreprises avaient annoncé revoir leurs politiques de dépendance aux fournisseurs uniques. Après AWS 2021, pareil. Les analyses avaient circulé, les leçons avaient été tirées en théorie.",
+        "Puis tout le monde avait continué comme avant, parce que la centralisation est commode, parce que les suites intégrées sont plus simples à gérer, et parce que 99,9 % du temps ça fonctionne.",
+        "Le 12 novembre reposera probablement la même question, avec les mêmes réponses. Les organisations qui ont un plan de continuité bien rodé l'auront mis en œuvre et s'en seront sorties. Les autres auront attendu que ça revienne.",
+        "Ce n'est pas un jugement. C'est difficile de justifier un investissement dans la résilience quand la panne n'a pas encore eu lieu. Jusqu'au moment où elle a lieu."
+      ]
+    },
+    {
+      "heading": "Ce qu'on retient",
+      "paragraphs": [
+        "Vingt-quatre heures, c'est peu dans une année. C'est suffisant pour rater une réunion décisive, manquer une échéance, ne pas répondre à un client au bon moment.",
+        "La panne Microsoft du 12 novembre n'est pas une anomalie. C'est un rappel que les infrastructures sur lesquelles on travaille tous les jours ne sont pas indestructibles — et que la question de ce qui continue à fonctionner quand elles tombent mérite d'être posée avant l'incident, pas pendant.",
+        "Vous voulez savoir ce que votre site web dépend techniquement — hébergement, services tiers, points de défaillance potentiels ? Analysez-le gratuitement sur [ateliercode.fr/audit](/audit)."
+      ]
+    }
+  ]
+}
