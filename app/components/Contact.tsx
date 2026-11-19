@@ -88,13 +88,18 @@ export default function Contact() {
       <div className="container mx-auto px-4">
 
         {/* Заголовок */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-fade-up">
-            Parlons de votre projet
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Discutons de vos besoins pour créer, à Nîmes, une solution web adaptée à votre activité
-          </p>
+        <div className="flex flex-col md:flex-row md:items-start gap-6 mb-16 max-w-4xl mx-auto">
+          <div className="shrink-0 w-12 h-12 rounded-md bg-gray-900 text-white flex items-center justify-center animate-fade-up">
+            <Send className="w-5 h-5" />
+          </div>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
+              Parlons de votre projet
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl animate-fade-up" style={{ animationDelay: '100ms' }}>
+              Discutons de vos besoins pour créer, à Nîmes, une solution web adaptée à votre activité
+            </p>
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">

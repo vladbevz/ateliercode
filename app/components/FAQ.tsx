@@ -125,13 +125,18 @@ export default function FAQ() {
       <div className="container mx-auto px-4">
 
         {/* Заголовок */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-fade-up">
-            Des réponses à toutes vos questions
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Tout ce que vous devez savoir avant de vous lancer
-          </p>
+        <div className="flex flex-col md:flex-row md:items-start gap-6 mb-16 max-w-3xl mx-auto">
+          <div className="shrink-0 w-12 h-12 rounded-md bg-gray-900 text-white flex items-center justify-center animate-fade-up">
+            <MessageCircle className="w-6 h-6" />
+          </div>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
+              Des réponses à toutes vos questions
+            </h1>
+            <p className="text-xl text-gray-600 animate-fade-up" style={{ animationDelay: '100ms' }}>
+              Tout ce que vous devez savoir avant de vous lancer
+            </p>
+          </div>
         </div>
 
         {/* Barre de recherche */}
