@@ -83,13 +83,19 @@ export default function Realisations() {
       <div className="container mx-auto px-4">
 
         {/* Заголовок */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-fade-up">
-            Des projets qui parlent d&apos;eux-mêmes
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Découvrez comment nous avons transformé la présence en ligne de nos clients à Nîmes et dans le Gard
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 max-w-5xl mx-auto">
+          <div className="animate-fade-up">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Des projets qui parlent d&apos;eux-mêmes
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl">
+              Découvrez comment nous avons transformé la présence en ligne de nos clients à Nîmes et dans le Gard
+            </p>
+          </div>
+          <div className="shrink-0 md:text-right animate-fade-up" style={{ animationDelay: '100ms' }}>
+            <span className="text-5xl font-black text-gray-900 leading-none">{projects.length}</span>
+            <p className="text-sm text-gray-400 uppercase tracking-wide font-mono mt-1">projets livrés</p>
+          </div>
         </div>
 
         {/* Grille */}
@@ -120,12 +126,18 @@ export default function Realisations() {
         </AnimateIn>
 
         {/* CTA */}
-        <AnimateIn className="text-center mt-14" delay={100}>
+        <AnimateIn className="max-w-5xl mx-auto mt-14 bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6" delay={100}>
+          <div>
+            <p className="font-bold text-gray-900 mb-1">Un projet similaire en tête ?</p>
+            <p className="text-sm text-gray-500">
+              Parlons-en — devis gratuit sous 24h, sans engagement.
+            </p>
+          </div>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
+            className="shrink-0 inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
           >
-            Vous avez un projet similaire ?
+            Démarrer mon projet
           </Link>
         </AnimateIn>
 
