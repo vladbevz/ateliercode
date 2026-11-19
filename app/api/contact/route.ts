@@ -2,8 +2,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const projetLabels: Record<string, string> = {
   'vitrine': 'Site Vitrine (dès 799€)',
   'ecommerce': 'E-commerce (dès 1290€)',
@@ -20,6 +18,15 @@ const timelineLabels: Record<string, string> = {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY manquante')
+      return NextResponse.json(
+        { error: 'Une erreur est survenue lors de l\'envoi du message' },
+        { status: 500 }
+      )
+    }
+    const resend = new Resend(process.env.RESEND_API_KEY)
+
     const { nom, email, telephone, message, projet, timeline } = await request.json()
 
     if (!nom || !email || !message) {
