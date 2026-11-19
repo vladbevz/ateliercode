@@ -5,8 +5,8 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const projetLabels: Record<string, string> = {
-  'vitrine': 'Site Vitrine (dès 499€)',
-  'ecommerce': 'E-commerce (dès 990€)',
+  'vitrine': 'Site Vitrine (dès 799€)',
+  'ecommerce': 'E-commerce (dès 1290€)',
   'application': 'Application web (sur devis)',
   'autre': 'Je ne sais pas encore',
 }

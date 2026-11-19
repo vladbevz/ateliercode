@@ -82,7 +82,7 @@ export default function FAQ() {
   },
   {
     question: 'Faites-vous aussi du e-commerce ?',
-    answer: "Oui, ça fait partie du forfait E-commerce (dès 990€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées — voir le détail sur la page [Tarifs](/tarifs).",
+    answer: "Oui, ça fait partie du forfait E-commerce (dès 1290€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées — voir le détail sur la page [Tarifs](/tarifs).",
   },
   {
     question: 'Proposez-vous aussi des applications web ?',

@@ -28,14 +28,14 @@ export default function AgenceWebNimesContent() {
   const plans = [
     {
       name: 'Site Vitrine',
-      price: '499 €',
+      price: '799 €',
       pitch: 'Votre meilleur commercial — 24h/24.',
       features: ['4 à 6 pages sur mesure', 'SEO local optimisé', '1 mois de suivi', 'Livré en 7–10 jours'],
       dark: false,
     },
     {
       name: 'E-commerce',
-      price: '990 €',
+      price: '1290 €',
       pitch: 'Vendez en ligne dès demain.',
       features: ['Boutique Stripe complète', 'Catalogue & gestion stock', 'SEO e-commerce', 'Livré en 2–4 semaines'],
       dark: true,
@@ -63,10 +63,10 @@ export default function AgenceWebNimesContent() {
               <p className="text-xl text-gray-600 max-w-2xl leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
                 La création de site internet à Nîmes ne devrait pas être compliquée. Les petites entreprises méritent un site web{' '}
                 <span className="text-gray-900 font-semibold">aussi performant que les grandes</span>.
-                Dès 499 €, livré en une semaine — sans compromis sur la qualité.
+                Dès 799 €, livré en une semaine — sans compromis sur la qualité.
               </p>
               <p className="font-mono text-xs tracking-widest uppercase text-gray-400 mt-6 animate-fade-up" style={{ animationDelay: '300ms' }}>
-                Dès 499 € · Livré en 7–15 jours · Maquette gratuite
+                Dès 799 € · Livré en 7–15 jours · Maquette gratuite
               </p>
             </div>
 

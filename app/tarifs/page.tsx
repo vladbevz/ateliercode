@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import Tarifs from '@/app/components/Tarifs';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Tarifs — Sites web & Applications à Nîmes | Dès 499 €' },
+  title: { absolute: 'Tarifs — Sites web & Applications à Nîmes | Dès 799 €' },
   description:
-    'Forfaits clairs pour site vitrine, boutique e-commerce ou application web à Nîmes. À partir de 499 €, sans abonnement caché. Devis gratuit.',
+    'Forfaits clairs pour site vitrine, boutique e-commerce ou application web à Nîmes. À partir de 799 €, sans abonnement caché. Devis gratuit.',
   alternates: {
     canonical: 'https://www.ateliercode.fr/tarifs',
   },
   openGraph: {
-    title: 'Tarifs — Sites web & Applications à Nîmes | Dès 499 €',
+    title: 'Tarifs — Sites web & Applications à Nîmes | Dès 799 €',
     description:
-      'Forfaits clairs pour site vitrine, boutique e-commerce ou application web à Nîmes. À partir de 499 €, sans abonnement caché. Devis gratuit.',
+      'Forfaits clairs pour site vitrine, boutique e-commerce ou application web à Nîmes. À partir de 799 €, sans abonnement caché. Devis gratuit.',
     url: 'https://www.ateliercode.fr/tarifs',
   },
 };

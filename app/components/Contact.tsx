@@ -210,8 +210,8 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-md border border-gray-200 focus:border-gray-400 focus:outline-none disabled:bg-gray-50 disabled:cursor-not-allowed transition-colors"
                     >
                       <option value="">Sélectionnez...</option>
-                      <option value="vitrine">Site Vitrine (dès 499€)</option>
-                      <option value="ecommerce">E-commerce (dès 990€)</option>
+                      <option value="vitrine">Site Vitrine (dès 799€)</option>
+                      <option value="ecommerce">E-commerce (dès 1290€)</option>
                       <option value="application">Application web (sur devis)</option>
                       <option value="autre">Je ne sais pas encore</option>
                     </select>

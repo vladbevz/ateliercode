@@ -115,7 +115,7 @@ export default function Image() {
 
           {/* Pills */}
           <div style={{ display: 'flex', gap: 16 }}>
-            {['Dès 499 €', 'Livré en 1–3 sem.', 'Lighthouse 95+'].map((label) => (
+            {['Dès 799 €', 'Livré en 1–3 sem.', 'Lighthouse 95+'].map((label) => (
               <div
                 key={label}
                 style={{

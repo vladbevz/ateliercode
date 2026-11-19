@@ -9,12 +9,12 @@ export default function Tarifs() {
   const [prixMoyen, setPrixMoyen] = useState(150);
   const [clientsParMois, setClientsParMois] = useState(3);
 
-  const roiCalcule = prixMoyen * clientsParMois * 12 - 499;
+  const roiCalcule = prixMoyen * clientsParMois * 12 - 799;
 
   const plans = [
     {
       name: 'Site Vitrine',
-      price: '499',
+      price: '799',
       priceLabel: 'dès',
       pitch: 'Votre meilleur commercial — disponible 24h/24.',
       features: [
@@ -30,7 +30,7 @@ export default function Tarifs() {
     },
     {
       name: 'E-commerce',
-      price: '990',
+      price: '1290',
       priceLabel: 'dès',
       pitch: 'Vendez en ligne dès demain, sans compromis.',
       features: [
@@ -222,7 +222,7 @@ export default function Tarifs() {
             <div className="p-6 bg-gray-900 text-white rounded-md text-center">
               <div className="text-sm mb-2">ROI estimé après 12 mois :</div>
               <div className="text-4xl font-bold">+{roiCalcule.toLocaleString('fr-FR')}€</div>
-              <div className="text-xs text-gray-400 mt-3">* calcul basé sur un forfait Site Vitrine à 499€</div>
+              <div className="text-xs text-gray-400 mt-3">* calcul basé sur un forfait Site Vitrine à 799€</div>
             </div>
 
             <div className="mt-4 text-xs text-gray-400 text-center">
