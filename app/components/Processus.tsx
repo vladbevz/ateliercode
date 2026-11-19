@@ -1,64 +1,12 @@
 'use client';
 
-import { CheckCircle2, Search, Palette, Code2, Rocket, ShieldCheck, Clock, Compass } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Clock, Compass } from 'lucide-react';
 import Link from 'next/link';
 import AnimateIn from './AnimateIn';
+import { processSteps } from '../lib/process-data';
 
 export default function Processus() {
-  const steps = [
-    {
-      n: '01',
-      title: 'Analyse',
-      description: 'On étudie votre marché, vos objectifs et vos concurrents pour définir une stratégie gagnante.',
-      duration: '1-2 jours',
-      icon: <Search className="w-16 h-16" strokeWidth={1.5} />,
-      details: [
-        'Audit de votre positionnement',
-        'Analyse des concurrents',
-        'Définition des objectifs',
-        'Proposition commerciale',
-      ],
-    },
-    {
-      n: '02',
-      title: 'Design',
-      description: "Création de maquettes qui reflètent votre image et optimisent l'expérience utilisateur.",
-      duration: '3-4 jours',
-      icon: <Palette className="w-16 h-16" strokeWidth={1.5} />,
-      details: [
-        'Wireframes interactifs',
-        'Design unique et personnalisé',
-        'Validation client',
-        'Adaptation mobile',
-      ],
-    },
-    {
-      n: '03',
-      title: 'Développement',
-      description: 'Intégration avec les dernières technologies pour un site rapide, sécurisé et évolutif.',
-      duration: '5-7 jours',
-      icon: <Code2 className="w-16 h-16" strokeWidth={1.5} />,
-      details: [
-        'Code propre et maintenable',
-        'Optimisation SEO',
-        'Tests de performance',
-        'Sécurisation des données',
-      ],
-    },
-    {
-      n: '04',
-      title: 'Lancement',
-      description: 'Mise en ligne, formation et accompagnement pour une transition en douceur.',
-      duration: '1-2 jours',
-      icon: <Rocket className="w-16 h-16" strokeWidth={1.5} />,
-      details: [
-        'Déploiement sur Vercel',
-        'Configuration nom de domaine',
-        "Formation à l'administration",
-        'Support post-lancement',
-      ],
-    },
-  ];
+  const steps = processSteps;
 
   return (
     <section className="min-h-screen bg-white pt-16 pb-24">
@@ -89,10 +37,10 @@ export default function Processus() {
               </h3>
               <div className="relative flex-1 min-h-0">
                 <div className="process-icon absolute inset-0 flex items-center justify-center text-gray-900">
-                  {step.icon}
+                  <step.icon className="w-16 h-16" strokeWidth={1.5} />
                 </div>
                 <div className="process-body flex flex-col gap-4">
-                  <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>
+                  <p className="text-sm leading-relaxed text-gray-600">{step.fullDescription}</p>
                   <div className="space-y-2 pt-4 border-t border-gray-100">
                     {step.details.map((detail, idx) => (
                       <div key={idx} className="flex items-center gap-2">
@@ -123,7 +71,7 @@ export default function Processus() {
                 </div>
               </div>
               <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>
+              <p className="text-sm leading-relaxed text-gray-600">{step.fullDescription}</p>
               <div className="space-y-2 pt-3 border-t border-gray-100">
                 {step.details.map((detail, idx) => (
                   <div key={idx} className="flex items-center gap-2">

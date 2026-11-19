@@ -3,40 +3,11 @@
 'use client';
 
 import Link from 'next/link';
-import { Search, Palette, Code2, Rocket } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { processSteps } from '../lib/process-data';
+import AnimateIn from './AnimateIn';
 
 export default function ProcessSection() {
-  const steps = [
-    {
-      n: '01',
-      short: 'Analyse & Stratégie',
-      body: "On étudie votre marché, vos concurrents et vos objectifs pour créer une stratégie sur mesure.",
-      time: '1–2 jours',
-      icon: <Search className="w-16 h-16" strokeWidth={1.5} />,
-    },
-    {
-      n: '02',
-      short: 'Design & UX',
-      body: "Création d'une interface qui reflète votre image et guide vos visiteurs vers l'action.",
-      time: '3–4 jours',
-      icon: <Palette className="w-16 h-16" strokeWidth={1.5} />,
-    },
-    {
-      n: '03',
-      short: 'Développement',
-      body: 'Code propre, performant et optimisé SEO. Votre site est rapide et visible sur Google.',
-      time: '5–7 jours',
-      icon: <Code2 className="w-16 h-16" strokeWidth={1.5} />,
-    },
-    {
-      n: '04',
-      short: 'Lancement & Suivi',
-      body: 'Mise en ligne, formation et accompagnement. On ne vous laisse pas tomber après la livraison.',
-      time: '1–2 jours',
-      icon: <Rocket className="w-16 h-16" strokeWidth={1.5} />,
-    },
-  ];
-
   return (
     <section className="bg-white">
 
@@ -44,44 +15,49 @@ export default function ProcessSection() {
       <div className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
 
-          {/* Заголовок */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
-              Du projet à la réussite
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux,
-              mais qui <span className="text-gray-900 font-semibold">rapportent des clients</span>
-            </p>
-            <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-500 mt-5">
-              Survolez une étape
-            </p>
+          {/* Заголовок — варіант без центрування: номер-акцент зліва */}
+          <div className="flex flex-col md:flex-row md:items-end gap-6 mb-12 max-w-5xl mx-auto">
+            <span className="text-7xl md:text-8xl font-black text-gray-200 leading-none select-none shrink-0">
+              01–04
+            </span>
+            <div className="md:border-l md:border-gray-300 md:pl-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                Du projet à la réussite
+              </h2>
+              <p className="text-lg text-gray-600 max-w-xl">
+                Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux,
+                mais qui <span className="text-gray-900 font-semibold">rapportent des clients</span>.
+              </p>
+              <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-400 mt-4">
+                Survolez une étape
+              </p>
+            </div>
           </div>
 
           {/* Steps — accordéon horizontal (desktop) */}
           <div className="hidden md:flex rounded-2xl overflow-hidden bg-white border border-gray-200" style={{ minHeight: 300 }}>
-            {steps.map((step, index) => (
+            {processSteps.map((step, index) => (
               <div
                 key={step.n}
                 tabIndex={0}
                 className={`process-panel flex flex-col gap-4 px-6 lg:px-7 py-8 outline-none ${
-                  index < steps.length - 1 ? 'border-r border-gray-100' : ''
+                  index < processSteps.length - 1 ? 'border-r border-gray-100' : ''
                 }`}
               >
                 <h3 className="text-xl font-bold text-gray-900 text-center">
-                  {step.short}
+                  {step.title}
                 </h3>
                 <div className="relative flex-1 min-h-0">
                   <div className="process-icon absolute inset-0 flex items-center justify-center text-gray-900">
-                    {step.icon}
+                    <step.icon className="w-16 h-16" strokeWidth={1.5} />
                   </div>
                   <p className="process-body text-sm leading-relaxed text-gray-600">
-                    {step.body}
+                    {step.shortDescription}
                   </p>
                 </div>
                 <div className="mt-auto flex items-center justify-center gap-2 text-lg font-medium text-gray-700">
                   <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-gray-900" />
-                  {step.time}
+                  {step.duration}
                 </div>
               </div>
             ))}
@@ -89,7 +65,7 @@ export default function ProcessSection() {
 
           {/* Steps — liste empilée (mobile/tablette) */}
           <div className="md:hidden flex flex-col gap-4">
-            {steps.map((step) => (
+            {processSteps.map((step) => (
               <div
                 key={step.n}
                 className="rounded-xl bg-white px-5 py-6 flex flex-col gap-3 border border-gray-200"
@@ -100,14 +76,14 @@ export default function ProcessSection() {
                   </span>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <span className="w-1.25 h-1.25 rounded-full bg-gray-900" />
-                    {step.time}
+                    {step.duration}
                   </div>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">
-                  {step.short}
+                  {step.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-600">
-                  {step.body}
+                  {step.shortDescription}
                 </p>
               </div>
             ))}
@@ -116,25 +92,32 @@ export default function ProcessSection() {
         </div>
       </div>
 
-      {/* CTA - окремий блок внизу */}
+      {/* CTA - bande finale, variante asymétrique (pas le centrage habituel) */}
       <div className="border-t border-gray-200">
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Prêt à donner vie à votre projet ?
-          </h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Discutons de vos idées et voyons comment nous pouvons les transformer en réalité.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 transition-colors btn-sweep"
-          >
-            Démarrer votre projet
-          </Link>
-          <p className="text-sm text-gray-500 mt-4">
-            Premier rendez-vous gratuit • Sans engagement
-          </p>
-        </div>
+        <AnimateIn className="container mx-auto px-4 py-16">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="md:max-w-md">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                Prêt à donner vie à votre projet ?
+              </h3>
+              <p className="text-lg text-gray-600">
+                Discutons de vos idées et voyons comment nous pouvons les transformer en réalité.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 transition-colors btn-sweep"
+              >
+                Démarrer votre projet
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <p className="text-sm text-gray-500">
+                Premier rendez-vous gratuit • Sans engagement
+              </p>
+            </div>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   );
