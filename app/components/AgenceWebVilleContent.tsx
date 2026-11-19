@@ -119,14 +119,18 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
 
         {/* ─── 3. POUR QUI ─── */}
         <div className="pb-20 md:pb-28">
-          <AnimateIn className="text-center mb-14">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Pour qui ?</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Fait pour les petites entreprises {avecDe(ville)}.
-            </h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
-              Artisans, commerçants, professions libérales, TPE — votre activité mérite une présence en ligne qui travaille pour vous.
-            </p>
+          <AnimateIn className="flex flex-col md:flex-row md:items-start gap-6 mb-14 max-w-5xl mx-auto">
+            <div className="shrink-0 w-11 h-11 rounded-md bg-gray-900 text-white flex items-center justify-center">
+              <Building2 className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                Fait pour les petites entreprises {avecDe(ville)}.
+              </h2>
+              <p className="text-lg text-gray-500 max-w-2xl mt-3">
+                Artisans, commerçants, professions libérales, TPE — votre activité mérite une présence en ligne qui travaille pour vous.
+              </p>
+            </div>
           </AnimateIn>
 
           <AnimateIn className="max-w-5xl mx-auto border-y border-gray-200 divide-y divide-gray-200" delay={100}>
@@ -282,11 +286,13 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
 
         {/* ─── 7. TARIFS ─── */}
         <div className="pb-20 md:pb-28">
-          <AnimateIn className="text-center mb-14">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Tarifs</p>
+          <AnimateIn className="grid md:grid-cols-[1fr_auto] items-baseline gap-4 mb-14 max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Des prix clairs, sans surprise.
+              Des prix <span className="text-gray-400">clairs,</span> sans surprise.
             </h2>
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 md:text-right">
+              Tarifs
+            </p>
           </AnimateIn>
 
           <AnimateIn className="grid lg:grid-cols-3 gap-5 items-center max-w-5xl mx-auto mb-8" delay={100}>
@@ -374,19 +380,16 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
 
         {/* ─── 9. CTA ─── */}
         <div className="pb-24">
-          <AnimateIn className="text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
-              Parlons de votre projet
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
+          <AnimateIn className="max-w-4xl mx-auto bg-gray-900 rounded-2xl px-8 md:px-16 py-14 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 leading-tight">
               Votre site {avecA(ville)}, dès la semaine prochaine.
             </h2>
-            <p className="text-lg text-gray-500 max-w-xl mx-auto mb-10">
+            <p className="text-lg text-gray-300 max-w-xl mx-auto mb-10">
               Devis gratuit sous 24h. Aucun engagement avant que vous soyez convaincu.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-10 py-5 bg-gray-900 text-white rounded-md font-semibold text-lg hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
+              className="inline-flex items-center px-10 py-5 bg-white text-gray-900 rounded-md font-semibold text-lg hover:bg-gray-100 active:scale-[0.98] transition-all duration-150"
             >
               Obtenir mon devis gratuit
             </Link>
