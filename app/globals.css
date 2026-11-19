@@ -134,22 +134,6 @@
   }
 }
 
-/* ─── Scroll Reveal ───
-   L'état "révélé" est appliqué en style inline par useScrollReveal
-   (opacity/transform), pas via une classe — voir ce hook pour le détail. */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
 /* ─── Flip Card ─── */
 .flip-card {
   perspective: 1000px;

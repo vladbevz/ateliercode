@@ -88,7 +88,7 @@ export default function Tarifs() {
         {/* Cards */}
         <AnimateIn className="grid lg:grid-cols-3 gap-5 items-center max-w-5xl mx-auto mb-10" delay={150}>
           {plans.map((plan, index) => (
-            <div key={index} className="relative reveal" style={{ transitionDelay: `${index * 100}ms` }}>
+            <AnimateIn key={index} className="relative" delay={index * 100}>
               <div className={`relative rounded-lg overflow-hidden flex flex-col h-full transition-all duration-200 hover:-translate-y-1 ${
                 plan.dark
                   ? 'bg-gray-900 py-10 px-10'
@@ -145,7 +145,7 @@ export default function Tarifs() {
                   {plan.cta}
                 </Link>
               </div>
-            </div>
+            </AnimateIn>
           ))}
         </AnimateIn>
 

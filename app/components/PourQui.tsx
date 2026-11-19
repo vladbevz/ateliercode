@@ -70,32 +70,32 @@ export default function PourQui() {
           {/* Ліва колонка — картки */}
           <div className="space-y-4">
             {clients.map((client, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-full text-left p-6 rounded-lg border-2 transition-all duration-200 reveal group ${
-                  activeIndex === index
-                    ? 'border-gray-900 bg-gray-50'
-                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-md shrink-0 transition-all duration-200 group-hover:scale-110 ${
-                    activeIndex === index ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
-                  }`}>
-                    {client.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className={`text-xl font-bold mb-2 ${
-                      activeIndex === index ? 'text-gray-900' : 'text-gray-700'
+              <AnimateIn key={index} delay={index * 100}>
+                <button
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-full text-left p-6 rounded-lg border-2 transition-all duration-200 group ${
+                    activeIndex === index
+                      ? 'border-gray-900 bg-gray-50'
+                      : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`p-3 rounded-md shrink-0 transition-all duration-200 group-hover:scale-110 ${
+                      activeIndex === index ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
                     }`}>
-                      {client.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm line-clamp-2">{client.description}</p>
+                      {client.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`text-xl font-bold mb-2 ${
+                        activeIndex === index ? 'text-gray-900' : 'text-gray-700'
+                      }`}>
+                        {client.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm line-clamp-2">{client.description}</p>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+              </AnimateIn>
             ))}
           </div>
 

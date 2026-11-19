@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
+import { MotionConfig } from 'framer-motion';
 import './globals.css';
 import Header from './components/Header';
 import CookieBanner from './components/CookieBanner';
@@ -161,6 +162,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+        <MotionConfig reducedMotion="user">
         <ScrollRevealProvider />
         <Header />
 
@@ -349,6 +351,7 @@ export default function RootLayout({
         <CookieBanner />
         <ScrollToTop />
         <WhatsAppButton />
+        </MotionConfig>
       </body>
     </html>
   );

@@ -95,29 +95,27 @@ export default function Realisations() {
         {/* Grille */}
         <AnimateIn className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto" delay={150}>
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 hover:-translate-y-0.5 transition-all duration-200 reveal group"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className="relative aspect-video overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="p-4">
-                <div className="flex items-baseline justify-between mb-1">
-                  <span className="font-medium text-gray-900">{project.title}</span>
-                  <span className="text-sm text-gray-400 ml-auto">{project.year}</span>
+            <AnimateIn key={index} delay={index * 100}>
+              <div className="border border-gray-200 rounded-lg overflow-hidden hover:border-gray-400 hover:-translate-y-0.5 transition-all duration-200 group">
+                <div className="relative aspect-video overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                 </div>
-                <p className="text-xs text-gray-400 uppercase tracking-wide font-mono">{project.category}</p>
-                <p className="text-sm text-gray-500 mt-1">{project.description}</p>
+                <div className="p-4">
+                  <div className="flex items-baseline justify-between mb-1">
+                    <span className="font-medium text-gray-900">{project.title}</span>
+                    <span className="text-sm text-gray-400 ml-auto">{project.year}</span>
+                  </div>
+                  <p className="text-xs text-gray-400 uppercase tracking-wide font-mono">{project.category}</p>
+                  <p className="text-sm text-gray-500 mt-1">{project.description}</p>
+                </div>
               </div>
-            </div>
+            </AnimateIn>
           ))}
         </AnimateIn>
 

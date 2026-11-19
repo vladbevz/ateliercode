@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export function useCountUp() {
-  // Même remarque que useScrollReveal : re-scan à chaque changement de
-  // route puisque le layout racine ne se remonte pas en navigation client.
+  // Re-scan à chaque changement de route puisque le layout racine ne se
+  // remonte pas en navigation client (App Router).
   const pathname = usePathname();
 
   useEffect(() => {
