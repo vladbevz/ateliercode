@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Briefcase, Building, UserCheck, ChevronDown } from 'lucide-react';
+import { Briefcase, Building, UserCheck, ChevronDown, Users } from 'lucide-react';
 import AnimateIn from './AnimateIn';
 
 export default function PourQui() {
@@ -54,14 +54,19 @@ export default function PourQui() {
       <div className="container mx-auto px-4">
 
         {/* Заголовок */}
-        <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-fade-up">
-            Des solutions pour chaque métier
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Que vous soyez professionnel libéral, PME ou indépendant à Nîmes et dans le Gard,
-            nous créons le site qui correspond à vos besoins
-          </p>
+        <div className="flex flex-col md:flex-row md:items-start gap-6 mb-12 md:mb-16 max-w-4xl mx-auto">
+          <div className="shrink-0 w-12 h-12 rounded-md bg-gray-900 text-white flex items-center justify-center animate-fade-up">
+            <Users className="w-6 h-6" />
+          </div>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
+              Des solutions pour chaque métier
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl animate-fade-up" style={{ animationDelay: '100ms' }}>
+              Que vous soyez professionnel libéral, PME ou indépendant à Nîmes et dans le Gard,
+              nous créons le site qui correspond à vos besoins
+            </p>
+          </div>
         </div>
 
         {/* DESKTOP lg+ */}
@@ -184,10 +189,13 @@ export default function PourQui() {
         </AnimateIn>
 
         {/* CTA */}
-        <AnimateIn className="text-center" delay={200}>
+        <AnimateIn className="max-w-4xl mx-auto border-t border-gray-200 pt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6" delay={200}>
+          <p className="text-lg text-gray-600">
+            Pas sûr de reconnaître votre métier ci-dessus ? Parlons-en directement.
+          </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
+            className="shrink-0 inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
           >
             Parler de votre projet
           </Link>

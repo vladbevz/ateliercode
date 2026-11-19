@@ -12,14 +12,28 @@ export default function Processus() {
     <section className="min-h-screen bg-white pt-16 pb-24">
       <div className="container mx-auto px-4">
 
-        {/* Заголовок */}
-        <div className="text-center mb-20">
+        {/* Заголовок — avec aperçu du parcours en 4 étapes */}
+        <div className="max-w-4xl mx-auto mb-16 md:mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-fade-up">
             De l&apos;idée à la réalisation
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
+          <p className="text-xl text-gray-600 max-w-2xl animate-fade-up" style={{ animationDelay: '100ms' }}>
             Une méthode transparente et éprouvée pour créer votre site web à Nîmes, sans stress
           </p>
+
+          <div className="hidden md:flex items-center mt-10 animate-fade-up" style={{ animationDelay: '150ms' }}>
+            {steps.map((step, index) => (
+              <div key={step.n} className="flex items-center flex-1 last:flex-none">
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="w-7 h-7 rounded-full bg-gray-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
+                    {index + 1}
+                  </span>
+                  <span className="text-sm font-medium text-gray-700 whitespace-nowrap">{step.title}</span>
+                </div>
+                {index < steps.length - 1 && <div className="flex-1 h-px bg-gray-200 mx-3" />}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Timeline — accordéon horizontal (desktop) */}
@@ -85,11 +99,11 @@ export default function Processus() {
         </AnimateIn>
 
         {/* Pourquoi un processus structuré */}
-        <AnimateIn className="mt-24" delay={100}>
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            Pourquoi un processus structuré ?
+        <AnimateIn className="mt-24 max-w-4xl mx-auto" delay={100}>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+            Pourquoi un processus structuré <span className="text-gray-400">plutôt qu&apos;en roue libre ?</span>
           </h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               { title: 'Pas de mauvaise surprise', desc: 'Chaque étape est validée avec vous avant de passer à la suivante', icon: <ShieldCheck className="w-6 h-6" /> },
               { title: 'Délais tenus', desc: 'Un planning clair et respecté, pas de développement sans fin', icon: <Clock className="w-6 h-6" /> },
@@ -107,10 +121,13 @@ export default function Processus() {
         </AnimateIn>
 
         {/* CTA */}
-        <AnimateIn className="text-center mt-16" delay={100}>
+        <AnimateIn className="max-w-4xl mx-auto border-t border-gray-200 pt-12 mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6" delay={100}>
+          <p className="text-lg text-gray-600">
+            Prêt à passer à l&apos;étape 01 ?
+          </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
+            className="shrink-0 inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
           >
             Démarrer votre projet
           </Link>
