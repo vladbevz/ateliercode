@@ -188,6 +188,27 @@ export default function PourQui() {
           })}
         </AnimateIn>
 
+        {/* Pourquoi l'approche change selon l'activité */}
+        <AnimateIn className="max-w-4xl mx-auto border-l-4 border-gray-900 pl-8 mb-16" delay={150}>
+          <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+            Pourquoi l&apos;approche change selon votre activité
+          </p>
+          <div className="space-y-4">
+            <p className="text-gray-600 leading-relaxed">
+              Chaque secteur a ses propres attentes en matière de présence en ligne. Un commerce de proximité à Nîmes n&apos;a pas les mêmes besoins qu&apos;un cabinet de profession libérale ou qu&apos;une entreprise qui vend en ligne — pas seulement en contenu, mais aussi en structure, en fonctionnalités et en référencement local.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Pour un restaurant, une boutique ou un artisan, l&apos;objectif principal est d&apos;être visible sur les recherches locales — « plombier Nîmes », « restaurant centre-ville » — et de transformer cette visibilité en appels ou en visites. Un menu clair, des photos de qualité et une fiche Google Maps bien reliée au site font souvent plus de différence qu&apos;un design sophistiqué.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Pour les professions libérales, la confiance est le critère décisif : présentation claire des services, prise de rendez-vous simplifiée, un ton qui inspire le sérieux sans être froid. Pour les PME, TPE et créateurs qui vendent en ligne ou gèrent un catalogue, les besoins techniques diffèrent : gestion de contenu, intégrations de paiement, architecture capable d&apos;évoluer avec l&apos;activité.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              C&apos;est pourquoi je ne propose pas un seul modèle de site décliné en couleurs différentes, mais une approche adaptée à chaque type d&apos;activité, déterminée dès le premier échange.
+            </p>
+          </div>
+        </AnimateIn>
+
         {/* CTA */}
         <AnimateIn className="max-w-4xl mx-auto border-t border-gray-200 pt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6" delay={200}>
           <p className="text-lg text-gray-600">

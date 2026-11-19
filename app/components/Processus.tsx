@@ -120,6 +120,24 @@ export default function Processus() {
           </div>
         </AnimateIn>
 
+        {/* Pourquoi ce cadre fait une différence concrète */}
+        <AnimateIn className="max-w-4xl mx-auto border-l-4 border-gray-900 pl-8 mt-24" delay={100}>
+          <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+            Ce que ce cadre change concrètement
+          </p>
+          <div className="space-y-4">
+            <p className="text-gray-600 leading-relaxed">
+              Un processus structuré n&apos;est pas qu&apos;une question d&apos;organisation interne — il a un impact direct sur la qualité et la rapidité du site livré. Un développement sans cadre clair se traduit souvent par des allers-retours sans fin, un flou sur ce qui a été validé, et des retards qui s&apos;accumulent.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              En avançant étape par étape — analyse, design, développement, lancement — chaque décision est prise au bon moment, avec l&apos;information nécessaire. Un design validé en amont évite les refontes en cours de développement ; un cahier des charges clair dès l&apos;analyse évite les fonctionnalités oubliées découvertes trop tard.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Pour les artisans, commerces et professions libérales de Nîmes et du Gard que j&apos;accompagne, ce cadre a un avantage très concret : vous savez toujours où en est votre projet et quand il sera livré, sans avoir à relancer pour obtenir une mise à jour.
+            </p>
+          </div>
+        </AnimateIn>
+
         {/* CTA */}
         <AnimateIn className="max-w-4xl mx-auto border-t border-gray-200 pt-12 mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6" delay={100}>
           <p className="text-lg text-gray-600">
