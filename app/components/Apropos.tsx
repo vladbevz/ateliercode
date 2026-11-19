@@ -132,11 +132,11 @@ export default function Apropos() {
       {/* ─── 2. POURQUOI ATELIERCODE ─── */}
       <div className="py-20 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-5xl">
-          <AnimateIn className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+          <AnimateIn className="grid md:grid-cols-[minmax(0,45%)_1fr] gap-8 md:gap-12 mb-14 items-start">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Pourquoi choisir AtelierCode plutôt qu&apos;une solution prête à l&apos;emploi ?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 md:pt-2">
               Les solutions standardisées sont souvent trop génériques, surchargées de fonctionnalités inutiles et coûteuses à maintenir. Chez AtelierCode, je construis uniquement ce dont vous avez besoin — ni plus, ni moins.
             </p>
           </AnimateIn>
@@ -205,11 +205,11 @@ export default function Apropos() {
       {/* ─── 4. STACK ─── */}
       <div className="py-20 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-5xl">
-          <AnimateIn className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
+          <AnimateIn className="grid md:grid-cols-[1fr_auto] items-baseline gap-4 mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Comment je construis votre site
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-500 md:text-right max-w-sm">
               Je sélectionne chaque technologie avec un objectif précis : garantir un site fiable, rapide et évolutif.
             </p>
           </AnimateIn>
@@ -241,23 +241,22 @@ export default function Apropos() {
       </div>
 
       {/* ─── 5. CTA ─── */}
-      <div className="py-24 text-center">
-        <div className="container mx-auto px-4">
-          <AnimateIn>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Parlons de votre projet
-            </h2>
-            <p className="text-gray-600 max-w-xl mx-auto mb-3">
-              J&apos;analyse votre besoin, je vous explique les solutions adaptées à votre activité et je vous communique un tarif clair.
-            </p>
-            <p className="text-gray-500 max-w-xl mx-auto mb-10">
-              Si je peux vous aider, nous lançons le projet rapidement. Si ce n&apos;est pas le cas, je vous le dirai en toute transparence.
-            </p>
+      <div className="py-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <AnimateIn className="border-t border-gray-200 pt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div className="md:max-w-md">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                Parlons de votre projet
+              </h2>
+              <p className="text-gray-500 leading-relaxed">
+                J&apos;analyse votre besoin, je vous explique les solutions adaptées à votre activité et je vous communique un tarif clair. Si je peux vous aider, nous lançons le projet rapidement — sinon, je vous le dirai en toute transparence.
+              </p>
+            </div>
             <Link
               href="/contact"
-              className="inline-flex items-center px-10 py-4 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
+              className="shrink-0 inline-flex items-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
             >
-              Demander votre devis gratuit — réponse sous 24 heures
+              Demander votre devis gratuit
             </Link>
           </AnimateIn>
         </div>
