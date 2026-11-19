@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Check, Calculator } from 'lucide-react';
 import AnimateIn from './AnimateIn';
+import TarifsWizard from './TarifsWizard';
 
 export default function Tarifs() {
   const [prixMoyen, setPrixMoyen] = useState(150);
@@ -76,13 +77,18 @@ export default function Tarifs() {
       <div className="container mx-auto px-4">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 animate-fade-up">
-            Des tarifs clairs, sans surprise.
-          </h1>
-          <p className="text-xl text-gray-500 max-w-xl mx-auto animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Un site web n&apos;est pas une dépense — c&apos;est un investissement qui se rembourse dès les premiers clients.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-start gap-6 mb-16 max-w-4xl mx-auto">
+          <span className="text-7xl md:text-8xl font-black text-gray-200 leading-none select-none shrink-0 animate-fade-up">
+            €
+          </span>
+          <div className="md:border-l md:border-gray-300 md:pl-6 md:pt-1">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-up">
+              Des tarifs clairs, sans surprise.
+            </h1>
+            <p className="text-xl text-gray-500 max-w-xl animate-fade-up" style={{ animationDelay: '100ms' }}>
+              Un site web n&apos;est pas une dépense — c&apos;est un investissement qui se rembourse dès les premiers clients.
+            </p>
+          </div>
         </div>
 
         {/* Cards */}
@@ -148,6 +154,9 @@ export default function Tarifs() {
             </AnimateIn>
           ))}
         </AnimateIn>
+
+        {/* Assistant de choix */}
+        <TarifsWizard />
 
         {/* Inclus dans tous les forfaits */}
         <AnimateIn className="max-w-5xl mx-auto mb-24" delay={100}>
