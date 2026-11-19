@@ -26,7 +26,7 @@ export const villes: VilleData[] = [
     contenuUnique: [
       'Alès, ancienne capitale du bassin minier cévenol, connaît depuis dix ans une reconversion économique active. La zone d\'activité de Val Fleuri concentre aujourd\'hui artisans, PME et commerces de services qui cherchent à développer leur clientèle en dehors du bouche-à-oreille. Le centre-ville, en cours de requalification, voit émerger de nouveaux commerces et professions libérales qui ont besoin d\'une présence en ligne sérieuse pour exister face aux enseignes nationales.',
       'Sous-préfecture du Gard avec près de 40 000 habitants dans l\'agglomération, Alès est aussi une ville de formation et de santé — CHU, lycées, écoles techniques — ce qui crée une demande réelle pour des sites de prise de rendez-vous, de présentation de services ou de formations en ligne.',
-      'Je travaille avec des clients à Alès et dans le bassin alésien depuis le lancement d\'AtelierCode. La distance avec Nîmes (45 minutes) ne change rien au suivi : les échanges se font à distance ou en présentiel selon vos préférences, et le résultat est identique.',
+      'Je suis disponible pour des projets à Alès et dans tout le bassin alésien. La distance avec Nîmes (45 minutes) ne change rien au suivi : les échanges se font à distance ou en présentiel selon vos préférences, et le résultat est identique.',
     ],
   },
   {
@@ -86,7 +86,7 @@ export const villes: VilleData[] = [
     contenuUnique: [
       'Le Grau-du-Roi et Port-Camargue constituent le seul débouché maritime du Gard sur la Méditerranée. Station balnéaire très fréquentée en été — avec une population qui triple ou quadruple en juillet-août — la ville présente un profil économique particulier : des commerces, restaurants et hébergeurs qui ont neuf mois pour préparer leur saison estivale et trois mois pour en vivre.',
       'Dans ce contexte, un site bien référencé sur Google est indispensable. Les touristes cherchent en ligne : restaurant avec terrasse, location de vélos, crêperie au bord du canal, cours de voile. Être présent et visible sur ces requêtes, c\'est remplir sa salle ou son planning avant même l\'ouverture de saison.',
-      'Le Grau-du-Roi se trouve à 45 km de Nîmes. Je travaille avec des professionnels du tourisme et de la restauration dans le secteur depuis le lancement d\'AtelierCode.',
+      'Le Grau-du-Roi se trouve à 45 km de Nîmes. Je suis disponible pour accompagner les professionnels du tourisme et de la restauration du secteur, à distance ou en présentiel selon vos préférences.',
     ],
   },
   {
@@ -133,7 +133,7 @@ export const villes: VilleData[] = [
       'Montpellier est la huitième ville de France et l\'une des métropoles qui croît le plus vite en Europe. Son écosystème économique est dominé par le numérique, la santé, l\'enseignement supérieur et une scène startup active — un terrain favorable pour des projets web ambitieux.',
       'La concurrence y est plus forte qu\'à Nîmes, ce qui rend la qualité technique encore plus déterminante. Un site rapide, bien référencé et pensé pour la conversion n\'est pas un luxe dans ce marché — c\'est un minimum. React et Next.js donnent ici un avantage concret sur les sites WordPress que l\'on trouve en masse chez les prestataires locaux.',
       'Pour l\'e-commerce en particulier, Montpellier voit émerger de plus en plus de marques locales qui vendent en ligne — mode, cosmétique, épicerie fine, artisanat. La plupart démarrent sur des plateformes standardisées comme Shopify ou WooCommerce, pratiques au départ mais qui s\'alourdissent vite en abonnements, modules payants et temps de chargement. Une boutique Next.js sur-mesure avec paiement Stripe évite cet empilement : pas d\'abonnement mensuel imposé, un catalogue pensé pour votre activité plutôt que pour un thème générique, et une vitesse que ces plateformes n\'atteignent pas.',
-      'Je travaille avec des clients montpelliérains sur des projets variés : sites vitrine pour professions libérales, boutiques e-commerce, applications web métier. À 50 km de Nîmes, Montpellier fait partie de ma zone d\'intervention naturelle en Occitanie.',
+      'Je suis disponible pour des projets variés à Montpellier : sites vitrine pour professions libérales, boutiques e-commerce, applications web métier. À 50 km de Nîmes, Montpellier fait partie de ma zone d\'intervention naturelle en Occitanie.',
     ],
   },
   {
@@ -149,7 +149,7 @@ export const villes: VilleData[] = [
       'Avignon est une ville à double visage : capitale culturelle mondiale pendant trois semaines en juillet avec son Festival, et ville active le reste de l\'année avec un tissu commercial et tertiaire solide. Préfecture du Vaucluse, elle concentre administrations, professions libérales, commerces et une économie touristique qui génère des besoins web spécifiques.',
       'Pour les professionnels avignonnais, le référencement local est particulièrement stratégique : la ville attire des visiteurs qui cherchent en ligne avant d\'arriver (hébergements, restaurants, activités, services). Être présent sur ces requêtes avec un site rapide et bien positionné, c\'est capter une clientèle que vous n\'auriez pas autrement.',
       'Les recherches y sont très concrètes : restaurant ouvert le dimanche, hôtel proche du Palais des Papes, boutique d\'artisanat dans le centre historique, visite guidée en petit groupe. Un site avignonnais qui répond précisément à ces questions — quartier, horaires à jour, offre claire — capte un trafic que les grandes plateformes de réservation généralistes ne peuvent pas personnaliser de la même façon.',
-      'Avignon se trouve à 45 km de Nîmes. Je travaille avec des clients du Vaucluse et peux me déplacer pour les rendez-vous si nécessaire. Tous les échanges peuvent aussi se faire à distance.',
+      'Avignon se trouve à 45 km de Nîmes. Je suis disponible pour des projets dans le Vaucluse et peux me déplacer pour les rendez-vous si nécessaire. Tous les échanges peuvent aussi se faire à distance.',
     ],
   },
 ];
