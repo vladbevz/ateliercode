@@ -25,7 +25,7 @@ const faqSchema = {
       name: 'Combien de temps pour avoir mon site ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '5 à 21 jours selon le projet. Landing page : 2-3 jours. Site vitrine : 5-15 jours. Site avancé : 2-3 semaines.',
+        text: 'Ça dépend du projet : 7 à 10 jours pour un site vitrine, 2 à 4 semaines pour une boutique e-commerce. Pour une application web, le délai est estimé ensemble selon la complexité du projet.',
       },
     },
     {
@@ -33,7 +33,7 @@ const faqSchema = {
       name: 'Puis-je modifier mon site moi-même après ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, deux options principales : 1) Panel admin complet avec Sanity.io (+150€ pour la configuration initiale) qui vous permet de modifier tout le contenu facilement, 2) Forfait maintenance à 50€/mois pour des modifications illimitées effectuées par nos soins.',
+        text: "Oui, c'est possible. On en discute ensemble selon vos besoins et je vous propose la solution la plus adaptée à votre situation — pas de système compliqué imposé par défaut.",
       },
     },
     {
@@ -57,7 +57,7 @@ const faqSchema = {
       name: 'Proposez-vous le référencement (SEO) ?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Oui, chaque forfait inclut du SEO : Landing Page (SEO de base), Site Vitrine (SEO optimisé), Site Avancé (SEO premium).',
+        text: "Oui, dans tous les forfaits. Structure optimisée pour Google dès la conception, balises et sitemap, temps de chargement ultra-rapide, et référencement local (Google Maps) pour être visible auprès de vos clients près de chez vous.",
       },
     },
     {

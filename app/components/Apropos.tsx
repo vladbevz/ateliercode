@@ -55,19 +55,19 @@ export default function Apropos() {
       desc: 'Un code vérifié à chaque étape du développement. Moins de bugs, moins de corrections coûteuses.',
     },
     {
-      name: 'Tailwind CSS',
+      name: 'Tailwind CSS v4',
       category: 'Styles',
-      desc: "Chaque pixel est à sa place sur tous les écrans — mobile, tablette, desktop. Rien n'est laissé au hasard.",
+      desc: "La dernière version du framework CSS le plus utilisé au monde — chaque pixel à sa place, sur tous les écrans.",
+    },
+    {
+      name: 'Framer Motion',
+      category: 'Animations',
+      desc: "Des interactions fluides et naturelles, sans jamais ralentir le chargement de la page.",
     },
     {
       name: 'Vercel',
       category: 'Hébergement',
       desc: "Hébergement professionnel, déploiement automatique, HTTPS inclus. Votre site ne tombe jamais.",
-    },
-    {
-      name: 'SEO natif',
-      category: 'Référencement',
-      desc: "Balises, sitemap, structure sémantique, Core Web Vitals — tout est optimisé sans plugin supplémentaire.",
     },
   ];
 
