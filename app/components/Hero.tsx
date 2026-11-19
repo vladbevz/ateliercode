@@ -14,7 +14,7 @@ export default function Hero() {
           {/* Ліва колонка */}
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 hero-animate hero-animate-1">
-              Un site qui vous ramène des clients.
+              Un site qui vous ramène des clients à Nîmes.
             </h1>
 
             {/* Badge tampon — mobile/tablette : dans le flux, entre le titre et le sous-titre */}
@@ -31,7 +31,7 @@ export default function Hero() {
 
             <div className="relative mb-8">
               <p className="text-lg md:text-xl text-gray-600 max-w-md hero-animate hero-animate-2">
-                Site vitrine, e-commerce ou application web, développé sur mesure à Nîmes. Rapide, visible sur Google, livré en 1 à 3 semaines.
+                Pour artisans, commerces et professions libérales : site vitrine, e-commerce ou application web sur mesure. Rapide, visible sur Google, livré en 1 à 3 semaines.
               </p>
 
               {/* Badge tampon — desktop : flottant à côté du sous-titre */}
@@ -62,20 +62,20 @@ export default function Hero() {
               </Link>
             </div>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 mt-5 text-sm hero-animate hero-animate-4">
-              <Link href="/agence-web-nimes" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+            <div className="flex flex-wrap gap-x-5 gap-y-3 mt-5 text-sm hero-animate hero-animate-4">
+              <Link href="/agence-web-nimes" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Création de site internet à Nîmes
               </Link>
-              <Link href="/tarifs" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+              <Link href="/tarifs" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Voir les tarifs
               </Link>
-              <Link href="/realisations" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+              <Link href="/realisations" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Nos réalisations
               </Link>
-              <Link href="/blog" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+              <Link href="/blog" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Le blog
               </Link>
-              <Link href="/audit" className="text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+              <Link href="/audit" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Audit gratuit
               </Link>
             </div>

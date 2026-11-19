@@ -18,7 +18,7 @@ export default function ProjectSlider({ projects }: { projects: SliderProject[] 
         <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-        <span className="font-mono text-xs text-gray-400 ml-2 flex-1 text-center">
+        <span className="font-mono text-xs text-gray-500 ml-2 flex-1 text-center">
           ateliercode.fr
         </span>
       </div>
@@ -64,7 +64,7 @@ export default function ProjectSlider({ projects }: { projects: SliderProject[] 
       <div className="px-4 py-3 bg-white border-t border-gray-200 flex items-center justify-between">
         <div>
           <span className="text-sm font-medium text-gray-900">{projects[current].name}</span>
-          <span className="text-xs text-gray-400 ml-2">{projects[current].category}</span>
+          <span className="text-xs text-gray-500 ml-2">{projects[current].category}</span>
         </div>
         <div className="flex gap-1.5">
           {projects.map((_, idx) => (

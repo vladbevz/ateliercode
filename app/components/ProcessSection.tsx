@@ -53,7 +53,7 @@ export default function ProcessSection() {
               Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux,
               mais qui <span className="text-gray-900 font-semibold">rapportent des clients</span>
             </p>
-            <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-400 mt-5">
+            <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-500 mt-5">
               Survolez une étape
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function ProcessSection() {
                 className="rounded-xl bg-white px-5 py-6 flex flex-col gap-3 border border-gray-200"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-wide text-gray-400">
+                  <span className="font-mono text-xs uppercase tracking-wide text-gray-500">
                     {step.n}
                   </span>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -131,7 +131,7 @@ export default function ProcessSection() {
           >
             Démarrer votre projet
           </Link>
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-sm text-gray-500 mt-4">
             Premier rendez-vous gratuit • Sans engagement
           </p>
         </div>
