@@ -189,10 +189,10 @@ export default function PourQui() {
         </AnimateIn>
 
         {/* Pourquoi l'approche change selon l'activité */}
-        <AnimateIn className="max-w-4xl mx-auto border-l-4 border-gray-900 pl-8 mb-16" delay={150}>
-          <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+        <AnimateIn className="max-w-4xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10 mb-16" delay={150}>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">
             Pourquoi l&apos;approche change selon votre activité
-          </p>
+          </h3>
           <div className="space-y-4">
             <p className="text-gray-600 leading-relaxed">
               Chaque secteur a ses propres attentes en matière de présence en ligne. Un commerce de proximité à Nîmes n&apos;a pas les mêmes besoins qu&apos;un cabinet de profession libérale ou qu&apos;une entreprise qui vend en ligne — pas seulement en contenu, mais aussi en structure, en fonctionnalités et en référencement local.

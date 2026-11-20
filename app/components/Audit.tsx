@@ -477,9 +477,9 @@ export default function Audit() {
 
             {status === 'idle' && (
               <div className="mt-16 pt-12 border-t border-gray-200 text-left">
-                <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">
+                <h3 className="text-lg font-bold text-gray-900 mb-6 text-center">
                   Ce que l&apos;audit vérifie
-                </p>
+                </h3>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">Vitesse & performance</p>

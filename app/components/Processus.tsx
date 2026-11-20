@@ -121,10 +121,10 @@ export default function Processus() {
         </AnimateIn>
 
         {/* Pourquoi ce cadre fait une différence concrète */}
-        <AnimateIn className="max-w-4xl mx-auto border-l-4 border-gray-900 pl-8 mt-24" delay={100}>
-          <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+        <AnimateIn className="max-w-4xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10 mt-24" delay={100}>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">
             Ce que ce cadre change concrètement
-          </p>
+          </h3>
           <div className="space-y-4">
             <p className="text-gray-600 leading-relaxed">
               Un processus structuré n&apos;est pas qu&apos;une question d&apos;organisation interne — il a un impact direct sur la qualité et la rapidité du site livré. Un développement sans cadre clair se traduit souvent par des allers-retours sans fin, un flou sur ce qui a été validé, et des retards qui s&apos;accumulent.

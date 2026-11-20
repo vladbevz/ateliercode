@@ -114,11 +114,8 @@ export default function TarifsWizard() {
                   {recommendations[recommendation].icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
-                    Forfait recommandé
-                  </p>
                   <h4 className="text-xl font-bold text-gray-900">
-                    {recommendations[recommendation].name}
+                    Recommandé pour vous : {recommendations[recommendation].name}
                     <span className="text-gray-400 font-normal text-base ml-2">
                       {recommendations[recommendation].price}
                     </span>

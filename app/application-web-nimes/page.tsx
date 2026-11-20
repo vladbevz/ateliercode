@@ -105,7 +105,7 @@ export default function ApplicationWebNimesPage() {
 
           <AnimateIn className="grid md:grid-cols-2 gap-x-12 gap-y-4 max-w-4xl mx-auto" delay={100}>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Gestion & terrain</p>
+              <h3 className="text-base font-bold text-gray-900 mb-4">Gestion & terrain</h3>
               <ul className="space-y-4">
                 {exemplesGestion.map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3">
@@ -116,7 +116,7 @@ export default function ApplicationWebNimesPage() {
               </ul>
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Clients & pilotage</p>
+              <h3 className="text-base font-bold text-gray-900 mb-4">Clients & pilotage</h3>
               <ul className="space-y-4">
                 {exemplesClients.map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3">
@@ -210,9 +210,6 @@ export default function ApplicationWebNimesPage() {
         {/* ─── 5. CTA FINAL ─── */}
         <div className="pb-24">
           <AnimateIn className="text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">
-              Parlons de votre projet
-            </p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-tight">
               Vous avez un problème à résoudre.<br />On peut construire l&apos;outil qui le règle.
             </h2>

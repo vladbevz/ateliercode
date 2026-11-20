@@ -183,26 +183,20 @@ export default async function ArticlePage({ params }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 p-8 md:p-10 bg-gray-900 rounded-2xl text-center relative overflow-hidden">
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-gray-800 rounded-full blur-3xl opacity-60 pointer-events-none" />
-          <div className="relative z-10">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-3">
-              AtelierCode · Nîmes
-            </p>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Un projet de site ou d&apos;application en tête ?
-            </h3>
-            <p className="text-gray-400 mb-7 max-w-md mx-auto">
-              Devis gratuit sous 24h. Site vitrine dès 799 €, application web sur devis.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg"
-            >
-              Demander un devis gratuit
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+        <div className="mt-16 p-8 md:p-10 bg-gray-900 rounded-2xl text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            Un projet de site ou d&apos;application en tête ?
+          </h3>
+          <p className="text-gray-400 mb-7 max-w-md mx-auto">
+            Devis gratuit sous 24h. Site vitrine dès 799 €, application web sur devis.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg"
+          >
+            Demander un devis gratuit
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
       </div>

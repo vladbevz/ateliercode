@@ -80,7 +80,6 @@ export default function AgenceWebNimesContent() {
         {/* ─── 2. RÉALISATIONS ─── */}
         <div className="pt-14 md:pt-20 pb-20 md:pb-28">
           <AnimateIn className="text-center mb-14">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Réalisations</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Des projets qui parlent d&apos;eux-mêmes.
             </h2>
@@ -186,7 +185,6 @@ export default function AgenceWebNimesContent() {
         <div className="pb-20 md:pb-28">
           <AnimateIn className="max-w-5xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-10 md:p-14">
             <div className="mb-10">
-              <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Agence locale</p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Pourquoi choisir une agence web locale à Nîmes ?
               </h2>
@@ -265,10 +263,10 @@ export default function AgenceWebNimesContent() {
 
         {/* ─── 6. CONTENU LOCAL UNIQUE ─── */}
         <div className="pb-14 md:pb-20">
-          <AnimateIn className="max-w-5xl mx-auto border-l-4 border-gray-900 pl-8">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">
+          <AnimateIn className="max-w-5xl mx-auto bg-gray-50 border border-gray-200 rounded-lg p-10 md:p-14">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
               Nîmes & le web
-            </p>
+            </h2>
             <div className="space-y-4">
               <p className="text-gray-600 leading-relaxed">
                 Nîmes, préfecture du Gard et ville d&apos;environ 150 000 habitants, conjugue un centre historique romain parmi les plus visités de France — les Arènes, la Maison Carrée — et un tissu économique fait avant tout de commerces de proximité, d&apos;artisans et de professions libérales. Cette double identité, touristique et locale, crée deux besoins numériques différents : être visible auprès des visiteurs de passage, et être trouvé par les habitants qui cherchent un professionnel près de chez eux.
@@ -291,13 +289,10 @@ export default function AgenceWebNimesContent() {
 
         {/* ─── 7. TARIFS ─── */}
         <div className="pb-20 md:pb-28">
-          <AnimateIn className="grid md:grid-cols-[1fr_auto] items-baseline gap-4 mb-14 max-w-5xl mx-auto">
+          <AnimateIn className="mb-14 max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Des prix <span className="text-gray-400">clairs,</span> sans surprise.
             </h2>
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 md:text-right">
-              Tarifs
-            </p>
           </AnimateIn>
 
           <AnimateIn className="grid lg:grid-cols-3 gap-5 items-center max-w-5xl mx-auto mb-8" delay={100}>
@@ -365,7 +360,6 @@ export default function AgenceWebNimesContent() {
         {/* ─── 8. ZONE D'INTERVENTION ─── */}
         <div className="pb-20 md:pb-28">
           <AnimateIn className="text-center mb-10">
-            <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Zone d&apos;intervention</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               Nîmes et tout le Gard.
             </h2>
