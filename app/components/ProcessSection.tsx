@@ -15,23 +15,18 @@ export default function ProcessSection() {
       <div className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
 
-          {/* Заголовок — варіант без центрування: номер-акцент зліва */}
-          <div className="flex flex-col md:flex-row md:items-end gap-6 mb-12 max-w-5xl mx-auto">
-            <span className="text-7xl md:text-8xl font-black text-gray-200 leading-none select-none shrink-0">
-              01–04
-            </span>
-            <div className="md:border-l md:border-gray-300 md:pl-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                Du projet à la réussite
-              </h2>
-              <p className="text-lg text-gray-600 max-w-xl">
-                Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux,
-                mais qui <span className="text-gray-900 font-semibold">rapportent des clients</span>.
-              </p>
-              <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-400 mt-4">
-                Survolez une étape
-              </p>
-            </div>
+          {/* Заголовок */}
+          <div className="mb-12 max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Du projet à la réussite
+            </h2>
+            <p className="text-lg text-gray-600 max-w-xl">
+              Une méthode éprouvée pour créer des sites qui ne sont pas juste beaux,
+              mais qui <span className="text-gray-900 font-semibold">rapportent des clients</span>.
+            </p>
+            <p className="hidden md:block text-sm font-medium uppercase tracking-wide text-gray-400 mt-4">
+              Survolez une étape
+            </p>
           </div>
 
           {/* Steps — accordéon horizontal (desktop) */}
@@ -98,10 +93,10 @@ export default function ProcessSection() {
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className="md:max-w-md">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                Prêt à donner vie à votre projet ?
+                Le 438 a vu +36% de réservations après son lancement.
               </h3>
               <p className="text-lg text-gray-600">
-                Discutons de vos idées et voyons comment nous pouvons les transformer en réalité.
+                Votre projet mérite le même résultat. Je conçois, développe et livre votre site moi-même — un seul interlocuteur, du premier message à la mise en ligne.
               </p>
             </div>
             <div className="flex flex-col items-start md:items-end gap-3 shrink-0">

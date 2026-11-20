@@ -1,4 +1,4 @@
-import { Search, Palette, Code2, Rocket, LucideIcon } from 'lucide-react';
+import { Search, Palette, Code2, Globe, LucideIcon } from 'lucide-react';
 
 export interface ProcessStep {
   n: string;
@@ -59,7 +59,7 @@ export const processSteps: ProcessStep[] = [
     shortDescription: 'Mise en ligne, formation et accompagnement. On ne vous laisse pas tomber après la livraison.',
     fullDescription: 'Mise en ligne, formation et accompagnement pour une transition en douceur.',
     duration: '1–2 jours',
-    icon: Rocket,
+    icon: Globe,
     details: [
       'Déploiement sur Vercel',
       'Configuration nom de domaine',

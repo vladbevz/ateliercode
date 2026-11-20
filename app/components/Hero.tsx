@@ -17,18 +17,6 @@ export default function Hero() {
               Un site qui vous ramène des clients à Nîmes.
             </h1>
 
-            {/* Badge tampon — mobile/tablette : dans le flux, entre le titre et le sous-titre */}
-            <div
-              className="flex lg:hidden w-20 h-20 mb-4 -rotate-12 items-center justify-center rounded-full border-2 border-gray-900 bg-white shadow-sm animate-fade-up"
-              style={{ animationDelay: '150ms' }}
-            >
-              <div className="flex items-center justify-center w-[82%] h-[82%] rounded-full border border-gray-900 text-center px-1">
-                <span className="text-[8px] font-bold uppercase leading-tight tracking-widest text-gray-900">
-                  Maquette<br />gratuite
-                </span>
-              </div>
-            </div>
-
             <div className="relative mb-8">
               <p className="text-lg md:text-xl text-gray-600 max-w-md hero-animate hero-animate-2">
                 Pour artisans, commerces et professions libérales : site vitrine, e-commerce ou application web sur mesure. Rapide, visible sur Google, livré en 1 à 3 semaines.
@@ -62,18 +50,24 @@ export default function Hero() {
               </Link>
             </div>
 
+            {/* Badge tampon — mobile/tablette : après les CTA, pour ne pas retarder l'action principale au scroll */}
+            <div
+              className="flex lg:hidden w-16 h-16 mt-5 -rotate-12 items-center justify-center rounded-full border-2 border-gray-900 bg-white shadow-sm animate-fade-up"
+              style={{ animationDelay: '150ms' }}
+            >
+              <div className="flex items-center justify-center w-[82%] h-[82%] rounded-full border border-gray-900 text-center px-1">
+                <span className="text-[7px] font-bold uppercase leading-tight tracking-widest text-gray-900">
+                  Maquette<br />gratuite
+                </span>
+              </div>
+            </div>
+
             <div className="flex flex-wrap gap-x-5 gap-y-3 mt-5 text-sm hero-animate hero-animate-4">
-              <Link href="/agence-web-nimes" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
-                Création de site internet à Nîmes
-              </Link>
               <Link href="/tarifs" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Voir les tarifs
               </Link>
               <Link href="/realisations" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Nos réalisations
-              </Link>
-              <Link href="/blog" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
-                Le blog
               </Link>
               <Link href="/audit" className="py-1 text-gray-500 hover:text-gray-900 underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Audit gratuit

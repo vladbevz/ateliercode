@@ -1,0 +1,15 @@
+{
+  "buildPath": "comp",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "helvetica",
+        "createdAt": "2026-11-20T19:51:52.244Z",
+        "reason": "Inline font-family in Resend email HTML templates, not web UI — Helvetica/Arial/sans-serif fallback is standard practice for email-client font compatibility, not an AI-generated-UI aesthetic choice"
+      }
+    ]
+  }
+}
