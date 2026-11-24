@@ -3,7 +3,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Le client est créé à la requête, pas au chargement du module : sinon
+// `next build` échoue dès que RESEND_API_KEY manque (ex. déploiements Preview).
+function getResend(): Resend | null {
+  const key = process.env.RESEND_API_KEY
+  return key ? new Resend(key) : null
+}
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -42,6 +47,12 @@ function shell(title: string, body: string) {
 }
 
 export async function POST(request: NextRequest) {
+  const resend = getResend()
+  if (!resend) {
+    console.error('RESEND_API_KEY manquante : impossible d’envoyer le formulaire.')
+    return NextResponse.json({ error: 'L’envoi est momentanément indisponible.' }, { status: 503 })
+  }
+
   try {
     const raw = await request.json()
     const type: 'audit' | 'contact' = raw?.type === 'audit' ? 'audit' : 'contact'
