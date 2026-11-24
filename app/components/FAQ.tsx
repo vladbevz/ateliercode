@@ -82,7 +82,7 @@ export default function FAQ() {
   },
   {
     question: 'Faites-vous aussi du e-commerce ?',
-    answer: "Oui, ça fait partie du forfait E-commerce (dès 1290€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées — voir le détail sur la page [Tarifs](/tarifs).",
+    answer: "Oui, ça fait partie du forfait E-commerce (dès 1290€) : boutique sur mesure, paiement sécurisé Stripe et gestion des commandes. Le tarif final dépend du volume de produits et des fonctionnalités souhaitées — voir le détail sur la page [Tarifs](/services/sites-web-ecommerce).",
   },
   {
     question: 'Proposez-vous aussi des applications web ?',
@@ -90,7 +90,7 @@ export default function FAQ() {
   },
   {
     question: 'Combien coûte une application web ?',
-    answer: "Le tarif dépend entièrement de la complexité du projet — c'est pourquoi c'est toujours sur devis. Je vous propose une estimation gratuite sous 24h après avoir échangé sur vos besoins. Voir aussi la page [Application web à Nîmes](/application-web-nimes).",
+    answer: "Le tarif dépend entièrement de la complexité du projet — c'est pourquoi c'est toujours sur devis. Je vous propose une estimation gratuite sous 24h après avoir échangé sur vos besoins. Voir aussi la page [Application web à Nîmes](/services/applications-metier).",
   },
   {
     question: 'Que se passe-t-il si le résultat ne me convient pas ?',
@@ -106,11 +106,11 @@ export default function FAQ() {
   },
   {
     question: 'Proposez-vous des boutiques Magento ?',
-    answer: "Non, je ne travaille pas avec Magento — trop lourd et coûteux à maintenir pour la plupart des TPE/PME. Pour l'e-commerce, je construis des boutiques sur-mesure en Next.js avec paiement Stripe : plus rapides, plus simples à gérer, et sans les frais d'hébergement et de maintenance qu'exige Magento. Voir le forfait [E-commerce](/tarifs).",
+    answer: "Non, je ne travaille pas avec Magento — trop lourd et coûteux à maintenir pour la plupart des TPE/PME. Pour l'e-commerce, je construis des boutiques sur-mesure en Next.js avec paiement Stripe : plus rapides, plus simples à gérer, et sans les frais d'hébergement et de maintenance qu'exige Magento. Voir le forfait [E-commerce](/services/sites-web-ecommerce).",
   },
   {
     question: 'Développez-vous des applications mobiles natives (iOS/Android) ?',
-    answer: "Pas d'application native publiée sur l'App Store ou le Play Store. Je développe des applications web accessibles depuis un navigateur, sur mobile comme sur ordinateur — souvent suffisant, et plus rapide et moins cher à faire évoluer qu'une app native. Voir la page [Application web sur mesure](/application-web-nimes).",
+    answer: "Pas d'application native publiée sur l'App Store ou le Play Store. Je développe des applications web accessibles depuis un navigateur, sur mobile comme sur ordinateur — souvent suffisant, et plus rapide et moins cher à faire évoluer qu'une app native. Voir la page [Application web sur mesure](/services/applications-metier).",
   },
 ];
 

@@ -434,85 +434,51 @@ export default function Audit() {
     setResult(null);
     setErrorMessage(null);
     setInputValue('');
-    window.scrollTo(0, 0);
+    document.getElementById('verifier')?.scrollIntoView({ block: 'start' });
   }
 
   return (
-    <section className="bg-white min-h-screen pt-16 pb-24">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <div id="verifier" className="scroll-mt-24">
+      <div className="max-w-4xl">
 
         {status !== 'results' && (
-          <div className="max-w-2xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
-              Mon site est-il efficace ?
-            </h1>
-            <p className="text-lg text-gray-500 mb-10">
-              Entrez l&apos;URL de votre site pour obtenir un audit complet : vitesse, SEO, sécurité, mobile.
+          <div className="max-w-2xl">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.025em] text-gray-900 mb-4">
+              Vérifier mon site maintenant
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Un premier diagnostic automatique en moins d&apos;une minute : vitesse, SEO, sécurité, mobile. Utile en attendant le rapport complet.
             </p>
 
             {status === 'idle' && (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {errorMessage && (
-                  <p className="text-sm text-red-600">{errorMessage}</p>
-                )}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+                <label htmlFor="audit-url" className="sr-only">Adresse de votre site</label>
                 <input
+                  id="audit-url"
                   type="url"
                   required
+                  inputMode="url"
+                  autoComplete="url"
+                  spellCheck={false}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="https://votresite.fr"
-                  className="w-full px-5 py-3.5 border border-gray-200 rounded-md text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-400 transition-colors"
+                  aria-describedby={errorMessage ? 'audit-url-error' : undefined}
+                  className="h-12 flex-1 px-4 border border-gray-300 rounded-md bg-white text-base text-gray-900 placeholder:text-gray-500 hover:border-gray-400 focus:outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 transition-[border-color,box-shadow]"
                 />
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-150 btn-sweep"
+                  className="h-12 inline-flex items-center justify-center px-6 bg-gray-900 text-white rounded-md text-[15px] font-medium hover:bg-gray-700 active:scale-[0.98] transition-[background-color,transform] duration-150"
                 >
                   Analyser mon site
                 </button>
-                <p className="text-xs text-gray-400">
-                  Gratuit, sans inscription — résultat en moins d&apos;une minute.
-                </p>
               </form>
             )}
-
+            {status === 'idle' && errorMessage && (
+              <p id="audit-url-error" role="alert" className="mt-3 text-[15px] text-red-700">{errorMessage}</p>
+            )}
             {status === 'idle' && (
-              <div className="mt-16 pt-12 border-t border-gray-200 text-left">
-                <p className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 text-center">
-                  Ce que l&apos;audit vérifie
-                </p>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Vitesse & performance</p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      Est-ce que votre site charge assez vite sur mobile ? Un site lent fait fuir les visiteurs et pénalise votre position sur Google.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Référencement (SEO)</p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      Vos titres, descriptions et la structure de vos pages sont-ils construits pour apparaître dans les résultats de recherche ?
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Sécurité</p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      Votre site protège-t-il correctement les échanges avec vos visiteurs (HTTPS, en-têtes de sécurité, DNS) ?
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Mobile & présence locale</p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      Votre site est-il bien adapté aux smartphones, et relié à votre fiche Google Business Profile ?
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-500 leading-relaxed mt-8 text-center">
-                  Chaque résultat est expliqué en langage clair, avec ce qui va bien et ce qui mérite d&apos;être corrigé — pas juste une note sur 100 sans contexte.
-                </p>
-                <p className="text-sm text-gray-500 leading-relaxed mt-4 text-center">
-                  Cet audit SEO gratuit s&apos;adresse aux artisans, commerçants et professions libérales de Nîmes et du Gard qui veulent savoir où ils en sont avant d&apos;investir dans un nouveau site ou une refonte.
-                </p>
-              </div>
+              <p className="mt-3 text-sm text-gray-500">Gratuit, sans inscription.</p>
             )}
 
             {status === 'loading' && (
@@ -535,7 +501,7 @@ export default function Audit() {
         )}
 
       </div>
-    </section>
+    </div>
   );
 }
 

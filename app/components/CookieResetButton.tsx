@@ -3,6 +3,7 @@
 export default function CookieResetButton() {
   return (
     <button
+      type="button"
       onClick={() => {
         localStorage.removeItem('cookie_consent');
         window.location.reload();

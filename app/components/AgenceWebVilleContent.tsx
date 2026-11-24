@@ -18,7 +18,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
   useFlipCard();
 
   const zoneVilles = [
-    { name: 'Nîmes', dept: 'Gard (30)', href: '/agence-web-nimes' },
+    { name: 'Nîmes', dept: 'Gard (30)', href: '/agence-web/nimes' },
     ...toutesLesVilles
       .filter((v) => v.slug !== ville.slug)
       .map((v) => ({ name: v.nom, dept: `${v.departement} (${v.codePostal.slice(0, 2)})`, href: `/agence-web/${v.slug}` })),
@@ -273,7 +273,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
             </div>
             <p className="text-sm text-gray-500 mt-6">
               Vous êtes plutôt côté Nîmes ?{' '}
-              <Link href="/agence-web-nimes" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
+              <Link href="/agence-web/nimes" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-2 transition-colors">
                 Découvrez notre page dédiée à l&apos;agence web à Nîmes
               </Link>.
             </p>
@@ -336,7 +336,7 @@ export default function AgenceWebVilleContent({ ville }: { ville: VilleData }) {
           </AnimateIn>
 
           <div className="text-center mt-8">
-            <Link href="/tarifs" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors font-medium">
+            <Link href="/services/sites-web-ecommerce" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors font-medium">
               Voir tous les détails des forfaits
               <ArrowRight className="w-4 h-4" />
             </Link>

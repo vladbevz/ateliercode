@@ -1,15 +1,14 @@
 // script-src/connect-src/img-src also allow Google Analytics (gtag.js) and
 // Microsoft Clarity, both loaded from CookieBanner.tsx after consent.
-// img-src also allows OpenStreetMap's free tile servers for the Contact
-// page map (CartoDB's free basemap tiles started requiring an API key —
-// they now watermark "API KEY REQUIRED" across unauthenticated requests).
+// frame-src allows the keyless Google Maps embed on the Contact page.
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.clarity.ms",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://*.tile.openstreetmap.org",
+  "img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
   "font-src 'self' data:",
   "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms",
+  "frame-src https://www.google.com https://maps.google.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -35,7 +34,17 @@ const nextConfig = {
     ];
   },
   async redirects() {
+    // Refonte 2026 : anciennes pages fusionnées dans la nouvelle architecture.
+    const refonte = [
+      ['/tarifs', '/services/sites-web-ecommerce'],
+      ['/application-web-nimes', '/services/applications-metier'],
+      ['/agence-web-nimes', '/agence-web/nimes'],
+      ['/pourqui', '/a-propos'],
+      ['/processus', '/#methode'],
+    ].map(([source, destination]) => ({ source, destination, permanent: true }));
+
     return [
+      ...refonte,
       {
         source: '/blog/creer-site-internet-nimes-combien-ca-coute-2026',
         destination: '/blog/combien-coute-site-internet-artisan-2026',
