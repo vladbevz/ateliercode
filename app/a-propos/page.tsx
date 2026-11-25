@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { CTABanner, JsonLd, PageHeader, Prose, Section, Split } from '../components/site/ui';
+import { CTABanner, JsonLd, PageHeader, Prose, Section, Split, unsplash } from '../components/site/ui';
 import { breadcrumbSchema, pageMetadata } from '../lib/site';
 
 export const metadata = pageMetadata({
@@ -24,6 +24,10 @@ export default function AProposPage() {
       <PageHeader
         title="À propos d’AtelierCode"
         crumbs={[{ label: 'Accueil', href: '/' }, { label: 'À propos' }]}
+        image={{
+          src: unsplash('1555066931-4365d14bab8c'),
+          alt: 'Ordinateur portable ouvert affichant du code sur un bureau sombre',
+        }}
         intro={
           <p>
             AtelierCode est une agence web indépendante basée à Nîmes. On développe des sites web, des applications métier et des outils d’automatisation pour les entreprises qui ont besoin de solutions concrètes.

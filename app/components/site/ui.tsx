@@ -2,6 +2,13 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import { MotionItem, MotionList } from './motion';
+
+/** Image Unsplash (licence Unsplash, libre de droits). */
+export function unsplash(id: string) {
+  return `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80`;
+}
 
 /* ─── Layout ─────────────────────────────────────────────────────────── */
 
@@ -102,11 +109,13 @@ export function PageHeader({
   intro,
   crumbs,
   children,
+  image,
 }: {
   title: string;
   intro?: ReactNode;
   crumbs?: { label: string; href?: string }[];
   children?: ReactNode;
+  image?: { src: string; alt: string };
 }) {
   return (
     <header className="bg-white pt-14 pb-16 md:pt-20 md:pb-24">
@@ -134,12 +143,24 @@ export function PageHeader({
         </h1>
         {intro && <Prose className="mt-8 md:text-xl">{intro}</Prose>}
         {children}
+        {image && (
+          <div className="relative mt-14 aspect-video w-full overflow-hidden rounded-lg bg-gray-100 md:mt-20 md:aspect-21/9">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              priority
+              sizes="(min-width: 1152px) 1088px, 100vw"
+              className="object-cover grayscale"
+            />
+          </div>
+        )}
       </Container>
     </header>
   );
 }
 
-/* ─── ServiceCard : grille jointe, pas de cartes flottantes ─────────── */
+/* ─── ServiceCard : cartes simples, entrée staggerée, léger soulèvement ─ */
 
 export type ServiceCardProps = {
   href: string;
@@ -150,22 +171,18 @@ export type ServiceCardProps = {
 
 export function ServiceGrid({ children, cols = 3 }: { children: ReactNode; cols?: 2 | 3 }) {
   return (
-    <ul
-      className={`grid overflow-hidden rounded-lg border border-gray-200 divide-y divide-gray-200 md:divide-y-0 md:divide-x ${
-        cols === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'
-      }`}
-    >
+    <MotionList stagger={0.12} className={`grid gap-4 ${cols === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
       {children}
-    </ul>
+    </MotionList>
   );
 }
 
 export function ServiceCard({ href, title, icon: Icon, children }: ServiceCardProps) {
   return (
-    <li className="flex">
+    <MotionItem className="flex">
       <Link
         href={href}
-        className="service-card group relative flex w-full flex-col bg-white p-7 md:p-8 transition-colors duration-200 hover:bg-gray-50 focus-visible:bg-gray-50"
+        className="service-card group relative flex w-full flex-col rounded-lg border border-gray-200 bg-white p-7 md:p-8"
       >
         <div className="flex items-start justify-between">
           <span className="flex h-11 w-11 items-center justify-center rounded-md border border-gray-200 bg-white text-gray-900">
@@ -179,7 +196,7 @@ export function ServiceCard({ href, title, icon: Icon, children }: ServiceCardPr
           En savoir plus<span className="sr-only"> sur {title}</span>
         </span>
       </Link>
-    </li>
+    </MotionItem>
   );
 }
 
@@ -187,17 +204,63 @@ export function ServiceCard({ href, title, icon: Icon, children }: ServiceCardPr
 
 export function StepList({ steps }: { steps: { title: string; body: ReactNode }[] }) {
   return (
-    <ol className="grid gap-10 md:grid-cols-3 md:gap-8">
+    <MotionList as="ol" stagger={0.15} className="grid gap-10 md:grid-cols-3 md:gap-8">
       {steps.map((step, i) => (
-        <li key={step.title} className="border-t border-gray-900 pt-6">
+        <MotionItem key={step.title} direction="left" className="border-t border-gray-900 pt-6">
           <span className="block text-sm font-medium tabular-nums text-gray-500" aria-hidden="true">
             {String(i + 1).padStart(2, '0')}
           </span>
           <h3 className="mt-6 text-2xl font-semibold tracking-[-0.02em] text-gray-900">{step.title}</h3>
           <div className="mt-3 space-y-2 text-[15px] leading-relaxed text-gray-600">{step.body}</div>
-        </li>
+        </MotionItem>
       ))}
-    </ol>
+    </MotionList>
+  );
+}
+
+/* ─── Titre découpé en mots (hero) ───
+   Animation CSS (pas JS) : elle démarre avant l'hydratation, donc le H1 —
+   élément LCP — n'attend pas React. Stagger 80 ms par mot. */
+
+export function SplitHeading({ text, id, className = '' }: { text: string; id?: string; className?: string }) {
+  const words = text.split(' ');
+  return (
+    <h1 id={id} className={className} aria-label={text}>
+      {words.map((word, i) => (
+        <span key={i} aria-hidden="true">
+          <span className="split-word-mask">
+            <span className="split-word" style={{ animationDelay: `${i * 80}ms` }}>
+              {word}
+            </span>
+          </span>
+          {i < words.length - 1 && ' '}
+        </span>
+      ))}
+    </h1>
+  );
+}
+
+/* ─── Bande défilante (CSS : défilement continu, pause au survol) ───── */
+
+export function Marquee({ items }: { items: string[] }) {
+  const line = Array.from({ length: 3 }, () => items).flat();
+  const Track = () => (
+    <div className="marquee-track flex shrink-0 items-center">
+      {line.map((item, i) => (
+        <span key={i} className="flex items-center whitespace-nowrap">
+          <span className="px-6 md:px-8">{item}</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
+        </span>
+      ))}
+    </div>
+  );
+  return (
+    <div className="marquee group overflow-hidden border-b border-gray-200 bg-white py-6 md:py-8" aria-hidden="true">
+      <div className="marquee-inner flex w-max text-2xl md:text-4xl font-semibold tracking-[-0.025em] text-gray-900">
+        <Track />
+        <Track />
+      </div>
+    </div>
   );
 }
 
@@ -241,7 +304,7 @@ export function CTABanner({
               {text && <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-gray-300">{text}</p>}
             </div>
             <div className="md:col-span-4 md:flex md:justify-end">
-              <ButtonLink href={href} variant="inverse" className="w-full sm:w-auto">
+              <ButtonLink href={href} variant="inverse" className="cta-scale w-full sm:w-auto">
                 {label}
               </ButtonLink>
             </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { scrollToTop as lenisScrollToTop } from './site/SmoothScroll';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,7 +16,7 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    lenisScrollToTop();
   };
 
   return (
@@ -27,7 +28,7 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
           className="fixed bottom-6 left-6 z-40 p-3 bg-gray-900 text-white rounded-full shadow-lg hover:bg-gray-800 transition-colors"
-          aria-label="Scroll to top"
+          aria-label="Revenir en haut de la page"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path

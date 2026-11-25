@@ -11,8 +11,24 @@ import {
   ServiceCard,
   ServiceGrid,
   Split,
+  unsplash,
 } from './ui';
 import { SERVICES, breadcrumbSchema, serviceSchema } from '../../lib/site';
+
+const IMAGES: Record<string, { src: string; alt: string }> = {
+  'applications-metier': {
+    src: unsplash('1551288049-bebda4e38f71'),
+    alt: 'Tableau de bord avec graphiques de performance sur un écran d’ordinateur portable',
+  },
+  'automatisation-ia': {
+    src: unsplash('1784652852605-6945598f2af3'),
+    alt: 'Salle de serveurs aux armoires alignées',
+  },
+  'sites-web-ecommerce': {
+    src: unsplash('1759752394755-1241472b589d'),
+    alt: 'Mains sur le clavier d’un ordinateur portable affichant une interface web',
+  },
+};
 
 const ICONS: Record<string, LucideIcon> = {
   'applications-metier': LayoutDashboard,
@@ -67,6 +83,7 @@ export default function ServicePage({
         title={h1}
         intro={intro}
         crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services' }, { label: current.title }]}
+        image={IMAGES[slug]}
       >
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={cta.href}>{cta.label}</ButtonLink>

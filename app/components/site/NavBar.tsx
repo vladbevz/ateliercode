@@ -181,6 +181,7 @@ export default function NavBar() {
       <div
         id={mobileId}
         data-open={mobileOpen}
+        data-lenis-prevent
         className="mobile-panel lg:hidden overscroll-contain absolute inset-x-0 top-full max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-gray-200 bg-white"
       >
         <nav aria-label="Navigation mobile" className="mx-auto max-w-6xl px-4 pb-8 pt-4 sm:px-6">

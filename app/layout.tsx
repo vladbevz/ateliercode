@@ -8,6 +8,7 @@ import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollRevealProvider from './components/ScrollRevealProvider';
 import { JsonLd } from './components/site/ui';
+import SmoothScroll from './components/site/SmoothScroll';
 import { SITE_URL, localBusinessSchema } from './lib/site';
 import 'html5-device-mockups/dist/device-mockups.min.css';
 
@@ -60,15 +61,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={[localBusinessSchema, personSchema]} />
       </head>
       <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
-        <ScrollRevealProvider />
-        <NavBar />
-        <main id="contenu" className="relative">
-          {children}
-        </main>
-        <Footer />
-        <CookieBanner />
-        <ScrollToTop />
-        <WhatsAppButton />
+        <SmoothScroll>
+          <ScrollRevealProvider />
+          <NavBar />
+          <main id="contenu" className="relative">
+            {children}
+          </main>
+          <Footer />
+          <CookieBanner />
+          <ScrollToTop />
+          <WhatsAppButton />
+        </SmoothScroll>
       </body>
     </html>
   );

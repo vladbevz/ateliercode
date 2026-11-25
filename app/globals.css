@@ -94,15 +94,72 @@ input, textarea, select {
   }
 }
 
-/* ─── ServiceCard : la flèche suit le pointeur (souris uniquement) ─── */
+/* ─── ServiceCard : soulèvement de 4px + flèche ↗ (souris uniquement) ─── */
+.service-card {
+  transition: transform 200ms var(--ease-out), border-color 200ms ease, background-color 200ms ease;
+}
 .service-card-arrow {
   transition: transform 200ms var(--ease-out), color 150ms ease;
 }
+.service-card:focus-visible {
+  border-color: var(--ink);
+}
 @media (hover: hover) and (pointer: fine) {
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: #d1d5db;
+  }
   .service-card:hover .service-card-arrow {
     transform: translate(2px, -2px);
     color: var(--ink);
   }
+}
+
+/* ─── Hero : mots du H1 qui glissent de bas en haut ───
+   Le masque garde un peu de place pour les jambages (ç, p, g). */
+.split-word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.split-word {
+  display: inline-block;
+  animation: split-word-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes split-word-in {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+/* ─── Bande défilante : 40 s par cycle, pause au survol ─── */
+.marquee-inner {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-inner {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── CTA final : léger agrandissement au survol ─── */
+@media (hover: hover) and (pointer: fine) {
+  .cta-scale:hover {
+    transform: scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-word { animation-name: split-word-fade; }
+  .marquee-inner { animation: none; }
+  .service-card:hover,
+  .cta-scale:hover { transform: none; }
+}
+@keyframes split-word-fade {
+  from { opacity: 0; }
 }
 
 /* Кастомні анімації для превью */
